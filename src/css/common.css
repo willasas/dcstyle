@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/* ==============VARIABLES START============== */
+/**
+* 全局变量配置及说明
+*
+* @param {String} $fonts 字体
+* @param {String} $color 默认颜色
+* @param {String} $ui-pc-width pc端设计稿大小
+* @param {String} $ui-n-width 内嵌设计稿大小
+* @param {String} $ui-m-width 移动端设计稿大小
+* @param {String} $webkit WebKit内核(谷歌、safari等)
+* @param {String} $moz Gecko内核(火狐)
+* @param {String} $ms Trident内核(IE浏览器)
+* @param {String} $o ：Presto内核(opera)
+* @param {String} $top 距离父容器顶部的距离
+* @param {String} $right 距离父容器右边的距离
+* @param {String} $bottom 距离父容器底部的距离
+* @param {String} $left 距离父容器左边的距离
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {String} $basic-font-size 根字体大小
+* @param {String} $local-path PC端本地路径
+* @param {String} $server-path CDN路径
+*/
+:root { --current-ui-width: 750; /* 默认为手机屏幕宽度 */ }
+
+@media (min-width: 768px) { :root { --current-ui-width: 1024; /* 平板 */ } }
+
+@media (min-width: 1025px) { :root { --current-ui-width: 1440; /* 笔记本电脑 */ } }
+
+@media (min-width: 1441px) { :root { --current-ui-width: 1920; /* PC */ } }
+
+@media (min-width: 2561px) { :root { --current-ui-width: 2560; /* 大屏 */ } }
+
+/* ==============VARIABLES END============== */
+/* ==============FUNCTION END============== */
+/* ==============FUNCTION END============== */
+/* ==============MIXIN START============== */
+/* ==============MIXIN END============== */
+/* ==============PLACEHOLDER START============== */
+/* ==============PLACEHOLDER END============== */
+/* ==============FONT START============== */
+/* ==============FONT END============== */
+/* ==============BASE STYLE START============== */
+.scroll-x { position: relative; overflow-x: auto; scrollbar-width: thin; /* Firefox滚动条样式 */ scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* 定义滚动条轨道 */ }
+
+.scroll-x::-webkit-scrollbar { width: 10px; /* 设置滚动条的宽度 */ }
+
+.scroll-x::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.5); /* 设置滚动条滑块的颜色 */ border-radius: 0; /* 鼠标悬停时改变颜色 */ transition: background-color 0.3s ease; }
+
+.scroll-x::-webkit-scrollbar-thumb:hover { background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时颜色加深 */ }
+
+.scroll-x::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.1); /* 设置滚动条轨道背景色 */ border-radius: 5px; /* 可以添加圆角 */ }
+
+.scroll-y { position: relative; overflow-x: hidden; overflow-y: scroll; }
+
+.scroll-y::-webkit-scrollbar { width: 4px; border-radius: 0; background: #2b3846; }
+
+.scroll-y::-webkit-scrollbar-thumb { width: 8px; height: 1px; border-radius: 0; background: linear-gradient(to right, #ae1516, #ae1516); }
+
+.scroll-y::-webkit-scrollbar-thumb:disabled { background: #708dab; }
+
+.scroll-y::-webkit-scrollbar-track { border-radius: 0; background: #2b3846; }
+
+video { /* 隐藏video 进度条 */ /* 隐藏video 观看的当前时间 */ /* 隐藏video 剩余时间 */ /* 隐藏video 音量按钮 */ /* 隐藏video 音量的控制条 */ /* 隐藏video 所有控件 */ }
+
+video::-webkit-media-controls-timeline { display: none; }
+
+video::-webkit-media-controls-current-time-display { display: none; }
+
+video::-webkit-media-controls-time-remaining-display { display: none; }
+
+video::-webkit-media-controls-mute-button { display: none; }
+
+video::-webkit-media-controls-toggle-closed-captions-button { display: none; }
+
+video::-webkit-media-controls-volume-slider { display: none; }
+
+video::-webkit-media-controls-enclosure { display: none; }
+
+.margin { margin: 0 auto; }
+
+.show { display: block; }
+
+.hidden { display: none; }
+
+/* ==============BASE STYLE END============== */
+/* ==============NORMALIZE STYLE START============== */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html { line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+
+body { margin: 0; }
+
+main { display: block; }
+
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+hr { box-sizing: content-box; /* 1 */ height: 0; /* 1 */ overflow: visible; /* 2 */ }
+
+pre { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
+
+a { background-color: transparent; text-decoration: none; }
+
+a:hover, a:focus { text-decoration: none; -webkit-filter: brightness(1.1); -o-filter: brightness(1.1); -moz-filter: brightness(1.1); filter: brightness(1.1); }
+
+abbr[title] { border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ text-decoration: underline dotted; /* 2 */ }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { display: block; border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ line-height: 1.15; /* 1 */ margin: 0; /* 2 */ }
+
+button, input { /* 1 */ overflow: visible; }
+
+button, select { /* 1 */ text-transform: none; }
+
+button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; /* 1 */ color: inherit; /* 2 */ display: table; /* 1 */ max-width: 100%; /* 1 */ padding: 0; /* 3 */ white-space: normal; /* 1 */ }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type="checkbox"], [type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+
+[type="search"] { -webkit-appearance: textfield; /* 1 */ outline-offset: -2px; /* 2 */ }
+
+[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+::-webkit-file-upload-button { -webkit-appearance: button; /* 1 */ font: inherit; /* 2 */ }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+
+/* ==============NORMALIZE STYLE END============== */
+li::marker { content: ""; display: none; }
+
+html, body { -webkit-overflow-scrolling: touch; -webkit-user-select: none; -moz-user-select: none; user-select: none; -ms-user-select: none; height: auto; }
+
+input { background: none; outline: none; border: none; }
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+select { border: none; outline: none; appearance: none; -moz-appearance: none; -webkit-appearance: none; }
+
+input { width: 300px; padding: 10px; margin-top: 20px; border-radius: 10px; border: solid 1px #ffd476; box-sizing: border-box; background-color: transparent; outline: none; color: #ffd476; font-size: 14px; /* Key Style */ caret-color: #ffd476; /* Delete the input status line */ outline: none; }
+
+input::-webkit-input-placeholder { color: #babbc1; font-size: 14px; }
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+p::selection { color: #ffffff; background-color: #ff4c9f; }

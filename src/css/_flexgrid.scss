@@ -1,0 +1,283 @@
+@charset "utf-8";
+/*!
+  Name: layout-flex-and-grid
+  Author: william
+  Author URI: 
+  Description: layout would contain the main layout.
+  Version: 1.0.1
+	Tags: layout,flex basis,flex direction,flex wrap, flex,flex grow,flex shrink,order,grid template column,grid column start,grid column end,grid template rows,grid row start,grid row end,grid auto flow,grid auto columns,grid auto rows,gap,justify content,justify items,justify self,align content,align items,align self,place content,place items,place self
+  Update: December 13th,2022
+*/
+
+/*
+* 1. flex basis
+*/
+$flexBasis:( 0: 0, 1: unquote(4+'px'),2: unquote(8+'px'),3: unquote(12+'px'),4: unquote(16+'px'),5: unquote(20+'px'),6: unquote(24+'px'),7: unquote(28+'px'),8: unquote(32+'px'),9: unquote(36+'px'),10: unquote(40+'px'),11: unquote(44+'px'),12: unquote(48+'px'),14: unquote(56+'px'),16: unquote(64+'px'),20: unquote(80+'px'),24: unquote(96+'px'),28: unquote(112+'px'),32: unquote(128+'px'),36: unquote(144+'px'),40: unquote(160+'px'),44: unquote(176+'px'),48: unquote(192+'px'),52: unquote(208+'px'),56: unquote(224+'px'),60: unquote(240+'px'),64: unquote(256+'px'),72: unquote(288+'px'),80: unquote(320+'px'),96: unquote(384+'px'),auto: auto,3xs: unquote(1+'px'),2xs: unquote(2+'px'),xs: unquote(6+'px'),sm: unquote(10+'px'),md: unquote(14+'px'),lg: unquote(18+'px'),xl: 10%,2xl: 20%,3xl: 30%,4xl: 40%,5xl: 50%,6xl: 60%,7xl: 70%,8xl: 80%,9xl: 90%,full: 100%);
+@for $i from 1 through length(map-keys($flexBasis)) {
+  $name: nth(map-keys($flexBasis), $i);
+  $values: nth(map-values($flexBasis), $i);
+  .basis-#{$name}{
+    flex-basis: $values;
+  }
+}
+
+
+/*
+* 2. flex direction
+*/
+$flexDirection: row, row-reverse, column, column-reverse;
+@each $value in $flexDirection {
+  .flex-#{$value} {
+    flex-direction: $value;
+  }
+}
+
+
+/*
+* 3. flex wrap
+*/
+$flexWrap: wrap, wrap-reverse, nowrap;
+@each $value in $flexWrap {
+  .flex-#{$value} {
+    flex-wrap: $value;
+  }
+}
+
+
+/*
+* 4. flex [flex-grow | flex-shrink | flex-basis]
+*/
+$flex3gsb: (flex-1: 1 1 0%, flex-auto: 1 1 auto, flex-initial: 0 1 auto, flex-none: none);
+@for $i from 1 through length(map-keys($flex3gsb)) {
+  $name: nth(map-keys($flex3gsb), $i);
+  $values: nth(map-values($flex3gsb), $i);
+  .#{$name}{
+    flex: $values;
+  }
+}
+
+
+/*
+* 5. flex grow and flex shrink
+*/ 
+$flexGrow: 0,1;
+@each $value in $flexGrow {
+  .grow-#{$value} {
+    flex-grow: $value;
+  }
+
+  .shrink-#{$value} {
+    flex-shrink: $value;
+  }
+}
+
+
+/*
+* 6. grid template columns/rows
+*/
+$gridTempCols: (1: repeat(1, minmax(0, 1fr)),2: repeat(2, minmax(0, 1fr)),3: repeat(3, minmax(0, 1fr)),4: repeat(4, minmax(0, 1fr)),5:repeat(5, minmax(0, 1fr)),6: repeat(6, minmax(0, 1fr)),7: repeat(7, minmax(0, 1fr)),8: repeat(8, minmax(0, 1fr)),9: repeat(9, minmax(0, 1fr)),10: repeat(10, minmax(0, 1fr)),11: repeat(11, minmax(0, 1fr)),12: repeat(12, minmax(0, 1fr)),none: none);
+@for $i from 1 through length(map-keys($gridTempCols)) {
+  $name: nth(map-keys($gridTempCols), $i);
+  $values: nth(map-values($gridTempCols), $i);
+  .grid-cols-#{$name}{
+    grid-template-columns: $values;
+  }
+
+  .grid-rows-#{$name}{
+    grid-template-rows: $values;
+  }
+}
+
+
+/*
+* 7. grid column start/end and grid row start/end
+*/
+$gridCol: (auto: auto,1: span 1 / span 1,2: span 2 / span 2,3: span 3 / span 3,4: span 4 / span 4,5: span 5 / span 5,6: span 6 / span 6,7: span 7 / span 7,8: span 8 / span 8,9: span 9 / span 9,10: span 10 / span 10,11: span 11 / span 11,12: span 12 / span 12,full: 1 / unquote('-1'));
+$gridColStart: 1,2,3,4,5,6,7,8,9,10,11,12,13,auto;
+$gridColEnd: $gridColStart;
+@for $i from 1 through length(map-keys($gridCol)) {
+  $name: nth(map-keys($gridCol), $i);
+  $values: nth(map-values($gridCol), $i);
+  .col-span-#{$name}{
+    grid-column: $values;
+  }
+
+  .row-span-#{$name} {
+    grid-row: $values;
+  }
+}
+
+@each $value in $gridColStart {
+  .col-start-#{$value} {
+    grid-column-start: $value;
+  }
+
+  .col-end-#{$value} {
+    grid-column-end: $value;
+  }
+
+  .row-start-#{$value} {
+    grid-row-start: $value;
+  }
+
+  .row-end-#{$value} {
+    grid-row-end: $value;
+  }
+}
+
+
+/*
+* 8. grid auto flow
+*/
+$gridFlow: (row: row, col: column, dense: dense, row-dense: row dense, col-dense: column dense);
+@for $i from 1 through length(map-keys($gridFlow)) {
+  $name: nth(map-keys($gridFlow), $i);
+  $values: nth(map-values($gridFlow), $i);
+  .grid-flow-#{$name}{
+    grid-auto-flow: $values;
+  }
+}
+
+
+/*
+* 9. grid auto columns/rows
+*/
+$gridColsAndRows:(auto: auto, min: min-content, max: max-content, fr: minmax(0, 1fr));
+@for $i from 1 through length(map-keys($gridColsAndRows)) {
+  $name: nth(map-keys($gridColsAndRows), $i);
+  $values: nth(map-values($gridColsAndRows), $i);
+  .auto-cols-#{$name}{
+    grid-auto-columns: $values;
+  }
+
+  .auto-rows-#{$name}{
+    grid-auto-rows: $values;
+  }
+}
+
+
+/*
+* 10. gap
+*/
+$gaps: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 44, 48, 56, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 384, 512;
+@each $value in $gaps {
+  .gap-#{$value} {
+    grid: unquote($value+'px');
+  }
+
+  .gap-x-#{$value} {
+    column-gap: unquote($value+'px');
+  }
+
+  .gap-y-#{$value} {
+    row-gap: unquote($value+'px');
+  }
+}
+
+
+/*
+* 11. justify content
+*/
+$justifyContent:(start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly);
+@for $i from 1 through length(map-keys($justifyContent)) {
+  $name: nth(map-keys($justifyContent), $i);
+  $values: nth(map-values($justifyContent), $i);
+  .justify-#{$name}{
+    justify-content: $values;
+  }
+}
+
+
+/*
+* 12. justify items
+*/
+$justifyItems:(start: start, end: end, center: center, stretch: stretch);
+@for $i from 1 through length(map-keys($justifyItems)) {
+  $name: nth(map-keys($justifyItems), $i);
+  $values: nth(map-values($justifyItems), $i);
+  .justify-items-#{$name}{
+    justify-items: $values;
+  }
+}
+
+
+/*
+* 13. justify self and place self
+*/
+$justifySelf:(auto: auto,start: start, end: end, center: center, stretch: stretch);
+@for $i from 1 through length(map-keys($justifySelf)) {
+  $name: nth(map-keys($justifySelf), $i);
+  $values: nth(map-values($justifySelf), $i);
+  .justify-self-#{$name}{
+    justify-self: $values;
+  }
+
+  .place-self-#{$name} {
+    place-self: $values;
+  }
+}
+
+
+/*
+* 14. align content
+*/
+$alignContent:(start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly, baseline: baseline);
+@for $i from 1 through length(map-keys($alignContent)) {
+  $name: nth(map-keys($alignContent), $i);
+  $values: nth(map-values($alignContent), $i);
+  .content-#{$name}{
+    align-content: $values;
+  }
+}
+
+
+/*
+* 15. align items
+*/
+$alignItems:(start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline);
+@for $i from 1 through length(map-keys($alignItems)) {
+  $name: nth(map-keys($alignItems), $i);
+  $values: nth(map-values($alignItems), $i);
+  .items-#{$name}{
+    align-items: $values;
+  }
+}
+
+
+/*
+* 16. align self
+*/
+$alignSelf:(start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline, auto: auto);
+@for $i from 1 through length(map-keys($alignSelf)) {
+  $name: nth(map-keys($alignSelf), $i);
+  $values: nth(map-values($alignSelf), $i);
+  .self-#{$name}{
+    align-self: $values;
+  }
+}
+
+
+/*
+* 17. place content
+*/
+$placeContent:(start: start, end: end, center: center, stretch: stretch, baseline: baseline, between: space-between, around: space-around, evenly: space-evenly);
+@for $i from 1 through length(map-keys($placeContent)) {
+  $name: nth(map-keys($placeContent), $i);
+  $values: nth(map-values($placeContent), $i);
+  .place-content-#{$name}{
+    place-content: $values;
+  }
+}
+
+
+/*
+* 18. place items
+*/
+$placeItems:(start: start, end: end, center: center, stretch: stretch, baseline: baseline);
+@for $i from 1 through length(map-keys($placeItems)) {
+  $name: nth(map-keys($placeItems), $i);
+  $values: nth(map-values($placeItems), $i);
+  .place-items-#{$name}{
+    place-items: $values;
+  }
+}

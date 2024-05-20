@@ -1,0 +1,166 @@
+@charset 'utf-8';
+
+/**
+ * 调整指定颜色的亮度，通过与白色按指定百分比混合来实现。
+ * 
+ * @param $color - 需要调整亮度的颜色。
+ * @param $percentage - 与白色混合的百分比，数值在0%到100%之间。较高的百分比会使颜色变得更亮。
+ * @return 混合后的颜色，颜色的亮度会根据指定的百分比增加。
+ */
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/**
+ * 混合指定颜色和黑色，生成一种较原色更暗的新颜色。
+ * 
+ * @param $color - 原始颜色，可以是任何有效的SCSS颜色值。
+ * @param $percentage - 混合比例，以百分比表示。此比例决定了黑色在混合结果中所占的比重。
+ * @return 混合后的新颜色值。
+ */
+@function shade($color, $percentage) {
+  // 使用mix函数将黑色与输入颜色按指定比例混合，生成较暗的颜色。
+  @return mix(black, $color, $percentage);
+}
+
+// 使用示例
+// .useage1 {
+//   width: 200px;
+//   height: 60px;
+//   background-color: tint(#2db7f5, 10%);
+// }
+
+
+/** 将RGB颜色值转换为十六进制表示形式
+ * 参数:
+ *   $red: 红色分量值（0-255）
+ *   $green: 绿色分量值（0-255）
+ *   $blue: 蓝色分量值（0-255）
+ * 返回值:
+ *   一个表示RGB颜色的十六进制字符串
+*/
+@function rgb-to-hex($red, $green, $blue) {
+
+  @if ($red < 0 or $red > 255 or $green < 0 or $green > 255 or $blue < 0 or $blue > 255) {
+    @error 'Invalid RGB value. Values must be between 0 and 255.';
+  }
+
+  $hex-red: toHex($red);
+  $hex-green: toHex($green);
+  $hex-blue: toHex($blue);
+
+  @return unquote("#{$hex-red}{$hex-green}{$hex-blue}");
+}
+
+// 辅助函数：将0-255的数值转换为两位的十六进制字符串
+@function toHex($number) {
+
+  // 参数:
+  //   $number: 需要转换的数字（0-255）
+  // 返回值:
+  //   转换后的两位十六进制字符串
+  @if not type-of($number)==number {
+    @error 'Invalid input. Expected a number.';
+  }
+
+  // 验证数字范围
+  @if ($number < 0 or $number > 255) {
+    @error 'Number out of range. Must be between 0 and 255.';
+  }
+
+  @return '#{if($number < 16, "0", "")}#{toUInt($number)}';
+}
+
+// 辅助函数：将数字转换为无前导零的单个十六进制字符
+@function toUInt($number) {
+
+  // 参数:
+  //   $number: 需要转换的数字
+  // 返回值:
+  //   转换后的十六进制字符
+  @if not type-of($number)==number {
+    @error 'Invalid input. Expected a number.';
+  }
+
+  $hex: floor($number / 16);
+  $remainder: $number % 16;
+
+  @return str-slice("0123456789ABCDEF", $hex, $hex + 1)+str-slice("0123456789ABCDEF", $remainder, $remainder + 1);
+}
+
+// 使用示例
+// body {
+//   background-color: rgb-to-hex(255, 100, 0); // 返回 '#FF6400'
+// }
+
+
+
+// 定义 SCSS HSLA 转换为 RGBA 颜色的函数
+// @function hsla-to-rgba($hue, $saturation, $lightness, $alpha) {
+
+//   /**
+//    * 将 HSLA 颜色值转换为 RGBA 颜色值
+//    *
+//    * @param $hue 色调值（0-360）
+//    * @param $saturation 饱和度（%）
+//    * @param $lightness 亮度（%）
+//    * @param $alpha 透明度（0-1）
+//    * @return 返回对应的 RGBA 颜色值
+//    */
+//   @function hsl-to-rgb($h, $s, $l) {
+//     // 计算色彩组件 $c 和中间色 $x
+//     $c: ($l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s);
+//     $x: ($c * (1 - abs(mod($h / 60, 2) - 1)));
+//     $m: $l - $c / 2;
+
+//     // 根据色调 $h 分段计算 RGB 值
+//     @if ($h < 60) {
+//       @return ($c, $x, 0);
+//     }
+
+//     @elseif ($h < 120) {
+//       @return ($x, $c, 0);
+//     }
+
+//     @elseif ($h < 180) {
+//       @return (0, $c, $x);
+//     }
+
+//     @elseif ($h < 240) {
+//       @return (0, $x, $c);
+//     }
+
+//     @elseif ($h < 300) {
+//       @return ($x, 0, $c);
+//     }
+
+//     @else {
+//       @return ($c, 0, $x);
+//     }
+//   }
+
+//   // 调用 hsl-to-rgb 函数获取 RGB 值，并与 $alpha 合并为 RGBA 值
+//   $rgb: hsl-to-rgb($hue, $saturation, $lightness);
+//   @return rgba(nth($rgb, 1), nth($rgb, 2), nth($rgb, 3), $alpha);
+// }
+
+// 使用示例
+.some-element {
+  background-color: hsla-to-rgba(120, 100%, 50%, 0.5); // 应用转换函数，得到绿色半透明的 RGBA 值
+}
+
+
+// 定义 SCSS 提取颜色红色分量函数
+@function get-red($color) {
+  // 将颜色转换为 RGB 分量
+  $rgb: red($color), green($color), blue($color);
+
+  // 返回红色分量
+  @return nth($rgb, 1);
+}
+
+// 使用示例
+$my-color: #ff0000;
+$red-value: get-red($my-color);
+
+// 输出：$red-value 现在应该等于 255

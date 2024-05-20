@@ -1,0 +1,109 @@
+@charset "utf-8";
+/*!
+  Name: custom scrollbar
+  Author: william
+  Author URI: 
+  Description: custom scrollbar.
+  Version: 1.0.1
+	Tags: scrollbar
+  Update: February 19th,2024
+*/
+$scrollbar-color: #deccb1;
+$shadow-color: rgba(#deccb1, 0.5);
+$track-shadow: inset 0 0 5px $shadow-color;
+$track-background: #2c2c2c;
+$padding-width: 10px;
+$scrollbar-width: 8px;
+$thumb-radius: 4px;
+$gradient-start: #deccb1;
+$gradient-end: #deccb1;
+
+@mixin scroll-mixin($direction, $padding-side) {
+  position: relative;
+  overflow-#{$direction}: auto;
+  overflow-other-direction: hidden; // 自定义函数或其他方式实现相反方向的溢出控制
+  direction: ltr;
+  scrollbar-color: $scrollbar-color;
+  scrollbar-width: thin;
+  cursor: pointer;
+
+  // 根据方向添加正确的内边距
+  @if ($direction == 'y') {
+    padding-right: $padding-width;
+  } @else if ($direction == 'x') {
+    padding-bottom: $padding-width;
+  }
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    height: if($direction == 'x', 100%, $scrollbar-width); // 根据方向调整高度或宽度
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: $thumb-radius;
+    box-shadow: $track-shadow;
+    background-color: $track-background;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @if ($direction == 'y') {
+      width: $scrollbar-width;
+    } @else if ($direction == 'x') {
+      height: $scrollbar-width;
+    }
+    border-radius: $thumb-radius;
+    background-image: linear-gradient(0deg, $gradient-start 0%, $gradient-end 99%);
+    box-shadow: inset 2px 2px 5px 0 $shadow-color;
+  }
+}
+
+// 水平滚动
+@mixin scroll-x {
+  @include scroll-mixin(x, bottom);
+}
+
+// 垂直滚动
+@mixin scroll-y {
+  @include scroll-mixin(y, right);
+}
+
+// 同时具有 x 和 y 方向滚动
+@mixin scroll-x-y {
+  @include scroll-mixin(y, right);
+  @include scroll-mixin(x, bottom);
+
+  &::-webkit-scrollbar-thumb {
+    width: $scrollbar-width;
+    height: $scrollbar-width;
+  }
+}
+
+// 高度定制滚动条
+@mixin scroll-h-c {
+  @include scroll-y();
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: rgb(0, 116, 151);
+  }
+
+  &::-webkit-scrollbar-button:start {
+    width: $scrollbar-width;
+    height: $scrollbar-width;
+    background-color: #00a2ff;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  &::-webkit-scrollbar-button:end {
+    width: $scrollbar-width;
+    height: $scrollbar-width;
+    background-color: #00a2ff;
+    clip-path: polygon(0% 0%, 100% 100%, 50% 100%);
+  }
+}
+
+// 使用这些混合器
+.scroll { @include scroll-y(); }
+.scroll-x { @include scroll-x(); }
+.scroll-y { @include scroll-y(); }
+.scroll-x-y { @include scroll-x-y(); }
+.scroll-h-c { @include scroll-h-c(); }

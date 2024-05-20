@@ -1,0 +1,27 @@
+{
+  "name": "dark-crystal-style",
+  "version": "1.0.0",
+  "source": "src/css/dc.scss",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "watch": "parcel watch src/css/dc.scss",
+    "build": "parcel build src/css/dc.scss --reporter @parcel/reporter-bundle-analyzer"
+  },
+  "devDependencies": {
+    "@parcel/reporter-bundle-analyzer": "^2.12.0",
+    "@parcel/transformer-sass": "^2.12.0",
+    "eslint": "^9.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "parcel": "^2.12.0",
+    "postcss": "^8.4.1",
+    "prettier": "^3.2.5",
+    "sass": "^1.26.8",
+    "stylelint": "^14.16.1"
+  },
+  "compressors": {
+    "*.{html,css,js,svg,map}": [
+      "@parcel/compressor-gzip",
+      "@parcel/compressor-brotli"
+    ]
+  }
+}

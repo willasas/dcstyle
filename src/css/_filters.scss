@@ -1,0 +1,193 @@
+@charset "utf-8";
+/*!
+  Name: filters
+  Author: william
+  Author URI: 
+  Description: elements filters.
+  Version: 1.0.1
+	Tags: filters, blur, brightness, contrast, drop shadow, grayscale, hue rotate, invert, saturate, sepia, backdrop blur, backdrop brightness, backdrop contrast, backdrop Grayscale, Backdrop Hue Rotate, Backdrop Invert, Backdrop Opacity, Backdrop Saturate, Backdrop Sepia
+  Update: December 23th,2022
+*/
+
+/*
+* 1. blur and backdrop-filter
+*/
+$blur: (none: 0, sml: unquote(4+"px"), sm: unquote(8+"px"), md: unquote(12+"px"), lg: unquote(16+"px"), xl: unquote(24+"px"), 2xl: unquote(40+"px"), 3xl: unquote(64+"px"));
+@for $i from 1 through length(map-keys($blur)) {
+  $name: nth(map-keys($blur), $i);
+  $values: nth(map-values($blur), $i);
+  .blur-#{$name}{
+    filter: blur(#{$values});
+  }
+
+  .backdrop-blur-#{$name}{
+    -webkit-backdrop-filter: blur(#{$values});
+    backdrop-filter: blur(#{$values});
+  }
+}
+
+
+/*
+* 2. brightness and backdrop-brightness
+*/
+$brightness: (0: 0, 50: 0.5, 75: 0.75, 90: 0.9, 100: 1, 105: 1.05, 110: 1.1, 125: 1.25, 150: 1.5, 200: 2);
+@for $i from 1 through length(map-keys($brightness)) {
+  $name: nth(map-keys($brightness), $i);
+  $values: nth(map-values($brightness), $i);
+  .brightness-#{$name}{
+    filter: brightness(#{$values});
+  }
+
+  .backdrop-brightness-#{$name}{
+    -webkit-backdrop-filter: brightness(#{$values});
+    backdrop-filter: brightness(#{$values});
+  }
+}
+
+
+/*
+* 3. contrast and backdrop-contrast
+*/
+$contrast: (0: 0, 50: 0.5, 75: 0.75, 100: 1, 125: 1.25, 150: 1.5, 200: 2);
+@for $i from 1 through length(map-keys($contrast)) {
+  $name: nth(map-keys($contrast), $i);
+  $values: nth(map-values($contrast), $i);
+  .contrast-#{$name}{
+    filter: contrast(#{$values});
+  }
+
+  .backdrop-contrast-#{$name}{
+    -webkit-backdrop-filter: contrast(#{$values});
+    backdrop-filter: contrast(#{$values});
+  }
+}
+
+
+/*
+* 4. drop shadow
+*/
+@mixin dropShadow($dropShadow...){
+  filter: drop-shadow($dropShadow);
+}
+
+.drop-shadow-sm{
+  @include dropShadow(0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+.drop-shadow{
+  @include dropShadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.drop-shadow-md{
+  @include dropShadow(0 4px 3px rgba(0, 0, 0, 0.07));
+}
+
+.drop-shadow-lg{
+  @include dropShadow(0 10px 8px rgba(0, 0, 0, 0.04));
+}
+
+.drop-shadow-xl{
+  @include dropShadow(0 20px 13px rgba(0, 0, 0, 0.03));
+}
+
+.drop-shadow-2xl{
+  @include dropShadow(0 25px 25px rgba(0, 0, 0, 0.15));
+}
+
+.drop-shadow-none{
+  @include dropShadow(0 0 #000);
+}
+
+
+/*
+* 5. grayscale and invert and sepia and backdrop grayscale and backdrop-invert and backdrop-sepia
+*/
+$grayscale: 0, 1;
+@each $values in $grayscale {
+  .grayscale-#{$values} {
+    filter: grayscale($values);
+  }
+
+  .invert-#{$values} {
+    filter: invert($values);
+  }
+
+  .sepia-#{$values} {
+    filter: sepia($values);
+  }
+
+  .backdrop-grayscale-#{$values} {
+    -webkit-backdrop-filter: grayscale($values);
+    backdrop-filter: grayscale($values);
+  }
+
+  .backdrop-invert-#{$values} {
+    -webkit-backdrop-filter: invert($values);
+    backdrop-filter: invert($values);
+  }
+
+  .backdrop-sepia-#{$values} {
+    -webkit-backdrop-filter: sepia($values);
+    backdrop-filter: sepia($values);
+  }
+}
+
+
+/*
+* 6. hue rotate and backdrop-hue-rotate
+*/
+$hueRotate: (0: 0deg, 15: 15deg, 30: 30deg, 60: 60deg, 90: 90deg, 180: 180deg);
+@for $i from 1 through length(map-keys($hueRotate)) {
+  $name: nth(map-keys($hueRotate), $i);
+  $values: nth(map-values($hueRotate), $i);
+  .hue-rotate-#{$name}{
+    filter: hue-rotate(#{$values});
+  }
+
+  .backdrop-hue-rotate-#{$name}{
+    -webkit-backdrop-filter: hue-rotate(#{$values});
+    backdrop-filter: hue-rotate(#{$values});
+  }
+}
+
+
+/*
+* 7. saturate and backdrop-saturate
+*/
+$saturate: (0: 0, 50: 0.5, 75: 0.75, 100: 1, 125: 1.25, 150: 1.5, 200: 2);
+@for $i from 1 through length(map-keys($saturate)) {
+  $name: nth(map-keys($saturate), $i);
+  $values: nth(map-values($saturate), $i);
+  // .saturate-#{$name}{
+  //   filter: saturate(#{$values});
+  // }
+
+  // .backdrop-saturate-#{$name}{
+  //   -webkit-backdrop-filter: saturate(#{$values});
+  //   backdrop-filter: saturate(#{$values});
+  // }
+
+  .saturate-#{$name}{
+    filter: saturate($values);
+  }
+
+  .backdrop-saturate-#{$name}{
+    -webkit-backdrop-filter: saturate($values);
+    backdrop-filter: saturate($values);
+  }
+}
+
+
+/*
+* 8. backdrop-opacity
+*/
+$backdropOpacity: (0: 0, 5: 0.05, 10: 0.1, 20: 0.2, 25: 0.25, 30: 0.3, 40: 0.4, 50: 0.5, 60: 0.6, 70: 0.7, 75: 0.75, 80: 0.8, 90: 0.9, 95: 0.95, 100: 1);
+@for $i from 1 through length(map-keys($backdropOpacity)) {
+  $name: nth(map-keys($backdropOpacity), $i);
+  $values: nth(map-values($backdropOpacity), $i);
+  .backdrop-opacity-#{$name}{
+    -webkit-backdrop-filter: opacity($values);
+    backdrop-filter: opacity($values);
+  }
+}
+

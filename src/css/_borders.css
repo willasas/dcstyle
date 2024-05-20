@@ -1,0 +1,2574 @@
+/*! Name: borders Author: william Author URI:  Description: elements borders. Version: 1.0.1 Tags: borders, border radius, border width, border color, border style, divide width, divide color, divide style, outline width, outline color, outline style, outline offset, ring width, ring color, ring offset width, ring offset color, box-shadow Update: December 23th,2022 */
+/* 1. border radius */
+.rounded-none { border-radius: 0; }
+
+.rounded-t-none { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+.rounded-r-none { border-bottom-right-radius: 0; border-top-right-radius: 0; }
+
+.rounded-b-none { border-bottom-right-radius: 0; border-bottom-left-radius: 0; }
+
+.rounded-l-none { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+.rounded-tl-none { border-top-left-radius: 0; }
+
+.rounded-tr-none { border-top-right-radius: 0; }
+
+.rounded-br-none { border-bottom-right-radius: 0; }
+
+.rounded-bl-none { border-bottom-left-radius: 0; }
+
+.rounded-sm { border-radius: 2px; }
+
+.rounded-t-sm { border-top-left-radius: 2px; border-top-right-radius: 2px; }
+
+.rounded-r-sm { border-bottom-right-radius: 2px; border-top-right-radius: 2px; }
+
+.rounded-b-sm { border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; }
+
+.rounded-l-sm { border-top-left-radius: 2px; border-bottom-left-radius: 2px; }
+
+.rounded-tl-sm { border-top-left-radius: 2px; }
+
+.rounded-tr-sm { border-top-right-radius: 2px; }
+
+.rounded-br-sm { border-bottom-right-radius: 2px; }
+
+.rounded-bl-sm { border-bottom-left-radius: 2px; }
+
+.rounded-def { border-radius: 4px; }
+
+.rounded-t-def { border-top-left-radius: 4px; border-top-right-radius: 4px; }
+
+.rounded-r-def { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+
+.rounded-b-def { border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; }
+
+.rounded-l-def { border-top-left-radius: 4px; border-bottom-left-radius: 4px; }
+
+.rounded-tl-def { border-top-left-radius: 4px; }
+
+.rounded-tr-def { border-top-right-radius: 4px; }
+
+.rounded-br-def { border-bottom-right-radius: 4px; }
+
+.rounded-bl-def { border-bottom-left-radius: 4px; }
+
+.rounded-md { border-radius: 6px; }
+
+.rounded-t-md { border-top-left-radius: 6px; border-top-right-radius: 6px; }
+
+.rounded-r-md { border-bottom-right-radius: 6px; border-top-right-radius: 6px; }
+
+.rounded-b-md { border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; }
+
+.rounded-l-md { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+
+.rounded-tl-md { border-top-left-radius: 6px; }
+
+.rounded-tr-md { border-top-right-radius: 6px; }
+
+.rounded-br-md { border-bottom-right-radius: 6px; }
+
+.rounded-bl-md { border-bottom-left-radius: 6px; }
+
+.rounded-lg { border-radius: 8px; }
+
+.rounded-t-lg { border-top-left-radius: 8px; border-top-right-radius: 8px; }
+
+.rounded-r-lg { border-bottom-right-radius: 8px; border-top-right-radius: 8px; }
+
+.rounded-b-lg { border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; }
+
+.rounded-l-lg { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+
+.rounded-tl-lg { border-top-left-radius: 8px; }
+
+.rounded-tr-lg { border-top-right-radius: 8px; }
+
+.rounded-br-lg { border-bottom-right-radius: 8px; }
+
+.rounded-bl-lg { border-bottom-left-radius: 8px; }
+
+.rounded-xl { border-radius: 12px; }
+
+.rounded-t-xl { border-top-left-radius: 12px; border-top-right-radius: 12px; }
+
+.rounded-r-xl { border-bottom-right-radius: 12px; border-top-right-radius: 12px; }
+
+.rounded-b-xl { border-bottom-right-radius: 12px; border-bottom-left-radius: 12px; }
+
+.rounded-l-xl { border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+
+.rounded-tl-xl { border-top-left-radius: 12px; }
+
+.rounded-tr-xl { border-top-right-radius: 12px; }
+
+.rounded-br-xl { border-bottom-right-radius: 12px; }
+
+.rounded-bl-xl { border-bottom-left-radius: 12px; }
+
+.rounded-2xl { border-radius: 16px; }
+
+.rounded-t-2xl { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+
+.rounded-r-2xl { border-bottom-right-radius: 16px; border-top-right-radius: 16px; }
+
+.rounded-b-2xl { border-bottom-right-radius: 16px; border-bottom-left-radius: 16px; }
+
+.rounded-l-2xl { border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
+
+.rounded-tl-2xl { border-top-left-radius: 16px; }
+
+.rounded-tr-2xl { border-top-right-radius: 16px; }
+
+.rounded-br-2xl { border-bottom-right-radius: 16px; }
+
+.rounded-bl-2xl { border-bottom-left-radius: 16px; }
+
+.rounded-3xl { border-radius: 24px; }
+
+.rounded-t-3xl { border-top-left-radius: 24px; border-top-right-radius: 24px; }
+
+.rounded-r-3xl { border-bottom-right-radius: 24px; border-top-right-radius: 24px; }
+
+.rounded-b-3xl { border-bottom-right-radius: 24px; border-bottom-left-radius: 24px; }
+
+.rounded-l-3xl { border-top-left-radius: 24px; border-bottom-left-radius: 24px; }
+
+.rounded-tl-3xl { border-top-left-radius: 24px; }
+
+.rounded-tr-3xl { border-top-right-radius: 24px; }
+
+.rounded-br-3xl { border-bottom-right-radius: 24px; }
+
+.rounded-bl-3xl { border-bottom-left-radius: 24px; }
+
+.rounded-full { border-radius: 9999px; }
+
+.rounded-t-full { border-top-left-radius: 9999px; border-top-right-radius: 9999px; }
+
+.rounded-r-full { border-bottom-right-radius: 9999px; border-top-right-radius: 9999px; }
+
+.rounded-b-full { border-bottom-right-radius: 9999px; border-bottom-left-radius: 9999px; }
+
+.rounded-l-full { border-top-left-radius: 9999px; border-bottom-left-radius: 9999px; }
+
+.rounded-tl-full { border-top-left-radius: 9999px; }
+
+.rounded-tr-full { border-top-right-radius: 9999px; }
+
+.rounded-br-full { border-bottom-right-radius: 9999px; }
+
+.rounded-bl-full { border-bottom-left-radius: 9999px; }
+
+/* 2. border width */
+.border-0 { border-width: 0; }
+
+.border-x-0 { border-left-width: 0; border-right-width: 0; }
+
+.border-y-0 { border-top-width: 0; border-bottom-width: 0; }
+
+.border-t-0 { border-top-width: 0; }
+
+.border-r-0 { border-right-width: 0; }
+
+.border-b-0 { border-bottom-width: 0; }
+
+.border-l-0 { border-left-width: 0; }
+
+.border-1 { border-width: 1px; }
+
+.border-x-1 { border-left-width: 1px; border-right-width: 1px; }
+
+.border-y-1 { border-top-width: 1px; border-bottom-width: 1px; }
+
+.border-t-1 { border-top-width: 1px; }
+
+.border-r-1 { border-right-width: 1px; }
+
+.border-b-1 { border-bottom-width: 1px; }
+
+.border-l-1 { border-left-width: 1px; }
+
+.border-2 { border-width: 2px; }
+
+.border-x-2 { border-left-width: 2px; border-right-width: 2px; }
+
+.border-y-2 { border-top-width: 2px; border-bottom-width: 2px; }
+
+.border-t-2 { border-top-width: 2px; }
+
+.border-r-2 { border-right-width: 2px; }
+
+.border-b-2 { border-bottom-width: 2px; }
+
+.border-l-2 { border-left-width: 2px; }
+
+.border-4 { border-width: 4px; }
+
+.border-x-4 { border-left-width: 4px; border-right-width: 4px; }
+
+.border-y-4 { border-top-width: 4px; border-bottom-width: 4px; }
+
+.border-t-4 { border-top-width: 4px; }
+
+.border-r-4 { border-right-width: 4px; }
+
+.border-b-4 { border-bottom-width: 4px; }
+
+.border-l-4 { border-left-width: 4px; }
+
+.border-8 { border-width: 8px; }
+
+.border-x-8 { border-left-width: 8px; border-right-width: 8px; }
+
+.border-y-8 { border-top-width: 8px; border-bottom-width: 8px; }
+
+.border-t-8 { border-top-width: 8px; }
+
+.border-r-8 { border-right-width: 8px; }
+
+.border-b-8 { border-bottom-width: 8px; }
+
+.border-l-8 { border-left-width: 8px; }
+
+/* 3. border-color and divide-color and outline-color and ring-color and box-shadow-color */
+.border-inherit { border-color: inherit; }
+
+.divide-inherit { border-color: inherit; }
+
+.outline-inherit { outline-color: inherit; }
+
+.ring-inherit { --ring-color: inherit; }
+
+.shadow-inherit { --shadow-color: inherit; }
+
+.border-current { border-color: currentColor; }
+
+.divide-current { border-color: currentColor; }
+
+.outline-current { outline-color: currentColor; }
+
+.ring-current { --ring-color: currentColor; }
+
+.shadow-current { --shadow-color: currentColor; }
+
+.border-transparent { border-color: transparent; }
+
+.divide-transparent { border-color: transparent; }
+
+.outline-transparent { outline-color: transparent; }
+
+.ring-transparent { --ring-color: transparent; }
+
+.shadow-transparent { --shadow-color: transparent; }
+
+.border-black { border-color: black; }
+
+.divide-black { border-color: black; }
+
+.outline-black { outline-color: black; }
+
+.ring-black { --ring-color: black; }
+
+.shadow-black { --shadow-color: black; }
+
+.border-white { border-color: white; }
+
+.divide-white { border-color: white; }
+
+.outline-white { outline-color: white; }
+
+.ring-white { --ring-color: white; }
+
+.shadow-white { --shadow-color: white; }
+
+.border-slate-50 { border-color: #f8fafc; }
+
+.divide-slate-50 { border-color: #f8fafc; }
+
+.outline-slate-50 { outline-color: #f8fafc; }
+
+.ring-slate-50 { --ring-color: #f8fafc; }
+
+.shadow-slate-50 { --shadow-color: #f8fafc; }
+
+.border-slate-100 { border-color: #f1f5f9; }
+
+.divide-slate-100 { border-color: #f1f5f9; }
+
+.outline-slate-100 { outline-color: #f1f5f9; }
+
+.ring-slate-100 { --ring-color: #f1f5f9; }
+
+.shadow-slate-100 { --shadow-color: #f1f5f9; }
+
+.border-slate-200 { border-color: #e2e8f0; }
+
+.divide-slate-200 { border-color: #e2e8f0; }
+
+.outline-slate-200 { outline-color: #e2e8f0; }
+
+.ring-slate-200 { --ring-color: #e2e8f0; }
+
+.shadow-slate-200 { --shadow-color: #e2e8f0; }
+
+.border-slate-300 { border-color: #cbd5e1; }
+
+.divide-slate-300 { border-color: #cbd5e1; }
+
+.outline-slate-300 { outline-color: #cbd5e1; }
+
+.ring-slate-300 { --ring-color: #cbd5e1; }
+
+.shadow-slate-300 { --shadow-color: #cbd5e1; }
+
+.border-slate-400 { border-color: #94a3b8; }
+
+.divide-slate-400 { border-color: #94a3b8; }
+
+.outline-slate-400 { outline-color: #94a3b8; }
+
+.ring-slate-400 { --ring-color: #94a3b8; }
+
+.shadow-slate-400 { --shadow-color: #94a3b8; }
+
+.border-slate-500 { border-color: #64748b; }
+
+.divide-slate-500 { border-color: #64748b; }
+
+.outline-slate-500 { outline-color: #64748b; }
+
+.ring-slate-500 { --ring-color: #64748b; }
+
+.shadow-slate-500 { --shadow-color: #64748b; }
+
+.border-slate-600 { border-color: #475569; }
+
+.divide-slate-600 { border-color: #475569; }
+
+.outline-slate-600 { outline-color: #475569; }
+
+.ring-slate-600 { --ring-color: #475569; }
+
+.shadow-slate-600 { --shadow-color: #475569; }
+
+.border-slate-700 { border-color: #334155; }
+
+.divide-slate-700 { border-color: #334155; }
+
+.outline-slate-700 { outline-color: #334155; }
+
+.ring-slate-700 { --ring-color: #334155; }
+
+.shadow-slate-700 { --shadow-color: #334155; }
+
+.border-slate-800 { border-color: #1e293b; }
+
+.divide-slate-800 { border-color: #1e293b; }
+
+.outline-slate-800 { outline-color: #1e293b; }
+
+.ring-slate-800 { --ring-color: #1e293b; }
+
+.shadow-slate-800 { --shadow-color: #1e293b; }
+
+.border-slate-900 { border-color: #0f172a; }
+
+.divide-slate-900 { border-color: #0f172a; }
+
+.outline-slate-900 { outline-color: #0f172a; }
+
+.ring-slate-900 { --ring-color: #0f172a; }
+
+.shadow-slate-900 { --shadow-color: #0f172a; }
+
+.border-gray-50 { border-color: #f9fafb; }
+
+.divide-gray-50 { border-color: #f9fafb; }
+
+.outline-gray-50 { outline-color: #f9fafb; }
+
+.ring-gray-50 { --ring-color: #f9fafb; }
+
+.shadow-gray-50 { --shadow-color: #f9fafb; }
+
+.border-gray-100 { border-color: #f3f4f6; }
+
+.divide-gray-100 { border-color: #f3f4f6; }
+
+.outline-gray-100 { outline-color: #f3f4f6; }
+
+.ring-gray-100 { --ring-color: #f3f4f6; }
+
+.shadow-gray-100 { --shadow-color: #f3f4f6; }
+
+.border-gray-200 { border-color: #e5e7eb; }
+
+.divide-gray-200 { border-color: #e5e7eb; }
+
+.outline-gray-200 { outline-color: #e5e7eb; }
+
+.ring-gray-200 { --ring-color: #e5e7eb; }
+
+.shadow-gray-200 { --shadow-color: #e5e7eb; }
+
+.border-gray-300 { border-color: #d1d5db; }
+
+.divide-gray-300 { border-color: #d1d5db; }
+
+.outline-gray-300 { outline-color: #d1d5db; }
+
+.ring-gray-300 { --ring-color: #d1d5db; }
+
+.shadow-gray-300 { --shadow-color: #d1d5db; }
+
+.border-gray-400 { border-color: #9ca3af; }
+
+.divide-gray-400 { border-color: #9ca3af; }
+
+.outline-gray-400 { outline-color: #9ca3af; }
+
+.ring-gray-400 { --ring-color: #9ca3af; }
+
+.shadow-gray-400 { --shadow-color: #9ca3af; }
+
+.border-gray-500 { border-color: #6b7280; }
+
+.divide-gray-500 { border-color: #6b7280; }
+
+.outline-gray-500 { outline-color: #6b7280; }
+
+.ring-gray-500 { --ring-color: #6b7280; }
+
+.shadow-gray-500 { --shadow-color: #6b7280; }
+
+.border-gray-600 { border-color: #4b5563; }
+
+.divide-gray-600 { border-color: #4b5563; }
+
+.outline-gray-600 { outline-color: #4b5563; }
+
+.ring-gray-600 { --ring-color: #4b5563; }
+
+.shadow-gray-600 { --shadow-color: #4b5563; }
+
+.border-gray-700 { border-color: #374151; }
+
+.divide-gray-700 { border-color: #374151; }
+
+.outline-gray-700 { outline-color: #374151; }
+
+.ring-gray-700 { --ring-color: #374151; }
+
+.shadow-gray-700 { --shadow-color: #374151; }
+
+.border-gray-800 { border-color: #1f2937; }
+
+.divide-gray-800 { border-color: #1f2937; }
+
+.outline-gray-800 { outline-color: #1f2937; }
+
+.ring-gray-800 { --ring-color: #1f2937; }
+
+.shadow-gray-800 { --shadow-color: #1f2937; }
+
+.border-gray-900 { border-color: #111827; }
+
+.divide-gray-900 { border-color: #111827; }
+
+.outline-gray-900 { outline-color: #111827; }
+
+.ring-gray-900 { --ring-color: #111827; }
+
+.shadow-gray-900 { --shadow-color: #111827; }
+
+.border-zinc-50 { border-color: #fafafa; }
+
+.divide-zinc-50 { border-color: #fafafa; }
+
+.outline-zinc-50 { outline-color: #fafafa; }
+
+.ring-zinc-50 { --ring-color: #fafafa; }
+
+.shadow-zinc-50 { --shadow-color: #fafafa; }
+
+.border-zinc-100 { border-color: #f4f4f5; }
+
+.divide-zinc-100 { border-color: #f4f4f5; }
+
+.outline-zinc-100 { outline-color: #f4f4f5; }
+
+.ring-zinc-100 { --ring-color: #f4f4f5; }
+
+.shadow-zinc-100 { --shadow-color: #f4f4f5; }
+
+.border-zinc-200 { border-color: #e4e4e7; }
+
+.divide-zinc-200 { border-color: #e4e4e7; }
+
+.outline-zinc-200 { outline-color: #e4e4e7; }
+
+.ring-zinc-200 { --ring-color: #e4e4e7; }
+
+.shadow-zinc-200 { --shadow-color: #e4e4e7; }
+
+.border-zinc-300 { border-color: #d4d4d8; }
+
+.divide-zinc-300 { border-color: #d4d4d8; }
+
+.outline-zinc-300 { outline-color: #d4d4d8; }
+
+.ring-zinc-300 { --ring-color: #d4d4d8; }
+
+.shadow-zinc-300 { --shadow-color: #d4d4d8; }
+
+.border-zinc-400 { border-color: #a1a1aa; }
+
+.divide-zinc-400 { border-color: #a1a1aa; }
+
+.outline-zinc-400 { outline-color: #a1a1aa; }
+
+.ring-zinc-400 { --ring-color: #a1a1aa; }
+
+.shadow-zinc-400 { --shadow-color: #a1a1aa; }
+
+.border-zinc-500 { border-color: #71717a; }
+
+.divide-zinc-500 { border-color: #71717a; }
+
+.outline-zinc-500 { outline-color: #71717a; }
+
+.ring-zinc-500 { --ring-color: #71717a; }
+
+.shadow-zinc-500 { --shadow-color: #71717a; }
+
+.border-zinc-600 { border-color: #52525b; }
+
+.divide-zinc-600 { border-color: #52525b; }
+
+.outline-zinc-600 { outline-color: #52525b; }
+
+.ring-zinc-600 { --ring-color: #52525b; }
+
+.shadow-zinc-600 { --shadow-color: #52525b; }
+
+.border-zinc-700 { border-color: #3f3f46; }
+
+.divide-zinc-700 { border-color: #3f3f46; }
+
+.outline-zinc-700 { outline-color: #3f3f46; }
+
+.ring-zinc-700 { --ring-color: #3f3f46; }
+
+.shadow-zinc-700 { --shadow-color: #3f3f46; }
+
+.border-zinc-800 { border-color: #27272a; }
+
+.divide-zinc-800 { border-color: #27272a; }
+
+.outline-zinc-800 { outline-color: #27272a; }
+
+.ring-zinc-800 { --ring-color: #27272a; }
+
+.shadow-zinc-800 { --shadow-color: #27272a; }
+
+.border-zinc-900 { border-color: #18181b; }
+
+.divide-zinc-900 { border-color: #18181b; }
+
+.outline-zinc-900 { outline-color: #18181b; }
+
+.ring-zinc-900 { --ring-color: #18181b; }
+
+.shadow-zinc-900 { --shadow-color: #18181b; }
+
+.border-neutral-50 { border-color: #fafafa; }
+
+.divide-neutral-50 { border-color: #fafafa; }
+
+.outline-neutral-50 { outline-color: #fafafa; }
+
+.ring-neutral-50 { --ring-color: #fafafa; }
+
+.shadow-neutral-50 { --shadow-color: #fafafa; }
+
+.border-neutral-100 { border-color: whitesmoke; }
+
+.divide-neutral-100 { border-color: whitesmoke; }
+
+.outline-neutral-100 { outline-color: whitesmoke; }
+
+.ring-neutral-100 { --ring-color: whitesmoke; }
+
+.shadow-neutral-100 { --shadow-color: whitesmoke; }
+
+.border-neutral-200 { border-color: #e5e5e5; }
+
+.divide-neutral-200 { border-color: #e5e5e5; }
+
+.outline-neutral-200 { outline-color: #e5e5e5; }
+
+.ring-neutral-200 { --ring-color: #e5e5e5; }
+
+.shadow-neutral-200 { --shadow-color: #e5e5e5; }
+
+.border-neutral-300 { border-color: #d4d4d4; }
+
+.divide-neutral-300 { border-color: #d4d4d4; }
+
+.outline-neutral-300 { outline-color: #d4d4d4; }
+
+.ring-neutral-300 { --ring-color: #d4d4d4; }
+
+.shadow-neutral-300 { --shadow-color: #d4d4d4; }
+
+.border-neutral-400 { border-color: #a3a3a3; }
+
+.divide-neutral-400 { border-color: #a3a3a3; }
+
+.outline-neutral-400 { outline-color: #a3a3a3; }
+
+.ring-neutral-400 { --ring-color: #a3a3a3; }
+
+.shadow-neutral-400 { --shadow-color: #a3a3a3; }
+
+.border-neutral-500 { border-color: #737373; }
+
+.divide-neutral-500 { border-color: #737373; }
+
+.outline-neutral-500 { outline-color: #737373; }
+
+.ring-neutral-500 { --ring-color: #737373; }
+
+.shadow-neutral-500 { --shadow-color: #737373; }
+
+.border-neutral-600 { border-color: #525252; }
+
+.divide-neutral-600 { border-color: #525252; }
+
+.outline-neutral-600 { outline-color: #525252; }
+
+.ring-neutral-600 { --ring-color: #525252; }
+
+.shadow-neutral-600 { --shadow-color: #525252; }
+
+.border-neutral-700 { border-color: #404040; }
+
+.divide-neutral-700 { border-color: #404040; }
+
+.outline-neutral-700 { outline-color: #404040; }
+
+.ring-neutral-700 { --ring-color: #404040; }
+
+.shadow-neutral-700 { --shadow-color: #404040; }
+
+.border-neutral-800 { border-color: #262626; }
+
+.divide-neutral-800 { border-color: #262626; }
+
+.outline-neutral-800 { outline-color: #262626; }
+
+.ring-neutral-800 { --ring-color: #262626; }
+
+.shadow-neutral-800 { --shadow-color: #262626; }
+
+.border-neutral-900 { border-color: #171717; }
+
+.divide-neutral-900 { border-color: #171717; }
+
+.outline-neutral-900 { outline-color: #171717; }
+
+.ring-neutral-900 { --ring-color: #171717; }
+
+.shadow-neutral-900 { --shadow-color: #171717; }
+
+.border-stone-50 { border-color: #fafaf9; }
+
+.divide-stone-50 { border-color: #fafaf9; }
+
+.outline-stone-50 { outline-color: #fafaf9; }
+
+.ring-stone-50 { --ring-color: #fafaf9; }
+
+.shadow-stone-50 { --shadow-color: #fafaf9; }
+
+.border-stone-100 { border-color: #f5f5f4; }
+
+.divide-stone-100 { border-color: #f5f5f4; }
+
+.outline-stone-100 { outline-color: #f5f5f4; }
+
+.ring-stone-100 { --ring-color: #f5f5f4; }
+
+.shadow-stone-100 { --shadow-color: #f5f5f4; }
+
+.border-stone-200 { border-color: #e7e5e4; }
+
+.divide-stone-200 { border-color: #e7e5e4; }
+
+.outline-stone-200 { outline-color: #e7e5e4; }
+
+.ring-stone-200 { --ring-color: #e7e5e4; }
+
+.shadow-stone-200 { --shadow-color: #e7e5e4; }
+
+.border-stone-300 { border-color: #d6d3d1; }
+
+.divide-stone-300 { border-color: #d6d3d1; }
+
+.outline-stone-300 { outline-color: #d6d3d1; }
+
+.ring-stone-300 { --ring-color: #d6d3d1; }
+
+.shadow-stone-300 { --shadow-color: #d6d3d1; }
+
+.border-stone-400 { border-color: #a8a29e; }
+
+.divide-stone-400 { border-color: #a8a29e; }
+
+.outline-stone-400 { outline-color: #a8a29e; }
+
+.ring-stone-400 { --ring-color: #a8a29e; }
+
+.shadow-stone-400 { --shadow-color: #a8a29e; }
+
+.border-stone-500 { border-color: #78716c; }
+
+.divide-stone-500 { border-color: #78716c; }
+
+.outline-stone-500 { outline-color: #78716c; }
+
+.ring-stone-500 { --ring-color: #78716c; }
+
+.shadow-stone-500 { --shadow-color: #78716c; }
+
+.border-stone-600 { border-color: #57534e; }
+
+.divide-stone-600 { border-color: #57534e; }
+
+.outline-stone-600 { outline-color: #57534e; }
+
+.ring-stone-600 { --ring-color: #57534e; }
+
+.shadow-stone-600 { --shadow-color: #57534e; }
+
+.border-stone-700 { border-color: #44403c; }
+
+.divide-stone-700 { border-color: #44403c; }
+
+.outline-stone-700 { outline-color: #44403c; }
+
+.ring-stone-700 { --ring-color: #44403c; }
+
+.shadow-stone-700 { --shadow-color: #44403c; }
+
+.border-stone-800 { border-color: #292524; }
+
+.divide-stone-800 { border-color: #292524; }
+
+.outline-stone-800 { outline-color: #292524; }
+
+.ring-stone-800 { --ring-color: #292524; }
+
+.shadow-stone-800 { --shadow-color: #292524; }
+
+.border-stone-900 { border-color: #1c1917; }
+
+.divide-stone-900 { border-color: #1c1917; }
+
+.outline-stone-900 { outline-color: #1c1917; }
+
+.ring-stone-900 { --ring-color: #1c1917; }
+
+.shadow-stone-900 { --shadow-color: #1c1917; }
+
+.border-red-50 { border-color: #fef2f2; }
+
+.divide-red-50 { border-color: #fef2f2; }
+
+.outline-red-50 { outline-color: #fef2f2; }
+
+.ring-red-50 { --ring-color: #fef2f2; }
+
+.shadow-red-50 { --shadow-color: #fef2f2; }
+
+.border-red-100 { border-color: #fee2e2; }
+
+.divide-red-100 { border-color: #fee2e2; }
+
+.outline-red-100 { outline-color: #fee2e2; }
+
+.ring-red-100 { --ring-color: #fee2e2; }
+
+.shadow-red-100 { --shadow-color: #fee2e2; }
+
+.border-red-200 { border-color: #fecaca; }
+
+.divide-red-200 { border-color: #fecaca; }
+
+.outline-red-200 { outline-color: #fecaca; }
+
+.ring-red-200 { --ring-color: #fecaca; }
+
+.shadow-red-200 { --shadow-color: #fecaca; }
+
+.border-red-300 { border-color: #fca5a5; }
+
+.divide-red-300 { border-color: #fca5a5; }
+
+.outline-red-300 { outline-color: #fca5a5; }
+
+.ring-red-300 { --ring-color: #fca5a5; }
+
+.shadow-red-300 { --shadow-color: #fca5a5; }
+
+.border-red-400 { border-color: #f87171; }
+
+.divide-red-400 { border-color: #f87171; }
+
+.outline-red-400 { outline-color: #f87171; }
+
+.ring-red-400 { --ring-color: #f87171; }
+
+.shadow-red-400 { --shadow-color: #f87171; }
+
+.border-red-500 { border-color: #ef4444; }
+
+.divide-red-500 { border-color: #ef4444; }
+
+.outline-red-500 { outline-color: #ef4444; }
+
+.ring-red-500 { --ring-color: #ef4444; }
+
+.shadow-red-500 { --shadow-color: #ef4444; }
+
+.border-red-600 { border-color: #dc2626; }
+
+.divide-red-600 { border-color: #dc2626; }
+
+.outline-red-600 { outline-color: #dc2626; }
+
+.ring-red-600 { --ring-color: #dc2626; }
+
+.shadow-red-600 { --shadow-color: #dc2626; }
+
+.border-red-700 { border-color: #b91c1c; }
+
+.divide-red-700 { border-color: #b91c1c; }
+
+.outline-red-700 { outline-color: #b91c1c; }
+
+.ring-red-700 { --ring-color: #b91c1c; }
+
+.shadow-red-700 { --shadow-color: #b91c1c; }
+
+.border-red-800 { border-color: #991b1b; }
+
+.divide-red-800 { border-color: #991b1b; }
+
+.outline-red-800 { outline-color: #991b1b; }
+
+.ring-red-800 { --ring-color: #991b1b; }
+
+.shadow-red-800 { --shadow-color: #991b1b; }
+
+.border-red-900 { border-color: #7f1d1d; }
+
+.divide-red-900 { border-color: #7f1d1d; }
+
+.outline-red-900 { outline-color: #7f1d1d; }
+
+.ring-red-900 { --ring-color: #7f1d1d; }
+
+.shadow-red-900 { --shadow-color: #7f1d1d; }
+
+.border-orange-50 { border-color: #fff7ed; }
+
+.divide-orange-50 { border-color: #fff7ed; }
+
+.outline-orange-50 { outline-color: #fff7ed; }
+
+.ring-orange-50 { --ring-color: #fff7ed; }
+
+.shadow-orange-50 { --shadow-color: #fff7ed; }
+
+.border-orange-100 { border-color: #ffedd5; }
+
+.divide-orange-100 { border-color: #ffedd5; }
+
+.outline-orange-100 { outline-color: #ffedd5; }
+
+.ring-orange-100 { --ring-color: #ffedd5; }
+
+.shadow-orange-100 { --shadow-color: #ffedd5; }
+
+.border-orange-200 { border-color: #fed7aa; }
+
+.divide-orange-200 { border-color: #fed7aa; }
+
+.outline-orange-200 { outline-color: #fed7aa; }
+
+.ring-orange-200 { --ring-color: #fed7aa; }
+
+.shadow-orange-200 { --shadow-color: #fed7aa; }
+
+.border-orange-300 { border-color: #fdba74; }
+
+.divide-orange-300 { border-color: #fdba74; }
+
+.outline-orange-300 { outline-color: #fdba74; }
+
+.ring-orange-300 { --ring-color: #fdba74; }
+
+.shadow-orange-300 { --shadow-color: #fdba74; }
+
+.border-orange-400 { border-color: #fb923c; }
+
+.divide-orange-400 { border-color: #fb923c; }
+
+.outline-orange-400 { outline-color: #fb923c; }
+
+.ring-orange-400 { --ring-color: #fb923c; }
+
+.shadow-orange-400 { --shadow-color: #fb923c; }
+
+.border-orange-500 { border-color: #f97316; }
+
+.divide-orange-500 { border-color: #f97316; }
+
+.outline-orange-500 { outline-color: #f97316; }
+
+.ring-orange-500 { --ring-color: #f97316; }
+
+.shadow-orange-500 { --shadow-color: #f97316; }
+
+.border-orange-600 { border-color: #ea580c; }
+
+.divide-orange-600 { border-color: #ea580c; }
+
+.outline-orange-600 { outline-color: #ea580c; }
+
+.ring-orange-600 { --ring-color: #ea580c; }
+
+.shadow-orange-600 { --shadow-color: #ea580c; }
+
+.border-orange-700 { border-color: #c2410c; }
+
+.divide-orange-700 { border-color: #c2410c; }
+
+.outline-orange-700 { outline-color: #c2410c; }
+
+.ring-orange-700 { --ring-color: #c2410c; }
+
+.shadow-orange-700 { --shadow-color: #c2410c; }
+
+.border-orange-800 { border-color: #9a3412; }
+
+.divide-orange-800 { border-color: #9a3412; }
+
+.outline-orange-800 { outline-color: #9a3412; }
+
+.ring-orange-800 { --ring-color: #9a3412; }
+
+.shadow-orange-800 { --shadow-color: #9a3412; }
+
+.border-orange-900 { border-color: #7c2d12; }
+
+.divide-orange-900 { border-color: #7c2d12; }
+
+.outline-orange-900 { outline-color: #7c2d12; }
+
+.ring-orange-900 { --ring-color: #7c2d12; }
+
+.shadow-orange-900 { --shadow-color: #7c2d12; }
+
+.border-amber-50 { border-color: #fffbeb; }
+
+.divide-amber-50 { border-color: #fffbeb; }
+
+.outline-amber-50 { outline-color: #fffbeb; }
+
+.ring-amber-50 { --ring-color: #fffbeb; }
+
+.shadow-amber-50 { --shadow-color: #fffbeb; }
+
+.border-amber-100 { border-color: #fef3c7; }
+
+.divide-amber-100 { border-color: #fef3c7; }
+
+.outline-amber-100 { outline-color: #fef3c7; }
+
+.ring-amber-100 { --ring-color: #fef3c7; }
+
+.shadow-amber-100 { --shadow-color: #fef3c7; }
+
+.border-amber-200 { border-color: #fde68a; }
+
+.divide-amber-200 { border-color: #fde68a; }
+
+.outline-amber-200 { outline-color: #fde68a; }
+
+.ring-amber-200 { --ring-color: #fde68a; }
+
+.shadow-amber-200 { --shadow-color: #fde68a; }
+
+.border-amber-300 { border-color: #fcd34d; }
+
+.divide-amber-300 { border-color: #fcd34d; }
+
+.outline-amber-300 { outline-color: #fcd34d; }
+
+.ring-amber-300 { --ring-color: #fcd34d; }
+
+.shadow-amber-300 { --shadow-color: #fcd34d; }
+
+.border-amber-400 { border-color: #fbbf24; }
+
+.divide-amber-400 { border-color: #fbbf24; }
+
+.outline-amber-400 { outline-color: #fbbf24; }
+
+.ring-amber-400 { --ring-color: #fbbf24; }
+
+.shadow-amber-400 { --shadow-color: #fbbf24; }
+
+.border-amber-500 { border-color: #f59e0b; }
+
+.divide-amber-500 { border-color: #f59e0b; }
+
+.outline-amber-500 { outline-color: #f59e0b; }
+
+.ring-amber-500 { --ring-color: #f59e0b; }
+
+.shadow-amber-500 { --shadow-color: #f59e0b; }
+
+.border-amber-600 { border-color: #d97706; }
+
+.divide-amber-600 { border-color: #d97706; }
+
+.outline-amber-600 { outline-color: #d97706; }
+
+.ring-amber-600 { --ring-color: #d97706; }
+
+.shadow-amber-600 { --shadow-color: #d97706; }
+
+.border-amber-700 { border-color: #b45309; }
+
+.divide-amber-700 { border-color: #b45309; }
+
+.outline-amber-700 { outline-color: #b45309; }
+
+.ring-amber-700 { --ring-color: #b45309; }
+
+.shadow-amber-700 { --shadow-color: #b45309; }
+
+.border-amber-800 { border-color: #92400e; }
+
+.divide-amber-800 { border-color: #92400e; }
+
+.outline-amber-800 { outline-color: #92400e; }
+
+.ring-amber-800 { --ring-color: #92400e; }
+
+.shadow-amber-800 { --shadow-color: #92400e; }
+
+.border-amber-900 { border-color: #78350f; }
+
+.divide-amber-900 { border-color: #78350f; }
+
+.outline-amber-900 { outline-color: #78350f; }
+
+.ring-amber-900 { --ring-color: #78350f; }
+
+.shadow-amber-900 { --shadow-color: #78350f; }
+
+.border-yellow-50 { border-color: #fefce8; }
+
+.divide-yellow-50 { border-color: #fefce8; }
+
+.outline-yellow-50 { outline-color: #fefce8; }
+
+.ring-yellow-50 { --ring-color: #fefce8; }
+
+.shadow-yellow-50 { --shadow-color: #fefce8; }
+
+.border-yellow-100 { border-color: #fef9c3; }
+
+.divide-yellow-100 { border-color: #fef9c3; }
+
+.outline-yellow-100 { outline-color: #fef9c3; }
+
+.ring-yellow-100 { --ring-color: #fef9c3; }
+
+.shadow-yellow-100 { --shadow-color: #fef9c3; }
+
+.border-yellow-200 { border-color: #fef08a; }
+
+.divide-yellow-200 { border-color: #fef08a; }
+
+.outline-yellow-200 { outline-color: #fef08a; }
+
+.ring-yellow-200 { --ring-color: #fef08a; }
+
+.shadow-yellow-200 { --shadow-color: #fef08a; }
+
+.border-yellow-300 { border-color: #fde047; }
+
+.divide-yellow-300 { border-color: #fde047; }
+
+.outline-yellow-300 { outline-color: #fde047; }
+
+.ring-yellow-300 { --ring-color: #fde047; }
+
+.shadow-yellow-300 { --shadow-color: #fde047; }
+
+.border-yellow-400 { border-color: #facc15; }
+
+.divide-yellow-400 { border-color: #facc15; }
+
+.outline-yellow-400 { outline-color: #facc15; }
+
+.ring-yellow-400 { --ring-color: #facc15; }
+
+.shadow-yellow-400 { --shadow-color: #facc15; }
+
+.border-yellow-500 { border-color: #eab308; }
+
+.divide-yellow-500 { border-color: #eab308; }
+
+.outline-yellow-500 { outline-color: #eab308; }
+
+.ring-yellow-500 { --ring-color: #eab308; }
+
+.shadow-yellow-500 { --shadow-color: #eab308; }
+
+.border-yellow-600 { border-color: #ca8a04; }
+
+.divide-yellow-600 { border-color: #ca8a04; }
+
+.outline-yellow-600 { outline-color: #ca8a04; }
+
+.ring-yellow-600 { --ring-color: #ca8a04; }
+
+.shadow-yellow-600 { --shadow-color: #ca8a04; }
+
+.border-yellow-700 { border-color: #a16207; }
+
+.divide-yellow-700 { border-color: #a16207; }
+
+.outline-yellow-700 { outline-color: #a16207; }
+
+.ring-yellow-700 { --ring-color: #a16207; }
+
+.shadow-yellow-700 { --shadow-color: #a16207; }
+
+.border-yellow-800 { border-color: #854d0e; }
+
+.divide-yellow-800 { border-color: #854d0e; }
+
+.outline-yellow-800 { outline-color: #854d0e; }
+
+.ring-yellow-800 { --ring-color: #854d0e; }
+
+.shadow-yellow-800 { --shadow-color: #854d0e; }
+
+.border-yellow-900 { border-color: #713f12; }
+
+.divide-yellow-900 { border-color: #713f12; }
+
+.outline-yellow-900 { outline-color: #713f12; }
+
+.ring-yellow-900 { --ring-color: #713f12; }
+
+.shadow-yellow-900 { --shadow-color: #713f12; }
+
+.border-lime-50 { border-color: #f7fee7; }
+
+.divide-lime-50 { border-color: #f7fee7; }
+
+.outline-lime-50 { outline-color: #f7fee7; }
+
+.ring-lime-50 { --ring-color: #f7fee7; }
+
+.shadow-lime-50 { --shadow-color: #f7fee7; }
+
+.border-lime-100 { border-color: #ecfccb; }
+
+.divide-lime-100 { border-color: #ecfccb; }
+
+.outline-lime-100 { outline-color: #ecfccb; }
+
+.ring-lime-100 { --ring-color: #ecfccb; }
+
+.shadow-lime-100 { --shadow-color: #ecfccb; }
+
+.border-lime-200 { border-color: #d9f99d; }
+
+.divide-lime-200 { border-color: #d9f99d; }
+
+.outline-lime-200 { outline-color: #d9f99d; }
+
+.ring-lime-200 { --ring-color: #d9f99d; }
+
+.shadow-lime-200 { --shadow-color: #d9f99d; }
+
+.border-lime-300 { border-color: #bef264; }
+
+.divide-lime-300 { border-color: #bef264; }
+
+.outline-lime-300 { outline-color: #bef264; }
+
+.ring-lime-300 { --ring-color: #bef264; }
+
+.shadow-lime-300 { --shadow-color: #bef264; }
+
+.border-lime-400 { border-color: #a3e635; }
+
+.divide-lime-400 { border-color: #a3e635; }
+
+.outline-lime-400 { outline-color: #a3e635; }
+
+.ring-lime-400 { --ring-color: #a3e635; }
+
+.shadow-lime-400 { --shadow-color: #a3e635; }
+
+.border-lime-500 { border-color: #84cc16; }
+
+.divide-lime-500 { border-color: #84cc16; }
+
+.outline-lime-500 { outline-color: #84cc16; }
+
+.ring-lime-500 { --ring-color: #84cc16; }
+
+.shadow-lime-500 { --shadow-color: #84cc16; }
+
+.border-lime-600 { border-color: #65a30d; }
+
+.divide-lime-600 { border-color: #65a30d; }
+
+.outline-lime-600 { outline-color: #65a30d; }
+
+.ring-lime-600 { --ring-color: #65a30d; }
+
+.shadow-lime-600 { --shadow-color: #65a30d; }
+
+.border-lime-700 { border-color: #4d7c0f; }
+
+.divide-lime-700 { border-color: #4d7c0f; }
+
+.outline-lime-700 { outline-color: #4d7c0f; }
+
+.ring-lime-700 { --ring-color: #4d7c0f; }
+
+.shadow-lime-700 { --shadow-color: #4d7c0f; }
+
+.border-lime-800 { border-color: #3f6212; }
+
+.divide-lime-800 { border-color: #3f6212; }
+
+.outline-lime-800 { outline-color: #3f6212; }
+
+.ring-lime-800 { --ring-color: #3f6212; }
+
+.shadow-lime-800 { --shadow-color: #3f6212; }
+
+.border-lime-900 { border-color: #365314; }
+
+.divide-lime-900 { border-color: #365314; }
+
+.outline-lime-900 { outline-color: #365314; }
+
+.ring-lime-900 { --ring-color: #365314; }
+
+.shadow-lime-900 { --shadow-color: #365314; }
+
+.border-green-50 { border-color: #f0fdf4; }
+
+.divide-green-50 { border-color: #f0fdf4; }
+
+.outline-green-50 { outline-color: #f0fdf4; }
+
+.ring-green-50 { --ring-color: #f0fdf4; }
+
+.shadow-green-50 { --shadow-color: #f0fdf4; }
+
+.border-green-100 { border-color: #dcfce7; }
+
+.divide-green-100 { border-color: #dcfce7; }
+
+.outline-green-100 { outline-color: #dcfce7; }
+
+.ring-green-100 { --ring-color: #dcfce7; }
+
+.shadow-green-100 { --shadow-color: #dcfce7; }
+
+.border-green-200 { border-color: #bbf7d0; }
+
+.divide-green-200 { border-color: #bbf7d0; }
+
+.outline-green-200 { outline-color: #bbf7d0; }
+
+.ring-green-200 { --ring-color: #bbf7d0; }
+
+.shadow-green-200 { --shadow-color: #bbf7d0; }
+
+.border-green-300 { border-color: #86efac; }
+
+.divide-green-300 { border-color: #86efac; }
+
+.outline-green-300 { outline-color: #86efac; }
+
+.ring-green-300 { --ring-color: #86efac; }
+
+.shadow-green-300 { --shadow-color: #86efac; }
+
+.border-green-400 { border-color: #4ade80; }
+
+.divide-green-400 { border-color: #4ade80; }
+
+.outline-green-400 { outline-color: #4ade80; }
+
+.ring-green-400 { --ring-color: #4ade80; }
+
+.shadow-green-400 { --shadow-color: #4ade80; }
+
+.border-green-500 { border-color: #22c55e; }
+
+.divide-green-500 { border-color: #22c55e; }
+
+.outline-green-500 { outline-color: #22c55e; }
+
+.ring-green-500 { --ring-color: #22c55e; }
+
+.shadow-green-500 { --shadow-color: #22c55e; }
+
+.border-green-600 { border-color: #16a34a; }
+
+.divide-green-600 { border-color: #16a34a; }
+
+.outline-green-600 { outline-color: #16a34a; }
+
+.ring-green-600 { --ring-color: #16a34a; }
+
+.shadow-green-600 { --shadow-color: #16a34a; }
+
+.border-green-700 { border-color: #15803d; }
+
+.divide-green-700 { border-color: #15803d; }
+
+.outline-green-700 { outline-color: #15803d; }
+
+.ring-green-700 { --ring-color: #15803d; }
+
+.shadow-green-700 { --shadow-color: #15803d; }
+
+.border-green-800 { border-color: #166534; }
+
+.divide-green-800 { border-color: #166534; }
+
+.outline-green-800 { outline-color: #166534; }
+
+.ring-green-800 { --ring-color: #166534; }
+
+.shadow-green-800 { --shadow-color: #166534; }
+
+.border-green-900 { border-color: #14532d; }
+
+.divide-green-900 { border-color: #14532d; }
+
+.outline-green-900 { outline-color: #14532d; }
+
+.ring-green-900 { --ring-color: #14532d; }
+
+.shadow-green-900 { --shadow-color: #14532d; }
+
+.border-emerald-50 { border-color: #ecfdf5; }
+
+.divide-emerald-50 { border-color: #ecfdf5; }
+
+.outline-emerald-50 { outline-color: #ecfdf5; }
+
+.ring-emerald-50 { --ring-color: #ecfdf5; }
+
+.shadow-emerald-50 { --shadow-color: #ecfdf5; }
+
+.border-emerald-100 { border-color: #d1fae5; }
+
+.divide-emerald-100 { border-color: #d1fae5; }
+
+.outline-emerald-100 { outline-color: #d1fae5; }
+
+.ring-emerald-100 { --ring-color: #d1fae5; }
+
+.shadow-emerald-100 { --shadow-color: #d1fae5; }
+
+.border-emerald-200 { border-color: #a7f3d0; }
+
+.divide-emerald-200 { border-color: #a7f3d0; }
+
+.outline-emerald-200 { outline-color: #a7f3d0; }
+
+.ring-emerald-200 { --ring-color: #a7f3d0; }
+
+.shadow-emerald-200 { --shadow-color: #a7f3d0; }
+
+.border-emerald-300 { border-color: #6ee7b7; }
+
+.divide-emerald-300 { border-color: #6ee7b7; }
+
+.outline-emerald-300 { outline-color: #6ee7b7; }
+
+.ring-emerald-300 { --ring-color: #6ee7b7; }
+
+.shadow-emerald-300 { --shadow-color: #6ee7b7; }
+
+.border-emerald-400 { border-color: #34d399; }
+
+.divide-emerald-400 { border-color: #34d399; }
+
+.outline-emerald-400 { outline-color: #34d399; }
+
+.ring-emerald-400 { --ring-color: #34d399; }
+
+.shadow-emerald-400 { --shadow-color: #34d399; }
+
+.border-emerald-500 { border-color: #10b981; }
+
+.divide-emerald-500 { border-color: #10b981; }
+
+.outline-emerald-500 { outline-color: #10b981; }
+
+.ring-emerald-500 { --ring-color: #10b981; }
+
+.shadow-emerald-500 { --shadow-color: #10b981; }
+
+.border-emerald-600 { border-color: #059669; }
+
+.divide-emerald-600 { border-color: #059669; }
+
+.outline-emerald-600 { outline-color: #059669; }
+
+.ring-emerald-600 { --ring-color: #059669; }
+
+.shadow-emerald-600 { --shadow-color: #059669; }
+
+.border-emerald-700 { border-color: #047857; }
+
+.divide-emerald-700 { border-color: #047857; }
+
+.outline-emerald-700 { outline-color: #047857; }
+
+.ring-emerald-700 { --ring-color: #047857; }
+
+.shadow-emerald-700 { --shadow-color: #047857; }
+
+.border-emerald-800 { border-color: #065f46; }
+
+.divide-emerald-800 { border-color: #065f46; }
+
+.outline-emerald-800 { outline-color: #065f46; }
+
+.ring-emerald-800 { --ring-color: #065f46; }
+
+.shadow-emerald-800 { --shadow-color: #065f46; }
+
+.border-emerald-900 { border-color: #064e3b; }
+
+.divide-emerald-900 { border-color: #064e3b; }
+
+.outline-emerald-900 { outline-color: #064e3b; }
+
+.ring-emerald-900 { --ring-color: #064e3b; }
+
+.shadow-emerald-900 { --shadow-color: #064e3b; }
+
+.border-teal-50 { border-color: #f0fdfa; }
+
+.divide-teal-50 { border-color: #f0fdfa; }
+
+.outline-teal-50 { outline-color: #f0fdfa; }
+
+.ring-teal-50 { --ring-color: #f0fdfa; }
+
+.shadow-teal-50 { --shadow-color: #f0fdfa; }
+
+.border-teal-100 { border-color: #ccfbf1; }
+
+.divide-teal-100 { border-color: #ccfbf1; }
+
+.outline-teal-100 { outline-color: #ccfbf1; }
+
+.ring-teal-100 { --ring-color: #ccfbf1; }
+
+.shadow-teal-100 { --shadow-color: #ccfbf1; }
+
+.border-teal-200 { border-color: #99f6e4; }
+
+.divide-teal-200 { border-color: #99f6e4; }
+
+.outline-teal-200 { outline-color: #99f6e4; }
+
+.ring-teal-200 { --ring-color: #99f6e4; }
+
+.shadow-teal-200 { --shadow-color: #99f6e4; }
+
+.border-teal-300 { border-color: #5eead4; }
+
+.divide-teal-300 { border-color: #5eead4; }
+
+.outline-teal-300 { outline-color: #5eead4; }
+
+.ring-teal-300 { --ring-color: #5eead4; }
+
+.shadow-teal-300 { --shadow-color: #5eead4; }
+
+.border-teal-400 { border-color: #2dd4bf; }
+
+.divide-teal-400 { border-color: #2dd4bf; }
+
+.outline-teal-400 { outline-color: #2dd4bf; }
+
+.ring-teal-400 { --ring-color: #2dd4bf; }
+
+.shadow-teal-400 { --shadow-color: #2dd4bf; }
+
+.border-teal-500 { border-color: #14b8a6; }
+
+.divide-teal-500 { border-color: #14b8a6; }
+
+.outline-teal-500 { outline-color: #14b8a6; }
+
+.ring-teal-500 { --ring-color: #14b8a6; }
+
+.shadow-teal-500 { --shadow-color: #14b8a6; }
+
+.border-teal-600 { border-color: #0d9488; }
+
+.divide-teal-600 { border-color: #0d9488; }
+
+.outline-teal-600 { outline-color: #0d9488; }
+
+.ring-teal-600 { --ring-color: #0d9488; }
+
+.shadow-teal-600 { --shadow-color: #0d9488; }
+
+.border-teal-700 { border-color: #0f766e; }
+
+.divide-teal-700 { border-color: #0f766e; }
+
+.outline-teal-700 { outline-color: #0f766e; }
+
+.ring-teal-700 { --ring-color: #0f766e; }
+
+.shadow-teal-700 { --shadow-color: #0f766e; }
+
+.border-teal-800 { border-color: #115e59; }
+
+.divide-teal-800 { border-color: #115e59; }
+
+.outline-teal-800 { outline-color: #115e59; }
+
+.ring-teal-800 { --ring-color: #115e59; }
+
+.shadow-teal-800 { --shadow-color: #115e59; }
+
+.border-teal-900 { border-color: #134e4a; }
+
+.divide-teal-900 { border-color: #134e4a; }
+
+.outline-teal-900 { outline-color: #134e4a; }
+
+.ring-teal-900 { --ring-color: #134e4a; }
+
+.shadow-teal-900 { --shadow-color: #134e4a; }
+
+.border-cyan-50 { border-color: #ecfeff; }
+
+.divide-cyan-50 { border-color: #ecfeff; }
+
+.outline-cyan-50 { outline-color: #ecfeff; }
+
+.ring-cyan-50 { --ring-color: #ecfeff; }
+
+.shadow-cyan-50 { --shadow-color: #ecfeff; }
+
+.border-cyan-100 { border-color: #cffafe; }
+
+.divide-cyan-100 { border-color: #cffafe; }
+
+.outline-cyan-100 { outline-color: #cffafe; }
+
+.ring-cyan-100 { --ring-color: #cffafe; }
+
+.shadow-cyan-100 { --shadow-color: #cffafe; }
+
+.border-cyan-200 { border-color: #a5f3fc; }
+
+.divide-cyan-200 { border-color: #a5f3fc; }
+
+.outline-cyan-200 { outline-color: #a5f3fc; }
+
+.ring-cyan-200 { --ring-color: #a5f3fc; }
+
+.shadow-cyan-200 { --shadow-color: #a5f3fc; }
+
+.border-cyan-300 { border-color: #67e8f9; }
+
+.divide-cyan-300 { border-color: #67e8f9; }
+
+.outline-cyan-300 { outline-color: #67e8f9; }
+
+.ring-cyan-300 { --ring-color: #67e8f9; }
+
+.shadow-cyan-300 { --shadow-color: #67e8f9; }
+
+.border-cyan-400 { border-color: #22d3ee; }
+
+.divide-cyan-400 { border-color: #22d3ee; }
+
+.outline-cyan-400 { outline-color: #22d3ee; }
+
+.ring-cyan-400 { --ring-color: #22d3ee; }
+
+.shadow-cyan-400 { --shadow-color: #22d3ee; }
+
+.border-cyan-500 { border-color: #06b6d4; }
+
+.divide-cyan-500 { border-color: #06b6d4; }
+
+.outline-cyan-500 { outline-color: #06b6d4; }
+
+.ring-cyan-500 { --ring-color: #06b6d4; }
+
+.shadow-cyan-500 { --shadow-color: #06b6d4; }
+
+.border-cyan-600 { border-color: #0891b2; }
+
+.divide-cyan-600 { border-color: #0891b2; }
+
+.outline-cyan-600 { outline-color: #0891b2; }
+
+.ring-cyan-600 { --ring-color: #0891b2; }
+
+.shadow-cyan-600 { --shadow-color: #0891b2; }
+
+.border-cyan-700 { border-color: #0e7490; }
+
+.divide-cyan-700 { border-color: #0e7490; }
+
+.outline-cyan-700 { outline-color: #0e7490; }
+
+.ring-cyan-700 { --ring-color: #0e7490; }
+
+.shadow-cyan-700 { --shadow-color: #0e7490; }
+
+.border-cyan-800 { border-color: #155e75; }
+
+.divide-cyan-800 { border-color: #155e75; }
+
+.outline-cyan-800 { outline-color: #155e75; }
+
+.ring-cyan-800 { --ring-color: #155e75; }
+
+.shadow-cyan-800 { --shadow-color: #155e75; }
+
+.border-cyan-900 { border-color: #164e63; }
+
+.divide-cyan-900 { border-color: #164e63; }
+
+.outline-cyan-900 { outline-color: #164e63; }
+
+.ring-cyan-900 { --ring-color: #164e63; }
+
+.shadow-cyan-900 { --shadow-color: #164e63; }
+
+.border-sky-50 { border-color: #f0f9ff; }
+
+.divide-sky-50 { border-color: #f0f9ff; }
+
+.outline-sky-50 { outline-color: #f0f9ff; }
+
+.ring-sky-50 { --ring-color: #f0f9ff; }
+
+.shadow-sky-50 { --shadow-color: #f0f9ff; }
+
+.border-sky-100 { border-color: #e0f2fe; }
+
+.divide-sky-100 { border-color: #e0f2fe; }
+
+.outline-sky-100 { outline-color: #e0f2fe; }
+
+.ring-sky-100 { --ring-color: #e0f2fe; }
+
+.shadow-sky-100 { --shadow-color: #e0f2fe; }
+
+.border-sky-200 { border-color: #bae6fd; }
+
+.divide-sky-200 { border-color: #bae6fd; }
+
+.outline-sky-200 { outline-color: #bae6fd; }
+
+.ring-sky-200 { --ring-color: #bae6fd; }
+
+.shadow-sky-200 { --shadow-color: #bae6fd; }
+
+.border-sky-300 { border-color: #7dd3fc; }
+
+.divide-sky-300 { border-color: #7dd3fc; }
+
+.outline-sky-300 { outline-color: #7dd3fc; }
+
+.ring-sky-300 { --ring-color: #7dd3fc; }
+
+.shadow-sky-300 { --shadow-color: #7dd3fc; }
+
+.border-sky-400 { border-color: #38bdf8; }
+
+.divide-sky-400 { border-color: #38bdf8; }
+
+.outline-sky-400 { outline-color: #38bdf8; }
+
+.ring-sky-400 { --ring-color: #38bdf8; }
+
+.shadow-sky-400 { --shadow-color: #38bdf8; }
+
+.border-sky-500 { border-color: #0ea5e9; }
+
+.divide-sky-500 { border-color: #0ea5e9; }
+
+.outline-sky-500 { outline-color: #0ea5e9; }
+
+.ring-sky-500 { --ring-color: #0ea5e9; }
+
+.shadow-sky-500 { --shadow-color: #0ea5e9; }
+
+.border-sky-600 { border-color: #0284c7; }
+
+.divide-sky-600 { border-color: #0284c7; }
+
+.outline-sky-600 { outline-color: #0284c7; }
+
+.ring-sky-600 { --ring-color: #0284c7; }
+
+.shadow-sky-600 { --shadow-color: #0284c7; }
+
+.border-sky-700 { border-color: #0369a1; }
+
+.divide-sky-700 { border-color: #0369a1; }
+
+.outline-sky-700 { outline-color: #0369a1; }
+
+.ring-sky-700 { --ring-color: #0369a1; }
+
+.shadow-sky-700 { --shadow-color: #0369a1; }
+
+.border-sky-800 { border-color: #075985; }
+
+.divide-sky-800 { border-color: #075985; }
+
+.outline-sky-800 { outline-color: #075985; }
+
+.ring-sky-800 { --ring-color: #075985; }
+
+.shadow-sky-800 { --shadow-color: #075985; }
+
+.border-sky-900 { border-color: #0c4a6e; }
+
+.divide-sky-900 { border-color: #0c4a6e; }
+
+.outline-sky-900 { outline-color: #0c4a6e; }
+
+.ring-sky-900 { --ring-color: #0c4a6e; }
+
+.shadow-sky-900 { --shadow-color: #0c4a6e; }
+
+.border-blue-50 { border-color: #eff6ff; }
+
+.divide-blue-50 { border-color: #eff6ff; }
+
+.outline-blue-50 { outline-color: #eff6ff; }
+
+.ring-blue-50 { --ring-color: #eff6ff; }
+
+.shadow-blue-50 { --shadow-color: #eff6ff; }
+
+.border-blue-100 { border-color: #dbeafe; }
+
+.divide-blue-100 { border-color: #dbeafe; }
+
+.outline-blue-100 { outline-color: #dbeafe; }
+
+.ring-blue-100 { --ring-color: #dbeafe; }
+
+.shadow-blue-100 { --shadow-color: #dbeafe; }
+
+.border-blue-200 { border-color: #bfdbfe; }
+
+.divide-blue-200 { border-color: #bfdbfe; }
+
+.outline-blue-200 { outline-color: #bfdbfe; }
+
+.ring-blue-200 { --ring-color: #bfdbfe; }
+
+.shadow-blue-200 { --shadow-color: #bfdbfe; }
+
+.border-blue-300 { border-color: #93c5fd; }
+
+.divide-blue-300 { border-color: #93c5fd; }
+
+.outline-blue-300 { outline-color: #93c5fd; }
+
+.ring-blue-300 { --ring-color: #93c5fd; }
+
+.shadow-blue-300 { --shadow-color: #93c5fd; }
+
+.border-blue-400 { border-color: #60a5fa; }
+
+.divide-blue-400 { border-color: #60a5fa; }
+
+.outline-blue-400 { outline-color: #60a5fa; }
+
+.ring-blue-400 { --ring-color: #60a5fa; }
+
+.shadow-blue-400 { --shadow-color: #60a5fa; }
+
+.border-blue-500 { border-color: #3b82f6; }
+
+.divide-blue-500 { border-color: #3b82f6; }
+
+.outline-blue-500 { outline-color: #3b82f6; }
+
+.ring-blue-500 { --ring-color: #3b82f6; }
+
+.shadow-blue-500 { --shadow-color: #3b82f6; }
+
+.border-blue-600 { border-color: #2563eb; }
+
+.divide-blue-600 { border-color: #2563eb; }
+
+.outline-blue-600 { outline-color: #2563eb; }
+
+.ring-blue-600 { --ring-color: #2563eb; }
+
+.shadow-blue-600 { --shadow-color: #2563eb; }
+
+.border-blue-700 { border-color: #1d4ed8; }
+
+.divide-blue-700 { border-color: #1d4ed8; }
+
+.outline-blue-700 { outline-color: #1d4ed8; }
+
+.ring-blue-700 { --ring-color: #1d4ed8; }
+
+.shadow-blue-700 { --shadow-color: #1d4ed8; }
+
+.border-blue-800 { border-color: #1e40af; }
+
+.divide-blue-800 { border-color: #1e40af; }
+
+.outline-blue-800 { outline-color: #1e40af; }
+
+.ring-blue-800 { --ring-color: #1e40af; }
+
+.shadow-blue-800 { --shadow-color: #1e40af; }
+
+.border-blue-900 { border-color: #1e3a8a; }
+
+.divide-blue-900 { border-color: #1e3a8a; }
+
+.outline-blue-900 { outline-color: #1e3a8a; }
+
+.ring-blue-900 { --ring-color: #1e3a8a; }
+
+.shadow-blue-900 { --shadow-color: #1e3a8a; }
+
+.border-indigo-50 { border-color: #eef2ff; }
+
+.divide-indigo-50 { border-color: #eef2ff; }
+
+.outline-indigo-50 { outline-color: #eef2ff; }
+
+.ring-indigo-50 { --ring-color: #eef2ff; }
+
+.shadow-indigo-50 { --shadow-color: #eef2ff; }
+
+.border-indigo-100 { border-color: #e0e7ff; }
+
+.divide-indigo-100 { border-color: #e0e7ff; }
+
+.outline-indigo-100 { outline-color: #e0e7ff; }
+
+.ring-indigo-100 { --ring-color: #e0e7ff; }
+
+.shadow-indigo-100 { --shadow-color: #e0e7ff; }
+
+.border-indigo-200 { border-color: #c7d2fe; }
+
+.divide-indigo-200 { border-color: #c7d2fe; }
+
+.outline-indigo-200 { outline-color: #c7d2fe; }
+
+.ring-indigo-200 { --ring-color: #c7d2fe; }
+
+.shadow-indigo-200 { --shadow-color: #c7d2fe; }
+
+.border-indigo-300 { border-color: #a5b4fc; }
+
+.divide-indigo-300 { border-color: #a5b4fc; }
+
+.outline-indigo-300 { outline-color: #a5b4fc; }
+
+.ring-indigo-300 { --ring-color: #a5b4fc; }
+
+.shadow-indigo-300 { --shadow-color: #a5b4fc; }
+
+.border-indigo-400 { border-color: #818cf8; }
+
+.divide-indigo-400 { border-color: #818cf8; }
+
+.outline-indigo-400 { outline-color: #818cf8; }
+
+.ring-indigo-400 { --ring-color: #818cf8; }
+
+.shadow-indigo-400 { --shadow-color: #818cf8; }
+
+.border-indigo-500 { border-color: #6366f1; }
+
+.divide-indigo-500 { border-color: #6366f1; }
+
+.outline-indigo-500 { outline-color: #6366f1; }
+
+.ring-indigo-500 { --ring-color: #6366f1; }
+
+.shadow-indigo-500 { --shadow-color: #6366f1; }
+
+.border-indigo-600 { border-color: #4f46e5; }
+
+.divide-indigo-600 { border-color: #4f46e5; }
+
+.outline-indigo-600 { outline-color: #4f46e5; }
+
+.ring-indigo-600 { --ring-color: #4f46e5; }
+
+.shadow-indigo-600 { --shadow-color: #4f46e5; }
+
+.border-indigo-700 { border-color: #4338ca; }
+
+.divide-indigo-700 { border-color: #4338ca; }
+
+.outline-indigo-700 { outline-color: #4338ca; }
+
+.ring-indigo-700 { --ring-color: #4338ca; }
+
+.shadow-indigo-700 { --shadow-color: #4338ca; }
+
+.border-indigo-800 { border-color: #3730a3; }
+
+.divide-indigo-800 { border-color: #3730a3; }
+
+.outline-indigo-800 { outline-color: #3730a3; }
+
+.ring-indigo-800 { --ring-color: #3730a3; }
+
+.shadow-indigo-800 { --shadow-color: #3730a3; }
+
+.border-indigo-900 { border-color: #312e81; }
+
+.divide-indigo-900 { border-color: #312e81; }
+
+.outline-indigo-900 { outline-color: #312e81; }
+
+.ring-indigo-900 { --ring-color: #312e81; }
+
+.shadow-indigo-900 { --shadow-color: #312e81; }
+
+.border-violet-50 { border-color: #f5f3ff; }
+
+.divide-violet-50 { border-color: #f5f3ff; }
+
+.outline-violet-50 { outline-color: #f5f3ff; }
+
+.ring-violet-50 { --ring-color: #f5f3ff; }
+
+.shadow-violet-50 { --shadow-color: #f5f3ff; }
+
+.border-violet-100 { border-color: #ede9fe; }
+
+.divide-violet-100 { border-color: #ede9fe; }
+
+.outline-violet-100 { outline-color: #ede9fe; }
+
+.ring-violet-100 { --ring-color: #ede9fe; }
+
+.shadow-violet-100 { --shadow-color: #ede9fe; }
+
+.border-violet-200 { border-color: #ddd6fe; }
+
+.divide-violet-200 { border-color: #ddd6fe; }
+
+.outline-violet-200 { outline-color: #ddd6fe; }
+
+.ring-violet-200 { --ring-color: #ddd6fe; }
+
+.shadow-violet-200 { --shadow-color: #ddd6fe; }
+
+.border-violet-300 { border-color: #c4b5fd; }
+
+.divide-violet-300 { border-color: #c4b5fd; }
+
+.outline-violet-300 { outline-color: #c4b5fd; }
+
+.ring-violet-300 { --ring-color: #c4b5fd; }
+
+.shadow-violet-300 { --shadow-color: #c4b5fd; }
+
+.border-violet-400 { border-color: #a78bfa; }
+
+.divide-violet-400 { border-color: #a78bfa; }
+
+.outline-violet-400 { outline-color: #a78bfa; }
+
+.ring-violet-400 { --ring-color: #a78bfa; }
+
+.shadow-violet-400 { --shadow-color: #a78bfa; }
+
+.border-violet-500 { border-color: #8b5cf6; }
+
+.divide-violet-500 { border-color: #8b5cf6; }
+
+.outline-violet-500 { outline-color: #8b5cf6; }
+
+.ring-violet-500 { --ring-color: #8b5cf6; }
+
+.shadow-violet-500 { --shadow-color: #8b5cf6; }
+
+.border-violet-600 { border-color: #7c3aed; }
+
+.divide-violet-600 { border-color: #7c3aed; }
+
+.outline-violet-600 { outline-color: #7c3aed; }
+
+.ring-violet-600 { --ring-color: #7c3aed; }
+
+.shadow-violet-600 { --shadow-color: #7c3aed; }
+
+.border-violet-700 { border-color: #6d28d9; }
+
+.divide-violet-700 { border-color: #6d28d9; }
+
+.outline-violet-700 { outline-color: #6d28d9; }
+
+.ring-violet-700 { --ring-color: #6d28d9; }
+
+.shadow-violet-700 { --shadow-color: #6d28d9; }
+
+.border-violet-800 { border-color: #5b21b6; }
+
+.divide-violet-800 { border-color: #5b21b6; }
+
+.outline-violet-800 { outline-color: #5b21b6; }
+
+.ring-violet-800 { --ring-color: #5b21b6; }
+
+.shadow-violet-800 { --shadow-color: #5b21b6; }
+
+.border-violet-900 { border-color: #4c1d95; }
+
+.divide-violet-900 { border-color: #4c1d95; }
+
+.outline-violet-900 { outline-color: #4c1d95; }
+
+.ring-violet-900 { --ring-color: #4c1d95; }
+
+.shadow-violet-900 { --shadow-color: #4c1d95; }
+
+.border-purple-50 { border-color: #faf5ff; }
+
+.divide-purple-50 { border-color: #faf5ff; }
+
+.outline-purple-50 { outline-color: #faf5ff; }
+
+.ring-purple-50 { --ring-color: #faf5ff; }
+
+.shadow-purple-50 { --shadow-color: #faf5ff; }
+
+.border-purple-100 { border-color: #f3e8ff; }
+
+.divide-purple-100 { border-color: #f3e8ff; }
+
+.outline-purple-100 { outline-color: #f3e8ff; }
+
+.ring-purple-100 { --ring-color: #f3e8ff; }
+
+.shadow-purple-100 { --shadow-color: #f3e8ff; }
+
+.border-purple-200 { border-color: #e9d5ff; }
+
+.divide-purple-200 { border-color: #e9d5ff; }
+
+.outline-purple-200 { outline-color: #e9d5ff; }
+
+.ring-purple-200 { --ring-color: #e9d5ff; }
+
+.shadow-purple-200 { --shadow-color: #e9d5ff; }
+
+.border-purple-300 { border-color: #d8b4fe; }
+
+.divide-purple-300 { border-color: #d8b4fe; }
+
+.outline-purple-300 { outline-color: #d8b4fe; }
+
+.ring-purple-300 { --ring-color: #d8b4fe; }
+
+.shadow-purple-300 { --shadow-color: #d8b4fe; }
+
+.border-purple-400 { border-color: #c084fc; }
+
+.divide-purple-400 { border-color: #c084fc; }
+
+.outline-purple-400 { outline-color: #c084fc; }
+
+.ring-purple-400 { --ring-color: #c084fc; }
+
+.shadow-purple-400 { --shadow-color: #c084fc; }
+
+.border-purple-500 { border-color: #a855f7; }
+
+.divide-purple-500 { border-color: #a855f7; }
+
+.outline-purple-500 { outline-color: #a855f7; }
+
+.ring-purple-500 { --ring-color: #a855f7; }
+
+.shadow-purple-500 { --shadow-color: #a855f7; }
+
+.border-purple-600 { border-color: #9333ea; }
+
+.divide-purple-600 { border-color: #9333ea; }
+
+.outline-purple-600 { outline-color: #9333ea; }
+
+.ring-purple-600 { --ring-color: #9333ea; }
+
+.shadow-purple-600 { --shadow-color: #9333ea; }
+
+.border-purple-700 { border-color: #7e22ce; }
+
+.divide-purple-700 { border-color: #7e22ce; }
+
+.outline-purple-700 { outline-color: #7e22ce; }
+
+.ring-purple-700 { --ring-color: #7e22ce; }
+
+.shadow-purple-700 { --shadow-color: #7e22ce; }
+
+.border-purple-800 { border-color: #6b21a8; }
+
+.divide-purple-800 { border-color: #6b21a8; }
+
+.outline-purple-800 { outline-color: #6b21a8; }
+
+.ring-purple-800 { --ring-color: #6b21a8; }
+
+.shadow-purple-800 { --shadow-color: #6b21a8; }
+
+.border-purple-900 { border-color: #581c87; }
+
+.divide-purple-900 { border-color: #581c87; }
+
+.outline-purple-900 { outline-color: #581c87; }
+
+.ring-purple-900 { --ring-color: #581c87; }
+
+.shadow-purple-900 { --shadow-color: #581c87; }
+
+.border-fuchsia-50 { border-color: #fdf4ff; }
+
+.divide-fuchsia-50 { border-color: #fdf4ff; }
+
+.outline-fuchsia-50 { outline-color: #fdf4ff; }
+
+.ring-fuchsia-50 { --ring-color: #fdf4ff; }
+
+.shadow-fuchsia-50 { --shadow-color: #fdf4ff; }
+
+.border-fuchsia-100 { border-color: #fae8ff; }
+
+.divide-fuchsia-100 { border-color: #fae8ff; }
+
+.outline-fuchsia-100 { outline-color: #fae8ff; }
+
+.ring-fuchsia-100 { --ring-color: #fae8ff; }
+
+.shadow-fuchsia-100 { --shadow-color: #fae8ff; }
+
+.border-fuchsia-200 { border-color: #f5d0fe; }
+
+.divide-fuchsia-200 { border-color: #f5d0fe; }
+
+.outline-fuchsia-200 { outline-color: #f5d0fe; }
+
+.ring-fuchsia-200 { --ring-color: #f5d0fe; }
+
+.shadow-fuchsia-200 { --shadow-color: #f5d0fe; }
+
+.border-fuchsia-300 { border-color: #f0abfc; }
+
+.divide-fuchsia-300 { border-color: #f0abfc; }
+
+.outline-fuchsia-300 { outline-color: #f0abfc; }
+
+.ring-fuchsia-300 { --ring-color: #f0abfc; }
+
+.shadow-fuchsia-300 { --shadow-color: #f0abfc; }
+
+.border-fuchsia-400 { border-color: #e879f9; }
+
+.divide-fuchsia-400 { border-color: #e879f9; }
+
+.outline-fuchsia-400 { outline-color: #e879f9; }
+
+.ring-fuchsia-400 { --ring-color: #e879f9; }
+
+.shadow-fuchsia-400 { --shadow-color: #e879f9; }
+
+.border-fuchsia-500 { border-color: #d946ef; }
+
+.divide-fuchsia-500 { border-color: #d946ef; }
+
+.outline-fuchsia-500 { outline-color: #d946ef; }
+
+.ring-fuchsia-500 { --ring-color: #d946ef; }
+
+.shadow-fuchsia-500 { --shadow-color: #d946ef; }
+
+.border-fuchsia-600 { border-color: #c026d3; }
+
+.divide-fuchsia-600 { border-color: #c026d3; }
+
+.outline-fuchsia-600 { outline-color: #c026d3; }
+
+.ring-fuchsia-600 { --ring-color: #c026d3; }
+
+.shadow-fuchsia-600 { --shadow-color: #c026d3; }
+
+.border-fuchsia-700 { border-color: #a21caf; }
+
+.divide-fuchsia-700 { border-color: #a21caf; }
+
+.outline-fuchsia-700 { outline-color: #a21caf; }
+
+.ring-fuchsia-700 { --ring-color: #a21caf; }
+
+.shadow-fuchsia-700 { --shadow-color: #a21caf; }
+
+.border-fuchsia-800 { border-color: #86198f; }
+
+.divide-fuchsia-800 { border-color: #86198f; }
+
+.outline-fuchsia-800 { outline-color: #86198f; }
+
+.ring-fuchsia-800 { --ring-color: #86198f; }
+
+.shadow-fuchsia-800 { --shadow-color: #86198f; }
+
+.border-fuchsia-900 { border-color: #701a75; }
+
+.divide-fuchsia-900 { border-color: #701a75; }
+
+.outline-fuchsia-900 { outline-color: #701a75; }
+
+.ring-fuchsia-900 { --ring-color: #701a75; }
+
+.shadow-fuchsia-900 { --shadow-color: #701a75; }
+
+.border-pink-50 { border-color: #fdf2f8; }
+
+.divide-pink-50 { border-color: #fdf2f8; }
+
+.outline-pink-50 { outline-color: #fdf2f8; }
+
+.ring-pink-50 { --ring-color: #fdf2f8; }
+
+.shadow-pink-50 { --shadow-color: #fdf2f8; }
+
+.border-pink-100 { border-color: #fce7f3; }
+
+.divide-pink-100 { border-color: #fce7f3; }
+
+.outline-pink-100 { outline-color: #fce7f3; }
+
+.ring-pink-100 { --ring-color: #fce7f3; }
+
+.shadow-pink-100 { --shadow-color: #fce7f3; }
+
+.border-pink-200 { border-color: #fbcfe8; }
+
+.divide-pink-200 { border-color: #fbcfe8; }
+
+.outline-pink-200 { outline-color: #fbcfe8; }
+
+.ring-pink-200 { --ring-color: #fbcfe8; }
+
+.shadow-pink-200 { --shadow-color: #fbcfe8; }
+
+.border-pink-300 { border-color: #f9a8d4; }
+
+.divide-pink-300 { border-color: #f9a8d4; }
+
+.outline-pink-300 { outline-color: #f9a8d4; }
+
+.ring-pink-300 { --ring-color: #f9a8d4; }
+
+.shadow-pink-300 { --shadow-color: #f9a8d4; }
+
+.border-pink-400 { border-color: #f472b6; }
+
+.divide-pink-400 { border-color: #f472b6; }
+
+.outline-pink-400 { outline-color: #f472b6; }
+
+.ring-pink-400 { --ring-color: #f472b6; }
+
+.shadow-pink-400 { --shadow-color: #f472b6; }
+
+.border-pink-500 { border-color: #ec4899; }
+
+.divide-pink-500 { border-color: #ec4899; }
+
+.outline-pink-500 { outline-color: #ec4899; }
+
+.ring-pink-500 { --ring-color: #ec4899; }
+
+.shadow-pink-500 { --shadow-color: #ec4899; }
+
+.border-pink-600 { border-color: #db2777; }
+
+.divide-pink-600 { border-color: #db2777; }
+
+.outline-pink-600 { outline-color: #db2777; }
+
+.ring-pink-600 { --ring-color: #db2777; }
+
+.shadow-pink-600 { --shadow-color: #db2777; }
+
+.border-pink-700 { border-color: #be185d; }
+
+.divide-pink-700 { border-color: #be185d; }
+
+.outline-pink-700 { outline-color: #be185d; }
+
+.ring-pink-700 { --ring-color: #be185d; }
+
+.shadow-pink-700 { --shadow-color: #be185d; }
+
+.border-pink-800 { border-color: #9d174d; }
+
+.divide-pink-800 { border-color: #9d174d; }
+
+.outline-pink-800 { outline-color: #9d174d; }
+
+.ring-pink-800 { --ring-color: #9d174d; }
+
+.shadow-pink-800 { --shadow-color: #9d174d; }
+
+.border-pink-900 { border-color: #831843; }
+
+.divide-pink-900 { border-color: #831843; }
+
+.outline-pink-900 { outline-color: #831843; }
+
+.ring-pink-900 { --ring-color: #831843; }
+
+.shadow-pink-900 { --shadow-color: #831843; }
+
+.border-rose-50 { border-color: #fafafa; }
+
+.divide-rose-50 { border-color: #fafafa; }
+
+.outline-rose-50 { outline-color: #fafafa; }
+
+.ring-rose-50 { --ring-color: #fafafa; }
+
+.shadow-rose-50 { --shadow-color: #fafafa; }
+
+.border-rose-100 { border-color: #f4f4f5; }
+
+.divide-rose-100 { border-color: #f4f4f5; }
+
+.outline-rose-100 { outline-color: #f4f4f5; }
+
+.ring-rose-100 { --ring-color: #f4f4f5; }
+
+.shadow-rose-100 { --shadow-color: #f4f4f5; }
+
+.border-rose-200 { border-color: #fecdd3; }
+
+.divide-rose-200 { border-color: #fecdd3; }
+
+.outline-rose-200 { outline-color: #fecdd3; }
+
+.ring-rose-200 { --ring-color: #fecdd3; }
+
+.shadow-rose-200 { --shadow-color: #fecdd3; }
+
+.border-rose-300 { border-color: #fda4af; }
+
+.divide-rose-300 { border-color: #fda4af; }
+
+.outline-rose-300 { outline-color: #fda4af; }
+
+.ring-rose-300 { --ring-color: #fda4af; }
+
+.shadow-rose-300 { --shadow-color: #fda4af; }
+
+.border-rose-400 { border-color: #fb7185; }
+
+.divide-rose-400 { border-color: #fb7185; }
+
+.outline-rose-400 { outline-color: #fb7185; }
+
+.ring-rose-400 { --ring-color: #fb7185; }
+
+.shadow-rose-400 { --shadow-color: #fb7185; }
+
+.border-rose-500 { border-color: #f43f5e; }
+
+.divide-rose-500 { border-color: #f43f5e; }
+
+.outline-rose-500 { outline-color: #f43f5e; }
+
+.ring-rose-500 { --ring-color: #f43f5e; }
+
+.shadow-rose-500 { --shadow-color: #f43f5e; }
+
+.border-rose-600 { border-color: #e11d48; }
+
+.divide-rose-600 { border-color: #e11d48; }
+
+.outline-rose-600 { outline-color: #e11d48; }
+
+.ring-rose-600 { --ring-color: #e11d48; }
+
+.shadow-rose-600 { --shadow-color: #e11d48; }
+
+.border-rose-700 { border-color: #be123c; }
+
+.divide-rose-700 { border-color: #be123c; }
+
+.outline-rose-700 { outline-color: #be123c; }
+
+.ring-rose-700 { --ring-color: #be123c; }
+
+.shadow-rose-700 { --shadow-color: #be123c; }
+
+.border-rose-800 { border-color: #9f1239; }
+
+.divide-rose-800 { border-color: #9f1239; }
+
+.outline-rose-800 { outline-color: #9f1239; }
+
+.ring-rose-800 { --ring-color: #9f1239; }
+
+.shadow-rose-800 { --shadow-color: #9f1239; }
+
+.border-rose-900 { border-color: #881337; }
+
+.divide-rose-900 { border-color: #881337; }
+
+.outline-rose-900 { outline-color: #881337; }
+
+.ring-rose-900 { --ring-color: #881337; }
+
+.shadow-rose-900 { --shadow-color: #881337; }
+
+/* 4. border style */
+.border-solid { border-style: solid; }
+
+.border-dashed { border-style: dashed; }
+
+.border-dotted { border-style: dotted; }
+
+.border-double { border-style: double; }
+
+.border-hidden { border-style: hidden; }
+
+.border-none { border-style: none; }
+
+/* 5. divide width */
+.divide-x { border-right-width: 0; border-left-width: 1px; }
+
+.divide-x-0 { border-right-width: 0; border-left-width: 0; }
+
+.divide-x-2 { border-right-width: 0; border-left-width: 2px; }
+
+.divide-x-4 { border-right-width: 0; border-left-width: 4px; }
+
+.divide-x-8 { border-right-width: 0; border-left-width: 8px; }
+
+.divide-y { border-top-width: 0; border-bottom-width: 1px; }
+
+.divide-y-0 { border-top-width: 0; border-bottom-width: 0; }
+
+.divide-y-2 { border-top-width: 0; border-bottom-width: 2px; }
+
+.divide-y-4 { border-top-width: 0; border-bottom-width: 4px; }
+
+.divide-y-8 { border-top-width: 0; border-bottom-width: 8px; }
+
+/* 6. divide style and outline-style */
+.divide-solid { border-style: solid; }
+
+.outline-solid { outline-style: solid; }
+
+.divide-dashed { border-style: dashed; }
+
+.outline-dashed { outline-style: dashed; }
+
+.divide-dotted { border-style: dotted; }
+
+.outline-dotted { outline-style: dotted; }
+
+.divide-double { border-style: double; }
+
+.outline-double { outline-style: double; }
+
+.divide-none { border-style: none; }
+
+.outline-none { outline-style: none; }
+
+/* 7.  outline width and outline offset */
+.outline-0 { outline-width: 0; }
+
+.outline-offset-0 { outline-offset: 0; }
+
+.outline-1 { outline-width: 1px; }
+
+.outline-offset-1 { outline-offset: 1px; }
+
+.outline-2 { outline-width: 2px; }
+
+.outline-offset-2 { outline-offset: 2px; }
+
+.outline-4 { outline-width: 4px; }
+
+.outline-offset-4 { outline-offset: 4px; }
+
+.outline-8 { outline-width: 8px; }
+
+.outline-offset-8 { outline-offset: 8px; }
+
+/* 8. outline offset/ box-shadow */
+.ring-0 { box-shadow: inset 0 0 0 calc(0px + 0) var(--ring-color); }
+
+.ring-1 { box-shadow: inset 0 0 0 calc(0px + 1px) var(--ring-color); }
+
+.ring-2 { box-shadow: inset 0 0 0 calc(0px + 2px) var(--ring-color); }
+
+.ring-3 { box-shadow: inset 0 0 0 calc(0px + 3px) var(--ring-color); }
+
+.ring-4 { box-shadow: inset 0 0 0 calc(0px + 4px) var(--ring-color); }
+
+.ring-8 { box-shadow: inset 0 0 0 calc(0px + 8px) #fff; }

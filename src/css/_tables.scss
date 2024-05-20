@@ -1,0 +1,56 @@
+@charset "utf-8";
+/*!
+  Name: tables
+  Author: william
+  Author URI: 
+  Description: elements tables.
+  Version: 1.0.1
+	Tags: tables, border-collapse, border-spacing, table-layout
+  Update: December 26th,2022
+*/
+
+/*
+* 1. border-collapse
+*/
+$borderCollapse: collapse, separate;
+@each $values in $borderCollapse {
+  .border-#{$values} {
+    border-collapse: $values;
+  }
+}
+
+
+/*
+* 2. border-spacing
+*/
+$borderSpacing: (0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 6: unquote(6+"px"), 8: unquote(8+"px"), 10: unquote(10+"px"), 12: unquote(12+"px"), 14: unquote(14+"px"), 16: unquote(16+"px"), 18: unquote(18+"px"), 20: unquote(20+"px"), 24: unquote(24+"px"), 28: unquote(28+"px"), 32: unquote(32+"px"), 36: unquote(36+"px"), 40: unquote(40+"px"), 60: unquote(60+"px"), 80: unquote(80+"px"), 100: unquote(100+"px"), 120: unquote(120+"px"), 160: unquote(160+"px"), 200: unquote(200+"px"), 320: unquote(320+"px"));
+
+@for $i from 1 through length(map-keys($borderSpacing)) {
+  $name: nth(map-keys($borderSpacing), $i);
+  $values: nth(map-values($borderSpacing), $i);
+  $border-spacing-x: 4px;
+  $border-spacing-y: 4px;
+
+  .border-spacing-#{$name}{
+    border-spacing: #{$values} #{$values};
+  }
+
+  .border-spacing-x-#{$name}{
+    border-spacing: #{$values} $border-spacing-y;
+  }
+
+  .border-spacing-y-#{$name}{
+    border-spacing: $border-spacing-x #{$values};
+  }
+}
+
+
+/*
+* 3. table-layout
+*/
+$tableLayout: auto, fixed;
+@each $values in $tableLayout {
+  .table-#{$values} {
+    table-layout: $values;
+  }
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/*!
+  Name: base
+  Author: william
+  Author URI: 
+  Description: base would contain variables, reset, colors etc.
+  Version: 1.0.1
+	Tags: base,front end,variables
+  Update: December 6th,2021
+*/
+
+@import "./_base","./_borders","./_breakpoints","./_customscrollbar","./_effects","./_filters","./_flexgrid","./_function","./_graphical","./_interactivity","./_layout","./_sizing","./_spacing","./_tables","./_transforms","./_transitions","./_typography","./_animation","./_backgrounds","./_normalize","./_mixins","./main","./onePx";

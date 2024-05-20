@@ -1,0 +1,108 @@
+@charset "utf-8";
+/*!
+  Name: spacing
+  Author: william
+  Author URI: 
+  Description: elements spacing.
+  Version: 1.0.1
+	Tags: spacing,padding,margin,space between
+  Update: February 19th,2024
+*/
+
+/*
+* 1. padding
+*/
+$padding:( 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(144+'px'),md: unquote(160+'px'),lg: unquote(192+'px'),xl: unquote(224+'px'),2xl: unquote(288+'px'),3xl: unquote(352+'px'));
+@for $i from 1 through length(map-keys($padding)) {
+  $name: nth(map-keys($padding), $i);
+  $values: nth(map-values($padding), $i);
+  .p-#{$name}{
+    padding: $values;
+  }
+
+  .px-#{$name}{
+    padding-left: $values;
+    padding-right: $values;
+  }
+
+  .py-#{$name}{
+    padding-top: $values;
+    padding-bottom: $values;
+  }
+
+  .pt-#{$name}{
+    padding-top: $values;
+  }
+
+  .pr-#{$name}{
+    padding-right: $values;
+  }
+
+  .pb-#{$name}{
+    padding-bottom: $values;
+  }
+
+  .pl-#{$name}{
+    padding-left: $values;
+  }
+}
+
+
+/*
+* 2. margin
+*/
+$margin:( auto: auto, 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(144+'px'),md: unquote(160+'px'),lg: unquote(192+'px'),xl: unquote(224+'px'),2xl: unquote(288+'px'),3xl: unquote(352+'px'));
+@for $i from 1 through length(map-keys($margin)) {
+  $name: nth(map-keys($margin), $i);
+  $values: nth(map-values($margin), $i);
+  .m-#{$name}{
+    margin: $values;
+  }
+
+  .mx-#{$name}{
+    margin-left: $values;
+    margin-right: $values;
+  }
+
+  .my-#{$name}{
+    margin-top: $values;
+    margin-bottom: $values;
+  }
+
+  .mt-#{$name}{
+    margin-top: $values;
+  }
+
+  .mr-#{$name}{
+    margin-right: $values;
+  }
+
+  .mb-#{$name}{
+    margin-bottom: $values;
+  }
+
+  .ml-#{$name}{
+    margin-left: $values;
+  }
+  
+  .m-inline{
+    margin-inline: auto;
+  }
+}
+
+
+/*
+* 3. space between
+*/
+$spaceBetween: (0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),4: unquote(4+'px'),6: unquote(6+'px'),8: unquote(8+'px'),10: unquote(10+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),18: unquote(18+'px'),20: unquote(20+'px'),22: unquote(22+'px'),24: unquote(24+'px'),26: unquote(26+'px'),28: unquote(28+'px'),30: unquote(30+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),68: unquote(68+'px'),80: unquote(80+'px'),84: unquote(84+'px'),90: unquote(90+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(256+'px'),md: unquote(384+'px'),lg: unquote(512+'px'),xl: unquote(640+'px'));
+@for $i from 1 through length(map-keys($spaceBetween)) {
+  $name: nth(map-keys($spaceBetween), $i);
+  $values: nth(map-values($spaceBetween), $i);
+  .space-x-#{$name}{
+    margin-left: $values;
+  }
+
+  .space-y-#{$name}{
+    margin-top: $values;
+  }
+}

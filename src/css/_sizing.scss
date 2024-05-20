@@ -1,0 +1,87 @@
+@charset "utf-8";
+/*!
+  Name: sizing
+  Author: william
+  Author URI: 
+  Description: elements size.
+  Version: 1.0.1
+	Tags: size,width,height,min-width,max-width,min-height,max-height
+  Update: December 14th,2022
+*/
+
+/*
+* 1. width
+*/
+$width:(screen: unquote(100+'vw'),min: min-content,max: max-content,fit: fit-content,0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),128: unquote(128+'px'),144: unquote(144+'px'),160: unquote(160+'px'),192: unquote(192+'px'),224: unquote(224+'px'),288: unquote(288+'px'),352: unquote(352+'px'),3xs: 10%,2xs: 20%, xs: 30%, s: 40%,m: 50%,l: 60%,xl: 70%,2xl: 80%, 3xl: 90%,full: 100%,auto: auto);
+@for $i from 1 through length(map-keys($width)) {
+  $name: nth(map-keys($width), $i);
+  $values: nth(map-values($width), $i);
+  .w-#{$name}{
+    width: $values;
+  }
+}
+
+
+/*
+* 2. min-width
+*/
+$minWidth: (0: 0, full: 100%, min: min-content, max: max-content, fit: fit-content);
+@for $i from 1 through length(map-keys($minWidth)) {
+  $name: nth(map-keys($minWidth), $i);
+  $values: nth(map-values($minWidth), $i);
+  .min-w-#{$name}{
+    min-width: $values;
+  }
+}
+
+
+/*
+* 3. max-width
+*/
+$maxWidth:(none: none, 0: 0, full: 100%, min: min-content, max: max-content, fit: fit-content,xs: unquote(320+'px'), sm: unquote(384+'px'), md: unquote(448+'px'), lg: unquote(512+'px'), xl: unquote(576+'px'), 2xl: unquote(672+'px'), 3xl: unquote(768+'px'), 4xl: unquote(896+'px'), 5xl: unquote(1024+'px'), 6xl: unquote(1152+'px'), 7xl: unquote(1280+'px'), screen-sm: unquote(640+'px'), screen-md: unquote(768+'px'), screen-lg: unquote(1024+'px'), screen-xl: unquote(1280+'px'), screen-2xl: unquote(1536+'px'), screen-3xl: unquote(1792+'px'), screen-4xl: unquote(2048+'px'), screen-5xl: unquote(2304+'px'), screen-6xl: unquote(2560+'px'));
+@for $i from 1 through length(map-keys($maxWidth)) {
+  $name: nth(map-keys($maxWidth), $i);
+  $values: nth(map-values($maxWidth), $i);
+  .max-w-#{$name}{
+    max-width: $values;
+  }
+}
+
+
+/*
+* 4. height
+*/
+$height:(screen: unquote(100+'vh'),min: min-content,max: max-content,fit: fit-content,0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),128: unquote(128+'px'),144: unquote(144+'px'),160: unquote(160+'px'),192: unquote(192+'px'),224: unquote(224+'px'),288: unquote(288+'px'),352: unquote(352+'px'),3xs: 10%,2xs: 20%, xs: 30%, s: 40%,m: 50%,l: 60%,xl: 70%,2xl: 80%, 3xl: 90%,full: 100%,auto: auto);
+@for $i from 1 through length(map-keys($height)) {
+  $name: nth(map-keys($height), $i);
+  $values: nth(map-values($height), $i);
+  .h-#{$name}{
+    height: $values;
+  }
+}
+
+
+/*
+* 5. min-height
+*/
+$minHeight: (0: 0, full: 100%, screen: unquote(100+'vh'), min: min-content, max: max-content, fit: fit-content);
+@for $i from 1 through length(map-keys($minHeight)) {
+  $name: nth(map-keys($minHeight), $i);
+  $values: nth(map-values($minHeight), $i);
+  .min-h-#{$name}{
+    min-height: $values;
+  }
+}
+
+
+/*
+* 6. max-height
+*/
+$maxHeight: (0: 0, full: 100%, min: min-content, max: max-content, fit: fit-content,1: unquote(1+'px'), 2: unquote(2+'px'), 4: unquote(4+'px'), 6: unquote(6+'px'), 8: unquote(8+'px'), 10: unquote(10+'px'), 12: unquote(12+'px'), 14: unquote(14+'px'), 16: unquote(16+'px'), 20: unquote(20+'px'), 24: unquote(24+'px'), 28: unquote(28+'px'), 32: unquote(32+'px'), 36: unquote(36+'px'), 40: unquote(40+'px'), 44: unquote(44+'px'), 48: unquote(48+'px'), 56: unquote(56+'px'), 64: unquote(64+'px'), 80: unquote(80+'px'), 96: unquote(96+'px'), 112: unquote(112+'px'), 128: unquote(128+'px'), 144: unquote(144+'px'), 160: unquote(160+'px'), 176: unquote(176+'px'), 192: unquote(192+'px'), 208: unquote(208+'px'), 224: unquote(224+'px'), 240: unquote(240+'px'), 256: unquote(256+'px'), 288: unquote(288+'px'), 320: unquote(320+'px'), 384: unquote(384+'px'), screen: unquote(100+'vh'));
+@for $i from 1 through length(map-keys($maxHeight)) {
+  $name: nth(map-keys($maxHeight), $i);
+  $values: nth(map-values($maxHeight), $i);
+  .max-h-#{$name}{
+    max-height: $values;
+  }
+}

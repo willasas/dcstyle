@@ -1,0 +1,584 @@
+/*! * * * * * * * * * * * * * * * * * * * *\ 
+  Name: tips
+  Author: william
+  Author URI: https://www.darkcrystal.com/
+  Description: tips for websites
+  Version: 1.0.1
+	Tags: tips
+  Update: February 18th,2022
+\* * * * * * * * * * * * * * * * * * * * */
+
+/*
+* Tips-config variables
+*
+* Declares some variables used within the library.
+*/
+
+// Prefix for all classes. By default, BEM naming convention is used
+$tipPrefix: 'tip-' !default;
+
+// font size
+$tipFontSize: 12px !default;
+
+// default font family
+$tipFontFamily: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+
+// paddings
+$tipVerticalPadding: 8px !default;
+$tipHorizontalPadding: 10px !default;
+
+// default tooltip height
+$tipTooltipHeight: $tipFontSize + 2 * $tipVerticalPadding !default;
+
+// border-width for tooltip arrow
+$tipArrowBorderWidth: 6px !default;
+
+// horizontal arrow offset
+$tipArrowOffsetX: 2 * $tipArrowBorderWidth !default;
+
+// text-shadow darken percentage
+$tipTextShadowDarkenAmount: 25% !default;
+
+// transition distance
+$tipTransitionDistance: 8px !default;
+
+// Transition Duration
+$tipTransitionDuration: 0.3s !default;
+
+// Delay in showing the tooltips.
+$tipShowDelay: 100ms !default;
+
+// Delay in hiding the tooltips.
+$tipHideDelay: 0ms !default;
+
+// z-index for tooltips
+$tipZIndex: 100 !default;
+
+// Size options
+$tipSizeSmall: 80px !default;
+$tipSizeMedium: 150px !default;
+$tipSizeLarge: 300px !default;
+
+// Various colors
+// Default color is blackish
+$tipDefaultColor: hsl(0, 0%, 22%) !default;
+
+// Error color
+$tipErrorColor: hsl(1, 40%, 50%) !default;
+
+// Warning color
+$tipWarningColor: hsl(38, 46%, 54%) !default;
+
+// Info Color
+$tipInfoColor: hsl(200, 50%, 45%) !default;
+
+// Success Color
+$tipSuccessColor: hsl(121, 32%, 40%) !default;
+
+
+/*
+ * Tips mixins
+*/
+
+/// Vendor prefixer mixin.
+/// @param {String}  $property ['shake']              - Name for the keyframes animation
+/// @param {Number}  $value [5px]                     - Max number for random to assign in x axis
+@mixin prefixed($property, $value) {
+	/* Safari 和 Chrome */
+	@if $webkit == true {
+	  -webkit-#{$property}: #{$value};
+	}
+	/* Firefox */
+	@if $moz == true {
+	  -moz-#{$property}: #{$value};
+	}
+	/* Opera */
+	@if $ms == true {
+	  -ms-#{$property}: #{$value};
+	}
+	/* Opera */
+	@if $o == true {
+	  -o-#{$property}: #{$value};
+	}
+  
+	#{$property}: #{$value};
+  }
+  
+  /// Generates border-color rules for all possible positions
+  /// @param {Number}  $color                     - Max number for random to assign in y axis
+  @mixin arrow-border-color($color) {
+	  @each $position in top, bottom, left, right {
+		  @if $position == top or $position == bottom {
+			  // Loop further for classes like .top-left, bottom-right etc
+			  @each $xDir in left, right {
+				  #{if(&, "&", "")}.#{$tipPrefix}#{$position}-#{$xDir}:before {
+					  border-#{$position}-color: $color;
+				  }
+			  }
+		  }
+		  #{if(&, "&", "")}.#{$tipPrefix}#{$position}:before {
+			  border-#{$position}-color: $color;
+		  }
+	  }
+  }
+  
+  /// mixin to set margin on tooltip using translate transform
+  /// @param {String}  $property [ease-in-out]             - animation-timing-function; valid value
+  /// @param {Number}  $transitionDirection [null]                - animation-delay; valid time value
+  /// @param {Number}  $translateX [0]                - Part of 100% where apply the animation
+  @mixin set-margin($property, $transitionDirection, $translateX: 0) {
+	  $value: unquote("#{$property}(#{$tipTransitionDistance * $transitionDirection})");
+	  &:before {
+		  @include vendor('transform', $value);
+	  }
+	  &:after {
+		  @if $translateX != 0 {
+			  // For vertical tooltips, we need to animate in y-direction
+			  // retaining its x-transform.
+			  @include vendor('transform', translateX($translateX) $value);
+		  }
+		  @else {
+			  @include vendor('transform', $value);
+		  }
+	  }
+  }
+
+/**
+ * source: tip-core.scss
+ *
+ * Defines the basic styling for the tooltip.
+ * Each tooltip is made of 2 parts:
+ * 	1) body (:after)
+ * 	2) arrow (:before)
+ *
+ * Classes added:
+ * 	1) tip
+*/
+
+[class*="#{$tipPrefix}"] {
+	position: relative;
+	display: inline-block;
+
+	&:before, &:after {
+		position: absolute;
+
+		// HACK: Trigger hardware accelerated rendering, otherwise transform was not
+		// working on a hidden element
+		@include prefixed('transform', translate3d(0, 0, 0));
+
+		// HACK: visibility is set to hidden because IE & Opera don't support
+		// pointer-events on HTML content yet because of which hovering a hidden tooltip
+		// shows the tooltip.
+		visibility: hidden;
+		opacity: 0;
+		z-index: $tipZIndex;
+		// shouldn't receive pointer events, otherwise even hovering tooltip will make it appear
+		pointer-events: none;
+
+		@include prefixed('transition', $tipTransitionDuration ease);
+		@include prefixed('transition-delay', $tipHideDelay);
+	}
+
+	&:hover:before, &:hover:after {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&:hover:before, &:hover:after {
+		// $tipShowDelay will apply as soon as element is hovered.
+		@include prefixed('transition-delay', $tipShowDelay);
+	}
+
+	/**
+	 * tooltip arrow
+	 */
+	&:before {
+		content: '';
+		position: absolute;
+		background: transparent;
+		border: $tipArrowBorderWidth solid transparent;
+		// move z-index 1 up than :after so that it shows over box-shadow
+		z-index: $tipZIndex + 1;
+	}
+
+	/**
+	 * tooltip body
+	 */
+	&:after {
+		background: $tipDefaultColor;
+		color: white;
+		padding: $tipVerticalPadding $tipHorizontalPadding;
+		font-size: $tipFontSize;
+		font-family: $tipFontFamily;
+		line-height: $tipFontSize; // Vertical centering.
+		white-space: nowrap; // Prevent breaking to new line.
+	}
+	// Always get content from aria-label attribute.
+	&[aria-label]:after {
+		content: attr(aria-label); // The magic!
+	}
+	// If the `data-tip` attribute is present, use it.
+	// This might be deprecated in future in support of a11y.
+	&[data-tip]:after {
+		content: attr(data-tip); // The magic!
+	}
+}
+
+// Hide tooltips if any of the supported attributes is empty.
+[aria-label=''],
+[data-tip=''] {
+	&:before, &:after {
+		display: none !important;
+	}
+}
+
+
+/**
+ * source: tip-sizes.scss
+ *
+ * Defines width restricted tooltips that can span
+ * across multiple lines.
+ *
+ * Classes added:
+ * 	1) tip--small
+ * 	2) tip--medium
+ * 	3) tip--large
+ *
+*/
+.#{$tipPrefix}small,
+.#{$tipPrefix}medium,
+.#{$tipPrefix}large {
+	&:after {
+		white-space: normal;
+		line-height: 1.4em;
+		word-wrap: break-word; // Ensure long words do not overflow.
+	}
+}
+
+.#{$tipPrefix}small {
+	&:after {
+		width: $tipSizeSmall;
+	}
+}
+.#{$tipPrefix}medium {
+	&:after {
+		width: $tipSizeMedium;
+	}
+}
+.#{$tipPrefix}large {
+	&:after {
+		width: $tipSizeLarge;
+	}
+}
+
+
+/**
+ * source: tip-color-types.scss
+ *
+ * Contains tooltips of various types based on color differences.
+ *
+ * Classes added:
+ * 	1) tip--error
+ * 	2) tip--warning
+ * 	3) tip--info
+ * 	4) tip--success
+ *
+*/
+// mixin to generate different color style tooltips
+@mixin tip-type($color) {
+	&:after {
+		background-color: $color;
+		text-shadow: 0 -1px 0px darken($color, $tipTextShadowDarkenAmount);
+	}
+
+	// generate arrow color style
+	@include arrow-border-color($color);
+}
+
+/**
+ * Error
+ */
+.#{$tipPrefix}error {
+	@include tip-type($tipErrorColor);
+}
+
+/**
+ * Warning
+ */
+.#{$tipPrefix}warning {
+	@include tip-type($tipWarningColor)
+}
+
+/**
+ * Info
+ */
+.#{$tipPrefix}info {
+	@include tip-type($tipInfoColor)
+}
+
+/**
+ * Success
+ */
+.#{$tipPrefix}success {
+	@include tip-type($tipSuccessColor)
+}
+
+
+/**
+ * source: tip-theme.scss
+ *
+ * Defines basic theme for tooltips.
+ *
+*/
+[class*="#{$tipPrefix}"] {
+	/**
+	 * tooltip body
+	 */
+	&:after {
+		text-shadow: 0 -1px 0px darken($tipDefaultColor, $tipTextShadowDarkenAmount);
+		box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+	}
+}
+
+
+/**
+ * source: tip-rounded.scss
+ *
+ * Defines rounded corner tooltips.
+ *
+ * Classes added:
+ * 	1) tip--rounded
+ *
+*/
+.#{$tipPrefix}rounded {
+	&:after {
+		border-radius: 4px;
+	}
+}
+
+/**
+ * source: tip-position.scss
+ *
+ * Defines the positoning logic for the tooltips.
+ *
+ * Classes added:
+ * 	1) tip--top
+ * 	2) tip--bottom
+ * 	3) tip--left
+ * 	4) tip--right
+*/
+@mixin vertical-positioned-tooltip($propertyY, $transitionDirection, $xDirection:0) {
+	&:before {
+		// bring arrow inside so that it animates to normal position when shown.
+		// HACK: +1px to avoid the 1 px white space between arrow and body during transition.
+		margin-#{$propertyY}: -2 * $tipArrowBorderWidth + 1px;
+	}
+
+	&:before, &:after {
+		#{$propertyY}: 100%;
+		left: 50%; // get top-left corner in center
+	}
+
+	&:before {
+		left: calc(50% - #{$tipArrowBorderWidth}); // get arrow center aligned with content
+	}
+
+	$translateX: -50%;
+	@if $xDirection == -1 {
+		$translateX: -100%;
+	} @else if $xDirection == 1 {
+		$translateX: 0;
+	}
+
+	&:after {
+		@include prefixed('transform', translateX($translateX));
+	}
+
+	&:after {
+		@if $xDirection != 0 {
+			// bring back the tooltip by some offset so that arrow doesn't stick at end
+			margin-left: -$xDirection * $tipArrowOffsetX;
+		}
+	}
+
+	&:hover {
+		@include set-margin('translateY', $transitionDirection, $translateX);
+	}
+}
+
+@mixin horizontal-positioned-tooltip($propertyX, $transitionDirection) {
+	&:before {
+		// bring arrow inside so that it animates to normal position when shown
+		// HACK: +1px to avoid the 1 px white space between arrow and body during transition.
+		margin-#{$propertyX}: -2 * $tipArrowBorderWidth + 1px;
+		// bring back to center vertically
+		margin-bottom: -1 * $tipArrowBorderWidth;
+	}
+
+	&:after {
+		// bring back to center
+		margin-bottom: -1 * floor($tipTooltipHeight / 2);
+	}
+
+	&:before, &:after {
+		#{$propertyX}: 100%;
+		bottom: 50%;
+	}
+
+	&:hover {
+		@include set-margin('translateX', $transitionDirection);
+	}
+}
+
+
+/**
+ * set default color for tooltip arrows
+ */
+@include arrow-border-color($tipDefaultColor);
+
+/**
+ * top tooltip
+ */
+.#{$tipPrefix}top {
+	@include vertical-positioned-tooltip('bottom', -1);
+}
+
+/**
+ * bottom tooltip
+ */
+.#{$tipPrefix}bottom {
+	@include vertical-positioned-tooltip('top', 1);
+}
+
+/**
+ * right tooltip
+ */
+.#{$tipPrefix}right {
+	@include horizontal-positioned-tooltip('left', 1);
+}
+
+/**
+ * left tooltip
+ */
+.#{$tipPrefix}left {
+	@include horizontal-positioned-tooltip('right', -1);
+}
+
+/**
+ * top-left tooltip
+ */
+.#{$tipPrefix}top-left {
+	@include vertical-positioned-tooltip('bottom', -1, -1);
+}
+
+
+/**
+ * top-right tooltip
+ */
+.#{$tipPrefix}top-right {
+	@include vertical-positioned-tooltip('bottom', -1, 1);
+}
+
+/**
+ * bottom-left tooltip
+ */
+.#{$tipPrefix}bottom-left {
+	@include vertical-positioned-tooltip('top', 1, -1);
+}
+
+
+/**
+ * bottom-right tooltip
+ */
+.#{$tipPrefix}bottom-right {
+	@include vertical-positioned-tooltip('top', 1, 1);
+}
+
+
+/**
+ * source: tip-always.scss
+ *
+ * Defines a persisted tooltip which shows always.
+ *
+ * Classes added:
+ * 	1) tip--always
+ *
+*/
+.#{$tipPrefix}always {
+	&:after, &:before {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&.#{$tipPrefix}top {
+		@include set-margin('translateY', -1, -50%);
+
+		&-left {
+			@include set-margin('translateY', -1, -100%);
+		}
+		&-right {
+			@include set-margin('translateY', -1, 0);
+		}
+	}
+
+	&.#{$tipPrefix}bottom {
+		@include set-margin('translateY', 1, -50%);
+		&-left {
+			@include set-margin('translateY', 1, -100%);
+		}
+		&-right {
+			@include set-margin('translateY', 1, 0);
+		}
+	}
+
+	&.#{$tipPrefix}left {
+		@include set-margin('translateX', -1);
+	}
+
+	&.#{$tipPrefix}right {
+		@include set-margin('translateX', 1);
+	}
+}
+
+
+/**
+ * source: tip-effects.scss
+ *
+ * Defines various transition effects for the tooltips.
+ *
+ * Classes added:
+ * 	1) tip--no-animate
+ * 	2) tip--bounce
+ *
+ */
+
+// Remove animation from tooltips.
+.#{$tipPrefix}no-animate {
+	&:before, &:after {
+		@include prefixed('transition-duration', 0ms);
+	}
+}
+
+// Bounce effect in tooltips.
+.#{$tipPrefix}bounce {
+	&:before, &:after {
+		-webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s cubic-bezier(.71,1.7,.77,1.24);
+		-moz-transition: opacity 0.3s ease, visibility 0.3s ease, -moz-transform 0.3s cubic-bezier(.71,1.7,.77,1.24);
+		transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(.71,1.7,.77,1.24);
+	}
+}
+
+// Remove shadows from tooltips.
+.#{$tipPrefix}no-shadow {
+	&:before, &:after {
+		text-shadow: initial;
+		box-shadow: initial;
+	}
+}
+
+// Remove shadows from tooltips.
+.#{$tipPrefix}no-arrow {
+	&:before {
+		display: none;
+	}
+}

@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* ==============VARIABLES START============== */
+:root { --current-ui-width: 750; /* 默认为手机屏幕宽度 */ }
+
+@media (min-width: 768px) { :root { --current-ui-width: 1024; /* 平板 */ } }
+
+@media (min-width: 1025px) { :root { --current-ui-width: 1440; /* 笔记本电脑 */ } }
+
+@media (min-width: 1441px) { :root { --current-ui-width: 1920; /* PC */ } }
+
+@media (min-width: 2561px) { :root { --current-ui-width: 2560; /* 大屏 */ } }
+
+/* ==============VARIABLES END============== */
+/* ==============FUNCTION END============== */
+/* ==============FUNCTION END============== */
+/* ==============MIXIN START============== */
+/* ==============MIXIN END============== */
+/* ==============PLACEHOLDER START============== */
+/* ==============PLACEHOLDER END============== */
+/* ==============FONT START============== */
+/* ==============FONT END============== */
+/* ==============BASE STYLE START============== */
+.scroll-x { position: relative; overflow-x: auto; scrollbar-width: thin; /* Firefox滚动条样式 */ scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* 定义滚动条轨道 */ }
+
+.scroll-x::-webkit-scrollbar { width: 10px; /* 设置滚动条的宽度 */ }
+
+.scroll-x::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.5); /* 设置滚动条滑块的颜色 */ border-radius: 0; /* 鼠标悬停时改变颜色 */ transition: background-color 0.3s ease; }
+
+.scroll-x::-webkit-scrollbar-thumb:hover { background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时颜色加深 */ }
+
+.scroll-x::-webkit-scrollbar-track { background-color: rgba(0, 0, 0, 0.1); /* 设置滚动条轨道背景色 */ border-radius: 5px; /* 可以添加圆角 */ }
+
+.scroll-y { position: relative; overflow-x: hidden; overflow-y: scroll; }
+
+.scroll-y::-webkit-scrollbar { width: 4px; border-radius: 0; background: #2b3846; }
+
+.scroll-y::-webkit-scrollbar-thumb { width: 8px; height: 1px; border-radius: 0; background: linear-gradient(to right, #ae1516, #ae1516); }
+
+.scroll-y::-webkit-scrollbar-thumb:disabled { background: #708dab; }
+
+.scroll-y::-webkit-scrollbar-track { border-radius: 0; background: #2b3846; }
+
+video { /* 隐藏video 进度条 */ /* 隐藏video 观看的当前时间 */ /* 隐藏video 剩余时间 */ /* 隐藏video 音量按钮 */ /* 隐藏video 音量的控制条 */ /* 隐藏video 所有控件 */ }
+
+video::-webkit-media-controls-timeline { display: none; }
+
+video::-webkit-media-controls-current-time-display { display: none; }
+
+video::-webkit-media-controls-time-remaining-display { display: none; }
+
+video::-webkit-media-controls-mute-button { display: none; }
+
+video::-webkit-media-controls-toggle-closed-captions-button { display: none; }
+
+video::-webkit-media-controls-volume-slider { display: none; }
+
+video::-webkit-media-controls-enclosure { display: none; }
+
+.margin { margin: 0 auto; }
+
+.hidden { display: block; }
+
+.hidden { display: none; }
+
+/* ==============BASE STYLE END============== */
+/* ==============NORMALIZE STYLE START============== */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html { line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+
+body { margin: 0; }
+
+main { display: block; }
+
+h1 { font-size: 2em; margin: 0.67em 0; }
+
+hr { box-sizing: content-box; /* 1 */ height: 0; /* 1 */ overflow: visible; /* 2 */ }
+
+pre { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
+
+a { background-color: transparent; }
+
+abbr[title] { border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ text-decoration: underline dotted; /* 2 */ }
+
+b, strong { font-weight: bolder; }
+
+code, kbd, samp { font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ }
+
+small { font-size: 80%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+img { border-style: none; }
+
+button, input, optgroup, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ line-height: 1.15; /* 1 */ margin: 0; /* 2 */ }
+
+button, input { /* 1 */ overflow: visible; }
+
+button, select { /* 1 */ text-transform: none; }
+
+button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; }
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring { outline: 1px dotted ButtonText; }
+
+fieldset { padding: 0.35em 0.75em 0.625em; }
+
+legend { box-sizing: border-box; /* 1 */ color: inherit; /* 2 */ display: table; /* 1 */ max-width: 100%; /* 1 */ padding: 0; /* 3 */ white-space: normal; /* 1 */ }
+
+progress { vertical-align: baseline; }
+
+textarea { overflow: auto; }
+
+[type="checkbox"], [type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }
+
+[type="search"] { -webkit-appearance: textfield; /* 1 */ outline-offset: -2px; /* 2 */ }
+
+[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+::-webkit-file-upload-button { -webkit-appearance: button; /* 1 */ font: inherit; /* 2 */ }
+
+details { display: block; }
+
+summary { display: list-item; }
+
+template { display: none; }
+
+[hidden] { display: none; }
+
+/* ==============NORMALIZE STYLE END============== */
+[data-theme=dark-theme] { --color-primary-border: #030303; --color-primary: #030303; --color-primary-font: #030303; --color-primary-bg: #030303; }
+
+[data-theme=light-theme] { --color-primary-border: #fdf9f5; --color-primary: #fdf9f5; --color-primary-font: #fdf9f5; --color-primary-bg: #fdf9f5; }
+
+[data-theme=grey-theme] { --color-primary-border: #323535; --color-primary: #323535; --color-primary-font: #323535; --color-primary-bg: #323535; }
+
+/* 红色主题 */
+[data-theme=red-theme] { --color-primary-border: #fa0000; --color-primary: #fa0000; --color-primary-font: #fa0000; --color-primary-bg: #fa0000; }
+
+[data-theme=orange-theme] { --color-primary-border: #fa7900; --color-primary: #fa7900; --color-primary-font: #fa7900; --color-primary-bg: #fa7900; }
+
+[data-theme=yellow-theme] { --color-primary-border: #faf600; --color-primary: #faf600; --color-primary-font: #faf600; --color-primary-bg: #faf600; }
+
+[data-theme=green-theme] { --color-primary-border: #03fa41; --color-primary: #03fa41; --color-primary-font: #03fa41; --color-primary-bg: #03fa41; }
+
+[data-theme=indigo-theme] { --color-primary-border: #03f7ff; --color-primary: #03f7ff; --color-primary-font: #03f7ff; --color-primary-bg: #03f7ff; }
+
+[data-theme=blue-theme] { --color-primary-border: #0905f3; --color-primary: #0905f3; --color-primary-font: #0905f3; --color-primary-bg: #0905f3; }
+
+[data-theme=purple-theme] { --color-primary-border: #fa00d0; --color-primary: #fa00d0; --color-primary-font: #fa00d0; --color-primary-bg: #fa00d0; }
+
+[data-theme=colorful-theme] { --color-primary-border: #f30588; --color-primary: #f30588; --color-primary-font: #f30588; --color-primary-bg: #f30588; }
+
+@media screen and (min-width: 1025px) { .theme-container { position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 99; width: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column; }
+  .theme-inner { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; height: 0; overflow: hidden; transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out; background: rgba(229, 227, 227, 0.8); box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 50px 8px; }
+  .theme-inner.visible { opacity: 1; height: 60px; }
+  .theme-inner .theme-lists { margin: 0 auto; position: relative; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; flex-direction: row; }
+  .theme-inner .theme-lists .theme-item { position: relative; width: 32px; height: 32px; border-radius: 50%; background: #fff; margin: 0 10px; aspect-ratio: 1 / 1; outline-offset: 0; }
+  .theme-inner .theme-lists .theme-item:nth-child(1) { background: #fff; }
+  .theme-inner .theme-lists .theme-item:nth-child(2) { background: #000; }
+  .theme-inner .theme-lists .theme-item:nth-child(3) { background: #565656; }
+  .theme-inner .theme-lists .theme-item:nth-child(4) { background: #ff0000; }
+  .theme-inner .theme-lists .theme-item:nth-child(5) { background: #ff6600; }
+  .theme-inner .theme-lists .theme-item:nth-child(6) { background: #ffbb00; }
+  .theme-inner .theme-lists .theme-item:nth-child(7) { background: #51ff00; }
+  .theme-inner .theme-lists .theme-item:nth-child(8) { background: #00f7ff; }
+  .theme-inner .theme-lists .theme-item:nth-child(9) { background: #001aff; }
+  .theme-inner .theme-lists .theme-item:nth-child(10) { background: #ff00ea; }
+  .theme-inner .theme-lists .theme-item:nth-child(11) { background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, #007382 1.33turn, blue 1.66turn, purple 2turn); }
+  .theme-inner .theme-lists .theme-item:hover, .theme-inner .theme-lists .theme-item.active { cursor: pointer; transition: all .5s ease; outline: 1px solid #06a006; outline-offset: 2px; }
+  .theme-switch { width: 64px; height: 32px; display: flex; justify-content: center; align-items: center; position: relative; margin: 0 auto; background: #eae9e9; }
+  .theme-switch::before, .theme-switch::after { content: ''; position: absolute; top: 0; z-index: 2; width: 50px; height: 100%; background: #eae9e9; }
+  .theme-switch::before { right: 64px; clip-path: path("M 0,0 C 25,0 25,50 50,50 L 0, 50 Z"); transform: rotate(180deg); }
+  .theme-switch::after { left: 64px; clip-path: path("M 0,50 C 25,50 25,0 50,0 L 50, 50 Z"); transform: rotate(180deg); }
+  .theme-switch .icon { display: block; width: 18px; height: 18px; } }
+
+@media screen and (max-width: 1024px) { .theme-container { position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 99; width: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column; }
+  .theme-inner { position: relative; display: flex; justify-content: center; align-items: center; width: 100%; height: 0; overflow: hidden; transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out; background: rgba(229, 227, 227, 0.8); box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 50px 8px; }
+  .theme-inner.visible { opacity: 1; height: 60px; }
+  .theme-inner .theme-lists { margin: 0 auto; position: relative; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; flex-direction: row; }
+  .theme-inner .theme-lists .theme-item { position: relative; width: 16px; height: 16px; border-radius: 50%; background: #fff; margin: 0 6px; aspect-ratio: 1 / 1; outline-offset: 0; }
+  .theme-inner .theme-lists .theme-item:nth-child(1) { background: #fff; }
+  .theme-inner .theme-lists .theme-item:nth-child(2) { background: #000; }
+  .theme-inner .theme-lists .theme-item:nth-child(3) { background: #565656; }
+  .theme-inner .theme-lists .theme-item:nth-child(4) { background: #ff0000; }
+  .theme-inner .theme-lists .theme-item:nth-child(5) { background: #ff6600; }
+  .theme-inner .theme-lists .theme-item:nth-child(6) { background: #ffbb00; }
+  .theme-inner .theme-lists .theme-item:nth-child(7) { background: #51ff00; }
+  .theme-inner .theme-lists .theme-item:nth-child(8) { background: #00f7ff; }
+  .theme-inner .theme-lists .theme-item:nth-child(9) { background: #001aff; }
+  .theme-inner .theme-lists .theme-item:nth-child(10) { background: #ff00ea; }
+  .theme-inner .theme-lists .theme-item:nth-child(11) { background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, #007382 1.33turn, blue 1.66turn, purple 2turn); }
+  .theme-inner .theme-lists .theme-item:hover, .theme-inner .theme-lists .theme-item.active { cursor: pointer; transition: all .5s ease; outline: 1px solid #06a006; outline-offset: 2px; }
+  .theme-switch { width: 34px; height: 16px; display: flex; justify-content: center; align-items: center; position: relative; margin: 0 auto; background: #eae9e9; }
+  .theme-switch::before, .theme-switch::after { content: ''; position: absolute; top: 0; z-index: 2; width: 50px; height: 100%; background: #eae9e9; }
+  .theme-switch::before { right: 34px; clip-path: path("M 0,0 C 25,0 25,50 50,50 L 0, 50 Z"); transform: rotate(180deg); }
+  .theme-switch::after { left: 34px; clip-path: path("M 0,50 C 25,50 25,0 50,0 L 50, 50 Z"); transform: rotate(180deg); }
+  .theme-switch .icon { display: block; width: 18px; height: 18px; } }

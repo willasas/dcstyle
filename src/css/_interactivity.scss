@@ -1,0 +1,327 @@
+@charset "utf-8";
+/*!
+  Name: interactivity
+  Author: william
+  Author URI: 
+  Description: elements interactivity.
+  Version: 1.0.1
+	Tags: interactivity, accent color, appearance, cursor, caret-color, pointer-events, resize, scroll-behavior, scroll-margin, scroll-padding, scroll-snap-align, scroll-snap-stop, scroll-snap-type, touch-action, user-select, will-change
+  Update: December 26th,2022
+*/
+
+/*
+* 1. appearance
+*/
+.appearance-none {
+  appearance: none;
+}
+
+
+/*
+* 2. cursor
+*/
+$arrCursor:auto,
+default,
+crosshair,
+help,
+move,
+pointer,
+progress,
+text,
+wait,
+e-resize,
+ne-resize,
+nw-resize,
+n-resize,
+se-resize,
+s-resize,
+sw-resize,
+w-resize,
+context-menu,
+none,
+cell,
+vertical-text,
+alias,
+copy,
+no-drop,
+not-allowed,
+ew-resize,
+ns-resize,
+nesw-resize,
+nwse-resize,
+col-resize,
+row-resize,
+all-scroll,
+zoom-in,
+zoom-out,
+grab,
+grabbing;
+
+@each $values in $arrCursor {
+  .cursor-#{$values} {
+    cursor: $values;
+  }
+}
+
+// color for website
+$arrColor:((name: 'Yellow', value: #f0ad4e),
+  (name: 'Red', value: #dd524d),
+  (name: 'Green', value: #1aad19),
+  (name: 'Blue', value: #4e9ef0),
+  (name: 'Black', value: #333),
+  (name: 'White', value: #fff),
+  (name: 'Grey', value: #adadad),
+);
+
+@for $i from 1 through length($arrColor) {
+  $item: nth($arrColor, $i);
+
+  .col-#{map-get($item, name)} {
+    color: map-get($item, value);
+  }
+
+  .bg-#{map-get($item, name)} {
+    background-color: map-get($item, value);
+    border-color: map-get($item, value);
+  }
+}
+
+
+/*
+* 3. pointer-events
+*/
+$pointerEvents: none,
+auto;
+
+@each $values in $pointerEvents {
+  .pointer-events-#{$values} {
+    pointer-events: $values;
+  }
+}
+
+
+/*
+* 4. resize
+*/
+$resize: none,
+vertical,
+horizontal,
+both;
+
+@each $values in $resize {
+  .resize-#{$values} {
+    resize: $values;
+  }
+}
+
+
+/*
+* 5. scroll-behavior
+*/
+$scroll-behavior: smooth,
+auto;
+
+@each $values in $pointerEvents {
+  .scroll-#{$values} {
+    scroll-behavior: $values;
+  }
+}
+
+
+/*
+* 6. scroll-margin and scroll-padding
+*/
+$scrollMargin: (0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 6: unquote(6+"px"), 8: unquote(8+"px"),
+  10: unquote(10+"px"), 12: unquote(12+"px"), 14: unquote(14+"px"), 16: unquote(16+"px"), 18: unquote(18+"px"),
+  20: unquote(20+"px"), 22: unquote(22+"px"), 24: unquote(24+"px"), 26: unquote(26+"px"), 28: unquote(28+"px"),
+  30: unquote(30+"px"), 32: unquote(32+"px"), 34: unquote(34+"px"), 36: unquote(36+"px"), 38: unquote(38+"px"),
+  40: unquote(40+"px"), 42: unquote(42+"px"), 44: unquote(44+"px"), 46: unquote(46+"px"), 48: unquote(48+"px"),
+  50: unquote(50+"px"), 52: unquote(52+"px"), 54: unquote(54+"px"), 56: unquote(56+"px"), 58: unquote(58+"px"),
+  60: unquote(60+"px"), 62: unquote(62+"px"), 64: unquote(64+"px"), 66: unquote(66+"px"), 68: unquote(68+"px"),
+  70: unquote(70+"px"), 72: unquote(72+"px"), 74: unquote(74+"px"), 76: unquote(76+"px"), 78: unquote(78+"px"),
+  80: unquote(80+"px"), 82: unquote(82+"px"), 84: unquote(84+"px"), 86: unquote(86+"px"), 88: unquote(88+"px"),
+  90: unquote(90+"px"), 92: unquote(92+"px"), 94: unquote(94+"px"), 96: unquote(96+"px"), 98: unquote(98+"px"),
+  100: unquote(100+"px"), 102: unquote(102+"px"), 104: unquote(104+"px"), 106: unquote(106+"px"), 108: unquote(108+"px"),
+  110: unquote(110+"px"), 112: unquote(112+"px"), 114: unquote(114+"px"), 116: unquote(116+"px"), 118: unquote(118+"px"),
+  120: unquote(120+"px"), 122: unquote(122+"px"), 124: unquote(124+"px"), 126: unquote(126+"px"), 128: unquote(128+"px"),
+  130: unquote(130+"px"), 132: unquote(132+"px"), 134: unquote(134+"px"), 136: unquote(136+"px"), 138: unquote(138+"px"),
+  140: unquote(140+"px"), 142: unquote(142+"px"), 144: unquote(144+"px"), 146: unquote(146+"px"), 148: unquote(148+"px"),
+  150: unquote(150+"px"), 152: unquote(152+"px"), 154: unquote(154+"px"), 156: unquote(156+"px"), 158: unquote(158+"px"),
+  160: unquote(160+"px"), 162: unquote(162+"px"), 164: unquote(164+"px"), 166: unquote(166+"px"), 168: unquote(168+"px"),
+  170: unquote(170+"px"), 172: unquote(172+"px"), 174: unquote(174+"px"), 176: unquote(176+"px"), 178: unquote(178+"px"),
+  180: unquote(180+"px"), 182: unquote(182+"px"), 184: unquote(184+"px"), 186: unquote(186+"px"), 188: unquote(188+"px"),
+  190: unquote(190+"px"), 192: unquote(192+"px"), 194: unquote(194+"px"), 196: unquote(196+"px"), 198: unquote(198+"px"),
+  200: unquote(200+"px"), 202: unquote(202+"px"), 204: unquote(204+"px"), 206: unquote(206+"px"), 208: unquote(208+"px"),
+  210: unquote(210+"px"), 212: unquote(212+"px"), 214: unquote(214+"px"), 216: unquote(216+"px"), 218: unquote(218+"px"),
+  220: unquote(220+"px"), 222: unquote(222+"px"), 224: unquote(224+"px"), 226: unquote(226+"px"), 228: unquote(228+"px"),
+  230: unquote(230+"px"), 232: unquote(232+"px"), 234: unquote(234+"px"), 236: unquote(236+"px"), 238: unquote(238+"px"),
+  240: unquote(240+"px"), 242: unquote(242+"px"), 244: unquote(244+"px"), 246: unquote(246+"px"), 248: unquote(248+"px"),
+  250: unquote(250+"px"), 252: unquote(252+"px"), 254: unquote(254+"px"), 256: unquote(256+"px"), 258: unquote(258+"px"),
+  260: unquote(260+"px"), 262: unquote(262+"px"), 264: unquote(264+"px"), 266: unquote(266+"px"), 268: unquote(268+"px"),
+  270: unquote(270+"px"), 272: unquote(272+"px"), 274: unquote(274+"px"), 276: unquote(276+"px"), 278: unquote(278+"px"),
+  280: unquote(280+"px"), 282: unquote(282+"px"), 284: unquote(284+"px"), 286: unquote(286+"px"), 288: unquote(288+"px"),
+  290: unquote(290+"px"), 292: unquote(292+"px"), 294: unquote(294+"px"), 296: unquote(296+"px"), 298: unquote(298+"px"),
+  300: unquote(300+"px"), 302: unquote(302+"px"), 304: unquote(304+"px"), 306: unquote(306+"px"), 308: unquote(308+"px"),
+);
+
+@for $i from 1 through length(map-keys($scrollMargin)) {
+  $name: nth(map-keys($scrollMargin), $i);
+  $values: nth(map-values($scrollMargin), $i);
+
+  .scroll-m-#{$name} {
+    scroll-margin: $values;
+  }
+
+  .scroll-mx-#{$name} {
+    scroll-margin-left: $values;
+    scroll-margin-right: $values;
+  }
+
+  .scroll-my-#{$name} {
+    scroll-margin-top: $values;
+    scroll-margin-bottom: $values;
+  }
+
+  .scroll-mt-#{$name} {
+    scroll-margin-top: $values;
+  }
+
+  .scroll-mr-#{$name} {
+    scroll-margin-right: $values;
+  }
+
+  .scroll-mb-#{$name} {
+    scroll-margin-bottom: $values;
+  }
+
+  .scroll-ml-#{$name} {
+    scroll-margin-left: $values;
+  }
+
+  // scroll-padding
+  .scroll-p-#{$name} {
+    scroll-padding: $values;
+  }
+
+  .scroll-px-#{$name} {
+    scroll-padding-left: $values;
+    scroll-padding-right: $values;
+  }
+
+  .scroll-py-#{$name} {
+    scroll-padding-top: $values;
+    scroll-padding-bottom: $values;
+  }
+
+  .scroll-pt-#{$name} {
+    scroll-padding-top: $values;
+  }
+
+  .scroll-pr-#{$name} {
+    scroll-padding-right: $values;
+  }
+
+  .scroll-pb-#{$name} {
+    scroll-padding-bottom: $values;
+  }
+
+  .scroll-pl-#{$name} {
+    scroll-padding-left: $values;
+  }
+}
+
+
+/*
+* 7. scroll-snap-align
+*/
+$scrollSnapAlign: start,
+end,
+center,
+none;
+
+@each $values in $scrollSnapAlign {
+  .snap-#{$values} {
+    scroll-snap-align: $values;
+  }
+}
+
+
+/*
+* 7. scroll-snap-stop
+*/
+$scrollSnapStop: normal,
+always;
+
+@each $values in $scrollSnapStop {
+  .snap-#{$values} {
+    -webkit-scroll-snap-stop: $values;
+    scroll-snap-stop: $values;
+  }
+}
+
+
+/*
+* 8. scroll-snap-type
+*/
+$scrollSnapType: (none: none, x: x mandatory, y: y mandatory, both: both mandatory, xp: x proximity, yp: y proximity, bothp: both proximity);
+
+@for $i from 1 through length(map-keys($scrollSnapType)) {
+  $name: nth(map-keys($scrollSnapType), $i);
+  $values: nth(map-values($scrollSnapType), $i);
+
+  .snap-#{$name} {
+    scroll-snap-type: $values;
+  }
+}
+
+
+/*
+* 9. touch-action
+*/
+$touchAction: auto,
+none,
+pan-x,
+pan-left,
+pan-right,
+pan-y,
+pan-up,
+pan-down,
+pinch-zoom,
+manipulation;
+
+@each $values in $touchAction {
+  .touch-#{$values} {
+    touch-action: $values;
+  }
+}
+
+
+/*
+* 10. user-select
+*/
+$userSelect: auto,
+none,
+text,
+all;
+
+@each $values in $userSelect {
+  .select-#{$values} {
+    -webkit-user-select: $values;
+    user-select: $values;
+  }
+}
+
+
+/*
+* 11. will-change
+*/
+$willChange: auto,
+scroll-position,
+contents,
+transform;
+
+@each $values in $willChange {
+  .will-change-#{$values} {
+    will-change: $values;
+  }
+}

@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/*!
+  Name: 1px mixin
+  Author: william
+  Author URI: http://gitlab.palwo.com/ptt/willasas
+  Description: 移动端1像素解决方案混合器
+  Version: 1.0.1
+	Tags: 1px,rem,border
+  Update: October 13th,2021
+*/
+
+/**
+* 默认边框样式
+*
+* @param {Maps} $border1px 1显示边框变量名
+*/
+$border1px: border-1px;
+/**
+* 信息状态变量
+*
+* @param {Maps} $direction-list 方向集合
+*/
+$direction-list: border-bottom, border-top, border-left, border-right;
+/**
+* 手机端实现真正的一像素边框
+*
+* @param {Maps} $direction 传入的值（即给元素哪个方位加描边）
+*
+*/
+@mixin border-1px($direction){
+  @at-root {
+    @each $direction in $direction-list{
+      .#{$direction}{
+        position: relative;
+        @if($direction == border-bottom){
+          &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            transform-origin: 0 0;
+          }
+        }@else if($direction == border-top){
+          &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            transform-origin: 0 0;
+          }
+        }@else if($direction == border-left){
+          &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            transform-origin: 0 0;
+          }
+        }@else if($direction == border-right){
+          &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            transform-origin: 0 0;
+          }
+        }
+      }
+    }
+    .#{$border1px}{
+      position: relative;
+      &::after{
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid gray;
+      }
+    }
+  }
+}
+
+/**
+* 2倍屏
+*
+* @param {Maps} $direction 传入的值（即给元素哪个方位加描边）
+*
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
+  @at-root {
+    @each $direction in $direction-list{
+      .#{$direction}{
+        @if($direction == border-bottom){
+          &::after{
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+          }
+        }@else if($direction == border-top){
+          &::after{
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+          }
+        }@else if($direction == border-left){
+          &::after{
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+          }
+        }@else if($direction == border-right){
+          &::after{
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+          }
+        }
+      }
+    }
+    .#{$border1px}::after {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+  }
+}
+/**
+* 3倍屏
+*
+* @param {Maps} $direction 传入的值（即给元素哪个方位加描边）
+*
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
+  @at-root {
+    @each $direction in $direction-list{
+      .#{$direction}{
+        @if($direction == border-bottom){
+          &::after{
+            -webkit-transform: scaleY(0.33);
+            transform: scaleY(0.33);
+          }
+        }@else if($direction == border-top){
+          &::after{
+            -webkit-transform: scaleY(0.33);
+            transform: scaleY(0.33);
+          }
+        }@else if($direction == border-left){
+          &::after{
+            -webkit-transform: scaleY(0.33);
+            transform: scaleY(0.33);
+          }
+        }@else if($direction == border-right){
+          &::after{
+            -webkit-transform: scaleY(0.33);
+            transform: scaleY(0.33);
+          }
+        }
+      }
+    }
+    .#{$border1px}::after {
+      width: 300%;
+      height: 300%;
+      transform: scale(0.33);
+      transform-origin: 0 0;
+    }
+  }
+}

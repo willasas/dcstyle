@@ -1,0 +1,131 @@
+@charset 'utf-8';
+
+$base-widths: (
+  // '0': 0,
+  // '1': 2px,
+  // '2': 4px,
+  // '3': 6px,
+  // '4': 8px,
+  // '5': 10px,
+  // '6': 12px,
+  // '7': 14px,
+  // '8': 16px,
+  // '9': 18px,
+  // '10': 20px,
+  // '11': 22px,
+  // '12': 24px,
+  // '14': 28px,
+  // '16': 32px,
+  // '20': 40px,
+  // '30': 60px,
+  // '40': 80px,
+  // '50': 100px,
+  // '60': 120px,
+  // '70': 140px,
+  // '80': 160px,
+  // '90': 180px,
+  // '100': 200px,
+  'screen': unquote(100+'vw'),
+  'min': min-content,
+  'max': max-content,
+  'fit': fit-content,
+  '0': 0,
+  '1': unquote(1+'px'),
+  '2': unquote(2+'px'),
+  '3': unquote(3+'px'),
+  '4': unquote(4+'px'),
+  '5': unquote(5+'px'),
+  '6': unquote(6+'px'),
+  '7': unquote(7+'px'),
+  '8': unquote(8+'px'),
+  '9': unquote(9+'px'),
+  '10': unquote(10+'px'),
+  '11': unquote(11+'px'),
+  '12': unquote(12+'px'),
+  '14': unquote(14+'px'),
+  '16': unquote(16+'px'),
+  '20': unquote(20+'px'),
+  '24': unquote(24+'px'),
+  '28': unquote(28+'px'),
+  '32': unquote(32+'px'),
+  '36': unquote(36+'px'),
+  '40': unquote(40+'px'),
+  '44': unquote(44+'px'),
+  '48': unquote(48+'px'),
+  '52': unquote(52+'px'),
+  '56': unquote(56+'px'),
+  '60': unquote(60+'px'),
+  '64': unquote(64+'px'),
+  '80': unquote(80+'px'),
+  '96': unquote(96+'px'),
+  '112': unquote(112+'px'),
+  '128': unquote(128+'px'),
+  '144': unquote(144+'px'),
+  '160': unquote(160+'px'),
+  '192': unquote(192+'px'),
+  '224': unquote(224+'px'),
+  '288': unquote(288+'px'),
+  '352': unquote(352+'px'),
+  '3xs': 10%,
+  '2xs': 20%,
+  'xs': 30%,
+  's': 40%,
+  'm': 50%,
+  'l': 60%,
+  'xl': 70%,
+  '2xl': 80%,
+  '3xl': 90%,
+  'full': 100%,
+  'auto': auto,
+);
+
+$base-heights: $base-widths;
+
+$breakpoints:(
+  'sm': '(max-width: 375px)',
+  'xm': '(min-width: 768px)',
+  'md': '(min-width: 1024px)',
+  'lg': '(min-width: 1440px)',
+  'xl': '(min-width: 1624px)',
+  'xxl': '(min-width: 1920px)',
+  'xxxl': '(min-width: 2560px)',
+);
+
+
+// 创建媒体查询 mixin
+@mixin media-query($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{map-get($breakpoints, $breakpoint)} { 
+      @content; 
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` does not exist.";
+  }
+}
+
+
+// 循环遍历宽度尺寸并生成带有媒体查询前缀的类
+@each $breakpoint, $_ in $breakpoints{
+  @each $size, $value in $base-widths {
+    .#{str-slice($breakpoint, 1)}:w-#{$size} {
+      width: $value;
+      @include media-query($breakpoint){
+        width: $value;
+      }
+    }
+  }
+}
+
+
+
+// 循环遍历高度尺寸并生成带有媒体查询前缀的类
+@each $breakpoint, $_ in $breakpoints{
+  @each $size, $value in $base-heights {
+    .#{str-slice($breakpoint, 1)}:h-#{$size} {
+      height: $value;
+      @include media-query($breakpoint){
+        height: $value;
+      }
+    }
+  }
+}

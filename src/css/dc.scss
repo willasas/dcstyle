@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/*!
+  Name: dcsass
+  Author: william
+  Author URI: 
+  Description: base would contain variables, reset, colors etc.
+  Version: 1.0.1
+	Tags: base,front end,variables
+  Update: December 6th,2024
+*/
+
+// @import "./common.scss";
+// @import "./theme-dark.scss";
+// @import "./theme-light.scss";
+// @import "./theme-grey.scss";
+// @import "./theme-red.scss";
+// @import "./theme-orange.scss";
+// @import "./theme-yellow.scss";
+// @import "./theme-green.scss";
+// @import "./theme-indigo.scss";
+// @import "./theme-blue.scss";
+// @import "./theme-purple.scss";
+// @import "./theme-colorful.scss";
+@import "./theme.scss";
+
+@import "./_borders","./_breakpoints","./_customscrollbar","./_effects","./_filters","./_flexgrid","./_function","./_graphical","./_interactivity","./_layout","./_sizing","./_spacing","./_tables","./_transforms","./_transitions","./_typography","./_animation","./_backgrounds","./_mixins";

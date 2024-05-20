@@ -1,0 +1,1774 @@
+@charset "utf-8";
+/*!
+  Name: components
+  Author: william
+  Author URI: 
+  Description: components would contain all the styling for elements that are self-contained units, like sliders, scrollbar-gutter, widgets etc.
+  Version: 1.0.1
+	Tags: utils,sliders,widgets
+  Update: February 19th,2024
+*/
+
+/**
+* 关闭按钮混合器
+*
+* @param {Number} $width 按钮容器的宽度（按钮斜线的宽度）
+* @param {Number} $height 按钮容器的高度
+* @param {Number} $top  按钮左右斜线距离按钮容器顶部的距离(为按钮容器高度的一半)
+* @param $btn-color 按钮的颜色
+*/
+@mixin btnClose($width: 28px, $height: 28px, $top: 14px, $btn-color: #6d5dfc) {
+  position: relative;
+  width: $width;
+  height: $height;
+  display: block;
+  font-size: 0;
+
+  &::before,&::after{
+    content: '';
+    position: absolute;
+    top: $top;
+    width: $width;
+    height: unquote($height / $top + 'px');
+    background: $btn-color;
+  }
+
+  &::before{
+    transform: rotate(45deg);
+  }
+
+  &::after{
+    transform: rotate(-45deg);
+  }
+}
+
+.btn-close{
+  // @include btnClose(100px,100px,50px,#000);
+  @include btnClose();
+}
+
+/**
+* checkbox勾按钮混合器
+*
+* @param {Number} $c-width 按钮容器的宽度
+* @param {Number} $c-height 按钮容器的高度
+* @param {Number} $width 按钮斜线的宽度
+* @param {Number} $height 按钮斜线的高度
+* @param $btn-color 按钮的颜色
+*/
+@mixin checkBox($c-width: 28px,$c-height: 28px, $btn-color: #6d5dfc) {
+  width: $c-width;
+  display: flex;
+  justify-content: center;
+
+  input{
+    display: none;
+
+    &:checked ~ label {
+      box-shadow: inset 2px 2px 5px rgba($btn-color, .6), inset -2px -2px 5px rgba($btn-color, .6);
+      
+      i {
+        width: $c-width;
+        height: $c-height;
+        position: relative;
+
+        &::before{
+          content: '';
+          position: absolute;
+          top: 18px;
+          left: 6px;
+
+          width: 6px;
+          height: 2px;
+          background-color: $btn-color;
+          transform: rotate(45deg);
+        }
+
+        &::after{
+          content: '';
+          position: absolute;
+          top: 14px;
+          right: 2px;
+
+          width: 18px;
+          height: 2px;
+          background-color: $btn-color;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  label{
+    box-shadow: 3px 3px 6px rgba($btn-color, .2), -2px -2px 5px rgba($btn-color, .4);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    width: $c-width;
+    height: $c-height;
+
+    &:hover{
+      i{
+        color: #6d5dfc;
+      }
+    }
+
+    i{
+
+    }
+  }
+}
+
+.checkbox{
+  @include checkBox();
+}
+
+/**
+* radio 单选按钮混合器
+*
+* @param {Number} $width 按钮容器的宽度
+* @param {Number} $height 按钮容器的高度
+* @param {Color} $btn-color 按钮颜色
+* @param {Color} $bg-color 与按钮所在地方的背景色一致，防止拆穿
+*/
+@mixin btnRadio($c-width: 28px,$c-height: 28px, $btn-color: #6d5dfc) {
+  input{
+    display: none;
+
+    &:checked ~ label{
+      box-shadow: inset 2px 2px 5px #c8d0e7, inset -2px -2px 5px #fff;
+      
+      &::after{
+        background: $btn-color;
+      }
+    }
+  }
+
+  label{
+    box-shadow: 3px 3px 6px #c8d0e7, -2px -2px 5px #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: $c-width;
+    height: $c-height;
+    border-radius: 50%;
+
+    &:hover::after{
+      background: rgba($btn-color, .6);
+    }
+
+    &::after{
+      content: "";
+      position: absolute;
+      width: $c-width / 2;
+      height: $c-height / 2;
+      background: #9baacf;
+      border-radius: 50%;
+      transition: 0.3s ease;
+    }
+  }
+}
+
+.btn-radio{
+  @include btnRadio();
+}
+
+//  单选切换按钮 
+@mixin btnSwitch() {
+  width: 60px;
+
+  input{
+    display: none;
+    
+    &:checked{
+      & ~ label{
+        &::before{
+          opacity: 1;
+        }
+        &::after{
+          left: 54%;
+          background: #E4EBF5;
+        }
+      }
+    }
+  }
+
+  label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 28px;
+    box-shadow: 3px 3px 6px #c8d0e7, -2px -2px 5px #fff;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    border-radius: 14px;
+
+    &::before{
+      content: '';
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(330deg, #5b0eeb 0%, #6d5dfc 50%, #8abdff 100%);
+      opacity: 0;
+      transition: all .4s ease;
+    }
+
+    &::after{
+      content: '';
+      position: absolute;
+      left: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #9baacf;
+      transition: all .4s ease;
+    }
+  }
+}
+
+.btn-switch{
+  @include btnSwitch();
+}
+
+@mixin hamburger-menu() {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+  &.toggled { 
+    .burger-line {
+      background: transparent;
+
+      &::before {
+        animation: burg2top 0.4s linear forwards;
+      } 
+      &::after {
+        animation: burg2bottom 0.4s linear forwards;
+      }
+    }
+  }
+
+  &.unToggled{
+    .burger-line{
+      background: #fff;
+
+      &::before{
+        animation: burg2topReset 0.4s linear forwards;
+      }
+
+      &::before{
+        animation: burg2bottomReset 0.4s linear forwards;
+      }
+    }
+  }
+
+  .burger-line {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: background 0.4s, font-size 0s;
+
+    &::before,
+    &::after {
+      transition: font-size 0s;
+      transform-origin: center center;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+    }
+
+    &::before {
+      margin-top: -6px;
+    }
+
+    &::after {
+      margin-top: 6px;
+    }
+  }
+  
+  @keyframes burg2top {
+    0% {
+    }
+    20% {
+      margin-top: 0;
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: 0;
+      transform: rotate(55deg);
+    }
+    100% {
+      margin-top: 0;
+      transform: rotate(45deg);
+    }
+  }
+
+  @keyframes burg2bottom {
+    0% {
+    }
+    20% {
+      margin-top: 0;
+      transform: rotate(0deg);
+    }
+    60% {
+      margin-top: 0;
+      transform: rotate(-55deg);
+    }
+    100% {
+      margin-top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+  @keyframes burg2topReset {
+    0% {
+      margin-top: 0;
+      transform: rotate(45deg);
+    }
+
+    100% {
+      margin-top: 6px;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes burg2bottomReset {
+    0% {
+      margin-top: 0;
+      transform: rotate(-45deg);
+    }
+
+    100% {
+      margin-top: -6px;
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.hamburger-menu{
+  @include hamburger-menu();
+}
+
+/**
+* 下载按钮混合器
+*
+* @param {Number} $c-width 按钮容器的宽度
+* @param {Number} $c-height 按钮容器的高度
+* @param {Number} $width 宽度(容器宽度的一半)
+* @param {Number} $height 高度(容器高度的一半)
+* @param {Color} $btn-color 按钮颜色
+*/
+@mixin btnDownload($c-width: 28px,$c-height: 28px,$width: 14px,$height: 14px,$btn-color: #6d5dfc) {
+  position: relative;
+  width: $c-width;
+  height: $c-height;
+
+  &::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: $width / 2;
+    width: $width;
+    height: $height;
+    background: $btn-color;
+  }
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: $height;
+    width: 0;
+    color: $btn-color;
+    border: $height solid transparent;
+    border-top: $height solid $btn-color;
+  }
+}
+
+.btn-download{
+  @include btnDownload();
+}
+
+/*=== 带阴影的矩形 ===*/
+@mixin shadow-cube($width: 200px, $height: 100px, $color1: rgba(109,93,252,.6), $color2:rgba(109,93,252,.8)) {
+  width: $width;
+  height: $height;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px $color1;
+
+  &::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 12px $color2;
+  }
+}
+
+.shadow-cube{
+  @include shadow-cube();
+}
+
+// 带阴影和渐变的矩形描边
+@mixin gradient-cube($width: 300px, $height: 140px, $bg-color: #6d5dfc,$color1: #74defa, $color2:#6de7d1) {
+	width: $width;
+	height: $height;
+	position: relative;
+	border: 2px solid transparent;
+	border-radius: 8px;
+	background: $bg-color;
+	background-clip: padding-box;
+	box-shadow: 0 3px 9px $bg-color, inset 0 0 9px rgba($bg-color, .8);
+
+  &::after{
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background: linear-gradient($color1, $color2);
+    content: '';
+    z-index: -1;
+    border-radius: 4px; 
+  }
+}
+
+.gradient-cube{
+  @include gradient-cube();
+}
+
+/**
+* 七彩渐变线混合器
+*
+* @param {Number} $c-width 容器的宽度
+* @param {Number} $c-height 容器的高度
+* @param {Color} $btn-color 背景颜色
+*/
+@mixin dotted-line($c-width: 100%,$c-height: 10px, $btn-color: #1CD8D2) {
+  width: $c-width;
+  height: $c-height;
+  background: $btn-color;
+  background: -o-linear-gradient(left, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(5%, #62efab), color-stop(15%, #f2ea7d), color-stop(25%, #f2ea7d), color-stop(35%, #ff8797), color-stop(45%, #ff8797), color-stop(55%, #e1a4f4), color-stop(65%, #e1a4f4), color-stop(75%, #82fff4), color-stop(85%, #82fff4), color-stop(95%, #62efab));
+  background: linear-gradient(to right, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%);
+  background-size: $c-width;
+  background-position: 0%;
+}
+
+.dotted-line{
+  @include dotted-line();
+}
+
+/**
+* 椭圆混合器
+*
+* @param {Number} $width 长直径
+* @param {Number} $height 短直径
+* @param {Color} $bg-color 背景色
+* @param {String} $border-radius 圆角大小
+*/
+@mixin oval($width: 200px, $height: 100px, $bg-color: #6d5dfc, $border-radius: 50%) {
+  width: $width;
+  height: $height;
+  background-color: $bg-color;
+  border-radius: $border-radius;
+}
+
+.oval{
+  @include oval();
+}
+
+.semicircle{
+  @include oval(300px,150px,#6d5dfc, 50% / 100% 100% 0 0);
+}
+
+.semicircle2{
+  @include oval(150px,150px,#6d5dfc, 100% 0 0 0);
+}
+
+.semicircle3{
+  @include oval(200px,150px,#6d5dfc, 50% / 100% 100% 0 0);
+}
+
+.semicircle4{
+  @include oval(100px,150px,#6d5dfc, 100% 0 0 0);
+}
+
+.semicircle5{
+  @include oval(300px,150px,#6d5dfc, 50% / 0 100%);
+}
+
+.semicircle6{
+  @include oval(300px,150px,#6d5dfc, 50% / 100% 0);
+}
+
+
+/**
+* 圆形，直径为100像素
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $bg-color 背景色
+*/
+@mixin circle($width: 100px, $height:100px, $bg-color: #6d5dfc) {
+  width: $width;
+  height: $height;
+  background-color: $bg-color;
+  border-radius: 50%;
+}
+
+.circle{
+  @include circle();
+}
+
+/**
+* 自定义swiper pagination混合（默认状态）
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $color1 描边颜色
+* @param {Colors} $color2 背景颜色
+* @param {Number} $radius 圆角大小
+*/
+@mixin annulus($width: 26px,$height: 26px,$color1: #fff,$color2: #000,$radius: 50%){
+  display: block;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  border: 1px solid $color1;
+  background: $color2;
+}
+
+/**
+* 自定义swiper pagination混合（选中状态）
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $color1 描边颜色
+* @param {Number} $radius 圆角大小
+*/
+@mixin round($width: 26px,$height: 26px,$color1: #fff,$radius: 50%){
+  display: block;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  background: $color1;
+  border-width: thin;
+}
+
+.annulus{
+  @include annulus();
+}
+
+.round{
+  @include round();
+}
+
+/**
+* 等腰三角形/等边直角三角形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】
+*/
+@mixin triangle($width: 0, $height: 0, $border-top: inherit, $border-right: inherit, $border-bottom: inherit, $border-left: inherit) {
+  width: $width;
+  height: $height;
+  border-top: $border-top;
+  border-right: $border-right;
+  border-bottom: $border-bottom;
+  border-left: $border-left;
+}
+
+/* 向上的等边三角形，一般只修改大小和颜色，其他值不变 */
+%triangle-up {
+  @include triangle(0, 0, inherit, 50px solid transparent, 100px solid #6d5dfc, 50px solid transparent);
+}
+
+.triangle-up{
+  @extend %triangle-up;
+}
+
+/* 向右的等边三角形 */
+%triangle-right {
+  @include triangle(0, 0, 50px solid transparent, inherit, 50px solid transparent, 100px solid #6d5dfc);
+}
+
+.triangle-right{
+  @extend %triangle-right;
+}
+
+/* 向下的等边三角形 */
+%triangle-down {
+  @include triangle(0, 0, 100px solid #6d5dfc, 50px solid transparent, inherit, 50px solid transparent);
+}
+
+.triangle-down{
+  @extend %triangle-down;
+}
+
+/* 向左的等边三角形 */
+%triangle-left {
+  @include triangle(0, 0, 50px solid transparent, 100px solid #6d5dfc, 50px solid transparent, inherit);
+}
+
+.triangle-left{
+  @extend %triangle-left;
+}
+
+/* 位于左上角的等边直角三角形，一般只修改大小和颜色，其他值不变 */
+%triangle-topleft {
+  @include triangle(0, 0, 100px solid #6d5dfc, 100px solid transparent, inherit, inherit);
+}
+
+.triangle-topleft{
+  @extend %triangle-topleft;
+}
+
+/* 位于右上角的等边直角三角形 */
+%triangle-topright {
+  @include triangle(0, 0, 100px solid #6d5dfc, inherit, inherit, 100px solid transparent);
+}
+
+.triangle-topright{
+  @extend %triangle-topright;
+}
+
+/* 位于左下角的等边直角三角形 */
+%triangle-bottomleft {
+  @include triangle(0, 0, inherit, 100px solid transparent, 100px solid #6d5dfc, inherit);
+}
+
+.triangle-bottomleft{
+  @extend %triangle-bottomleft;
+}
+
+/* 位于右下角的等边直角三角形 */
+%triangle-bottomright {
+  @include triangle(0, 0, inherit, inherit, 100px solid #6d5dfc, 100px solid transparent);
+}
+
+.triangle-bottomright{
+  @extend %triangle-bottomright;
+}
+
+/** 
+* 绘制小箭头
+* @param {Number} $width  宽
+* @param {Number} $height  高
+* @param {Number} $border 箭头大小
+* @param {Color} $btn-color 箭头颜色
+* @param {Color} $bg-color 背景色
+*
+*/ 
+@mixin arrow($width: 0, $height: 0, $border: 28px,$btn-color: #6d5dfc, $bg-color: #fff) {
+  width: $width;
+  height: $height;
+  border: $border solid;
+  border-color: transparent $btn-color transparent transparent;
+  position: relative;
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: -$border;
+    right: -36px;
+    border: $border solid;
+    border-color: transparent $bg-color transparent transparent;
+  }
+}
+
+// 向上的小箭头
+.arrow-top{
+  @include arrow();
+  transform: rotate(90deg);
+}
+
+// 向右的小箭头
+.arrow-right{
+  @include arrow();
+  transform: rotate(0deg);
+}
+
+// 向下的小箭头
+.arrow-bottom{
+  @include arrow();
+  transform: rotate(270deg);
+}
+
+// 向左的小箭头
+.arrow-left{
+  @include arrow();
+  transform: rotate(180deg);
+}
+
+
+/**
+* 缺角描边矩形框混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $border-color 描边颜色
+* @param {Number} $border-tl-radius 左上圆角大小
+* @param {Number} $border-tr-radius 右上圆角大小
+* @param {Number} $border-br-radius 右下圆角大小
+* @param {Number} $border-bl-radius 左下圆角大小
+*/
+@mixin rounded-rectangle($width: 240px,$height: 40px, $border-color: #6d5dfc, $border-tl-radius: 0,$border-tr-radius: 0,$border-br-radius: 40px,$border-bl-radius: 0) {
+  width: $width;
+  height: $height;
+  border: 1px solid $border-color;
+  border-radius: $border-tl-radius $border-tr-radius $border-br-radius $border-bl-radius;
+}
+
+.rounded-rectangle{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 20px, 20px, 20px, 20px);
+}
+
+.rounded-rectangle-tl{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 40px, 0, 0, 0);
+}
+
+.rounded-rectangle-tl-br{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 40px, 0, 40px, 0);
+}
+
+.rounded-rectangle-tl-tr{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 40px, 40px, 0, 0);
+}
+
+.rounded-rectangle-tr{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 0, 40px, 0, 0);
+}
+
+.rounded-rectangle-tr-bl{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 0, 40px, 0, 40px);
+}
+
+.rounded-rectangle-br{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 0, 0, 40px, 0);
+}
+
+.rounded-rectangle-bl{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 0, 0, 0, 40px);
+}
+
+.rounded-rectangle-bl-br{
+  @include rounded-rectangle(240px, 40px, #6d5dfc, 0, 0, 40px, 40px);
+}
+
+/**
+* 缺角矩形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $bg-color 背景色
+* @param {Number} $bg-size 背景大小（防止在某些浏览器中出现白边）
+* @param {String} $bg-repeat 是否重复背景
+* @param {List} $bg 背景的其他属性
+*/
+@mixin unfilled-rectangle($width: 240px, $height: 180px, $bg-color: #6d5dfc, $bg-size: 51% 51%, $bg-repeat: no-repeat, $bg...) {
+  width: $width;
+  height: $height;
+  background-color: $bg-color;
+  background: $bg;
+  background-size: $bg-size;
+  background-repeat: $bg-repeat;
+}
+
+.unfilled-rectangle-straight{
+  @include unfilled-rectangle(240px,180px,#6d5dfc,51% 51%, no-repeat, linear-gradient(45deg, transparent 12px, #6d5dfc 13px) bottom left, 
+  linear-gradient(135deg, transparent 12px, #6d5dfc 13px) top left, 
+  linear-gradient(-135deg, transparent 12px, #6d5dfc 13px) top right, 
+  linear-gradient(-45deg, transparent 12px, #6d5dfc 13px) bottom right);
+}
+
+.unfilled-rectangle-round{
+  @include unfilled-rectangle(240px,180px,#6d5dfc,51% 51%, no-repeat, radial-gradient(circle at bottom left, transparent 15px, #6d5dfc 16px) bottom left, 
+  radial-gradient(circle at top left, transparent 15px, #6d5dfc 16px) top left, 
+  radial-gradient(circle at top right, transparent 15px, #6d5dfc 16px) top right, 
+  radial-gradient(circle at bottom right, transparent 15px, #6d5dfc 16px) bottom right);
+}
+
+
+/**
+* 分享箭头混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】
+* @param {String} $transform 旋转角度
+* @param {Color} $color 颜色
+*
+*/
+@mixin curvedarrow($width: 0, $height: 0, $border-top: inherit, $border-right: inherit, $border-bottom: inherit, $border-left: inherit, $transform:none, $color: #6d5dfc) {
+  position: relative;
+  top: 30px;
+  left: 30px;
+  transform: rotate(10deg);
+  @include triangle(0, 0, 60px solid transparent, 60px solid $color, inherit, inherit);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -56px;
+    left: -26px;
+    transform: rotate(45deg);
+    width: $width + 60px;
+    height: $height + 60px;
+    border: 0 solid transparent;
+    border-top: 16px solid $color;
+    border-radius: 58px 0 0 0;
+  }
+}
+
+.curvedarrow{
+  @include curvedarrow();
+}
+
+/**
+* 平行四边形/菱形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $bg-color 背景色
+* @param {String} $transform 旋转角度
+*
+*/
+@mixin parallelogram($width: 200px, $height: 100px, $bg-color: #6d5dfc, $transform:skew(-30deg)) {
+  width: $width;
+  height: $height;
+  background: $bg-color;
+  transform: $transform;
+}
+
+/* 平行四边形混合器调用 */
+.parallelogram {
+  @include parallelogram;
+}
+
+// 菱形，默认100*100像素
+.rhombus{
+  @include parallelogram(100px, 100px, #6d5dfc, rotate(45deg));
+}
+
+/**
+* 等腰梯形混合器
+*
+* @param {Number} $width 高
+* @param {Number} $height 宽
+* @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】
+*/
+@mixin trapezoid($width: 100px, $height: 0, $border-top: inherit, $border-right: inherit, $border-bottom: inherit, $border-left: inherit) {
+  width: $width;
+  height: $height;
+  border-top: $border-top;
+  border-right: $border-right;
+  border-bottom: $border-bottom;
+  border-left: $border-left;
+}
+
+/* 等腰梯形混合器调用 */
+.trapezoid {
+  @include triangle(100px, 0, inherit, 50px solid transparent, 100px solid #6d5dfc, 50px solid transparent);
+}
+
+/**
+* 五边形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {List} $border-width1 设置一个元素的四个边框的宽度
+* @param {String} $border-style 设置一个元素的四个边框的样式[默认值：none]
+* @param {List} $border-color1 设置一个元素的四个边框颜色
+* @param {List} $box-sizing 定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。[默认值：content-box]
+* @param {List} $border-width2 设置一个元素的四个边框的宽度
+* @param {List} $border-color2 设置一个元素的四个边框颜色
+* @param {String} $transform 旋转角度
+*
+*/
+@mixin pentagon($width: 0, $height: 0, $border-width1: 50px 18px 0, $border-style: solid, $border-color1: #ccc transparent, $box-sizing: content-box, $border-width2: 0 45px 35px, $border-color2: transparent transparent #ccc) {
+  position: relative;
+  width: $width;
+  height: $height;
+  border-width: $border-width1;
+  border-style: $border-style;
+  border-color: $border-color1;
+  box-sizing: $box-sizing;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -85px;
+    left: -18px;
+    width: $height;
+    height: $height;
+    border-width: $border-width2;
+    border-style: $border-style;
+    border-color: $border-color2;
+  }
+}
+
+.pentagon {
+  // @include pentagon;
+  @include pentagon(54px, auto, 50px 18px 0, solid, #ccc transparent, content-box, 0 45px 35px, transparent transparent #ccc);
+}
+
+/*=== 五角星 ===*/
+.star-five {
+  position: relative;
+  top: .6rem;
+  display: block;
+  color: #FFBA44;
+  width: 0;
+  height: 0;
+
+  border: {
+    right: 1rem solid transparent;
+    bottom: .7rem solid #FFBA44;
+    left: 1rem solid transparent;
+  }
+
+  -moz-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  -ms-transform: rotate(35deg);
+  -o-transform: rotate(35deg);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -.45rem;
+    left: -.65rem;
+    display: block;
+    height: 0;
+    width: 0;
+
+    border: {
+      right: .3rem solid transparent;
+      bottom: .8rem solid #FFBA44;
+      left: .3rem solid transparent;
+    }
+
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -ms-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: .03rem;
+    left: -1.05rem;
+    display: block;
+    width: 0;
+    height: 0;
+    color: #FFBA44;
+
+    border: {
+      right: 1rem solid transparent;
+      bottom: .7rem solid #FFBA44;
+      left: 1rem solid transparent;
+    }
+
+    -webkit-transform: rotate(-70deg);
+    -moz-transform: rotate(-70deg);
+    -ms-transform: rotate(-70deg);
+    -o-transform: rotate(-70deg);
+  }
+}
+
+
+/**
+* 六边形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $bg-color 背景色
+*
+*/
+@mixin hexagon($width: 100px, $height: 55px, $bg-color: skyblue) {
+  position: relative;
+  width: $width;
+  height: $height;
+  background-color: $bg-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 0;
+    @include triangle($width: 0, $height: 0, $border-top: inherit, $border-right: 50px solid transparent, $border-bottom: 25px solid $bg-color, $border-left: 50px solid transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    @include triangle($width: 0, $height: 0, $border-top: 25px solid $bg-color, $border-right: 50px solid transparent, $border-bottom: inherit, $border-left: 50px solid transparent);
+  }
+}
+
+/* 六边形混合器调用 */
+%hexagon {
+  // @include hexagon;
+  @include hexagon(100px, 55px, #ccc);
+}
+
+/*=== 六角星,绘制两个三角形进行叠加获得一个六角星 ===*/
+.star-six {
+  position: relative;
+  width: 0;
+  height: 0;
+  border: .5rem solid transparent;
+  /*三角形的高度*/
+  border-bottom: .8rem solid #FFBA44;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: .26rem;
+    left: -.5rem;
+    width: 0;
+    height: 0;
+    border: .5rem solid transparent;
+    border-top: .8rem solid #FFBA44;
+  }
+}
+
+/**
+* 爱心混合器
+*
+* @param {Color} $bg-color 背景色
+* @param {List} $border-radius 圆角大小
+* @param {List} $transform-origin1 更改转换元素的位置
+* @param {List} $transform-origin2 更改转换元素的位置
+*/
+@mixin heart($width: 100px,$height: 90px,$bg-color: #ccc, $border-radius: 50px 50px 0 0, $transform-origin1: 0 100%, $transform-origin2: 100% 100%) {
+  position: relative;
+  width: $width;
+  height: $height;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    transform: rotate(-45deg);
+    // @include element-size(50px, 80px);
+    width: calc($width - 50);
+    height: calc($height - 10);
+    background: $bg-color;
+    border-radius: $border-radius;
+    transform-origin: $transform-origin1;
+  }
+
+  &::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: $transform-origin2;
+  }
+}
+
+/* 爱心混合器调用 */
+%heart {
+  @include heart(#ccc, 50px 50px 0 0, 0 100%, 100% 100%);
+}
+
+/**
+* 无穷大混合器
+*
+* @param {Color} $box-sizing 定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。[默认值：content-box]
+* @param {List} $border 设置在一个声明中所有的边框属性
+* @param {List} $border-radius1 为元素添加圆角边框
+* @param {List} $border-radius2 为元素添加圆角边框
+*/
+@mixin infinity($width: 150px,$height: 100px,$box-sizing: content-box, $border: 20px solid #ccc, $border-radius1: 50px 50px 0 50px, $border-radius2: 50px 50px 50px 0) {
+  position: relative;
+  width: $width;
+  height: $height;
+  box-sizing: $box-sizing;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-45deg);
+    // @include element-size(30px, 30px);
+    width: $width - 120;
+    height: $height -70;
+    border: $border;
+    border-radius: $border-radius1;
+    box-sizing: $box-sizing;
+  }
+
+  &::after {
+    left: auto;
+    right: 10px;
+    border-radius: $border-radius2;
+    transform: rotate(45deg);
+  }
+}
+
+/* 无穷大混合器调用 */
+%infinity {
+  @include infinity($box-sizing: content-box, $border: 20px solid #ccc, $border-radius1: 50px 50px 0 50px, $border-radius2: 50px 50px 50px 0);
+}
+
+/**
+* 钻石混合器
+*
+*
+*
+*/
+@mixin diamond($width: 0,$height: 0,$box-sizing: content-box) {
+  @include pentagon(50px, 0, 0 25px 25px 25px, solid, transparent transparent skyblue transparent, content-box, 70px 50px 0 50px, skyblue transparent transparent transparent);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    width: $width;
+    height: $height;
+  }
+}
+
+
+/**
+* 锁混合器
+*
+*
+*
+*/
+@mixin lock() {
+  position: relative;
+  width: 90px;
+  height: 65px;
+  border: 18px solid skyblue;
+  border-right-width: 37px;
+  border-left-width: 37px;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  &::before{
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    width: 70px;
+    height: 60px;
+    content: '';
+    border: 12px solid skyblue;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+  }
+
+  &::after{
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 25px;
+    height: 40px;
+    content: '';
+    border: 5px solid skyblue;
+    border-radius: 12px;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+  }
+}
+
+.lock{
+  @include lock();
+}
+
+/**
+* 吃豆人混合器
+*
+*
+*
+*/
+@mixin pacman() {
+  width: 0px;
+  height: 0px;
+  border: 60px solid skyblue;
+  border-right: 60px solid transparent;
+  border-radius: 60px;
+}
+
+.pacman {
+  @include pacman();
+}
+
+
+/**
+* 太极混合器
+*
+*
+*
+*/
+@mixin supreme-pole() {
+  position: relative;
+  width: 96px;
+  height: 48px;
+  background-color: #fff;
+  border-width: 2px 2px 50px 2px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 50%;
+  box-sizing: content-box;
+
+  &::before{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background-color: #fff;
+    border: 18px solid #000;
+    border-radius: 50%;
+    box-sizing: content-box;
+  }
+  
+  &::after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background-color: #000;
+    border: 18px solid #fff;
+    border-radius: 50%;
+    box-sizing: content-box;
+  }
+}
+
+.supreme-pole {
+  @include supreme-pole();
+}
+
+/**
+* 丝带勋章混合器
+*
+*
+*
+*/
+@mixin badge() {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: skyblue;
+  border-radius: 50%;
+
+  &::before,&::after{
+    position: absolute;
+    top: 70px;
+    left: -10px;
+    content: '';
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid skyblue;
+    border-left: 40px solid transparent;
+    transform: rotate(-140deg);
+  }
+  
+  &::after {
+    right: -10px;
+    left: auto;
+    transform: rotate(140deg);
+  }
+}
+
+.badge-ribbon {
+  @include badge();
+}
+
+/**
+* 放大镜混合器
+*
+*
+*
+*/
+@mixin magnifying-glass() {
+  position: relative;
+  width: 0.4em;
+  height: 0.4em;
+  font-size: 10em;
+  border: 0.1em solid skyblue;
+  border-radius: 0.35em;
+  box-sizing: content-box;
+  
+  &::before{
+    position: absolute;
+    right: -0.25em;
+    bottom: -0.1em;
+    width: 0.35em;
+    height: 0.08em;
+    content: '';
+    background-color: skyblue;
+    transform: rotate(45deg);
+  }
+}
+
+.magnifying-glass {
+  @include magnifying-glass();
+}
+
+
+/**
+* 月亮混合器
+*
+*
+*
+*/
+@mixin moon() {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 0 skyblue;
+}
+
+.moon {
+  @include moon();
+}
+
+/**
+* 圆锥混合器
+*
+*
+*
+*/
+@mixin cone() {
+  width: 0;
+  height: 0;
+  border-top: 100px solid skyblue;
+  border-right: 70px solid transparent;
+  border-left: 70px solid transparent;
+  border-radius: 50%;
+}
+
+.cone {
+  @include cone();
+}
+
+/**
+* 十字架混合器
+*
+*
+*
+*/
+@mixin cross() {
+  position: relative;
+  width: 20px;
+  height: 100px;
+  background-color: skyblue;
+
+  &::before{
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    width: 100px;
+    height: 20px;
+    content: "";
+    background-color: skyblue;
+  }
+}
+
+.cross {
+  @include cross();
+}
+
+/**
+* 谷堆混合器
+*
+*
+*
+*/
+@mixin base() {
+  position: relative;
+  width: 100px;
+  height: 55px;
+  background-color: skyblue;
+  
+  &::before{
+    position: absolute;
+    top: -35px;
+    left: 0;
+    width: 0;
+    height: 0;
+    content: '';
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid skyblue;
+    border-left: 50px solid transparent;
+  }
+}
+
+.base {
+  @include base();
+}
+
+/**
+* 指示器混合器
+*
+*
+*
+*/
+@mixin pointer() {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: skyblue;
+
+  &::before{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #fff;
+  }
+
+  &::after{
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    content: '';
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid skyblue;
+  }
+}
+
+.pointer {
+  @include pointer();
+}
+
+/*=== 马赛克背景混合器 ===*/
+@mixin mosaic-bg($width: 400px, $height: 400px, $bg-img:repeating-conic-gradient(#eee 0 25%, transparent 0 50%), $bg-size: 16px 16px) {
+  width: $width;
+  height: $height;
+  background-image: $bg-img;
+  background-size: $bg-size;
+}
+
+.mosaic {
+  @include mosaic-bg(400px, 400px, conic-gradient(#eee 0 25%, transparent 0 50%, #eee 0 75%, transparent 0), 16px 16px);
+}
+
+/**
+* 自定义滚动条混合器 
+*
+* @param {Number} $width 滚动条容器宽度
+* @param {Number} $height 滚动条容器最大高度（内容超过此高度时显示滚动条）
+* @param {Color} $color1 滚动条颜色（目前该属性还处于实验阶段）
+* @param {Number} $s-width 滚动条宽度
+* @param {Number} $s-height 滚动条宽度
+* @param {Color} $color2 滚动条track的颜色
+* @param {Color} $color3 滚动条thumb的颜色
+* @param {Color} $color4 滚动条thumb的颜色
+*/
+@mixin custom-scroll-bar($width: 600px, $height: 400px,$color1: #6d5dfc,$s-width: 4px, $s-height: 160px,$color2: #000, $color3: #74defa,$color4: #6de7d1) {
+  width: $width;
+  max-height: $height;
+  overflow-x: hidden;
+  overflow-y: auto;
+  direction: ltr;
+  scrollbar-color: $color1;
+  scrollbar-width: thin;
+  cursor: pointer;
+
+  &::-webkit-scrollbar {
+    width: $s-width;
+    height: $s-height;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: $s-width / 2;
+    -webkit-box-shadow: inset 0 0 5px 0 rgba($color2, 20%);
+            box-shadow: inset 0 0 5px 0 rgba($color2, 20%);
+    // background: $color2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $s-width / 2;
+    background-image: -webkit-gradient(linear, left bottom, left top, from($color3), color-stop(99%, $color4));
+    background-image: linear-gradient(0deg, $color3 0%, $color4 99%);
+    -webkit-box-shadow: inset 2px 2px 5px 0 rgba($color4, 0.5);
+            box-shadow: inset 2px 2px 5px 0 rgba($color4, 0.5);
+  }
+}
+
+.custom-scroll-bar{
+  @include custom-scroll-bar();
+}
+
+/*
+* scrollbar-gutter
+*/
+// 定义 str-replace 函数
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  } @else {
+    @return $string;
+  }
+}
+// 定义变量
+$scrollbarGutter: auto, stable, 'stable both-edges';
+// 使用@echo循环生成css类名并应用样式
+@each $value in $scrollbarGutter {
+  .scrollbargutter-#{str-replace($value, ' ', '-')} {
+    scrollbar-gutter: $value;
+  }
+}
+
+
+/**
+* 文字高光混合器 
+*
+* @param {Color} $color1 文字颜色
+* @param {Color} $color2 阴影颜色
+* @param {Color} $color3 文字渐变色1
+* @param {Color} $color4 文字渐变色2
+*/
+@mixin text-highlights($color1: #6d5dfc,$color2: #160d67,$color3: #2109f9,$color4: #000) {
+  position: relative;
+  margin: 0;
+  color: $color1;
+	transform: scale(1);
+	text-shadow: -1px 0 1px $color2, 0 1px 1px $color2, 5px 5px 10px rgba($color4, 0.4), -5px -5px 10px rgba($color4, 0.4);
+
+  &::before{
+    content: attr(data-text);
+    position: absolute;	
+    left: 0;
+	  top: 0;
+	  z-index: 1;
+	  background: linear-gradient(to bottom, $color2 20%, rgba($color2, .4) 40%,rgba($color3, .6) 60%, $color3 80%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	  text-shadow: none;
+  }
+}
+
+.text-highlights{
+  @include text-highlights();
+}
+
+
+/**
+* 半透明边框混合器 
+*
+* @param {List} $border 边框颜色（透明度通过改变颜色的透明度实现）
+*/
+@mixin translucent-border($border...) {
+  background-clip: padding-box;
+  border: $border;
+}
+
+.translucent-border{
+  @include translucent-border(2px solid rgba(#2109f9, .2));
+}
+
+/**
+* 多重边框混合器 
+*
+* @param {List} $box-shadow 阴影
+*/
+@mixin multiple-border($box-shadow...) {
+  // box-shadow: 0 0 0 10px #E8E2D6, 0 0 0 20px #E1D9C9,  
+  // 0 0 0 30px #D9CFBB, 0 0 0 40px #D2C6AE,  
+  // 0 0 0 50px #CABCA0, 0 0 0 60px #C3B393,
+  // 0 0 0 70px #BBA985, 0 0 0 80px #6d5dfc;
+
+  box-shadow: $box-shadow;
+}
+
+.multiple-border{
+  @include multiple-border(0 0 0 10px #bfbfff, 0 0 0 20px #8080ff,  
+  0 0 0 30px #4040ff, 0 0 0 40px #0000FF,  
+  0 0 0 50px #0000bf, 0 0 0 60px #000080,
+  0 0 0 70px #000040, 0 0 0 80px #000000);
+}
+
+
+/**
+* 带虚线的边框混合器 
+*
+* @param {Color} $bg-color 背景色
+* @param {Color} $border-color 边框颜色
+* @param {Color} $outline-color 轮廓颜色
+* @param {Number} $border-width 边框大小
+*/
+@mixin outline-border($bg-color: #fff, $border-color: #6d5dfc, $outline-color: #8080ff, $border-width: 4px) {
+  background: $bg-color;
+  border: $border-width solid $border-color;
+  outline: $outline-color dashed 1px;
+  outline-offset: -($border-width * 2);
+}
+
+.outline-border{
+  @include outline-border();
+}
+
+/**
+* 边框内圆角混合器 
+*
+* @param {Color} $bg-color 背景色
+* @param {Number} $border-radius 圆角大小
+* @param {Color} $outline-color 轮廓颜色
+*/
+@mixin border-fillet($bg-color: #6d5dfc, $border-radius: 8px, $outline-color: #8080ff) {
+  background: $bg-color;
+  border-radius: $border-radius;
+  outline: 2px solid $outline-color;
+  box-shadow: 0 0 0 4px $outline-color;
+}
+
+.border-fillet{
+  @include border-fillet();
+}
+
+/**
+* 不规则卡片混合器 
+*
+* @param {Number} $width 卡片宽度
+* @param {Number} $height 卡片高度
+* @param {List} $bg-img 卡片背景等
+*/
+@mixin anomaly-card($width: 200px, $height: 120px, $bg-img...) {
+  position: relative;
+  width: $width;
+  height: $height;
+  background: $bg-img;
+}
+
+.anomaly-card{
+  @include anomaly-card(200px, 120px,radial-gradient(circle at 100px -8px, transparent 20px, #6d5dfc 20px));
+}
+
+.anomaly-card2{
+  @include anomaly-card(200px, 120px, none);
+  background-color: #6d5dfc;
+  border-radius: 5px;
+  filter: drop-shadow(2px 2px 2px rgba(180, 160, 120, .9));
+  
+  &::before{
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 0;
+    top: 40px; 
+    right: -22px;
+    border: 22px solid transparent;
+    border-left-color: #6d5dfc;
+    border-right-width: 0;
+  }
+}
+
+.anomaly-card3{
+  @include anomaly-card(200px, 120px, radial-gradient(circle at bottom right, transparent 29px, #6d5dfc 30px) bottom right);
+  filter: drop-shadow(2px 2px 2px rgba(180,160,120,.9));
+}
+
+// 简单饼图
+@mixin pie($width:100px,$height:100px,$border-radius: 50%, $bg-color: #6d5dfc, $bg-img...) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  background-image: $bg-img;
+
+  &::before{
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    background-color: inherit;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    transform-origin: 0 50%;
+    // transform: rotate(.62turn); 
+  }
+}
+
+.pie1 {
+  @include pie(100px,100px,50%,#6d5dfc, linear-gradient(to right, transparent 50%, #b4a078 0));
+  
+  &::before{
+    transform: rotate(.62turn); 
+  }
+}
+
+.pie2{
+  @include pie(100px,100px,50%,#6d5dfc, linear-gradient(to right, transparent 50%, #b4a078 0));
+
+  &::before{
+    animation: pie-chart-spin1 3s linear 1.6 forwards, pie-chart-bg1 3s step-end 1 forwards;
+  }
+
+  @at-root {
+    @keyframes pie-chart-spin1 {
+      to { transform: rotate(.5turn); }
+    }
+    @keyframes pie-chart-bg1 {
+      to { background: #b4a078; }
+    }
+  }
+}
+
+.pie3{
+  @include pie(100px,100px,50%,#6d5dfc, linear-gradient(to right, transparent 50%, #b4a078 0));
+
+  &::before{
+    animation: pie-chart-spin1 3s linear 1.6 forwards, pie-chart-bg1 3s step-end 1 forwards;
+    animation-delay: -1.5s;
+  }
+
+  @at-root {
+    @keyframes pie-chart-spin1 {
+      to { transform: rotate(.5turn); }
+    }
+    @keyframes pie-chart-bg1 {
+      to { background: #b4a078; }
+    }
+  }
+}

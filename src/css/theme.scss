@@ -1,0 +1,311 @@
+@import "./common.scss";
+@import "./theme-dark.scss";
+@import "./theme-light.scss";
+@import "./theme-grey.scss";
+@import "./theme-red.scss";
+@import "./theme-orange.scss";
+@import "./theme-yellow.scss";
+@import "./theme-green.scss";
+@import "./theme-indigo.scss";
+@import "./theme-blue.scss";
+@import "./theme-purple.scss";
+@import "./theme-colorful.scss";
+
+
+// 主题变量
+$color-primary-border: var(--color-primary-border);
+$color-primary: var(--color-primary);
+$color-primary-font: var(--color-primary-font);
+$color-primary-bg: var(--color-primary-bg);
+
+// pc
+@media screen and (min-width: 1025px) {
+  .theme-container{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .theme-inner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    background: rgba(229, 227, 227, .8);
+    box-shadow: rgba(0, 0, 0, .4) 0px 0px 50px 8px;
+
+    &.visible{
+      opacity: 1;
+      height: 60px;
+    }
+
+    .theme-lists{
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+
+      .theme-item{
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 0 10px;
+        aspect-ratio: 1 / 1;
+        outline-offset: 0;
+
+        &:nth-child(1){
+          background: #fff;
+        }
+
+        &:nth-child(2){
+          background: #000;
+        }
+
+        &:nth-child(3){
+          background: #565656;
+        }
+
+        &:nth-child(4){
+          background: #ff0000;
+        }
+
+        &:nth-child(5){
+          background: #ff6600;
+        }
+
+        &:nth-child(6){
+          background: #ffbb00;
+        }
+
+        &:nth-child(7){
+          background: #51ff00;
+        }
+
+        &:nth-child(8){
+          background: #00f7ff;
+        }
+
+        &:nth-child(9){
+          background: #001aff;
+        }
+
+        &:nth-child(10){
+          background: #ff00ea;
+        }
+
+        &:nth-child(11){
+          background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, rgb(0, 115, 130) 1.33turn, blue 1.66turn, purple 2turn);
+        }
+
+        &:hover,&.active{
+          cursor: pointer;
+          transition: all .5s ease;
+          outline: 1px solid rgb(6, 160, 6);
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+
+  .theme-switch{
+    width: 64px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    background: rgb(234, 233, 233);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 50px;
+      height: 100%;
+      background: rgb(234, 233, 233);
+    }
+
+    &::before {
+      right: 64px;
+      clip-path: path('M 0,0 C 25,0 25,50 50,50 L 0, 50 Z');
+      transform: rotate(180deg);
+    }
+    
+    &::after {
+      left: 64px;
+      clip-path: path('M 0,50 C 25,50 25,0 50,0 L 50, 50 Z');
+      transform: rotate(180deg);
+    }
+
+    .icon{
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// mobile
+@media screen and (max-width: 1024px) {
+  .theme-container{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .theme-inner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    background: rgba(229, 227, 227, .8);
+    box-shadow: rgba(0, 0, 0, .4) 0px 0px 50px 8px;
+
+    &.visible{
+      opacity: 1;
+      height: 60px;
+    }
+  
+    .theme-lists{
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+  
+      .theme-item{
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 0 6px;
+        aspect-ratio: 1 / 1;
+        outline-offset: 0;
+  
+        &:nth-child(1){
+          background: #fff;
+        }
+  
+        &:nth-child(2){
+          background: #000;
+        }
+  
+        &:nth-child(3){
+          background: #565656;
+        }
+  
+        &:nth-child(4){
+          background: #ff0000;
+        }
+  
+        &:nth-child(5){
+          background: #ff6600;
+        }
+  
+        &:nth-child(6){
+          background: #ffbb00;
+        }
+  
+        &:nth-child(7){
+          background: #51ff00;
+        }
+  
+        &:nth-child(8){
+          background: #00f7ff;
+        }
+  
+        &:nth-child(9){
+          background: #001aff;
+        }
+  
+        &:nth-child(10){
+          background: #ff00ea;
+        }
+  
+        &:nth-child(11){
+          background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, rgb(0, 115, 130) 1.33turn, blue 1.66turn, purple 2turn);
+        }
+  
+        &:hover,&.active{
+          cursor: pointer;
+          transition: all .5s ease;
+          outline: 1px solid rgb(6, 160, 6);
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+  
+  .theme-switch{
+    width: 34px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    background: rgb(234, 233, 233);
+  
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 50px;
+      height: 100%;
+      background: rgb(234, 233, 233);
+    }
+  
+    &::before {
+      right: 34px;
+      clip-path: path('M 0,0 C 25,0 25,50 50,50 L 0, 50 Z');
+      transform: rotate(180deg);
+    }
+    
+    &::after {
+      left: 34px;
+      clip-path: path('M 0,50 C 25,50 25,0 50,0 L 50, 50 Z');
+      transform: rotate(180deg);
+    }
+  
+    .icon{
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

@@ -1,0 +1,2172 @@
+/**
+ * Loading-config variables
+*/
+
+// config class
+$load-size: 40px !default;
+$load-color: #333 !default;
+$load-wander-distance: $load-size * 0.75 !default;
+$load-primary-color: #000 !default;
+$load-ball-size: 15px !default;
+$load-margin: 2px !default;
+$load-line-height: 35px !default;
+$load-line-width: 4px !default;
+$load-pos: 30% !default;
+// config animations
+$amount: 0px !default;
+$amount10: 10px !default;
+$amount20: 20px !default;
+$amount25: 25px !default;
+$amount30: 30px !default;
+$amount40: 40px !default;
+$amount50: 50px !default;
+$amount60: 60px !default;
+$amount70: 70px !default;
+$amount80: 80px !default;
+$amount90: 90px !default;
+$amount100: 100px !default;
+$opacity0: 0 !default;
+$opacity1: 0.1 !default;
+$opacity2: 0.2 !default;
+$opacity3: 0.3 !default;
+$opacity4: 0.4 !default;
+$opacity5: 0.5 !default;
+$opacity6: 0.6 !default;
+$opacity7: 0.7 !default;
+$opacity8: 0.8 !default;
+$opacity9: 0.9 !default;
+$opacity10: 1.0 !default;
+$angle0: 0deg !default;
+$angle1: 1deg !default;
+$angle2: 2deg !default;
+$angle3: 3deg !default;
+$angle4: 4deg !default;
+$angle5: 5deg !default;
+$angle6: 6deg !default;
+$angle7: 7deg !default;
+$angle8: 8deg !default;
+$angle9: 9deg !default;
+$angle10: 10deg !default;
+$angle30: 30deg !default;
+$angle45: 45deg !default;
+$angle60: 60deg !default;
+$angle90: 90deg !default;
+$angle120: 120deg !default;
+$angle180: 180deg !default;
+$angle240: 240deg !default;
+$angle270: 270deg !default;
+$angle300: 300deg !default;
+$angle360: 360deg !default;
+
+// config mixins file
+$load-border: 25px !default;
+$load-spacing: 45px !default;
+$load-radius: $amount20 !default;
+
+
+/**
+ * Loading-mixins
+*/
+@mixin global-bg() {
+	background-color: $load-primary-color;
+}
+
+@mixin global-animation() {
+	animation-fill-mode: both;
+}
+
+@mixin balls() {
+	@include global-bg();
+
+	width: $load-ball-size;
+	height: $load-ball-size;
+	border-radius: 100%;
+	margin: $load-margin;
+}
+
+@mixin lines() {
+	@include global-bg();
+	width: $load-line-width;
+	height: $load-line-height;
+	border-radius: 2px;
+	margin: $load-margin;
+}
+
+/**
+  * class width pacman mixins
+  */
+@mixin pacman-design() {
+	width: 0px;
+	height: 0px;
+	border-right: $load-border solid transparent;
+	border-top: $load-border solid $load-primary-color;
+	border-left: $load-border solid $load-primary-color;
+	border-bottom: $load-border solid $load-primary-color;
+	border-radius: $load-border;
+}
+
+@mixin ball-placement($n:3, $start:0) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i + 2}) {
+			animation: pacman-balls 1s delay(.33s, $n, $i) infinite linear;
+		}
+	}
+}
+
+/**
+  * class width line-spin-fade-loader mixins
+  */
+@mixin line-spin-fade-loader($n:8, $start:1) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			$iter: 360 / $n;
+			$quarter: ($load-radius / 2) + ($load-radius / 5.5);
+
+			@if $i==1 {
+				top: $load-radius;
+				left: 0;
+			}
+
+			@else if $i==2 {
+				top: $quarter;
+				left: $quarter;
+				transform: rotate(-45deg);
+			}
+
+			@else if $i==3 {
+				top: 0;
+				left: $load-radius;
+				transform: rotate(90deg);
+			}
+
+			@else if $i==4 {
+				top: -$quarter;
+				left: $quarter;
+				transform: rotate(45deg);
+			}
+
+			@else if $i==5 {
+				top: -$load-radius;
+				left: 0;
+			}
+
+			@else if $i==6 {
+				top: -$quarter;
+				left: -$quarter;
+				transform: rotate(-45deg);
+			}
+
+			@else if $i==7 {
+				top: 0;
+				left: -$load-radius;
+				transform: rotate(90deg);
+			}
+
+			@else if $i==8 {
+				top: $quarter;
+				left: -$quarter;
+				transform: rotate(45deg);
+			}
+
+			animation: line-spin-fade-loader 1.2s delay(0.12s, $n, $i) infinite ease-in-out;
+		}
+	}
+}
+
+/**
+  * class width line-scale mixins
+  */
+@mixin line-scale($n:5) {
+	@for $i from 1 through $n {
+		>div:nth-child(#{$i}) {
+			animation: line-scale-pulse-out 1s delay(0.1s, $n, $i) infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+	}
+}
+
+/**
+  * class width line-scale-party mixins
+  */
+@mixin line-scale-party($n:4) {
+	@for $i from 1 through $n {
+		>div:nth-child(#{$i}) {
+			animation-delay: ((random(100) / 100) - 0.2) + s;
+			animation-duration: ((random(100) / 100) + 0.3) + s;
+		}
+	}
+}
+
+/**
+  * class width ball-triangle-path mixins
+  */
+@mixin ball-triangle-path($n:3) {
+	$animations: ball-triangle-path-1 ball-triangle-path-2 ball-triangle-path-3;
+
+	@for $i from 1 through $n {
+		>div:nth-child(#{$i}) {
+			animation-name: nth($animations, $i);
+			animation-delay: 0;
+			animation-duration: 2s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+/**
+  * class width ball-spin-loader mixins
+  */
+@mixin ball-spin-loader($n:8, $start:1) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			$iter: 360 / $n;
+			$quarter: ($load-spacing / 2) + ($load-spacing / 5.5);
+
+			@if $i==1 {
+				top: $load-spacing;
+				left: 0;
+			}
+
+			@else if $i==2 {
+				top: $quarter;
+				left: $quarter;
+			}
+
+			@else if $i==3 {
+				top: 0;
+				left: $load-spacing;
+			}
+
+			@else if $i==4 {
+				top: -$quarter;
+				left: $quarter;
+			}
+
+			@else if $i==5 {
+				top: -$load-spacing;
+				left: 0;
+			}
+
+			@else if $i==6 {
+				top: -$quarter;
+				left: -$quarter;
+			}
+
+			@else if $i==7 {
+				top: 0;
+				left: -$load-spacing;
+			}
+
+			@else if $i==8 {
+				top: $quarter;
+				left: -$quarter;
+			}
+
+			animation: ball-spin-loader 2s ($i * 0.9s) infinite linear;
+		}
+	}
+}
+
+/**
+  * class width ball-spin-fade-loader mixins
+  */
+@mixin ball-spin-fade-loader($n:8, $start:1) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			$iter: 360 / $n;
+			$quarter: ($load-border / 2) + ($load-border / 5.5);
+
+			@if $i==1 {
+				top: $load-border;
+				left: 0;
+			}
+
+			@else if $i==2 {
+				top: $quarter;
+				left: $quarter;
+			}
+
+			@else if $i==3 {
+				top: 0;
+				left: $load-border;
+			}
+
+			@else if $i==4 {
+				top: -$quarter;
+				left: $quarter;
+			}
+
+			@else if $i==5 {
+				top: -$load-border;
+				left: 0;
+			}
+
+			@else if $i==6 {
+				top: -$quarter;
+				left: -$quarter;
+			}
+
+			@else if $i==7 {
+				top: 0;
+				left: -$load-border;
+			}
+
+			@else if $i==8 {
+				top: $quarter;
+				left: -$quarter;
+			}
+
+			animation: ball-spin-fade-loader 1s delay(0.12s, $n, $i - 1) infinite linear;
+		}
+	}
+}
+
+/**
+  * class width ball-scale-ripple-multiple mixins
+  */
+@mixin ball-scale-ripple-multiple ($n:3, $start:0) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			animation-delay: delay(0.2s, $n, $i - 1);
+		}
+	}
+}
+
+/**
+  * class width ball-scale-multiple mixins
+  */
+@mixin ball-scale-multiple ($n: 3, $start: 2) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			animation-delay: delay(0.2s, $n, $i - 1);
+		}
+	}
+}
+
+/**
+  * class width ball-grid-beat and ball-grid-pulse mixins
+  */
+@mixin ball-grid-beat($n:9) {
+	@for $i from 1 through $n {
+		>div:nth-child(#{$i}) {
+			animation-delay: ((random(100) / 100) - 0.2) + s;
+			animation-duration: ((random(100) / 100) + 0.6) + s;
+		}
+	}
+}
+
+/**
+  * class width ball-pulse-sync mixins
+  */
+@mixin ball-pulse-sync($n: 3, $start: 1) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			animation: ball-pulse-sync 0.6s delay(0.07s, $n, $i) infinite ease-in-out;
+		}
+	}
+}
+
+/**
+  * class width ball-pulse mixins
+  */
+@mixin ball-pulse($n: 3, $start: 1) {
+	@for $i from $start through $n {
+		>div:nth-child(#{$i}) {
+			animation: scale-pulse 0.75s delay(0.12s, $n, $i) infinite cubic-bezier(.2, .68, .18, 1.08);
+		}
+	}
+}
+
+
+/**
+ * Loading-function
+*/
+@function delay($interval, $count, $index) {
+	@return ($index * $interval) - ($interval * $count);
+}
+
+/**
+ * Loading-animate
+*/
+
+// ball-beat animate
+@keyframes ball-beat {
+	50% {
+		opacity: 0.2;
+		transform: scale(0.75);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+// ball-grid-beat animate
+@keyframes ball-grid-beat {
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+// ball-grid-pulse animate
+@keyframes ball-grid-pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+// ball-clip-rotate-multiple and ball-clip-rotate-pulse aminate 
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+
+	50% {
+		transform: rotate(180deg) scale(0.6);
+	}
+
+	100% {
+		transform: rotate(360deg) scale(1);
+	}
+}
+
+// semi-circle-spin animate
+@keyframes spin-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(180deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+// rotate-pacman-half-up animate
+@keyframes rotate-pacman-half-up {
+	0% {
+		transform: rotate(270deg);
+	}
+
+	50% {
+		transform: rotate(360deg);
+	}
+
+	100% {
+		transform: rotate(270deg);
+	}
+}
+
+@keyframes rotate-pacman-half-down {
+	0% {
+		transform: rotate(90deg);
+	}
+
+	50% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes pacman-balls {
+	75% {
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: translate(-4 * $amount25, -$amount25 / 4);
+	}
+}
+
+// ball-clip-rotate-pulse aminate
+@keyframes scale {
+	30% {
+		transform: scale(0.3);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+// ball-pulse animate[changes name]
+@keyframes scale-pulse {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	45% {
+		transform: scale(0.1);
+		opacity: 0.7;
+	}
+
+	80% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+// ball-clip-rotate and ball-rotate animate
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(180deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+// ball-pulse-rise animate
+@keyframes ball-pulse-rise-even {
+	0% {
+		transform: scale(1.1);
+	}
+
+	25% {
+		transform: translateY(-$amount30);
+	}
+
+	50% {
+		transform: scale(0.4);
+	}
+
+	75% {
+		transform: translateY($amount30);
+	}
+
+	100% {
+		transform: translateY(0);
+		transform: scale(1.0);
+	}
+}
+
+@keyframes ball-pulse-rise-odd {
+	0% {
+		transform: scale(0.4);
+	}
+
+	25% {
+		transform: translateY($amount30);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	75% {
+		transform: translateY(-$amount30);
+	}
+
+	100% {
+		transform: translateY(0);
+		transform: scale(0.75);
+	}
+}
+
+// ball-pulse-round and circle-dot animate
+@keyframes ball-pulse-round {
+
+	0%,
+	80%,
+	100% {
+		transform: scale(0.0);
+		-webkit-transform: scale(0.0);
+	}
+
+	40% {
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
+}
+
+// ball-pulse-sync animate
+@keyframes ball-pulse-sync {
+	33% {
+		transform: translateY($amount10);
+	}
+
+	66% {
+		transform: translateY(-$amount10);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+// ball-scale-multiple animate
+@keyframes ball-scale-multiple {
+	0% {
+		transform: scale(0.0);
+		opacity: 0;
+	}
+
+	5% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+// ball-scale and ball-scale-random animate
+@keyframes ball-scale {
+	0% {
+		transform: scale(0.0);
+	}
+
+	100% {
+		transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+// ball-scale-ripple-multiple and ball-scale-ripple animate
+@keyframes ball-scale-ripple-multiple {
+	0% {
+		transform: scale(0.1);
+		opacity: 1;
+	}
+
+	70% {
+		transform: scale(1);
+		opacity: 0.7;
+	}
+
+	100% {
+		opacity: 0.0;
+	}
+}
+
+// ball-spin-fade-loader animate
+@keyframes ball-spin-fade-loader {
+	50% {
+		opacity: 0.3;
+		transform: scale(0.4);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+// ball-spin-loader animate
+@keyframes ball-spin-loader {
+	75% {
+		opacity: 0.2;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+// ball-triangle-path animate
+@keyframes ball-triangle-path-1 {
+	33% {
+		transform: translate($amount50 / 2, -$amount50);
+	}
+
+	66% {
+		transform: translate($amount50, $amount);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+@keyframes ball-triangle-path-2 {
+	33% {
+		transform: translate($amount50 / 2, $amount50);
+	}
+
+	66% {
+		transform: translate(-$amount50 / 2, $amount50);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+@keyframes ball-triangle-path-3 {
+	33% {
+		transform: translate(-$amount50, $amount);
+	}
+
+	66% {
+		transform: translate(-$amount50 / 2, -$amount50);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+// ball-zig-zag-deflect animate
+@keyframes ball-zig-deflect {
+	17% {
+		transform: translate(-$amount30/2, -$amount30);
+	}
+
+	34% {
+		transform: translate($amount30/2, -$amount30);
+	}
+
+	50% {
+		transform: translate($amount, $amount);
+	}
+
+	67% {
+		transform: translate($amount30/2, -$amount30);
+	}
+
+	84% {
+		transform: translate(-$amount30/2, -$amount30);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+@keyframes ball-zag-deflect {
+	17% {
+		transform: translate($amount30/2, $amount30);
+	}
+
+	34% {
+		transform: translate(-$amount30/2, $amount30);
+	}
+
+	50% {
+		transform: translate($amount, $amount);
+	}
+
+	67% {
+		transform: translate(-$amount30/2, $amount30);
+	}
+
+	84% {
+		transform: translate($amount30/2, $amount30);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+// ball-zig-zag animate
+@keyframes ball-zig {
+	33% {
+		transform: translate(-$amount30/2, -$amount30);
+	}
+
+	66% {
+		transform: translate($amount30/2, -$amount30);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+@keyframes ball-zag {
+	33% {
+		transform: translate($amount30/2, $amount30);
+	}
+
+	66% {
+		transform: translate(-$amount30/2, $amount30);
+	}
+
+	100% {
+		transform: translate($amount, $amount);
+	}
+}
+
+// cube-transition animate
+@keyframes cube-transition {
+	25% {
+		transform: translateX($amount50) scale(0.5) rotate(-90deg);
+	}
+
+	50% {
+		transform: translate($amount50, $amount50) rotate(-180deg);
+	}
+
+	75% {
+		transform: translateY($amount50) scale(0.5) rotate(-270deg);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+// line-scale-pulse-out-rapid aminate
+@keyframes line-scale-pulse-out-rapid {
+	0% {
+		transform: scaley(1.0);
+	}
+
+	80% {
+		transform: scaley(0.3);
+	}
+
+	90% {
+		transform: scaley(1.0);
+	}
+}
+
+// line-scale-pulse-out and line-scale animate
+@keyframes line-scale-pulse-out {
+	0% {
+		transform: scaley(1.0);
+	}
+
+	50% {
+		transform: scaley(0.4);
+	}
+
+	100% {
+		transform: scaley(1.0);
+	}
+}
+
+// line-scale-party animate
+@keyframes line-scale-party {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+// line-spin-fade-loader animate
+@keyframes line-spin-fade-loader {
+	50% {
+		opacity: 0.3;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+// square-spin and triangle-skew-spin aminate
+@keyframes square-spin {
+	25% {
+		transform: perspective($amount100) rotateX(180deg) rotateY(0);
+	}
+
+	50% {
+		transform: perspective($amount100) rotateX(180deg) rotateY(180deg);
+	}
+
+	75% {
+		transform: perspective($amount100) rotateX(0) rotateY(180deg);
+	}
+
+	100% {
+		transform: perspective($amount100) rotateX(0) rotateY(0);
+	}
+}
+
+// point-chase and ball-swing aminate
+@keyframes point-chase {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes point-chase-child {
+
+	80%,
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes point-chase-child-before {
+	50% {
+		transform: scale(0.4);
+	}
+
+	100%,
+	0% {
+		transform: scale(1.0);
+	}
+}
+
+// ball-bounce aminate
+@keyframes ball-bounce {
+
+	0%,
+	100% {
+		transform: scale(0);
+	}
+
+	45%,
+	55% {
+		transform: scale(1);
+	}
+}
+
+// ball-swing-child aminate
+@keyframes ball-swing-child {
+
+	0%,
+	100% {
+		transform: scale(0.2);
+	}
+
+	50% {
+		transform: scale(1);
+	}
+}
+
+// grid-cube aminate
+@keyframes grid-cube {
+
+	0%,
+	70%,
+	100% {
+		transform: scale3D(1, 1, 1);
+	}
+
+	35% {
+		transform: scale3D(0, 0, 1);
+	}
+}
+
+// wander-cube animate
+@keyframes wander-cube {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: translateX(#{$load-wander-distance}) rotate(-90deg) scale(0.6);
+	}
+
+	50% {
+		/* Make FF rotate in the right direction */
+		transform: translateX($load-wander-distance) translateY($load-wander-distance) rotate(-179deg);
+	}
+
+	50.1% {
+		transform: translateX($load-wander-distance) translateY($load-wander-distance) rotate(-180deg);
+	}
+
+	75% {
+		transform: translateX(0) translateY($load-wander-distance) rotate(-270deg) scale(0.6);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+// fold-cube animate
+@keyframes fold-cube {
+
+	0%,
+	10% {
+		transform: perspective(140px) rotateX(-180deg);
+		opacity: 0;
+	}
+
+	25%,
+	75% {
+		transform: perspective(140px) rotateX(0deg);
+		opacity: 1;
+	}
+
+	90%,
+	100% {
+		transform: perspective(140px) rotateY(180deg);
+		opacity: 0;
+	}
+}
+
+// circle-fade animate
+@keyframes circle-fade {
+
+	0%,
+	39%,
+	100% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	40% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+// ball-pulse class width aminate
+.ball-pulse {
+	@include ball-pulse();
+
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+	}
+}
+
+// ball-pulse-sync class width aminate
+.ball-pulse-sync {
+	@include ball-pulse-sync();
+
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+	}
+}
+
+// ball-pulse-round class width aminate
+.ball-pulse-round {
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+		animation: ball-pulse-round 1.2s infinite ease-in-out;
+	}
+}
+
+// circle-dot class width aminate
+/*  Circle
+		<div class="circle-dot">
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.circle-dot {
+	@include element-size(40px, 40px);
+	position: relative;
+
+	>div {
+		@include element-size(100%, 100%);
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		&:before {
+			content: '';
+			display: block;
+			@include element-size(15%, 15%);
+			background-color: $load-primary-color;
+			border-radius: 100%;
+			animation: ball-pulse-round 1.2s infinite ease-in-out both;
+		}
+	}
+
+	>div:nth-child(1) {
+		transform: rotate(30deg);
+
+		&::before {
+			animation-delay: -1.1s;
+		}
+	}
+
+	>div:nth-child(2) {
+		transform: rotate(60deg);
+
+		&::before {
+			animation-delay: -1.0s;
+		}
+	}
+
+	>div:nth-child(3) {
+		transform: rotate(90deg);
+
+		&::before {
+			animation-delay: -0.9s;
+		}
+	}
+
+	>div:nth-child(4) {
+		transform: rotate(120deg);
+
+		&::before {
+			animation-delay: -0.8s;
+		}
+	}
+
+	>div:nth-child(5) {
+		transform: rotate(150deg);
+
+		&::before {
+			animation-delay: -0.7s;
+		}
+	}
+
+	>div:nth-child(6) {
+		transform: rotate(180deg);
+
+		&::before {
+			animation-delay: -0.6s;
+		}
+	}
+
+	>div:nth-child(7) {
+		transform: rotate(210deg);
+
+		&::before {
+			animation-delay: -0.5s;
+		}
+	}
+
+	>div:nth-child(8) {
+		transform: rotate(240deg);
+
+		&::before {
+			animation-delay: -0.4s;
+		}
+	}
+
+	>div:nth-child(9) {
+		transform: rotate(270deg);
+
+		&::before {
+			animation-delay: -0.3s;
+		}
+	}
+
+	>div:nth-child(10) {
+		transform: rotate(300deg);
+
+		&::before {
+			animation-delay: -0.2s;
+		}
+	}
+
+	>div:nth-child(11) {
+		transform: rotate(330deg);
+
+		&::before {
+			animation-delay: -0.1s;
+		}
+	}
+}
+
+// ball-pulse-rise class width aminate
+.ball-pulse-rise {
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+		animation-duration: 1s;
+		animation-timing-function: cubic-bezier(.15, .46, .9, .6);
+		animation-iteration-count: infinite;
+		animation-delay: 0;
+
+		&:nth-child(2n) {
+			animation-name: ball-pulse-rise-even;
+		}
+
+		&:nth-child(2n-1) {
+			animation-name: ball-pulse-rise-odd;
+		}
+	}
+}
+
+// ball-grid-beat class width aminate
+.ball-grid-beat {
+	@include ball-grid-beat();
+	width: ($load-ball-size * 3) + $load-margin * 6;
+
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+		float: left;
+		animation-name: ball-grid-beat;
+		animation-iteration-count: infinite;
+		animation-delay: 0;
+	}
+}
+
+// ball-grid-pulse class width aminate
+.ball-grid-pulse {
+	@include ball-grid-beat();
+	width: ($load-ball-size * 3) + $load-margin * 6;
+
+	>div {
+		@include balls();
+		@include global-animation();
+		display: inline-block;
+		float: left;
+		animation-name: ball-grid-pulse;
+		animation-iteration-count: infinite;
+		animation-delay: 0;
+	}
+}
+
+// ball-clip-rotate-pulse class width aminate
+.ball-clip-rotate-pulse {
+	position: relative;
+	transform: translateY(-15px);
+
+	>div {
+		@include global-animation();
+
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		border-radius: 100%;
+
+		&:first-child {
+			background: $load-primary-color;
+			@include element-size(16px, 16px);
+			top: 7px;
+			left: -7px;
+			animation: scale 1s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+		}
+
+		&:last-child {
+			position: absolute;
+			border: 2px solid $load-primary-color;
+			@include element-size(30px, 30px);
+			left: -16px;
+			top: -2px;
+			background: transparent;
+			border: 2px solid;
+			border-color: $load-primary-color transparent $load-primary-color transparent;
+			animation: rotate 1s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+			animation-duration: 1s;
+		}
+	}
+}
+
+// ball-clip-rotate-multiple class width aminate
+.ball-clip-rotate-multiple {
+	position: relative;
+
+	>div {
+		@include global-animation();
+		position: absolute;
+		left: -20px;
+		top: -20px;
+		border: 2px solid $load-primary-color;
+		border-bottom-color: transparent;
+		border-top-color: transparent;
+		border-radius: 100%;
+		@include element-size(35px, 35px);
+		animation: rotate 1s 0s ease-in-out infinite;
+
+		&:last-child {
+			display: inline-block;
+			top: -10px;
+			left: -10px;
+			@include element-size(15px, 15px);
+			animation-duration: 0.5s;
+			border-color: $load-primary-color transparent $load-primary-color transparent;
+			animation-direction: reverse;
+		}
+	}
+}
+
+// ball-beat class width aminate
+.ball-beat {
+	>div {
+		@include balls();
+		@include global-animation();
+
+		display: inline-block;
+		animation: ball-beat 0.7s 0s infinite linear;
+
+		&:nth-child(2n-1) {
+			animation-delay: -0.35s !important;
+		}
+	}
+}
+
+// ball-clip-rotate class width aminate
+.ball-clip-rotate {
+	>div {
+		@include balls();
+		@include global-animation();
+
+		border: 2px solid $load-primary-color;
+		border-bottom-color: transparent;
+		@include element-size(26px, 26px);
+		background: transparent !important;
+		display: inline-block;
+		animation: rotate 0.75s 0s linear infinite;
+	}
+}
+
+// ball-rotate class width aminate
+.ball-rotate {
+	position: relative;
+
+	>div {
+		@include balls();
+		@include global-animation();
+		position: relative;
+
+		&:first-child {
+			animation: rotate 1s 0s cubic-bezier(.7, -.13, .22, .86) infinite;
+		}
+
+		&:before,
+		&:after {
+			@include balls();
+			content: "";
+			position: absolute;
+			opacity: 0.8;
+		}
+
+		&:before {
+			top: 0px;
+			left: -28px;
+		}
+
+		&:after {
+			top: 0px;
+			left: 25px;
+		}
+	}
+}
+
+// ball-scale-multiple class width aminate
+.ball-scale-multiple {
+	@include ball-scale-multiple();
+	position: relative;
+	transform: translateY(-$amount60 / 2);
+
+	>div {
+		@include balls();
+		@include global-animation();
+		position: absolute;
+		left: -30px;
+		top: 0px;
+		opacity: 0;
+		margin: 0;
+		@include element-size(60px, 60px);
+		animation: ball-scale-multiple 1s 0s linear infinite;
+	}
+}
+
+// ball-scale-ripple-multiple class width aminate
+.ball-scale-ripple-multiple {
+	@include ball-scale-ripple-multiple();
+	position: relative;
+	transform: translateY(-$amount50 / 2);
+
+	>div {
+		@include global-animation();
+		position: absolute;
+		top: -2px;
+		left: -26px;
+		@include element-size(50px, 50px);
+		border-radius: 100%;
+		border: 2px solid $load-primary-color;
+		animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(.21, .53, .56, .8);
+	}
+}
+
+// ball-scale-ripple class width aminate
+.ball-scale-ripple {
+	>div {
+		@include global-animation();
+		@include element-size(50px, 50px);
+		border-radius: 100%;
+		border: 2px solid $load-primary-color;
+		animation: ball-scale-ripple-multiple 1s 0s infinite cubic-bezier(.21, .53, .56, .8);
+	}
+}
+
+// ball-scale-random class width aminate
+.ball-scale-random {
+	@include element-size(37px, 40px);
+
+	>div {
+		@include balls();
+		@include global-animation();
+
+		position: absolute;
+		display: inline-block;
+		@include element-size(30px, 30px);
+		animation: ball-scale 1s 0s ease-in-out infinite;
+
+		&:nth-child(1) {
+			margin-left: -7px;
+			animation: ball-scale 1s 0.2s ease-in-out infinite;
+		}
+
+		&:nth-child(3) {
+			margin-left: -2px;
+			margin-top: 9px;
+			animation: ball-scale 1s 0.5s ease-in-out infinite;
+		}
+	}
+}
+
+// ball-scale class width aminate
+.ball-scale {
+	>div {
+		@include balls();
+		@include global-animation();
+
+		display: inline-block;
+		@include element-size(60px, 60px);
+		animation: ball-scale 1s 0s ease-in-out infinite;
+	}
+}
+
+// ball-spin-fade-loader class width aminate
+.ball-spin-fade-loader {
+	@include ball-spin-fade-loader();
+	position: relative;
+	top: -10px;
+	left: -10px;
+
+	>div {
+		@include balls();
+		@include global-animation();
+		position: absolute;
+	}
+}
+
+// ball-spin-loader class width aminate
+.ball-spin-loader {
+	@include ball-spin-loader();
+	position: relative;
+
+	>div {
+		@include global-animation();
+		position: absolute;
+		@include element-size(15px, 15px);
+		border-radius: 100%;
+		background: $load-primary-color;
+	}
+}
+
+// ball-triangle-path class width aminate
+.ball-triangle-path {
+	position: relative;
+	@include ball-triangle-path();
+	transform: translate(-$amount50 / 1.667, -$amount50 / 1.333);
+
+	>div {
+		@include global-animation();
+
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		border: 1px solid $load-primary-color;
+
+		&:nth-of-type(1) {
+			top: $amount50;
+		}
+
+		&:nth-of-type(2) {
+			left: $amount50 / 2;
+		}
+
+		&:nth-of-type(3) {
+			top: $amount50;
+			left: $amount50;
+		}
+	}
+}
+
+// ball-zig-zag-deflect class width aminate
+.ball-zig-zag-deflect {
+	position: relative;
+	transform: translate(-$amount30 / 2, -$amount30 / 2);
+
+	>div {
+		@include balls();
+		@include global-animation();
+
+		position: absolute;
+		margin-left: $amount30 / 2;
+		top: 4px;
+		left: -7px;
+
+		&:first-child {
+			animation: ball-zig-deflect 1.5s 0s infinite linear;
+		}
+
+		&:last-child {
+			animation: ball-zag-deflect 1.5s 0s infinite linear;
+		}
+	}
+}
+
+// ball-zig-zag class width aminate
+.ball-zig-zag {
+	position: relative;
+	transform: translate(-$amount30 / 2, -$amount30 / 2);
+
+	>div {
+		@include balls();
+		@include global-animation();
+
+		position: absolute;
+		margin-left: $amount30 / 2;
+		top: 4px;
+		left: -7px;
+
+		&:first-child {
+			animation: ball-zig 0.7s 0s infinite linear;
+		}
+
+		&:last-child {
+			animation: ball-zag 0.7s 0s infinite linear;
+		}
+	}
+}
+
+// cube-transition class width aminate
+.cube-transition {
+	position: relative;
+	transform: translate(-$amount50 / 2, -$amount50 / 2);
+
+	>div {
+		@include global-animation();
+		@include element-size(10px, 10px);
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		background-color: $load-primary-color;
+		animation: cube-transition 1.6s 0s infinite ease-in-out;
+
+		&:last-child {
+			animation-delay: -0.8s
+		}
+	}
+}
+
+// line-scale-pulse-out-rapid class width aminate
+.line-scale-pulse-out-rapid {
+	>div {
+		@include lines();
+		@include global-animation();
+
+		display: inline-block;
+		vertical-align: middle;
+		animation: line-scale-pulse-out-rapid 0.9s -0.5s infinite cubic-bezier(.11, .49, .38, .78);
+
+		&:nth-child(2),
+		&:nth-child(4) {
+			animation-delay: -0.25s !important;
+		}
+
+		&:nth-child(1),
+		&:nth-child(5) {
+			animation-delay: 0s !important;
+		}
+	}
+}
+
+// line-scale-pulse-out class width aminate
+.line-scale-pulse-out {
+	>div {
+		@include lines();
+		@include global-animation();
+
+		display: inline-block;
+		animation: line-scale-pulse-out 0.9s delay(0.2s, 3, 0) infinite cubic-bezier(.85, .25, .37, .85);
+
+		&:nth-child(2),
+		&:nth-child(4) {
+			animation-delay: delay(0.2s, 3, 1) !important;
+		}
+
+		&:nth-child(1),
+		&:nth-child(5) {
+			animation-delay: delay(0.2s, 3, 2) !important;
+		}
+
+	}
+}
+
+// line-scale-party class width aminate
+.line-scale-party {
+	@include line-scale-party();
+
+	>div {
+		@include lines();
+		@include global-animation();
+
+		display: inline-block;
+		animation-name: line-scale-party;
+		animation-iteration-count: infinite;
+		animation-delay: 0;
+	}
+}
+
+// line-scale class width aminate
+.line-scale {
+	@include line-scale();
+
+	>div {
+		@include lines();
+		@include global-animation();
+		display: inline-block;
+	}
+}
+
+// line-spin-fade-loader class width aminate
+.line-spin-fade-loader {
+	@include line-spin-fade-loader();
+	position: relative;
+	top: -10px;
+	left: -4px;
+
+	>div {
+		@include lines();
+		@include global-animation();
+
+		position: absolute;
+		@include element-size(5px, 15px);
+	}
+}
+
+// pac-man class width aminate
+.pac-man {
+	@include ball-placement();
+	position: relative;
+
+	>div:first-of-type {
+		@include pacman-design();
+		animation: rotate-pacman-half-up 0.5s 0s infinite;
+		position: relative;
+		left: -30px;
+	}
+
+	>div:nth-child(2) {
+		@include pacman_design();
+		animation: rotate-pacman-half-down 0.5s 0s infinite;
+		margin-top: -2 * $amount25;
+		position: relative;
+		left: -30px;
+	}
+
+	>div:nth-child(3),
+	>div:nth-child(4),
+	>div:nth-child(5),
+	>div:nth-child(6) {
+		@include balls();
+		@include element-size(10px, 10px);
+		position: absolute;
+		transform: translate(0, -$amount25 / 4);
+		top: 25px;
+		left: 70px;
+	}
+}
+
+// semi-circle-spin class with animate
+.semi-circle-spin {
+	position: relative;
+	@include element-size(35px, 35px);
+	overflow: hidden;
+
+	>div {
+		position: absolute;
+		border-width: 0px;
+		border-radius: 100%;
+		animation: spin-rotate 0.6s 0s infinite linear;
+		background-image: linear-gradient(transparent 0%, transparent (100% - $load-pos), $load-primary-color $load-pos, $load-primary-color 100%);
+		@include element-size(100%, 100%);
+	}
+}
+
+// square-spin class with animate
+.square-spin {
+	>div {
+		@include global-animation();
+		@include element-size(50px, 50px);
+		background: $load-primary-color;
+		animation: square-spin 3s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+	}
+}
+
+// triangle-skew-spin class with animate
+.triangle-skew-spin {
+	>div {
+		@include global-animation();
+		@include element-size(0, 0);
+		border-left: $amount20 solid transparent;
+		border-right: $amount20 solid transparent;
+		border-bottom: $amount20 solid $load-primary-color;
+		animation: square-spin 3s 0s cubic-bezier(.09, .57, .49, .9) infinite;
+	}
+}
+
+// point-chase class with animate
+/*  chase
+		<div class="point-chase">
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.point-chase {
+	@include element-size(40px, 40px);
+	position: relative;
+	animation: point-chase 2.5s infinite linear both;
+
+	>div {
+		@include element-size(100%, 100%);
+		position: absolute;
+		left: 0;
+		top: 0;
+		animation: point-chase-child 2.0s infinite ease-in-out both;
+
+		&::before {
+			content: '';
+			display: block;
+			// width: 25%;
+			// height: 25%;
+			@include element-size(25%, 25%);
+			background-color: $load-primary-color;
+			border-radius: 100%;
+			animation: point-chase-child-before 2.0s infinite ease-in-out both;
+		}
+	}
+
+	>div:first-of-type {
+		animation-delay: -1.1s;
+
+		&:before {
+			animation-delay: -1.1s;
+		}
+	}
+
+	>div:nth-child(2) {
+		animation-delay: -1.0s;
+
+		&:before {
+			animation-delay: -1.0s;
+		}
+	}
+
+	>div:nth-child(3) {
+		animation-delay: -0.9s;
+
+		&:before {
+			animation-delay: -0.9s;
+		}
+	}
+
+	>div:nth-child(4) {
+		animation-delay: -0.8s;
+
+		&:before {
+			animation-delay: -0.8s;
+		}
+	}
+
+	>div:nth-child(5) {
+		animation-delay: -0.7s;
+
+		&:before {
+			animation-delay: -0.7s;
+		}
+	}
+
+	>div:nth-child(6) {
+		animation-delay: -0.6s;
+
+		&:before {
+			animation-delay: -0.6s;
+		}
+	}
+}
+
+// ball-bounce class with animate
+/*  Bounce
+		<div class="ball-bounce">
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+	*/
+.ball-bounce {
+	@include element-size(40px, 40px);
+	position: relative;
+
+	>div {
+		@include element-size(100%, 100%);
+		border-radius: 50%;
+		background-color: $load-primary-color;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		left: 0;
+		animation: ball-bounce 2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	}
+
+	>div:last-child {
+		animation-delay: -1.0s;
+	}
+}
+
+// ball-swing class with animate
+/*  Swing
+		<div class="ball-swing">
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.ball-swing {
+	@include element-size(40px, 40px);
+	position: relative;
+	animation: point-chase 1.8s infinite linear;
+
+	>div {
+		@include element-size(45%, 45%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-color: $load-primary-color;
+		border-radius: 100%;
+		animation: ball-swing-child 2s infinite ease-in-out;
+	}
+
+	>div:last-child {
+		top: auto;
+		bottom: 0;
+		animation-delay: -1s;
+	}
+}
+
+// circle-fade class with animate
+/*  Circle Fade
+		<div class="circle-fade">
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.circle-fade {
+	@include element-size(40px, 40px);
+	position: relative;
+
+	>div {
+		@include element-size(100%, 100%);
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		&:before {
+			content: '';
+			display: block;
+			@include element-size(15%, 15%);
+			background-color: $load-primary-color;
+			border-radius: 100%;
+			animation: circle-fade 1.2s infinite ease-in-out both;
+		}
+	}
+
+	>div:nth-child(1) {
+		transform: rotate(30deg);
+
+		&::before {
+			animation-delay: -1.1s;
+		}
+	}
+
+	>div:nth-child(2) {
+		transform: rotate(60deg);
+
+		&::before {
+			animation-delay: -1.0s;
+		}
+	}
+
+	>div:nth-child(3) {
+		transform: rotate(90deg);
+
+		&::before {
+			animation-delay: -0.9s;
+		}
+	}
+
+	>div:nth-child(4) {
+		transform: rotate(120deg);
+
+		&::before {
+			animation-delay: -0.8s;
+		}
+	}
+
+	>div:nth-child(5) {
+		transform: rotate(150deg);
+
+		&::before {
+			animation-delay: -0.7s;
+		}
+	}
+
+	>div:nth-child(6) {
+		transform: rotate(180deg);
+
+		&::before {
+			animation-delay: -0.6s;
+		}
+	}
+
+	>div:nth-child(7) {
+		transform: rotate(210deg);
+
+		&::before {
+			animation-delay: -0.5s;
+		}
+	}
+
+	>div:nth-child(8) {
+		transform: rotate(240deg);
+
+		&::before {
+			animation-delay: -0.4s;
+		}
+	}
+
+	>div:nth-child(9) {
+		transform: rotate(270deg);
+
+		&::before {
+			animation-delay: -0.3s;
+		}
+	}
+
+	>div:nth-child(10) {
+		transform: rotate(300deg);
+
+		&::before {
+			animation-delay: -0.2s;
+		}
+	}
+
+	>div:nth-child(11) {
+		transform: rotate(330deg);
+
+		&::before {
+			animation-delay: -0.1s;
+		}
+	}
+}
+
+// grid-cube class with animate
+/*  Grid
+	  <div class="grid-cube">
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+		<div class=""></div>
+	  </div>
+   */
+.grid-cube {
+	@include element-size(40px, 40px);
+
+	/* Cube positions
+	 * 1 2 3
+	 * 4 5 6
+	 * 7 8 9
+	 */
+	>div {
+		@include element-size(33.33%, 33.33%);
+		background-color: $load-primary-color;
+		float: left;
+		animation: grid-cube 1.3s infinite ease-in-out;
+	}
+
+	>div:first-child {
+		animation-delay: 0.2s;
+	}
+
+	>div:nth-child(2) {
+		animation-delay: 0.3s;
+	}
+
+	>div:nth-child(3) {
+		animation-delay: 0.4s;
+	}
+
+	>div:nth-child(4) {
+		animation-delay: 0.1s;
+	}
+
+	>div:nth-child(5) {
+		animation-delay: 0.2s;
+	}
+
+	>div:nth-child(6) {
+		animation-delay: 0.3s;
+	}
+
+	>div:nth-child(7) {
+		animation-delay: 0.0s;
+	}
+
+	>div:nth-child(8) {
+		animation-delay: 0.1s;
+	}
+
+	>div:last-child {
+		animation-delay: 0.2s;
+	}
+}
+
+//fold-cube class with animate
+/*  Fold
+		<div class="fold-cube">
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.fold-cube {
+	@include element-size(40px, 40px);
+	position: relative;
+	transform: rotateZ(45deg);
+
+	>div {
+		float: left;
+		@include element-size(50%, 50%);
+		position: relative;
+		transform: scale(1.1);
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include element-size(100%, 100%);
+			background-color: $load-primary-color;
+			animation: fold-cube 2.4s infinite linear both;
+			transform-origin: 100% 100%;
+		}
+	}
+
+	>div:nth-child(2) {
+		transform: scale(1.1) rotateZ(90deg);
+
+		&:before {
+			animation-delay: 0.3s;
+		}
+	}
+
+	>div:nth-child(4) {
+		transform: scale(1.1) rotateZ(180deg);
+
+		&:before {
+			animation-delay: 0.6s;
+		}
+	}
+
+	>div:nth-child(3) {
+		transform: scale(1.1) rotateZ(270deg);
+
+		&:before {
+			animation-delay: 0.9s;
+		}
+	}
+}
+
+// wander-cube class with animate
+/*  Wander
+		<div class="wander-cube">
+		  <div class=""></div>
+		  <div class=""></div>
+		  <div class=""></div>
+		</div>
+   */
+.wander-cube {
+	@include element-size(40px, 40px);
+	position: relative;
+
+	>div {
+		background-color: $load-primary-color;
+		@include element-size(20%, 20%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		animation: wander-cube 2.0s ease-in-out -2.0s infinite both;
+	}
+
+	>div:nth-child(2) {
+		animation-delay: -0.5s;
+	}
+
+	>div:nth-child(3) {
+		animation-delay: -1.0s;
+	}
+}

@@ -1,0 +1,1083 @@
+/* ==============VARIABLES START============== */
+/**
+* 全局变量配置及说明
+*
+* @param {String} $fonts 字体
+* @param {String} $color 默认颜色
+* @param {String} $ui-pc-width pc端设计稿大小
+* @param {String} $ui-n-width 内嵌设计稿大小
+* @param {String} $ui-m-width 移动端设计稿大小
+* @param {String} $webkit WebKit内核(谷歌、safari等)
+* @param {String} $moz Gecko内核(火狐)
+* @param {String} $ms Trident内核(IE浏览器)
+* @param {String} $o ：Presto内核(opera)
+* @param {String} $top 距离父容器顶部的距离
+* @param {String} $right 距离父容器右边的距离
+* @param {String} $bottom 距离父容器底部的距离
+* @param {String} $left 距离父容器左边的距离
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {String} $basic-font-size 根字体大小
+* @param {String} $local-path PC端本地路径
+* @param {String} $server-path CDN路径
+*/
+$fonts: font;
+$color: #fff !default;
+$ui-pc-width: 1920 !default;
+$ui-n-width: 1224 !default;
+$ui-m-width: 750 !default;
+$webkit: -webkit- !default;
+$moz: -moz- !default;
+$ms: -ms- !default;
+$o: -o- !default;
+$top: 0;
+$right: 0;
+$bottom: 0;
+$left: 0;
+$width: auto !default;
+$height: auto !default;
+$basic-font-size: 100px !default;
+$local-path: '../assets/img/';
+// $server-path: '../assets/img/';
+
+:root {
+  --current-ui-width: 750; /* 默认为手机屏幕宽度 */
+  @media (min-width: 768px) {
+    --current-ui-width: 1024; /* 平板 */
+  }
+  @media (min-width: 1025px) {
+    --current-ui-width: 1440; /* 笔记本电脑 */
+  }
+  @media (min-width: 1441px) {
+    --current-ui-width: 1920; /* PC */
+  }
+  @media (min-width: 2561px) {
+    --current-ui-width: 2560; /* 大屏 */
+  }
+}
+/* ==============VARIABLES END============== */
+
+/* ==============FUNCTION END============== */
+@function rem($pixels) {
+  $design_font_size: 100;
+  @return $pixels / $design_font_size + rem;
+}
+
+@function px2vw($pixels) {
+  @return $pixels / $ui-pc-width * 100vw;
+}
+
+@function vw($pixels) {
+  @return calc(#{$pixels} / var(--current-ui-width) * 100vw);
+}
+/* ==============FUNCTION END============== */
+
+
+/* ==============MIXIN START============== */
+///
+/// 通用文本混合
+/// @param {String} $font-fm 字体
+/// @param {Number} $font-size 字体大小
+/// @param {String} $font-weight 字体粗细
+/// @param {String} $font-style 字体风格
+/// @param {String|Number} $line-height 行高
+/// @param {Color} $color 字体颜色
+/// @param {String} $text-align 文本对齐方式
+/// @param {String|Number} $letter-spacing 字母间距
+/// @param {String} $text-dec 文本修饰
+///
+@mixin usual-fonts($font-fm: "Microsoft YaHei", $font-size: 18px, $font-weight: bold, $font-style: normal, $line-height: 18px, $color: #ccc, $text-align: center, $letter-spacing: normal, $text-dec: none) {
+  #{$fonts}: {
+    family: $font-fm;
+    size: $font-size;
+    weight: $font-weight;
+    style: $font-style;
+  }
+
+  line-height: $line-height;
+  color: $color;
+  text-align: $text-align;
+  letter-spacing: $letter-spacing;
+  -webkit-text-decoration: $text-dec;
+     -moz-text-decoration: $text-dec;
+          text-decoration: $text-dec;
+}
+
+///
+/// 通用缩写文本混合
+/// @param {String} $font-style 字体风格
+/// @param {String} $font-weight 字体粗细
+/// @param {Number} $font-size 字体大小
+/// @param {String|Number} $line-height 行高
+/// @param {String} $font-family 字体
+/// @param {Color} $color 字体颜色
+/// @param {String} $text-align 文本对齐方式
+/// @param {String|Number} $letter-spacing 字母间距
+/// @param {String} $text-dec 文本修饰
+///
+@mixin usual-text($font-style: normal, $font-weight: bold, $font-size: 18px, $line-height: 18px, $font-family: "Microsoft YaHei", $color: #ccc, $text-align: center, $letter-spacing: normal, $text-dec: none) {
+  font: #{$font-style} #{$font-weight} #{$font-size} / #{$line-height} #{$font-family};
+  color: $color;
+  text-align: $text-align;
+  letter-spacing: $letter-spacing;
+  -webkit-text-decoration: $text-dec;
+     -moz-text-decoration: $text-dec;
+          text-decoration: $text-dec;
+}
+
+///
+/// 元素大小混合
+/// @param {String|Number} $width 宽度
+/// @param {String|Number} $height 高度
+///
+@mixin element-size($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+///
+/// flex布局混合
+/// @param {String} $flex 生成的框的类型
+/// @param {String} $allocate-space 水平对齐弹性容器的项目
+/// @param {String} $align-items 为弹性容器内的项目指定默认对齐方式
+/// @param {String} $flex-wrap 弹性项目是否应换行
+/// @param {String} $flex-dir 弹性项目的方向
+/// @param {String} $align-content 弹性容器内的各项没有占用交叉轴上所有可用的空间时对齐容器内的各项（垂直）
+///
+@mixin layout-flex($flex: flex, $allocate-space: space-between, $align-items: center, $flex-wrap: nowrap, $flex-dir: row, $align-content: stretch) {
+  display: $flex;
+  -webkit-box-pack: $allocate-space;
+  -webkit-justify-content: $allocate-space;
+      -ms-flex-pack: $allocate-space;
+          justify-content: $allocate-space;
+  -webkit-box-align: $align-items;
+  -webkit-align-items: $align-items;
+      -ms-flex-align: $align-items;
+          align-items: $align-items;
+  -webkit-flex-wrap: $flex-wrap;
+      -ms-flex-wrap: $flex-wrap;
+          flex-wrap: $flex-wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: $flex-dir;
+      -ms-flex-direction: $flex-dir;
+          flex-direction: $flex-dir;
+  -webkit-align-content: $align-content;
+      -ms-flex-line-pack: $align-content;
+      align-content: $align-content;
+}
+
+///
+/// grid布局混合
+/// @param {Number} $columns 列数，默认为1列。
+/// @param {Number} $rows 行数，默认为null，表示不固定行数。
+/// @param {Number} $gap 网格间距，默认为10px。
+/// @param {Boolean} $auto-flow-columns 是否开启自动填充列默认为false。
+/// 
+@mixin layout-grid($columns: 1, $rows: null, $gap: 10px, $auto-flow-columns: false) {
+  display: grid;
+  grid-gap: $gap;
+
+  // 当未指定行数或者指定为单行时，只设置列数
+  @if not $rows or $rows == 1 {
+    grid-template-columns: repeat(#{$columns}, 1fr);
+  } 
+  // 指定了多行时，设置列数和行数，并启用行密集自动布局
+  @else {
+    grid-template-columns: repeat(#{$columns}, 1fr);
+    grid-template-rows: repeat(#{$rows}, auto);
+    grid-auto-flow: row dense; // 根据需要可以设置为column dense
+  }
+
+  // 如果需要自动填充列，则设置为列密集自动布局
+  @if $auto-flow-columns {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+///
+/// 相对/绝对定位混合
+/// @param {String} $position 元素的定位类型
+/// @param {String} $top 距离顶部的距离
+/// @param {String} $right 距离右侧的距离
+/// @param {String} $bottom 距离底部的距离
+/// @param {String} $left 距离左侧的距离
+/// @param {String} $transform 向元素应该 2D 还是 3D 转换
+///
+@mixin layout-pos($position: absolute, $top: auto, $right: auto, $bottom: auto, $left: auto, $transform: none) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+///
+/// 显示或隐藏某个元素
+/// @param {Booleans} $dom-object 元素变量(你可以设置它为true或false，并对其进行其他操作)
+///
+@mixin show-or-hide($dom-object: true) {
+  @if($dom-object==true) {
+    display: block;
+  } @else {
+    display: none;
+  }
+}
+
+///
+/// 文本溢出处理
+/// @param {Number} $txtType 文本超出的处理方式（可选值为0：单行文本超出省略；1：超出换行,字符超出位置使用连字符；2：多行文本超出省略）
+///
+@mixin txt-overflow($txt-type: 0) {
+  @if($txt-type==0) {
+    // 单行文本超出省略
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+  }
+
+  @else if ($txt-type==1) {
+    //超出换行,字符超出位置使用连字符
+    overflow-wrap: break-word;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+         hyphens: auto;
+  }
+
+  @else if ($txt-type==2) {
+    // 多行文本超出省略
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    display: -webkit-box;
+    #{$webkit}line-clamp: 2;
+    #{$webkit}box-orient: vertical;
+  }
+}
+
+///
+/// 背景混合器
+/// @param {String} $bg-img 图片路径
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+/// @param {List} $bg-position 设置背景图像的起始位置
+/// @param {String} $bg-origin 规定 background-position 属性相对于什么位置来定位
+/// @param {String} $bg-clip 背景的绘制区域
+/// @param {String} $bg-attachment 背景图像是否固定或者随着页面的其余部分滚??
+/// @param {Color} $color 背景色
+///
+@mixin element-bg-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: auto, $height: auto, $bg-position: top center, $bg-origin: initial, $bg-clip:initial, $bg-attachment:initial, $color:#000) {
+  @include element-size($width, $height);
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  background-position: $bg-position;
+  background-origin: $bg-origin;
+  background-clip: $bg-clip;
+  -webkit-background-clip: $bg-clip;
+  background-attachment: $bg-attachment;
+  background-color: $color;
+}
+
+///
+/// 背景属性缩写混合器
+/// @param {Color} $color 背景色
+/// @param {String} $bg-img 图片路径
+/// @param {List} $bg-position 设置背景图像的起始位置
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String} $bg-origin 规定 background-position 属性相对于什么位置来定位
+/// @param {String} $bg-clip 背景的绘制区域
+/// @param {String} $bg-attachment 背景图像是否固定或者随着页面的其余部分滚??
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+///
+@mixin element-bgImg($color:#000, $bg-img: '', $bg-position: top center, $bg-size: cover, $bg-repeat: no-repeat, $bg-origin: initial, $bg-clip:initial, $bg-attachment:initial, $width: auto, $height: auto) {
+  background: #{$color} url(#{$bg-img}) #{$bg-position}/#{$bg-size} #{$bg-repeat};
+  background-origin: $bg-origin;
+  background-clip: $bg-clip;
+  background-attachment: $bg-attachment;
+  width: $width;
+  height: $height;
+}
+
+///
+/// 图片混合器
+/// @param {String} $bg-img 图片路径
+/// @param {String} $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+/// @param {String|Number} $bg-size 图片的尺寸(cover、contain、percentage、length)
+/// @param {Number} $width 图片的长度
+/// @param {Number} $height 图片的高度
+///
+@mixin element-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: auto, $height: auto) {
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  @include element-size($width, $height);
+}
+
+///
+/// 渐变背景
+/// @param {Number|String} $width 背景宽度
+/// @param {Number|String} $height 背景高度
+/// @param {String} $direction 渐变方向
+/// @param {Color} $start-color 渐变起始颜色
+/// @param {Color} $end-color 渐变结束颜色
+/// 
+@mixin bg-gradient($width: auto, $height: 12px, $direction: 'to right', $start-color: #dfb778, $end-color: #dfb778) {
+  width: $width;
+  height: $height;
+  // 根据传入的渐变方向设置背景渐变
+  @if ($direction == 'to right') {
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else if ($direction == 'to left') {
+    background: linear-gradient(to left, $start-color, $end-color);
+  } @else if ($direction == 'to bottom') {
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if ($direction == 'to top') {
+    background: linear-gradient(to top, $start-color, $end-color);
+  } @else if ($direction == 'to bottom right') {
+    background: linear-gradient(to bottom right, $start-color, $end-color);
+  } @else if ($direction == 'to top left') {
+    background: linear-gradient(to top left, $start-color, $end-color);
+  } @else if ($direction == 'to top right') {
+    background: linear-gradient(to top right, $start-color, $end-color);
+  } @else if ($direction == 'to bottom left') {
+    background: linear-gradient(to bottom left, $start-color, $end-color);
+  } @else if (type-of($direction) == number) { 
+    // 角度渐变
+    background: linear-gradient($direction, $start-color, $end-color);
+  } @else {
+    @error "Unsupported gradient direction: '#{$direction}'. Supported directions are 'to right', 'to left', 'to bottom', 'to top', 'to bottom right', 'to top left', 'to top right', 'to bottom left' and angle values.";
+  }
+}
+
+///
+/// 文字渐变混合器
+/// @param {Number} $font-size 文字大小
+/// @param {String} $direction 渐变方向
+/// @param {Color} $start-color 渐变起始颜色
+/// @param {Color} $end-color 渐变结束颜色
+///
+@mixin gradient-text($font-size, $direction, $start-color, $end-color) {
+  font-size: $font-size;
+  background: linear-gradient($direction, $start-color, $end-color);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+///
+/// 设置所有外边距属性混合器
+/// @param {String|Number} $margin-top 设置元素的上外边距
+/// @param {String|Number} $margin-right 设置元素的右外边距
+/// @param {String|Number} $margin-bottom 设置元素的下外边距
+/// @param {String|Number} $margin-left 设置元素的左外边距
+///
+@mixin element-center($margin-top: auto,$margin-right: auto,$margin-bottom: auto,$margin-left: auto){
+  margin-top: $margin-top;
+  margin-right: $margin-right;
+  margin-bottom: $margin-bottom;
+  margin-left: $margin-left;
+}
+
+/// 动画混合器
+/// @param {String} $name 动画名称
+/// @param {Time} $duration 动画持续时间，默认为 0s
+/// @param {TimingFunction} $timing-function 动画速度曲线，默认为 'ease'
+/// @param {Time} $delay 动画延迟时间，默认为 0s
+/// @param {Integer} $iteration-count 动画播放次数，默认为 1（一次）
+/// @param {Keyword} $direction 动画播放方向，默认为 'normal'
+/// @param {Keyword} $fill-mode 动画填充模式，默认为 'none'
+/// @param {Keyword} $play-state 动画播放状态，默认为 'running'
+@mixin ele-animation(
+  $name,
+  $duration: 0s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: none,
+  $play-state: running
+) {
+  animation: #{$name} $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+}
+
+///
+/// 文本阴影混合函数
+/// 
+/// @param {Color} $color 阴影颜色
+/// @param {Number} $x-offset 阴影在水平方向的偏移量，默认为0
+/// @param {Number} $y-offset 阴影在垂直方向的偏移量，默认为0
+/// @param {Number} $blur-radius 阴影的模糊半径，默认为6px
+/// 
+/// @return 为文本应用自定义阴影样式
+///
+@mixin text-shadow-custom($color, $x-offset: 0, $y-offset: 0, $blur-radius: 6px) {
+  // 设置文本阴影样式
+  text-shadow: $x-offset $y-offset $blur-radius $color;
+  // 使得文本颜色透明，仅显示阴影效果
+  -webkit-text-fill-color: transparent;
+}
+
+///
+/// 文本描边混合
+///
+/// @param {Color} $color 描边颜色，必填参数。
+/// @param {Number} $stroke-width 描边宽度，默认为1px，可选参数。
+///
+@mixin text-stroke-custom($color, $stroke-width: 1px) {
+  -webkit-text-stroke: $stroke-width $color;
+  -webkit-text-fill-color: transparent;
+}
+/* ==============MIXIN END============== */
+
+/* ==============PLACEHOLDER START============== */
+///
+/// 选择占位符（注意：@extend 无法在媒体查询中使用！
+/// 若要使用则复制到@media里面,若要在多个媒体查询中使用，
+/// 则需要使用不同的名称，如在pc的媒体查询中名为%bg-gradient，则在移动端的媒体查询中为%bg-gradient1，编译时才不会报错
+/// 使用方法：@extend %bg-gradient;
+///
+
+///
+/// 文字发光效果
+///
+%text-shadow{
+  text-shadow: 1px 1px 3px rgba(85, 34, 68, .4), -1px -1px 3px rgba(85, 34, 68, .4), 1px -1px 3px rgba(85, 34, 68, .4), -1px 1px 3px rgba(85, 34, 68, .4);
+}
+
+///
+/// 使用背景渐变
+///
+%bg-gradient-top {
+  @include bg-gradient(200px, 120px,'to top', #dfb778, #df7878);
+}
+
+%bg-gradient-right {
+  @include bg-gradient(200px, 120px,'to right', #dfb778, #df7878);
+}
+
+%bg-gradient-bottom {
+  @include bg-gradient(200px, 120px,'to bottom', #dfb778, #df7878);
+}
+
+%bg-gradient-left {
+  @include bg-gradient(200px, 120px,'to left', #dfb778, #df7878);
+}
+
+%bg-gradient-bottom-right-diagonal {
+  @include bg-gradient(200px, 120px,'to bottom right', #ff0000, #00ff00);
+}
+
+%bg-gradient-top-left-diagonal {
+  @include bg-gradient(200px, 120px,'to top left', #ff0000, #00ff00);
+}
+
+%bg-gradient-top-right-diagonal {
+  @include bg-gradient(200px, 120px,'to top right', #ff0000, #00ff00);
+}
+
+%bg-gradient-bottom-left-diagonal {
+  @include bg-gradient(200px, 120px,'to bottom left', #ff0000, #00ff00);
+}
+
+%bg-gradient-angle {
+  @include bg-gradient(200px, 120px, 45deg, #0000ff, #ffff00);
+}
+
+///
+/// 使用文字渐变
+///
+%text-gradient-right {
+  @include gradient-text(72px, to right, blue, red);
+}
+
+%text-gradient-left {
+  @include gradient-text(72px, to left, blue, red);
+}
+
+%text-gradient-bottom {
+  @include gradient-text(72px, to bottom, blue, red);
+}
+
+%text-gradient-top {
+  @include gradient-text(72px, to top, blue, red);
+}
+
+///
+/// 使用自定义文本阴影
+///
+%text2-shadow-custom {
+  font-size: 72px;
+  @include text-shadow-custom(red, 2px, 2px, 8px);
+}
+
+///
+/// 使用自定义文本描边
+///
+%text-stroke-custom {
+  font-size: 72px;
+  @include text-stroke-custom(green, 2px);
+}
+
+///
+/// 内容/元素居中对齐
+/// 
+%element-center {
+  margin: 0 auto;
+}
+
+///
+/// 文字样式
+///
+%ele-text{
+  @include usual-fonts("sy-bold", rem(34), bold, normal, 1.22, #000000, center, normal, none);
+}
+
+///
+/// 简写文字样式
+///
+%ele-text2{
+  @include usual-text(bold, normal, 34px, 1.22, "sy-bold", #000000, center, normal, none);
+}
+
+///
+/// 绝对定位元素居中
+/// 
+%ele-pos{
+  @include layout-pos(absolute, 50%, auto, auto, 50%, translate(-50%, -50%));
+}
+
+///
+/// 元素大小
+/// 
+%ele-size{
+  @include element-size(rem(368), rem(86));
+}
+
+///
+/// 页面背景
+///
+%ele-bg{
+  @include element-bg-img($local-path+'bg_01.jpg', no-repeat, cover, 100%, rem(1080), top center, initial, initial, initial, transparent);
+}
+
+///
+/// 页面背景缩写
+/// 
+%ele-bg1{
+  @include element-bgImg(transparent, 'https://da.se/app/uploads/2015/09/simon-december1994.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100%, 1080px);
+}
+
+///
+/// 元素图片
+///
+%ele-img{
+  @include element-img($local-path+'kv-logo.png', no-repeat, 100% 100%, rem(180), rem(74));
+}
+
+///
+/// 动画
+/// 
+%ele-amimate {
+  @include ele-animation('slidein', 3s, ease-in, 1s, 2, reverse, both, paused);
+}
+
+///
+/// 元素居中flex
+/// 
+%flex-center{
+  @include layout-flex(flex, center, center);
+}
+
+///
+/// 元素两端对齐且垂直居中(flex)
+/// 
+%flex-between{
+  @include layout-flex(flex, space-between, center);
+}
+
+///
+/// 同一行元素左对齐且垂直居中(flex)
+/// 
+%flex-first-center{
+  @include layout-flex(flex, flex-start, center);
+}
+
+///
+/// 同一行元素右对齐且垂直居中(flex)
+/// 
+%flex-first-center{
+  @include layout-flex(flex, flex-end, center);
+}
+
+///
+/// 创建一个3列2行的网格容器，间距为20px
+///
+%grid-create {
+  @include layout-grid(3, 2, 20px);
+}
+
+///
+/// 使用vw函数
+/// 
+// moblie
+%some-element {
+  font-size: vw(16);
+}
+
+// Tablets
+@media (min-width: 768px) {
+  %some-element {
+    font-size: vw(16);
+  }
+}
+
+// Laptop
+@media (min-width: 1025px) {
+  %some-element {
+    font-size: vw(16);
+  }
+}
+
+// Desktop
+@media (min-width: 1441px) {
+  %some-element {
+    font-size: vw(16);
+  }
+}
+
+// PC
+@media (min-width: 2561px) {
+  %some-element {
+    font-size: vw(16);
+  }
+}
+/* ==============PLACEHOLDER END============== */
+
+/* ==============FONT START============== */
+// 压缩字体包引入
+// @font-face {
+//   font-family: 'fzssjc';
+//   src: url($local-path + 'fonts/rzhj.eot');
+//   src: url($local-path + 'fonts/rzhj.eot?#iefix') format('embedded-opentype'),
+//     url($local-path + 'fonts/rzhj.woff') format('woff'),
+//     url($local-path + 'fonts/rzhj.ttf') format('truetype'),
+//     url($local-path + 'fonts/rzhj.svg#BOLD') format('svg');
+//   font-style: normal;
+//   font-weight: normal;
+// }
+
+// 思源regular
+// @font-face {
+//   font-family: 'sy-regular';
+//   src: url($local-path +'fonts/sy-regular.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// 思源light
+// @font-face {
+//   font-family: 'sy-light';
+//   src: url($local-path +'fonts/sy-light.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+/* ==============FONT END============== */
+
+/* ==============BASE STYLE START============== */
+///
+/// 自定义滚动条样式(横向滚动)
+/// 
+.scroll-x {
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  /* Firefox滚动条样式 */
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+
+  &::-webkit-scrollbar {
+    width: 10px; /* 设置滚动条的宽度 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* 设置滚动条滑块的颜色 */
+    border-radius: 0;
+    /* 鼠标悬停时改变颜色 */
+    transition: background-color 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* 鼠标悬停时颜色加深 */
+  }
+
+  /* 定义滚动条轨道 */
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* 设置滚动条轨道背景色 */
+    border-radius: 5px; /* 可以添加圆角 */
+  }
+}
+
+///
+/// 自定义滚动条样式(纵向滚动)
+/// 
+.scroll-y {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+  &::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 0;
+    background: #2b3846;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    height: 1px;
+    border-radius: 0;
+    background: linear-gradient(to right, #ae1516, #ae1516);
+  }
+
+  &::-webkit-scrollbar-thumb:disabled {
+    background: #708dab;
+  }
+
+  &::-webkit-scrollbar-track{
+    border-radius: 0;
+    background: #2b3846;
+  }
+}
+
+///
+/// video 隐藏控件
+/// 
+video{
+  /* 隐藏video 进度条 */
+  &::-webkit-media-controls-timeline {
+      display: none;
+  }
+
+  /* 隐藏video 观看的当前时间 */
+  &::-webkit-media-controls-current-time-display {
+      display: none;
+  }
+
+  /* 隐藏video 剩余时间 */
+  &::-webkit-media-controls-time-remaining-display {
+      display: none;
+  }
+
+  /* 隐藏video 音量按钮 */
+  &::-webkit-media-controls-mute-button {
+      display: none;
+  }
+
+  &::-webkit-media-controls-toggle-closed-captions-button {
+      display: none;
+  }
+
+  /* 隐藏video 音量的控制条 */
+  &::-webkit-media-controls-volume-slider {
+      display: none;
+  }
+
+  /* 隐藏video 所有控件 */
+  &::-webkit-media-controls-enclosure {
+      display: none;
+  }
+}
+
+///
+/// 垂直居中
+/// 
+.margin{
+  margin: 0 auto;
+}
+
+///
+/// 显示元素
+/// 
+.show {
+  @include show-or-hide(true);
+}
+
+///
+/// 隐藏元素
+/// 
+.hidden {
+  @include show-or-hide(false);
+}
+/* ==============BASE STYLE END============== */
+
+/* ==============NORMALIZE STYLE START============== */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+a {
+  background-color: transparent;
+  text-decoration:none;
+
+  &:hover,&:focus {
+    text-decoration: none;
+    -webkit-filter: brightness(1.1);
+    -o-filter: brightness(1.1);
+    -moz-filter: brightness(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+ 
+sub {
+  bottom: -0.25em;
+}
+  
+sup {
+  top: -0.5em;
+}
+
+img {
+  display: block;
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+  
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+/* ==============NORMALIZE STYLE END============== */
+
+li{
+  &::marker{
+    content: "";
+    display: none;
+  }
+}
+
+html,body { 
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+  height: auto; 
+}
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+select {
+  border: none;
+  outline: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+// custom input
+input{
+  width: 300px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: solid 1px #ffd476;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: none;
+  color: #ffd476;
+  font-size: 14px;
+  /* Key Style */
+  caret-color: #ffd476; 
+  /* Delete the input status line */
+  outline: none;
+
+  // input custom placeholder
+  &::-webkit-input-placeholder {
+    color: #babbc1;
+    font-size: 14px;
+  }
+
+  // Delete the arrow at the end of input=number
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }    
+}
+
+// Customize the selected text style
+p::selection{
+  color: #ffffff;
+  background-color: #ff4c9f;
+}

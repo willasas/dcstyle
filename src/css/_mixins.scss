@@ -1,0 +1,437 @@
+@charset 'UTF-8';
+
+// @import './_base','./_animation','./_layout','./onePx';
+
+/**
+* 缩放混合器，调用时记得加上scale(0.5)和s（秒）
+*
+* @param {String} $transfm 缩放比例
+* @param {String} $trition 动画持续时间
+*/
+@mixin scaling($transfm: scale(0.5), $trition: .5s) {
+  /*大小缩放*/
+  -webkit-transform: $transfm;
+  -ms-transform: $transfm;
+  transform: $transfm;
+  -webkit-transition: $trition;
+  -o-transition: $trition;
+  transition: $trition;
+
+  &:hover {
+    -webkit-transform: $transfm;
+    -ms-transform: $transfm;
+    transform: $transfm;
+  }
+}
+
+/**
+* 元素大小混合器
+*
+* @param $width 长度
+* @param $height 高度
+*/
+@mixin element-size($width: 100px, $height: 100px) {
+  width: $width;
+  height: $height;
+}
+
+/**
+* 默认字体样式 
+*
+* @param {String} $font-fm 字体名称
+* @param {String} $font-size 字号
+* @param {String} $font-weight 字距[normal,bold,border,lighter,inherit,100-900可选值]
+* @param {String} $font-style 字体风格
+* @param {String} $line-height 行高
+* @param {Colors} $color 字体颜色
+* @param {String} $text-align 对齐方式
+* @param {String} $letter-spacing 字母间距
+* @param {String} $text-decoration 添加到文本的修饰
+*/
+@mixin usual-fonts($font-fm: "Microsoft YaHei", $font-size: 18px, $font-weight: normal, $font-style: normal, $line-height: 18px, $color:#000, $text-align: center, $letter-spacing:normal, $text-decoration:none) {
+  #{$fonts}: {
+    family: $font-fm;
+    size: $font-size;
+    weight: $font-weight;
+    style: $font-style;
+  }
+
+  line-height: $line-height;
+  color: $color;
+  text-align: $text-align;
+  letter-spacing: $letter-spacing;
+  -webkit-text-decoration: $text-decoration;
+  -moz-text-decoration: $text-decoration;
+  text-decoration: $text-decoration;
+}
+
+/**
+* 文字渐变
+*
+* @param {String} $font-family 字体名称
+* @param {Color} $color1 渐变色1
+* @param {Number} $start 渐变起始位置
+* @param {Color} $color2 渐变色2
+* @param {Number} $end 渐变结束位置
+*/
+@mixin text-gradient ($font-family: "Microsoft YaHei", $color1: #c9a248, $start: 20%, $color2: #e0bf60, $end: 80%) {
+  font-family: $font-family;
+  background-image: -o-linear-gradient($color1 $start, $color2 $end);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop($start, $color1), color-stop($end, $color2));
+  background-image: linear-gradient($color1 $start, $color2 $end);
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/**
+* 文字（浅底深色字、深色浅底字）
+* @param {Color} $bg-color 背景色
+* @param {Color} $color 文字颜色
+* @param {List} $text-shadow 文字投影
+*/
+@mixin text-effect ($bg-color: #6d5dfc, $color: #fff, $text-shadow...) {
+  background: $bg-color;
+  color: $color;
+  text-shadow: $text-shadow;
+}
+
+.text-deep {
+  @include text-effect(hsl(40, 28.57%, 58.82%), hsl(40, 28.57%, 28.82%), 0 .03em .03em hsla(0, 0%, 100%, .8));
+}
+
+.text-shallow {
+  @include text-effect(hsl(40, 28.57%, 28.82%), hsl(40, 28.57%, 58.82%), 0 .03em .03em #000);
+}
+
+.text-outline {
+  @include text-effect(#b4a078, #fff, 0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%),
+    0 0 2px hsl(40, 28.57%, 28.82%));
+  /* text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black; */
+}
+
+.text-outer-glow {
+  @include text-effect(hsl(40, 28.57%, 28.82%), #fff, 0 0 .1em, 0 0 .3em);
+}
+
+.text-dim {
+  @include text-effect(hsl(40, 28.57%, 28.82%), transparent, 0 0 .1em #fff, 0 0 .3em #fff);
+}
+
+.text-raised {
+  @include text-effect(#b4a078, #fff, 0 1px hsl(0, 0%, 90%), 0 1px hsl(0, 0%, 90%), 0 2px 4px hsla(0, 0%, 0%, .5));
+
+  // @include text-effect(#b4a078, #fff, 1px 1px hsl(40, 28.57% , 28.82%), 2px 2px hsl(40, 28.57% , 28.82%),3px 3px hsl(40, 28.57% , 28.82%), 4px 4px hsl(40, 28.57% , 28.82%));
+}
+
+/**
+* 显示或隐藏某个元素
+* 
+* @param {Booleans} $domObject 元素变量(你可以设置它为true或false，并对其进行其他操作)
+*/
+@mixin show-or-hide($dom-object: true) {
+  @if($dom-object==true) {
+    // 显示元素
+    display: block;
+  }
+
+  @else {
+    // 否则隐藏
+    display: none;
+  }
+}
+
+/**
+* 文本溢出处理 
+*
+* @param {Number} $txtType 文本超出的处理方式（可选值为0：单行文本超出省略；1：超出换行,字符超出位置使用连字符；2：多行文本超出省略）
+*/
+@mixin txt-overflow($txt-type: 0) {
+
+  // 单行文本超出省略
+  @if($txt-type==0) {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+  }
+
+  //超出换行,字符超出位置使用连字符
+  @else if ($txt-type==1) {
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+
+  // 多行文本超出省略
+  @else if ($txt-type==2) {
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    box-orient: horizontal;
+  }
+}
+
+/**
+* 背景图片混合器
+*
+* @param $bg-img 背景图片路径
+* @param $bg-repeat 背景重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+* @param $bg-size 背景图像的尺寸(cover、contain、percentage、length)
+* @param $width 图片的长度
+* @param $height 图片的高度
+* @param $bg-position 背景的位置([top left]、[top center]、[top right]、[center left]、[center center]、[center right]、[bottom left]、[bottom center]、[bottom right]或[x% y%]或[xpos ypos])
+* @param $bg-origin 在何处放置背景图像（此属性规定background-position属性相对于什么位置来定位。padding-box:背景图像相对于内边距框来定位;border-box:背景图像相对于边框盒来定位;content-box:背景图像相对于内容框来定位;）
+* @param $bg-clip 背景的绘制区域（border-box：背景被裁剪到边框盒;padding-box：背景被裁剪到内边距框;content-box：背景被裁剪到内容框）
+* @param $bg-attachment 指定图形是滚动还是固定（fixed：滚动时图片不动【此时background-origin属性不生效】;scrool：跟随内容滚动;inherit：从父元素继承该属性）
+* @param $color 背景色
+*/
+@mixin element-bg-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: 100px, $height: 100px, $bg-position: top center, $bg-origin: initial, $bg-clip:initial, $bg-attachment:initial, $color:#000) {
+  @include element-size($width, $height);
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  background-position: $bg-position;
+  background-origin: $bg-origin;
+  background-clip: $bg-clip;
+  -webkit-background-clip: $bg-clip;
+  background-attachment: $bg-attachment;
+  background-color: $color;
+}
+
+/**
+* 背景图片简写混合器
+*
+* @param $bg-pos 背景属性简写
+*/
+@mixin bg-position($bg-pos...) {
+  background: $bg-pos;
+}
+
+.bg-abbr {
+  @include bg-position(#b4a078 url(../assets/image/1.jpg) no-repeat top center / 1920px 1080px);
+}
+
+/**
+* 图片混合器
+*
+* @param $bg-img 图片路径
+* @param $bg-repeat 图片是否重复(repeat、repeat-x、repeat-y、no-repeat、inherit)
+* @param $bg-size 图片的尺寸(cover、contain、percentage、length)
+* @param $width 图片的长度
+* @param $height 图片的高度
+*/
+@mixin element-img($bg-img, $bg-repeat: no-repeat, $bg-size: cover, $width: 100px, $height: 100px) {
+  background-image: url(#{$bg-img});
+  background-repeat: $bg-repeat;
+  background-size: $bg-size;
+  @include element-size($width, $height);
+}
+
+/*=== 背景渐变混合器 ===*/
+@mixin bg-gradient($width: 100px, $height: 100px) {
+  width: $width;
+  height: $height;
+  /* fallback for old browsers */
+  background: #1CD8D2;
+  /* Chrome 10-25, Safari 5.1-6 */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -o-linear-gradient(left, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(5%, #62efab), color-stop(15%, #f2ea7d), color-stop(25%, #f2ea7d), color-stop(35%, #ff8797), color-stop(45%, #ff8797), color-stop(55%, #e1a4f4), color-stop(65%, #e1a4f4), color-stop(75%, #82fff4), color-stop(85%, #82fff4), color-stop(95%, #62efab));
+  background: linear-gradient(to right, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%);
+}
+
+/*=== 底部渐变线（滚动条线）混合器 ===*/
+@mixin gradient-line($width: 200px, $height: 4px, $color1:#5b3cc4, $color2:#3c6cc4) {
+  width: $width;
+  height: $height;
+  border-radius: $height;
+  background: linear-gradient(90deg, $color1 0%, $color2 100%);
+  box-shadow: 0px 0px 8px 0px rgba($color1, 0.4);
+  transition: all .3s;
+}
+
+/**
+* 透明度混合器 
+*
+* @param {Number} $opacity 元素透明度（可选值为0：完全透明-1：完全不透明；）
+*/
+@mixin domOpacity($opacity: 1) {
+  @if($opacity==0) {
+    // 透明度为0时
+    opacity: 0;
+  }
+
+  @else if ($opacity==0.1) {
+    //透明度为0.1时
+    opacity: 0.1;
+  }
+
+  @else if ($opacity==0.2) {
+    //透明度为0.2时
+    opacity: 0.2;
+  }
+
+  @else if ($opacity==0.3) {
+    //透明度为0.3时
+    opacity: 0.3;
+  }
+
+  @else if ($opacity==0.4) {
+    //透明度为0.4时
+    opacity: 0.4;
+  }
+
+  @else if ($opacity==0.5) {
+    //透明度为0.5时
+    opacity: 0.5;
+  }
+
+  @else if ($opacity==0.6) {
+    //透明度为0.6时
+    opacity: 0.6;
+  }
+
+  @else if ($opacity==0.7) {
+    //透明度为0.7时
+    opacity: 0.7;
+  }
+
+  @else if ($opacity==0.8) {
+    //透明度为0.8时
+    opacity: 0.8;
+  }
+
+  @else if ($opacity==0.9) {
+    //透明度为0.9时
+    opacity: 0.9;
+  }
+
+  @else if ($opacity==1) {
+    //透明度为1时
+    opacity: 1;
+  }
+}
+
+/**
+ * 为CSS属性添加浏览器前缀。
+ * 
+ * @mixin prefixed
+ * @param {String} $property - 需要添加前缀的CSS属性名。
+ * @param {String} $value - $property属性对应的值。
+ * @param {Boolean} $webkit - 是否为Webkit内核浏览器添加前缀，默认为true。
+ * @param {Boolean} $moz - 是否为Mozilla浏览器添加前缀，默认为true。
+ * @param {Boolean} $ms - 是否为IE/Edge浏览器添加前缀，默认为true。
+ * @param {Boolean} $o - 是否为Opera浏览器添加前缀，默认为false（因为Opera已基本不使用-o-前缀）。
+ */
+@mixin prefixed($property, $value, $webkit: true, $moz: true, $ms: true, $o: false) {
+  // 为 Opera 浏览器的前缀去重
+  // 考虑到 Opera 已经很久不使用 `-o-` 前缀了，这里将其默认值设置为 false，除非特别需要
+
+  // 使用循环来减少重复代码，但考虑到 Sass/LESS 的限制，此处保持分开编写
+  @if $webkit==true {
+    -webkit-#{$property}: #{$value};
+  }
+
+  @if $moz==true {
+    -moz-#{$property}: #{$value};
+  }
+
+  @if $ms==true {
+    -ms-#{$property}: #{$value};
+  }
+
+  // 由于 Opera 已经基本不使用 `-o-` 前缀，这里将其删除，除非特别需要重新添加
+
+  #{$property}: #{$value};
+}
+
+// 示例用法
+// 使用默认参数值
+// @include prefixed(transform, rotate(45deg));
+// 使用自定义参数值
+// @include prefixed(animation, my-animation 1s ease, $webkit: false, $ms: true);
+
+
+
+// 定义默认变量值
+$webkit: false;
+$moz: false;
+$ms: false;
+$o: false;
+$keyframeName: 'shake' !default;
+
+/**
+ * 定义一个关键帧动画混合函数，用于创建跨浏览器的关键帧动画。
+ * 
+ * @param $keyframeName 动画帧名称，作为动画标识。
+ * 
+ * 使用此混合函数可以方便地创建适用于不同浏览器的关键帧动画，
+ * 通过变量控制浏览器前缀的使用，以便于未来的浏览器兼容性更新。
+ */
+@mixin keyframes($keyframeName) {
+  // 为保证代码的可读性，增加对各浏览器前缀的注释
+  // 使用变量控制，易于未来浏览器兼容性更新
+
+  // Safari 和 Chrome
+  @if $webkit==true {
+    @-webkit-keyframes #{$keyframeName} {
+      @content;
+    }
+  }
+
+  // Firefox
+  @if $moz==true {
+    @-moz-keyframes #{$keyframeName} {
+      @content;
+    }
+  }
+
+  // Internet Explorer
+  @if $ms==true {
+    @-ms-keyframes #{$keyframeName} {
+      @content;
+    }
+  }
+
+  // Opera
+  @if $o==true {
+    @-o-keyframes #{$keyframeName} {
+      @content;
+    }
+  }
+
+  @keyframes #{$keyframeName} {
+    @content;
+  }
+}
+
+// 使用 mixin 定义一个关键帧动画
+// @include keyframes(spin) {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// // 在 CSS 中应用动画
+// .some-element {
+//   animation: spin 2s linear infinite;
+// }
