@@ -1088,6 +1088,7 @@ p::selection{
   background-color: #ff4c9f;
 }
 
+// 单行文本和多行文本垂直居中左对齐
 .p-container {
   display: flex;
   // 文本居中对齐时
@@ -1110,3 +1111,33 @@ p::selection{
     line-height: $multiLineLineHeight;
   }
 }
+
+// 带文字的渐变圆角边框
+.gradient-border-radius {
+      position: relative;
+      width: 140px;
+      height: 80px;
+      border-radius: 100px;
+      background: conic-gradient(#ff00fa, #fe3, #0f3, #ff00fa);
+      padding: 1px;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: inherit;
+      }
+
+      span{
+        font-size: 20px;
+        line-height: 80px;
+        text-align: center;
+        color: #000;
+      }
+    }
