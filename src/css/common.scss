@@ -18,6 +18,9 @@
 * @param {String} $width 宽度
 * @param {String} $height 高度
 * @param {String} $basic-font-size 根字体大小
+* @param {String} $singleLineHeight 假设单行文本的行高
+* @param {String} $multiLineLineHeight 多行文本的行高
+* @param {String} $pWidth 文本宽度
 * @param {String} $local-path PC端本地路径
 * @param {String} $server-path CDN路径
 */
@@ -37,6 +40,9 @@ $left: 0;
 $width: auto !default;
 $height: auto !default;
 $basic-font-size: 100px !default;
+$singleLineHeight: 20px; 
+$multiLineLineHeight: 1.2;
+$pWidth: 80%;
 $local-path: '../assets/img/';
 // $server-path: '../assets/img/';
 
@@ -1080,4 +1086,27 @@ input{
 p::selection{
   color: #ffffff;
   background-color: #ff4c9f;
+}
+
+.p-container {
+  display: flex;
+  // 文本居中对齐时
+  // justify-content: center;
+  // 文本左对齐时
+  justify-content: flex-start;
+  align-items: center;
+  width: $pWidth;
+  margin: 0 auto;
+  text-align: left;
+  color: #000;
+  font-size: 16px;
+  background-color: lightgray; // 示例背景色
+
+  &.single-line {
+    line-height: $singleLineHeight;
+  }
+
+  &.multi-line {
+    line-height: $multiLineLineHeight;
+  }
 }
