@@ -1135,6 +1135,9 @@ p::selection{
       }
 
       span{
+        position: relative;
+        z-index: 3;
+        display: block;
         font-size: 20px;
         line-height: 80px;
         text-align: center;
