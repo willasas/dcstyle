@@ -48,6 +48,7 @@ $local-path: '../assets/img/';
 
 :root {
   --current-ui-width: 750; /* 默认为手机屏幕宽度 */
+  --current-ui-height: 1624;
   @media (min-width: 768px) {
     --current-ui-width: 1024; /* 平板 */
   }
@@ -56,9 +57,11 @@ $local-path: '../assets/img/';
   }
   @media (min-width: 1441px) {
     --current-ui-width: 1920; /* PC */
+    --current-ui-height: 1080;
   }
   @media (min-width: 2561px) {
     --current-ui-width: 2560; /* 大屏 */
+    --current-ui-height: 1440;
   }
 }
 /* ==============VARIABLES END============== */
@@ -75,6 +78,10 @@ $local-path: '../assets/img/';
 
 @function vw($pixels) {
   @return calc(#{$pixels} / var(--current-ui-width) * 100vw);
+}
+
+@function vh($pixels) {
+  @return calc(#{$pixels} / var(--current-ui-height) * 100vh);
 }
 /* ==============FUNCTION END============== */
 
