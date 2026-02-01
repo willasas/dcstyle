@@ -1,0 +1,62 @@
+/*!
+  Name: custom scrollbar
+  Author: william
+  Author URI:
+  Description: custom scrollbar.
+  Version: 1.0.1
+	Tags: scrollbar
+  Update: February 19th,2024
+*/
+.scroll { position: relative; overflow-y: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-right: 10px; }
+
+.scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+
+.scroll::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll::-webkit-scrollbar-thumb { width: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-x { position: relative; overflow-x: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-bottom: 10px; }
+
+.scroll-x::-webkit-scrollbar { width: 8px; height: 100%; }
+
+.scroll-x::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll-x::-webkit-scrollbar-thumb { height: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-y { position: relative; overflow-y: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-right: 10px; }
+
+.scroll-y::-webkit-scrollbar { width: 8px; height: 8px; }
+
+.scroll-y::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll-y::-webkit-scrollbar-thumb { width: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-x-y { position: relative; overflow-y: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-right: 10px; position: relative; overflow-x: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-bottom: 10px; }
+
+.scroll-x-y::-webkit-scrollbar { width: 8px; height: 8px; }
+
+.scroll-x-y::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll-x-y::-webkit-scrollbar-thumb { width: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-x-y::-webkit-scrollbar { width: 8px; height: 100%; }
+
+.scroll-x-y::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll-x-y::-webkit-scrollbar-thumb { height: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-x-y::-webkit-scrollbar-thumb { width: 8px; height: 8px; }
+
+.scroll-h-c { position: relative; overflow-y: auto; overflow-other-direction: hidden; direction: ltr; scrollbar-color: #deccb1; scrollbar-width: thin; cursor: pointer; padding-right: 10px; }
+
+.scroll-h-c::-webkit-scrollbar { width: 8px; height: 8px; }
+
+.scroll-h-c::-webkit-scrollbar-track { border-radius: 4px; box-shadow: inset 0 0 5px rgba(222, 204, 177, 0.5); background-color: #2c2c2c; }
+
+.scroll-h-c::-webkit-scrollbar-thumb { width: 8px; border-radius: 4px; background-image: linear-gradient(0deg, #deccb1 0%, #deccb1 99%); box-shadow: inset 2px 2px 5px 0 rgba(222, 204, 177, 0.5); }
+
+.scroll-h-c::-webkit-scrollbar-track-piece { background-color: #007497; }
+
+.scroll-h-c::-webkit-scrollbar-button:start { width: 8px; height: 8px; background-color: #00a2ff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+
+.scroll-h-c::-webkit-scrollbar-button:end { width: 8px; height: 8px; background-color: #00a2ff; clip-path: polygon(0% 0%, 100% 100%, 50% 100%); }

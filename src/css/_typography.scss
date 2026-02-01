@@ -1,8 +1,12 @@
 @charset "utf-8";
+
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
 /*!
   Name: typography
   Author: william
-  Author URI: 
+  Author URI:
   Description: elements typography.
   Version: 1.0.1
 	Tags: typography,font-family,font-size,font-size,font-weight,font-variant-numeric,letter-spacing,line-height,list-style-type,list-style-position,text-align,text-color,text-decoration,text-decoration-color,text-decoration-style,text-decoration-thickness,text-underline-offset,text-transform,text-overflow,text-indent,text-wrap,vertical-align,whitespace,word-break,content
@@ -31,11 +35,11 @@ $fontMono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New",
 /*
 * 2. font-size
 */
-$fontSize: (0: 0, xs: unquote(12+'px'), sm: unquote(14+'px'), base: unquote(16+'px'), lg: unquote(18+'px'), xl: unquote(20+'px'), 2xl: unquote(24+'px'), 3xl: unquote(30+'px'), 4xl: unquote(36+'px'), 5xl: unquote(48+'px'), 6xl: unquote(60+'px'), 7xl: unquote(72+'px'), 8xl: unquote(96+'px'), 9xl: unquote(128+'px'));
-@for $i from 1 through length(map-keys($fontSize)) {
-  $name: nth(map-keys($fontSize), $i);
-  $values: nth(map-values($fontSize), $i);
-  .text-#{$name}{
+$fontSize: (0: 0, xs: string.unquote(12+'px'), sm: string.unquote(14+'px'), base: string.unquote(16+'px'), lg: string.unquote(18+'px'), xl: string.unquote(20+'px'), 2xl: string.unquote(24+'px'), 3xl: string.unquote(30+'px'), 4xl: string.unquote(36+'px'), 5xl: string.unquote(48+'px'), 6xl: string.unquote(60+'px'), 7xl: string.unquote(72+'px'), 8xl: string.unquote(96+'px'), 9xl: string.unquote(128+'px'));
+@for $i from 1 through list.length(map.keys($fontSize)) {
+  $name: list.nth(map.keys($fontSize), $i);
+  $values: list.nth(map.values($fontSize), $i);
+  .text-#{"" + $name}{
     font-size: $values;
     line-height: $values;
   }
@@ -46,10 +50,10 @@ $fontSize: (0: 0, xs: unquote(12+'px'), sm: unquote(14+'px'), base: unquote(16+'
 * 3. font-style
 */
 $fontStyle:(italic: italic, not-italic: normal);
-@for $i from 1 through length(map-keys($fontStyle)) {
-  $name: nth(map-keys($fontStyle), $i);
-  $values: nth(map-values($fontStyle), $i);
-  .#{$name}{
+@for $i from 1 through list.length(map.keys($fontStyle)) {
+  $name: list.nth(map.keys($fontStyle), $i);
+  $values: list.nth(map.values($fontStyle), $i);
+  .#{"" + $name}{
     font-style: $values;
   }
 }
@@ -59,10 +63,10 @@ $fontStyle:(italic: italic, not-italic: normal);
 * 4. font-weight
 */
 $fontWeight:(normal: normal, lighter: lighter, border: border, thin: 100, extra-light: 200, light: 300, normaler: 400, medium: 500, semibold: 600, bold: 700, extra-bold: 800, black: 900);
-@for $i from 1 through length(map-keys($fontWeight)) {
-  $name: nth(map-keys($fontWeight), $i);
-  $values: nth(map-values($fontWeight), $i);
-  .font-#{$name}{
+@for $i from 1 through list.length(map.keys($fontWeight)) {
+  $name: list.nth(map.keys($fontWeight), $i);
+  $values: list.nth(map.values($fontWeight), $i);
+  .font-#{"" + $name}{
     font-weight: $values;
   }
 }
@@ -72,10 +76,10 @@ $fontWeight:(normal: normal, lighter: lighter, border: border, thin: 100, extra-
 * 5. font-variant-numeric
 */
 $fontVariantNumeric:(normal: normal, ordinal: ordinal, zero: slashed-zero, lining-nums: lining-nums, oldstyle-nums: oldstyle-nums, proportional-nums: proportional-nums, tabular-nums: tabular-nums, diagonal-fractions: diagonal-fractions, stacked-fractions: stacked-fractions);
-@for $i from 1 through length(map-keys($fontVariantNumeric)) {
-  $name: nth(map-keys($fontVariantNumeric), $i);
-  $values: nth(map-values($fontVariantNumeric), $i);
-  .font-variant-#{$name}{
+@for $i from 1 through list.length(map.keys($fontVariantNumeric)) {
+  $name: list.nth(map.keys($fontVariantNumeric), $i);
+  $values: list.nth(map.values($fontVariantNumeric), $i);
+  .font-variant-#{"" + $name}{
     font-variant-numeric: $values;
   }
 }
@@ -84,11 +88,11 @@ $fontVariantNumeric:(normal: normal, ordinal: ordinal, zero: slashed-zero, linin
 /*
 * 6. letter-spacing
 */
-$letterSpacing:(tighter: unquote('-0.05' + 'em'), tight: unquote('-0.025' + 'em'), normal: unquote(0 + 'em'), wide: unquote(0.025 + 'em'), wider: unquote(0.05 + 'em'), widest: unquote(0.1 + 'em'));
-@for $i from 1 through length(map-keys($letterSpacing)) {
-  $name: nth(map-keys($letterSpacing), $i);
-  $values: nth(map-values($letterSpacing), $i);
-  .tracking-#{$name}{
+$letterSpacing:(tighter: string.unquote('-0.05' + 'em'), tight: string.unquote('-0.025' + 'em'), normal: string.unquote(0 + 'em'), wide: string.unquote(0.025 + 'em'), wider: string.unquote(0.05 + 'em'), widest: string.unquote(0.1 + 'em'));
+@for $i from 1 through list.length(map.keys($letterSpacing)) {
+  $name: list.nth(map.keys($letterSpacing), $i);
+  $values: list.nth(map.values($letterSpacing), $i);
+  .tracking-#{"" + $name}{
     letter-spacing: $values;
   }
 }
@@ -97,11 +101,11 @@ $letterSpacing:(tighter: unquote('-0.05' + 'em'), tight: unquote('-0.025' + 'em'
 /*
 * 7. line height
 */
-$lineHeight: (none: 1, tight: 1.25, snug: 1.375, normal: 1.5, relaxed: 1.625, loose: 2, 3: unquote(12 + 'px'), 4: unquote(16 + 'px'), 5: unquote(20 + 'px'), 6: unquote(24 + 'px'), 7: unquote(28 + 'px'), 8: unquote(32 + 'px'), 9: unquote(36 + 'px'), 10: unquote(40 + 'px'), 12: unquote(48 + 'px'), 14: unquote(56 + 'px'), 16: unquote(64 + 'px'), 18: unquote(72 + 'px'), 20: unquote(80 + 'px'));
-@for $i from 1 through length(map-keys($lineHeight)) {
-  $name: nth(map-keys($lineHeight), $i);
-  $values: nth(map-values($lineHeight), $i);
-  .lh-#{$name}{
+$lineHeight: (none: 1, tight: 1.25, snug: 1.375, normal: 1.5, relaxed: 1.625, loose: 2, 3: string.unquote(12 + 'px'), 4: string.unquote(16 + 'px'), 5: string.unquote(20 + 'px'), 6: string.unquote(24 + 'px'), 7: string.unquote(28 + 'px'), 8: string.unquote(32 + 'px'), 9: string.unquote(36 + 'px'), 10: string.unquote(40 + 'px'), 12: string.unquote(48 + 'px'), 14: string.unquote(56 + 'px'), 16: string.unquote(64 + 'px'), 18: string.unquote(72 + 'px'), 20: string.unquote(80 + 'px'));
+@for $i from 1 through list.length(map.keys($lineHeight)) {
+  $name: list.nth(map.keys($lineHeight), $i);
+  $values: list.nth(map.values($lineHeight), $i);
+  .lh-#{"" + $name}{
     line-height: $values;
   }
 }
@@ -111,10 +115,10 @@ $lineHeight: (none: 1, tight: 1.25, snug: 1.375, normal: 1.5, relaxed: 1.625, lo
 * 8. list style type
 */
 $listStyleType: (none: none, disc: disc, decimal: decimal);
-@for $i from 1 through length(map-keys($listStyleType)) {
-  $name: nth(map-keys($listStyleType), $i);
-  $values: nth(map-values($listStyleType), $i);
-  .list-#{$name}{
+@for $i from 1 through list.length(map.keys($listStyleType)) {
+  $name: list.nth(map.keys($listStyleType), $i);
+  $values: list.nth(map.values($listStyleType), $i);
+  .list-#{"" + $name}{
     list-style-type: $values;
   }
 }
@@ -124,10 +128,10 @@ $listStyleType: (none: none, disc: disc, decimal: decimal);
 * 9. list style position
 */
 $listStylePosition: (inside: inside, outside: outside);
-@for $i from 1 through length(map-keys($listStylePosition)) {
-  $name: nth(map-keys($listStylePosition), $i);
-  $values: nth(map-values($listStylePosition), $i);
-  .list-#{$name}{
+@for $i from 1 through list.length(map.keys($listStylePosition)) {
+  $name: list.nth(map.keys($listStylePosition), $i);
+  $values: list.nth(map.values($listStylePosition), $i);
+  .list-#{"" + $name}{
     list-style-position: $values;
   }
 }
@@ -147,38 +151,38 @@ $textAlign: left, center, right, justify, start, end;
 /*
 * 11. text color and text decoration color
 */
-$textColor: (inherit: inherit, current: currentColor, transparent: transparent, black: rgb(0,0,0), white: rgb(255,255,255), 
-slate-50: rgb(248, 250, 252), slate-100: rgb(241,245,249), slate-200: rgb(226, 232, 240), slate-300: rgb(203, 213, 225), slate-400: rgb(148, 163, 184), slate-500: rgb(100, 116, 139), slate-600: rgb(71, 85, 105), slate-700: rgb(51, 65, 85), slate-800: rgb(30, 41, 59), slate-900: rgb(15, 23, 42), 
-gray-50: rgb(249, 250, 251), gray-100: rgb(243, 244, 246), gray-200: rgb(229, 231, 235), gray-300: rgb(209, 213, 219), gray-400: rgb(156, 163, 175), gray-500: rgb(107, 114, 128), gray-600: rgb(75, 85, 99), gray-700: rgb(55, 65, 81), gray-800: rgb(31, 41, 55), gray-900: rgb(17, 24, 39), 
-zinc-50: rgb(250, 250, 250), zinc-100: rgb(244, 244, 245), zinc-200: rgb(228, 228, 231), zinc-300: rgb(212, 212, 216), zinc-400: rgb(161, 161, 170), zinc-500: rgb(113, 113, 122), zinc-600: rgb(82, 82, 91), zinc-700: rgb(63, 63, 70), zinc-800: rgb(39, 39, 42), zinc-900: rgb(24, 24, 27), 
-neutral-50: rgb(250, 250, 250), neutral-100: rgb(245, 245, 245), neutral-200: rgb(229, 229, 229), neutral-300: rgb(212, 212, 212), neutral-400: rgb(163, 163, 163), neutral-500: rgb(115, 115, 115), neutral-600: rgb(82, 82, 82), neutral-700: rgb(64, 64, 64), neutral-800: rgb(38, 38, 38), neutral-900: rgb(23, 23, 23), 
-stone-50: rgb(250, 250, 249), stone-100: rgb(245, 245, 244), stone-200: rgb(231, 229, 228), stone-300: rgb(214, 211, 209), stone-400: rgb(168, 162, 158), stone-500: rgb(120, 113, 108), stone-600: rgb(87, 83, 78), stone-700: rgb(68, 64, 60), stone-800: rgb(41, 37, 36), stone-900: rgb(28, 25, 23), 
-red-50: rgb(254, 242, 242), red-100: rgb(254, 226, 226), red-200: rgb(254, 202, 202), red-300: rgb(252, 165, 165), red-400: rgb(248, 113, 113), red-500: rgb(239, 68, 68), red-600: rgb(220, 38, 38), red-700: rgb(185, 28, 28), red-800: rgb(153, 27, 27), red-900: rgb(127, 29, 29), 
-orange-50: rgb(255, 247, 237), orange-100: rgb(255, 237, 213), orange-200: rgb(254, 215, 170), orange-300: rgb(253, 186, 116), orange-400: rgb(251, 146, 60), orange-500: rgb(249, 115, 22), orange-600: rgb(234, 88, 12), orange-700: rgb(194, 65, 12), orange-800: rgb(154, 52, 18), orange-900: rgb(124, 45, 18), 
-amber-50: rgb(255, 251, 235), amber-100: rgb(254, 243, 199), amber-200: rgb(253, 230, 138), amber-300: rgb(252, 211, 77), amber-400: rgb(251, 191, 36), amber-500: rgb(245, 158, 11), amber-600: rgb(217, 119, 6), amber-700: rgb(180, 83, 9), amber-800: rgb(146, 64, 14), amber-900: rgb(120, 53, 15), 
-yellow-50: rgb(254, 252, 232), yellow-100: rgb(254, 249, 195), yellow-200: rgb(254, 240, 138), yellow-300: rgb(253, 224, 71), yellow-400: rgb(250, 204, 21), yellow-500: rgb(234, 179, 8), yellow-600: rgb(202, 138, 4), yellow-700: rgb(161, 98, 7), yellow-800: rgb(133, 77, 14), yellow-900: rgb(113, 63, 18), 
-lime-50: rgb(247, 254, 231), lime-100: rgb(236, 252, 203), lime-200: rgb(217, 249, 157), lime-300: rgb(190, 242, 100), lime-400: rgb(163, 230, 53), lime-500: rgb(132, 204, 22), lime-600: rgb(101, 163, 13), lime-700: rgb(77, 124, 15), lime-800: rgb(63, 98, 18), lime-900: rgb(54, 83, 20), 
-green-50: rgb(240, 253, 244), green-100: rgb(220, 252, 231), green-200: rgb(187, 247, 208), green-300: rgb(134, 239, 172), green-400: rgb(74, 222, 128), green-500: rgb(34, 197, 94), green-600: rgb(22, 163, 74), green-700: rgb(21, 128, 61), green-800: rgb(22, 101, 52), green-900: rgb(20, 83, 45), 
-emerald-50: rgb(236, 253, 245), emerald-100: rgb(209, 250, 229), emerald-200: rgb(167, 243, 208), emerald-300: rgb(110, 231, 183), emerald-400: rgb(52, 211, 153), emerald-500: rgb(16, 185, 129), emerald-600: rgb(5, 150, 105), emerald-700: rgb(4, 120, 87), emerald-800: rgb(6, 95, 70), emerald-900: rgb(6, 78, 59), 
-teal-50: rgb(240, 253, 250), teal-100: rgb(204, 251, 241), teal-200: rgb(153, 246, 228), teal-300: rgb(94, 234, 212), teal-400: rgb(45, 212, 191), teal-500: rgb(20, 184, 166), teal-600: rgb(13, 148, 136), teal-700: rgb(15, 118, 110), teal-800: rgb(17, 94, 89), teal-900: rgb(19, 78, 74), 
-cyan-50: rgb(236, 254, 255), cyan-100: rgb(207, 250, 254), cyan-200: rgb(165, 243, 252), cyan-300: rgb(103, 232, 249), cyan-400: rgb(34, 211, 238), cyan-500: rgb(6, 182, 212), cyan-600: rgb(8, 145, 178), cyan-700: rgb(14, 116, 144), cyan-800: rgb(21, 94, 117), cyan-900: rgb(22, 78, 99), 
-sky-50: rgb(240, 249, 255), sky-100: rgb(224, 242, 254), sky-200: rgb(186, 230, 253), sky-300: rgb(125, 211, 252), sky-400: rgb(56, 189, 248), sky-500: rgb(14, 165, 233), sky-600: rgb(2, 132, 199), sky-700: rgb(3, 105, 161), sky-800: rgb(7, 89, 133), sky-900: rgb(12, 74, 110), 
-blue-50: rgb(239, 246, 255), blue-100: rgb(219, 234, 254), blue-200: rgb(191, 219, 254), blue-300: rgb(147, 197, 253), blue-400: rgb(96, 165, 250), blue-500: rgb(59, 130, 246), blue-600: rgb(37, 99, 235), blue-700: rgb(29, 78, 216), blue-800: rgb(30, 64, 175), blue-900: rgb(30, 58, 138), 
-indigo-50: rgb(238, 242, 255), indigo-100: rgb(224, 231, 255), indigo-200: rgb(199, 210, 254), indigo-300: rgb(165, 180, 252), indigo-400: rgb(129, 140, 248), indigo-500: rgb(99, 102, 241), indigo-600: rgb(79, 70, 229), indigo-700: rgb(67, 56, 202), indigo-800: rgb(55, 48, 163), indigo-900: rgb(49, 46, 129), 
-violet-50: rgb(245, 243, 255), violet-100: rgb(237, 233, 254), violet-200: rgb(221, 214, 254), violet-300: rgb(196, 181, 253), violet-400: rgb(167, 139, 250), violet-500: rgb(139, 92, 246), violet-600: rgb(124, 58, 237), violet-700: rgb(109, 40, 217), violet-800: rgb(91, 33, 182), violet-900: rgb(76, 29, 149), 
-purple-50: rgb(250, 245, 255), purple-100: rgb(243, 232, 255), purple-200: rgb(233, 213, 255), purple-300: rgb(216, 180, 254), purple-400: rgb(192, 132, 252), purple-500: rgb(168, 85, 247), purple-600: rgb(147, 51, 234), purple-700: rgb(126, 34, 206), purple-800: rgb(107, 33, 168), purple-900: rgb(88, 28, 135), 
-fuchsia-50: rgb(253, 244, 255), fuchsia-100: rgb(250, 232, 255), fuchsia-200: rgb(245, 208, 254), fuchsia-300: rgb(240, 171, 252), fuchsia-400: rgb(232, 121, 249), fuchsia-500: rgb(217, 70, 239), fuchsia-600: rgb(192, 38, 211), fuchsia-700: rgb(162, 28, 175), fuchsia-800: rgb(134, 25, 143), fuchsia-900: rgb(112, 26, 117), 
-pink-50: rgb(253, 242, 248), pink-100: rgb(252, 231, 243), pink-200: rgb(251, 207, 232), pink-300: rgb(249, 168, 212), pink-400: rgb(244, 114, 182), pink-500: rgb(236, 72, 153), pink-600: rgb(219, 39, 119), pink-700: rgb(190, 24, 93), pink-800: rgb(157, 23, 77), pink-900: rgb(131, 24, 67), 
+$textColor: (inherit: inherit, current: currentColor, transparent: transparent, black: rgb(0,0,0), white: rgb(255,255,255),
+slate-50: rgb(248, 250, 252), slate-100: rgb(241,245,249), slate-200: rgb(226, 232, 240), slate-300: rgb(203, 213, 225), slate-400: rgb(148, 163, 184), slate-500: rgb(100, 116, 139), slate-600: rgb(71, 85, 105), slate-700: rgb(51, 65, 85), slate-800: rgb(30, 41, 59), slate-900: rgb(15, 23, 42),
+gray-50: rgb(249, 250, 251), gray-100: rgb(243, 244, 246), gray-200: rgb(229, 231, 235), gray-300: rgb(209, 213, 219), gray-400: rgb(156, 163, 175), gray-500: rgb(107, 114, 128), gray-600: rgb(75, 85, 99), gray-700: rgb(55, 65, 81), gray-800: rgb(31, 41, 55), gray-900: rgb(17, 24, 39),
+zinc-50: rgb(250, 250, 250), zinc-100: rgb(244, 244, 245), zinc-200: rgb(228, 228, 231), zinc-300: rgb(212, 212, 216), zinc-400: rgb(161, 161, 170), zinc-500: rgb(113, 113, 122), zinc-600: rgb(82, 82, 91), zinc-700: rgb(63, 63, 70), zinc-800: rgb(39, 39, 42), zinc-900: rgb(24, 24, 27),
+neutral-50: rgb(250, 250, 250), neutral-100: rgb(245, 245, 245), neutral-200: rgb(229, 229, 229), neutral-300: rgb(212, 212, 212), neutral-400: rgb(163, 163, 163), neutral-500: rgb(115, 115, 115), neutral-600: rgb(82, 82, 82), neutral-700: rgb(64, 64, 64), neutral-800: rgb(38, 38, 38), neutral-900: rgb(23, 23, 23),
+stone-50: rgb(250, 250, 249), stone-100: rgb(245, 245, 244), stone-200: rgb(231, 229, 228), stone-300: rgb(214, 211, 209), stone-400: rgb(168, 162, 158), stone-500: rgb(120, 113, 108), stone-600: rgb(87, 83, 78), stone-700: rgb(68, 64, 60), stone-800: rgb(41, 37, 36), stone-900: rgb(28, 25, 23),
+red-50: rgb(254, 242, 242), red-100: rgb(254, 226, 226), red-200: rgb(254, 202, 202), red-300: rgb(252, 165, 165), red-400: rgb(248, 113, 113), red-500: rgb(239, 68, 68), red-600: rgb(220, 38, 38), red-700: rgb(185, 28, 28), red-800: rgb(153, 27, 27), red-900: rgb(127, 29, 29),
+orange-50: rgb(255, 247, 237), orange-100: rgb(255, 237, 213), orange-200: rgb(254, 215, 170), orange-300: rgb(253, 186, 116), orange-400: rgb(251, 146, 60), orange-500: rgb(249, 115, 22), orange-600: rgb(234, 88, 12), orange-700: rgb(194, 65, 12), orange-800: rgb(154, 52, 18), orange-900: rgb(124, 45, 18),
+amber-50: rgb(255, 251, 235), amber-100: rgb(254, 243, 199), amber-200: rgb(253, 230, 138), amber-300: rgb(252, 211, 77), amber-400: rgb(251, 191, 36), amber-500: rgb(245, 158, 11), amber-600: rgb(217, 119, 6), amber-700: rgb(180, 83, 9), amber-800: rgb(146, 64, 14), amber-900: rgb(120, 53, 15),
+yellow-50: rgb(254, 252, 232), yellow-100: rgb(254, 249, 195), yellow-200: rgb(254, 240, 138), yellow-300: rgb(253, 224, 71), yellow-400: rgb(250, 204, 21), yellow-500: rgb(234, 179, 8), yellow-600: rgb(202, 138, 4), yellow-700: rgb(161, 98, 7), yellow-800: rgb(133, 77, 14), yellow-900: rgb(113, 63, 18),
+lime-50: rgb(247, 254, 231), lime-100: rgb(236, 252, 203), lime-200: rgb(217, 249, 157), lime-300: rgb(190, 242, 100), lime-400: rgb(163, 230, 53), lime-500: rgb(132, 204, 22), lime-600: rgb(101, 163, 13), lime-700: rgb(77, 124, 15), lime-800: rgb(63, 98, 18), lime-900: rgb(54, 83, 20),
+green-50: rgb(240, 253, 244), green-100: rgb(220, 252, 231), green-200: rgb(187, 247, 208), green-300: rgb(134, 239, 172), green-400: rgb(74, 222, 128), green-500: rgb(34, 197, 94), green-600: rgb(22, 163, 74), green-700: rgb(21, 128, 61), green-800: rgb(22, 101, 52), green-900: rgb(20, 83, 45),
+emerald-50: rgb(236, 253, 245), emerald-100: rgb(209, 250, 229), emerald-200: rgb(167, 243, 208), emerald-300: rgb(110, 231, 183), emerald-400: rgb(52, 211, 153), emerald-500: rgb(16, 185, 129), emerald-600: rgb(5, 150, 105), emerald-700: rgb(4, 120, 87), emerald-800: rgb(6, 95, 70), emerald-900: rgb(6, 78, 59),
+teal-50: rgb(240, 253, 250), teal-100: rgb(204, 251, 241), teal-200: rgb(153, 246, 228), teal-300: rgb(94, 234, 212), teal-400: rgb(45, 212, 191), teal-500: rgb(20, 184, 166), teal-600: rgb(13, 148, 136), teal-700: rgb(15, 118, 110), teal-800: rgb(17, 94, 89), teal-900: rgb(19, 78, 74),
+cyan-50: rgb(236, 254, 255), cyan-100: rgb(207, 250, 254), cyan-200: rgb(165, 243, 252), cyan-300: rgb(103, 232, 249), cyan-400: rgb(34, 211, 238), cyan-500: rgb(6, 182, 212), cyan-600: rgb(8, 145, 178), cyan-700: rgb(14, 116, 144), cyan-800: rgb(21, 94, 117), cyan-900: rgb(22, 78, 99),
+sky-50: rgb(240, 249, 255), sky-100: rgb(224, 242, 254), sky-200: rgb(186, 230, 253), sky-300: rgb(125, 211, 252), sky-400: rgb(56, 189, 248), sky-500: rgb(14, 165, 233), sky-600: rgb(2, 132, 199), sky-700: rgb(3, 105, 161), sky-800: rgb(7, 89, 133), sky-900: rgb(12, 74, 110),
+blue-50: rgb(239, 246, 255), blue-100: rgb(219, 234, 254), blue-200: rgb(191, 219, 254), blue-300: rgb(147, 197, 253), blue-400: rgb(96, 165, 250), blue-500: rgb(59, 130, 246), blue-600: rgb(37, 99, 235), blue-700: rgb(29, 78, 216), blue-800: rgb(30, 64, 175), blue-900: rgb(30, 58, 138),
+indigo-50: rgb(238, 242, 255), indigo-100: rgb(224, 231, 255), indigo-200: rgb(199, 210, 254), indigo-300: rgb(165, 180, 252), indigo-400: rgb(129, 140, 248), indigo-500: rgb(99, 102, 241), indigo-600: rgb(79, 70, 229), indigo-700: rgb(67, 56, 202), indigo-800: rgb(55, 48, 163), indigo-900: rgb(49, 46, 129),
+violet-50: rgb(245, 243, 255), violet-100: rgb(237, 233, 254), violet-200: rgb(221, 214, 254), violet-300: rgb(196, 181, 253), violet-400: rgb(167, 139, 250), violet-500: rgb(139, 92, 246), violet-600: rgb(124, 58, 237), violet-700: rgb(109, 40, 217), violet-800: rgb(91, 33, 182), violet-900: rgb(76, 29, 149),
+purple-50: rgb(250, 245, 255), purple-100: rgb(243, 232, 255), purple-200: rgb(233, 213, 255), purple-300: rgb(216, 180, 254), purple-400: rgb(192, 132, 252), purple-500: rgb(168, 85, 247), purple-600: rgb(147, 51, 234), purple-700: rgb(126, 34, 206), purple-800: rgb(107, 33, 168), purple-900: rgb(88, 28, 135),
+fuchsia-50: rgb(253, 244, 255), fuchsia-100: rgb(250, 232, 255), fuchsia-200: rgb(245, 208, 254), fuchsia-300: rgb(240, 171, 252), fuchsia-400: rgb(232, 121, 249), fuchsia-500: rgb(217, 70, 239), fuchsia-600: rgb(192, 38, 211), fuchsia-700: rgb(162, 28, 175), fuchsia-800: rgb(134, 25, 143), fuchsia-900: rgb(112, 26, 117),
+pink-50: rgb(253, 242, 248), pink-100: rgb(252, 231, 243), pink-200: rgb(251, 207, 232), pink-300: rgb(249, 168, 212), pink-400: rgb(244, 114, 182), pink-500: rgb(236, 72, 153), pink-600: rgb(219, 39, 119), pink-700: rgb(190, 24, 93), pink-800: rgb(157, 23, 77), pink-900: rgb(131, 24, 67),
 rose-50: rgb(250, 250, 250), rose-100: rgb(244, 244, 245), rose-200: rgb(254, 205, 211), rose-300: rgb(253, 164, 175), rose-400: rgb(251, 113, 133), rose-500: rgb(244, 63, 94), rose-600: rgb(225, 29, 72), rose-700: rgb(190, 18, 60), rose-800: rgb(159, 18, 57), rose-900: rgb(136, 19, 55)
 );
-@for $i from 1 through length(map-keys($textColor)) {
-  $name: nth(map-keys($textColor), $i);
-  $values: nth(map-values($textColor), $i);
-  .text-#{$name}{
+@for $i from 1 through list.length(map.keys($textColor)) {
+  $name: list.nth(map.keys($textColor), $i);
+  $values: list.nth(map.values($textColor), $i);
+  .text-#{"" + $name}{
     color: $values;
   }
 
-  .decoration-#{$name}{
+  .decoration-#{"" + $name}{
     text-decoration-color: $values;
   }
 }
@@ -209,11 +213,11 @@ $textDecorationStyle: solid, double, dotted, dashed, wavy;
 /*
 * 14. text decoration thickness
 */
-$textDecorationThickness: (auto: auto, from-font: from-font, 0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 8: unquote(8+"px"));
-@for $i from 1 through length(map-keys($textDecorationThickness)) {
-  $name: nth(map-keys($textDecorationThickness), $i);
-  $values: nth(map-values($textDecorationThickness), $i);
-  .decoration-#{$name}{
+$textDecorationThickness: (auto: auto, from-font: from-font, 0: 0, 1: string.unquote(1+"px"), 2: string.unquote(2+"px"), 4: string.unquote(4+"px"), 8: string.unquote(8+"px"));
+@for $i from 1 through list.length(map.keys($textDecorationThickness)) {
+  $name: list.nth(map.keys($textDecorationThickness), $i);
+  $values: list.nth(map.values($textDecorationThickness), $i);
+  .decoration-#{"" + $name} {
     text-decoration-thickness: $values;
   }
 }
@@ -222,10 +226,10 @@ $textDecorationThickness: (auto: auto, from-font: from-font, 0: 0, 1: unquote(1+
 /*
 * 15. text underline offset
 */
-$underlineOffset: (auto: auto, 0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 8: unquote(8+"px"));
-@for $i from 1 through length(map-keys($underlineOffset)) {
-  $name: nth(map-keys($underlineOffset), $i);
-  $values: nth(map-values($underlineOffset), $i);
+$underlineOffset: (auto: auto, 0: 0, 1: string.unquote(1+"px"), 2: string.unquote(2+"px"), 4: string.unquote(4+"px"), 8: string.unquote(8+"px"));
+@for $i from 1 through list.length(map.keys($underlineOffset)) {
+  $name: list.nth(map.keys($underlineOffset), $i);
+  $values: list.nth(map.values($underlineOffset), $i);
   .underline-offset-#{$name}{
     text-underline-offset: $values;
   }
@@ -289,42 +293,42 @@ $textTransform: uppercase, lowercase, capitalize, none;
 /*
 * 18. text-indent
 */
-$textIndent: (0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 6: unquote(6+"px"), 8: unquote(8+"px"),
-10: unquote(10+"px"), 12: unquote(12+"px"), 14: unquote(14+"px"), 16: unquote(16+"px"), 18: unquote(18+"px"),
-20: unquote(20+"px"), 22: unquote(22+"px"), 24: unquote(24+"px"), 26: unquote(26+"px"), 28: unquote(28+"px"),
-30: unquote(30+"px"), 32: unquote(32+"px"), 34: unquote(34+"px"), 36: unquote(36+"px"), 38: unquote(38+"px"),
-40: unquote(40+"px"), 42: unquote(42+"px"), 44: unquote(44+"px"), 46: unquote(46+"px"), 48: unquote(48+"px"),
-50: unquote(50+"px"), 52: unquote(52+"px"), 54: unquote(54+"px"), 56: unquote(56+"px"), 58: unquote(58+"px"),
-60: unquote(60+"px"), 62: unquote(62+"px"), 64: unquote(64+"px"), 66: unquote(66+"px"), 68: unquote(68+"px"),
-70: unquote(70+"px"), 72: unquote(72+"px"), 74: unquote(74+"px"), 76: unquote(76+"px"), 78: unquote(78+"px"),
-80: unquote(80+"px"), 82: unquote(82+"px"), 84: unquote(84+"px"), 86: unquote(86+"px"), 88: unquote(88+"px"),
-90: unquote(90+"px"), 92: unquote(92+"px"), 94: unquote(94+"px"), 96: unquote(96+"px"), 98: unquote(98+"px"),
-100: unquote(100+"px"), 102: unquote(102+"px"), 104: unquote(104+"px"), 106: unquote(106+"px"), 108: unquote(108+"px"),
-110: unquote(110+"px"), 112: unquote(112+"px"), 114: unquote(114+"px"), 116: unquote(116+"px"), 118: unquote(118+"px"),
-120: unquote(120+"px"), 122: unquote(122+"px"), 124: unquote(124+"px"), 126: unquote(126+"px"), 128: unquote(128+"px"),
-130: unquote(130+"px"), 132: unquote(132+"px"), 134: unquote(134+"px"), 136: unquote(136+"px"), 138: unquote(138+"px"),
-140: unquote(140+"px"), 142: unquote(142+"px"), 144: unquote(144+"px"), 146: unquote(146+"px"), 148: unquote(148+"px"),
-150: unquote(150+"px"), 152: unquote(152+"px"), 154: unquote(154+"px"), 156: unquote(156+"px"), 158: unquote(158+"px"),
-160: unquote(160+"px"), 162: unquote(162+"px"), 164: unquote(164+"px"), 166: unquote(166+"px"), 168: unquote(168+"px"),
-170: unquote(170+"px"), 172: unquote(172+"px"), 174: unquote(174+"px"), 176: unquote(176+"px"), 178: unquote(178+"px"),
-180: unquote(180+"px"), 182: unquote(182+"px"), 184: unquote(184+"px"), 186: unquote(186+"px"), 188: unquote(188+"px"),
-190: unquote(190+"px"), 192: unquote(192+"px"), 194: unquote(194+"px"), 196: unquote(196+"px"), 198: unquote(198+"px"),
-200: unquote(200+"px"), 202: unquote(202+"px"), 204: unquote(204+"px"), 206: unquote(206+"px"), 208: unquote(208+"px"),
-210: unquote(210+"px"), 212: unquote(212+"px"), 214: unquote(214+"px"), 216: unquote(216+"px"), 218: unquote(218+"px"),
-220: unquote(220+"px"), 222: unquote(222+"px"), 224: unquote(224+"px"), 226: unquote(226+"px"), 228: unquote(228+"px"),
-230: unquote(230+"px"), 232: unquote(232+"px"), 234: unquote(234+"px"), 236: unquote(236+"px"), 238: unquote(238+"px"),
-240: unquote(240+"px"), 242: unquote(242+"px"), 244: unquote(244+"px"), 246: unquote(246+"px"), 248: unquote(248+"px"),
-250: unquote(250+"px"), 252: unquote(252+"px"), 254: unquote(254+"px"), 256: unquote(256+"px"), 258: unquote(258+"px"),
-260: unquote(260+"px"), 262: unquote(262+"px"), 264: unquote(264+"px"), 266: unquote(266+"px"), 268: unquote(268+"px"),
-270: unquote(270+"px"), 272: unquote(272+"px"), 274: unquote(274+"px"), 276: unquote(276+"px"), 278: unquote(278+"px"),
-280: unquote(280+"px"), 282: unquote(282+"px"), 284: unquote(284+"px"), 286: unquote(286+"px"), 288: unquote(288+"px"),
-290: unquote(290+"px"), 292: unquote(292+"px"), 294: unquote(294+"px"), 296: unquote(296+"px"), 298: unquote(298+"px"),
-300: unquote(300+"px"), 302: unquote(302+"px"), 304: unquote(304+"px"), 306: unquote(306+"px"), 308: unquote(308+"px"),
+$textIndent: (0: 0, 1: string.unquote(1+"px"), 2: string.unquote(2+"px"), 4: string.unquote(4+"px"), 6: string.unquote(6+"px"), 8: string.unquote(8+"px"),
+10: string.unquote(10+"px"), 12: string.unquote(12+"px"), 14: string.unquote(14+"px"), 16: string.unquote(16+"px"), 18: string.unquote(18+"px"),
+20: string.unquote(20+"px"), 22: string.unquote(22+"px"), 24: string.unquote(24+"px"), 26: string.unquote(26+"px"), 28: string.unquote(28+"px"),
+30: string.unquote(30+"px"), 32: string.unquote(32+"px"), 34: string.unquote(34+"px"), 36: string.unquote(36+"px"), 38: string.unquote(38+"px"),
+40: string.unquote(40+"px"), 42: string.unquote(42+"px"), 44: string.unquote(44+"px"), 46: string.unquote(46+"px"), 48: string.unquote(48+"px"),
+50: string.unquote(50+"px"), 52: string.unquote(52+"px"), 54: string.unquote(54+"px"), 56: string.unquote(56+"px"), 58: string.unquote(58+"px"),
+60: string.unquote(60+"px"), 62: string.unquote(62+"px"), 64: string.unquote(64+"px"), 66: string.unquote(66+"px"), 68: string.unquote(68+"px"),
+70: string.unquote(70+"px"), 72: string.unquote(72+"px"), 74: string.unquote(74+"px"), 76: string.unquote(76+"px"), 78: string.unquote(78+"px"),
+80: string.unquote(80+"px"), 82: string.unquote(82+"px"), 84: string.unquote(84+"px"), 86: string.unquote(86+"px"), 88: string.unquote(88+"px"),
+90: string.unquote(90+"px"), 92: string.unquote(92+"px"), 94: string.unquote(94+"px"), 96: string.unquote(96+"px"), 98: string.unquote(98+"px"),
+100: string.unquote(100+"px"), 102: string.unquote(102+"px"), 104: string.unquote(104+"px"), 106: string.unquote(106+"px"), 108: string.unquote(108+"px"),
+110: string.unquote(110+"px"), 112: string.unquote(112+"px"), 114: string.unquote(114+"px"), 116: string.unquote(116+"px"), 118: string.unquote(118+"px"),
+120: string.unquote(120+"px"), 122: string.unquote(122+"px"), 124: string.unquote(124+"px"), 126: string.unquote(126+"px"), 128: string.unquote(128+"px"),
+130: string.unquote(130+"px"), 132: string.unquote(132+"px"), 134: string.unquote(134+"px"), 136: string.unquote(136+"px"), 138: string.unquote(138+"px"),
+140: string.unquote(140+"px"), 142: string.unquote(142+"px"), 144: string.unquote(144+"px"), 146: string.unquote(146+"px"), 148: string.unquote(148+"px"),
+150: string.unquote(150+"px"), 152: string.unquote(152+"px"), 154: string.unquote(154+"px"), 156: string.unquote(156+"px"), 158: string.unquote(158+"px"),
+160: string.unquote(160+"px"), 162: string.unquote(162+"px"), 164: string.unquote(164+"px"), 166: string.unquote(166+"px"), 168: string.unquote(168+"px"),
+170: string.unquote(170+"px"), 172: string.unquote(172+"px"), 174: string.unquote(174+"px"), 176: string.unquote(176+"px"), 178: string.unquote(178+"px"),
+180: string.unquote(180+"px"), 182: string.unquote(182+"px"), 184: string.unquote(184+"px"), 186: string.unquote(186+"px"), 188: string.unquote(188+"px"),
+190: string.unquote(190+"px"), 192: string.unquote(192+"px"), 194: string.unquote(194+"px"), 196: string.unquote(196+"px"), 198: string.unquote(198+"px"),
+200: string.unquote(200+"px"), 202: string.unquote(202+"px"), 204: string.unquote(204+"px"), 206: string.unquote(206+"px"), 208: string.unquote(208+"px"),
+210: string.unquote(210+"px"), 212: string.unquote(212+"px"), 214: string.unquote(214+"px"), 216: string.unquote(216+"px"), 218: string.unquote(218+"px"),
+220: string.unquote(220+"px"), 222: string.unquote(222+"px"), 224: string.unquote(224+"px"), 226: string.unquote(226+"px"), 228: string.unquote(228+"px"),
+230: string.unquote(230+"px"), 232: string.unquote(232+"px"), 234: string.unquote(234+"px"), 236: string.unquote(236+"px"), 238: string.unquote(238+"px"),
+240: string.unquote(240+"px"), 242: string.unquote(242+"px"), 244: string.unquote(244+"px"), 246: string.unquote(246+"px"), 248: string.unquote(248+"px"),
+250: string.unquote(250+"px"), 252: string.unquote(252+"px"), 254: string.unquote(254+"px"), 256: string.unquote(256+"px"), 258: string.unquote(258+"px"),
+260: string.unquote(260+"px"), 262: string.unquote(262+"px"), 264: string.unquote(264+"px"), 266: string.unquote(266+"px"), 268: string.unquote(268+"px"),
+270: string.unquote(270+"px"), 272: string.unquote(272+"px"), 274: string.unquote(274+"px"), 276: string.unquote(276+"px"), 278: string.unquote(278+"px"),
+280: string.unquote(280+"px"), 282: string.unquote(282+"px"), 284: string.unquote(284+"px"), 286: string.unquote(286+"px"), 288: string.unquote(288+"px"),
+290: string.unquote(290+"px"), 292: string.unquote(292+"px"), 294: string.unquote(294+"px"), 296: string.unquote(296+"px"), 298: string.unquote(298+"px"),
+300: string.unquote(300+"px"), 302: string.unquote(302+"px"), 304: string.unquote(304+"px"), 306: string.unquote(306+"px"), 308: string.unquote(308+"px"),
 );
-@for $i from 1 through length(map-keys($textIndent)) {
-  $name: nth(map-keys($textIndent), $i);
-  $values: nth(map-values($textIndent), $i);
-  .indent-#{$name}{
+@for $i from 1 through list.length(map.keys($textIndent)) {
+  $name: list.nth(map.keys($textIndent), $i);
+  $values: list.nth(map.values($textIndent), $i);
+  .indent-#{"" + $name}{
     text-indent: $values;
   }
 }
@@ -334,10 +338,10 @@ $textIndent: (0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 4: unquote(4+"px"), 
 * 19. vertical align
 */
 $verticalAlign: (baseline: baseline, top: top, middle: middle, bottom: bottom, text-top: text-top, text-bottom: text-bottom, sub: sub, super: super);
-@for $i from 1 through length(map-keys($verticalAlign)) {
-  $name: nth(map-keys($verticalAlign), $i);
-  $values: nth(map-values($verticalAlign), $i);
-  .align-#{$name}{
+@for $i from 1 through list.length(map.keys($verticalAlign)) {
+  $name: list.nth(map.keys($verticalAlign), $i);
+  $values: list.nth(map.values($verticalAlign), $i);
+  .align-#{"" + $name}{
     vertical-align: $values;
   }
 }

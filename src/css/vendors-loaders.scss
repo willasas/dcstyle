@@ -1,6 +1,7 @@
 /**
  * Loading-config variables
-*/
+ */
+@use 'sass:math';
 
 // config class
 $load-size: 40px !default;
@@ -119,8 +120,8 @@ $load-radius: $amount20 !default;
 @mixin line-spin-fade-loader($n:8, $start:1) {
 	@for $i from $start through $n {
 		>div:nth-child(#{$i}) {
-			$iter: 360 / $n;
-			$quarter: ($load-radius / 2) + ($load-radius / 5.5);
+			$iter: math.div(360, $n);
+			$quarter: math.div($load-radius, 2) + math.div($load-radius, 5.5);
 
 			@if $i==1 {
 				top: $load-radius;
@@ -190,8 +191,8 @@ $load-radius: $amount20 !default;
 @mixin line-scale-party($n:4) {
 	@for $i from 1 through $n {
 		>div:nth-child(#{$i}) {
-			animation-delay: ((random(100) / 100) - 0.2) + s;
-			animation-duration: ((random(100) / 100) + 0.3) + s;
+			animation-delay: ((math.div(random(100), 100)) - 0.2) + s;
+			animation-duration: ((math.div(random(100), 100)) + 0.3) + s;
 		}
 	}
 }
@@ -219,8 +220,8 @@ $load-radius: $amount20 !default;
 @mixin ball-spin-loader($n:8, $start:1) {
 	@for $i from $start through $n {
 		>div:nth-child(#{$i}) {
-			$iter: 360 / $n;
-			$quarter: ($load-spacing / 2) + ($load-spacing / 5.5);
+			$iter: math.div(360, $n);
+			$quarter: math.div($load-spacing, 2) + math.div($load-spacing, 5.5);
 
 			@if $i==1 {
 				top: $load-spacing;
@@ -273,8 +274,8 @@ $load-radius: $amount20 !default;
 @mixin ball-spin-fade-loader($n:8, $start:1) {
 	@for $i from $start through $n {
 		>div:nth-child(#{$i}) {
-			$iter: 360 / $n;
-			$quarter: ($load-border / 2) + ($load-border / 5.5);
+			$iter: math.div(360, $n);
+			$quarter: math.div($load-border, 2) + math.div($load-border, 5.5);
 
 			@if $i==1 {
 				top: $load-border;
@@ -349,8 +350,8 @@ $load-radius: $amount20 !default;
 @mixin ball-grid-beat($n:9) {
 	@for $i from 1 through $n {
 		>div:nth-child(#{$i}) {
-			animation-delay: ((random(100) / 100) - 0.2) + s;
-			animation-duration: ((random(100) / 100) + 0.6) + s;
+			animation-delay: ((math.div(random(100), 100)) - 0.2) + s;
+			animation-duration: ((math.div(random(100), 100)) + 0.6) + s;
 		}
 	}
 }
@@ -430,7 +431,7 @@ $load-radius: $amount20 !default;
 	}
 }
 
-// ball-clip-rotate-multiple and ball-clip-rotate-pulse aminate 
+// ball-clip-rotate-multiple and ball-clip-rotate-pulse aminate
 @keyframes rotate {
 	0% {
 		transform: rotate(0deg) scale(1);
@@ -495,14 +496,14 @@ $load-radius: $amount20 !default;
 	}
 
 	100% {
-		transform: translate(-4 * $amount25, -$amount25 / 4);
+		transform: translate(-4 * $amount25, math.div(-$amount25, 4));
 	}
 }
 
 // ball-clip-rotate-pulse aminate
 @keyframes scale {
-	30% {
-		transform: scale(0.3);
+	33% {
+		transform: translate(math.div(-$amount50, 2), $amount50);
 	}
 
 	100% {
@@ -694,7 +695,7 @@ $load-radius: $amount20 !default;
 // ball-triangle-path animate
 @keyframes ball-triangle-path-1 {
 	33% {
-		transform: translate($amount50 / 2, -$amount50);
+		transform: translate(math.div($amount50, 2), -$amount50);
 	}
 
 	66% {
@@ -708,11 +709,11 @@ $load-radius: $amount20 !default;
 
 @keyframes ball-triangle-path-2 {
 	33% {
-		transform: translate($amount50 / 2, $amount50);
+		transform: translate(math.div($amount50, 2), $amount50);
 	}
 
 	66% {
-		transform: translate(-$amount50 / 2, $amount50);
+		transform: translate(math.div(-$amount50, 2), $amount50);
 	}
 
 	100% {
@@ -726,7 +727,7 @@ $load-radius: $amount20 !default;
 	}
 
 	66% {
-		transform: translate(-$amount50 / 2, -$amount50);
+		transform: translate(math.div(-$amount50, 2), -$amount50);
 	}
 
 	100% {
@@ -737,11 +738,11 @@ $load-radius: $amount20 !default;
 // ball-zig-zag-deflect animate
 @keyframes ball-zig-deflect {
 	17% {
-		transform: translate(-$amount30/2, -$amount30);
+		transform: translate(math.div(-$amount30, 2), -$amount30);
 	}
 
 	34% {
-		transform: translate($amount30/2, -$amount30);
+		transform: translate(math.div($amount30, 2), -$amount30);
 	}
 
 	50% {
@@ -749,11 +750,11 @@ $load-radius: $amount20 !default;
 	}
 
 	67% {
-		transform: translate($amount30/2, -$amount30);
+		transform: translate(math.div($amount30, 2), -$amount30);
 	}
 
 	84% {
-		transform: translate(-$amount30/2, -$amount30);
+		transform: translate(math.div(-$amount30, 2), -$amount30);
 	}
 
 	100% {
@@ -763,11 +764,11 @@ $load-radius: $amount20 !default;
 
 @keyframes ball-zag-deflect {
 	17% {
-		transform: translate($amount30/2, $amount30);
+		transform: translate(math.div($amount30, 2), $amount30);
 	}
 
 	34% {
-		transform: translate(-$amount30/2, $amount30);
+		transform: translate(math.div(-$amount30, 2), $amount30);
 	}
 
 	50% {
@@ -775,11 +776,11 @@ $load-radius: $amount20 !default;
 	}
 
 	67% {
-		transform: translate(-$amount30/2, $amount30);
+		transform: translate(math.div(-$amount30, 2), $amount30);
 	}
 
 	84% {
-		transform: translate($amount30/2, $amount30);
+		transform: translate(math.div($amount30, 2), $amount30);
 	}
 
 	100% {
@@ -790,11 +791,11 @@ $load-radius: $amount20 !default;
 // ball-zig-zag animate
 @keyframes ball-zig {
 	33% {
-		transform: translate(-$amount30/2, -$amount30);
+		transform: translate(math.div(-$amount30, 2), -$amount30);
 	}
 
 	66% {
-		transform: translate($amount30/2, -$amount30);
+		transform: translate(math.div($amount30, 2), -$amount30);
 	}
 
 	100% {
@@ -804,11 +805,11 @@ $load-radius: $amount20 !default;
 
 @keyframes ball-zag {
 	33% {
-		transform: translate($amount30/2, $amount30);
+		transform: translate(math.div($amount30, 2), $amount30);
 	}
 
 	66% {
-		transform: translate(-$amount30/2, $amount30);
+		transform: translate(math.div(-$amount30, 2), $amount30);
 	}
 
 	100% {
@@ -1385,7 +1386,7 @@ $load-radius: $amount20 !default;
 .ball-scale-multiple {
 	@include ball-scale-multiple();
 	position: relative;
-	transform: translateY(-$amount60 / 2);
+	transform: translateY(math.div(-$amount60, 2));
 
 	>div {
 		@include balls();
@@ -1404,7 +1405,7 @@ $load-radius: $amount20 !default;
 .ball-scale-ripple-multiple {
 	@include ball-scale-ripple-multiple();
 	position: relative;
-	transform: translateY(-$amount50 / 2);
+	transform: translateY(math.div(-$amount50, 2));
 
 	>div {
 		@include global-animation();
@@ -1499,7 +1500,7 @@ $load-radius: $amount20 !default;
 .ball-triangle-path {
 	position: relative;
 	@include ball-triangle-path();
-	transform: translate(-$amount50 / 1.667, -$amount50 / 1.333);
+	transform: translate(math.div(-$amount50, 1.667), math.div(-$amount50, 1.333));
 
 	>div {
 		@include global-animation();
@@ -1515,7 +1516,7 @@ $load-radius: $amount20 !default;
 		}
 
 		&:nth-of-type(2) {
-			left: $amount50 / 2;
+			left: math.div($amount50, 2);
 		}
 
 		&:nth-of-type(3) {
@@ -1528,14 +1529,14 @@ $load-radius: $amount20 !default;
 // ball-zig-zag-deflect class width aminate
 .ball-zig-zag-deflect {
 	position: relative;
-	transform: translate(-$amount30 / 2, -$amount30 / 2);
+	transform: translate(math.div(-$amount30, 2), math.div(-$amount30, 2));
 
 	>div {
 		@include balls();
 		@include global-animation();
 
 		position: absolute;
-		margin-left: $amount30 / 2;
+	margin-left: math.div($amount30, 2);
 		top: 4px;
 		left: -7px;
 
@@ -1552,14 +1553,14 @@ $load-radius: $amount20 !default;
 // ball-zig-zag class width aminate
 .ball-zig-zag {
 	position: relative;
-	transform: translate(-$amount30 / 2, -$amount30 / 2);
+	transform: translate(math.div(-$amount30, 2), math.div(-$amount30, 2));
 
 	>div {
 		@include balls();
 		@include global-animation();
 
 		position: absolute;
-		margin-left: $amount30 / 2;
+	margin-left: math.div($amount30, 2);
 		top: 4px;
 		left: -7px;
 
@@ -1576,7 +1577,7 @@ $load-radius: $amount20 !default;
 // cube-transition class width aminate
 .cube-transition {
 	position: relative;
-	transform: translate(-$amount50 / 2, -$amount50 / 2);
+	transform: translate(math.div(-$amount50, 2), math.div(-$amount50, 2));
 
 	>div {
 		@include global-animation();
@@ -1706,7 +1707,7 @@ $load-radius: $amount20 !default;
 		@include balls();
 		@include element-size(10px, 10px);
 		position: absolute;
-		transform: translate(0, -$amount25 / 4);
+	transform: translate(0, math.div(-$amount25, 4));
 		top: 25px;
 		left: 70px;
 	}

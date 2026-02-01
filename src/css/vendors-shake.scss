@@ -1,4 +1,4 @@
-/*! 
+/*!
   Name: shake
   Author: william
   Author URI: https://www.darkcrystal.com/
@@ -12,6 +12,7 @@
 * Shake-config variables
 */
 $prefix: 'shake' !default;
+@use 'sass:math';
 $trigger: 'shake-trigger' !default;
 
 
@@ -57,7 +58,7 @@ $trigger: 'shake-trigger' !default;
 
 	// Keyframes
 	@at-root {
-		@keyframes #{$name} {
+		@keyframes #{"" + $name} {
 			$interval: if($precision > 0 and $precision < 1, 100 * $precision, 10);
 			$step: $interval * 1%;
 
@@ -70,7 +71,7 @@ $trigger: 'shake-trigger' !default;
 					transform: translate($move-x, $move-y) rotate($rotate);
 
 					@if $opacity {
-						opacity: random(100) / 100;
+						opacity: math.div(random(100), 100);
 					}
 				}
 
@@ -94,7 +95,7 @@ $trigger: 'shake-trigger' !default;
 			animation-delay: $delay;
 		}
 
-		animation-name: #{$name};
+		animation-name: #{"" + $name};
 		animation-duration: $dur;
 		animation-timing-function: $t;
 		animation-iteration-count: $q;
@@ -111,7 +112,7 @@ $trigger: 'shake-trigger' !default;
  * Shake-function
 */
 @function apply-random($input) {
-	@return if($input !=0, random($input) - $input/2, 0);
+	@return if($input !=0, random($input) - math.div($input, 2), 0);
 }
 
 /**
@@ -736,7 +737,7 @@ $keyframeName: 'shake' !default;
 	}
 }
 
-// shake-hard 
+// shake-hard
 @keyframes shake-hard {
 	2% {
 		transform: translate(-9px, 2px) rotate(-0.5deg);
@@ -1770,7 +1771,7 @@ $keyframeName: 'shake' !default;
 	@include do-shake('shake-slow', 20, 20, 7, 5s);
 }
 
-// shake-hard 
+// shake-hard
 .shake-hard {
 	@include do-shake('shake-hard', 20, 20, 7);
 }

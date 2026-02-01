@@ -1,8 +1,11 @@
 @charset "utf-8";
+
+@use 'sass:list';
+@use 'sass:map';
 /*!
   Name: transitions
   Author: william
-  Author URI: 
+  Author URI:
   Description: elements transitions.
   Version: 1.0.1
 	Tags: transitions, transition-property, transition-duration, transition-timing-function, transition-delay
@@ -55,14 +58,14 @@
 * 2. transition-duration and transition-delay
 */
 $transitionDuration: (75: 75ms, 100: 100ms, 150: 150ms, 200: 200ms, 300: 300ms, 500: 500ms, 700: 700ms, 1000: 1000ms);
-@for $i from 1 through length(map-keys($transitionDuration)) {
-  $name: nth(map-keys($transitionDuration), $i);
-  $values: nth(map-values($transitionDuration), $i);
-  .duration-#{$name}{
+@for $i from 1 through list.length(map.keys($transitionDuration)) {
+  $name: list.nth(map.keys($transitionDuration), $i);
+  $values: list.nth(map.values($transitionDuration), $i);
+  .duration-#{"" + $name}{
     transition-duration: $values;
   }
 
-  .delay-#{$name}{
+  .delay-#{"" + $name}{
     transition-delay: $values;
   }
 }
@@ -72,10 +75,10 @@ $transitionDuration: (75: 75ms, 100: 100ms, 150: 150ms, 200: 200ms, 300: 300ms, 
 * 3. transition-timing-function
 */
 $transitionTimingFunction: (linear: linear, in: cubic-bezier(0.4, 0, 1, 1), out: cubic-bezier(0, 0, 0.2, 1), in-out: cubic-bezier(0.4, 0, 0.2, 1));
-@for $i from 1 through length(map-keys($transitionTimingFunction)) {
-  $name: nth(map-keys($transitionTimingFunction), $i);
-  $values: nth(map-values($transitionTimingFunction), $i);
-  .ease-#{$name}{
+@for $i from 1 through list.length(map.keys($transitionTimingFunction)) {
+  $name: list.nth(map.keys($transitionTimingFunction), $i);
+  $values: list.nth(map.values($transitionTimingFunction), $i);
+  .ease-#{"" + $name}{
     transition-timing-function: $values;
   }
 }

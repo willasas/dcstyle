@@ -1,8 +1,12 @@
 @charset "utf-8";
+
+@use 'sass:string';
+@use 'sass:map';
+@use 'sass:list';
 /*!
   Name: filters
   Author: william
-  Author URI: 
+  Author URI:
   Description: elements filters.
   Version: 1.0.1
 	Tags: filters, blur, brightness, contrast, drop shadow, grayscale, hue rotate, invert, saturate, sepia, backdrop blur, backdrop brightness, backdrop contrast, backdrop Grayscale, Backdrop Hue Rotate, Backdrop Invert, Backdrop Opacity, Backdrop Saturate, Backdrop Sepia
@@ -12,10 +16,10 @@
 /*
 * 1. blur and backdrop-filter
 */
-$blur: (none: 0, sml: unquote(4+"px"), sm: unquote(8+"px"), md: unquote(12+"px"), lg: unquote(16+"px"), xl: unquote(24+"px"), 2xl: unquote(40+"px"), 3xl: unquote(64+"px"));
-@for $i from 1 through length(map-keys($blur)) {
-  $name: nth(map-keys($blur), $i);
-  $values: nth(map-values($blur), $i);
+$blur: (none: 0, sml: string.unquote(4+"px"), sm: string.unquote(8+"px"), md: string.unquote(12+"px"), lg: string.unquote(16+"px"), xl: string.unquote(24+"px"), 2xl: string.unquote(40+"px"), 3xl: string.unquote(64+"px"));
+@for $i from 1 through list.length(map.keys($blur)) {
+  $name: list.nth(map.keys($blur), $i);
+  $values: list.nth(map.values($blur), $i);
   .blur-#{$name}{
     filter: blur(#{$values});
   }
@@ -31,9 +35,9 @@ $blur: (none: 0, sml: unquote(4+"px"), sm: unquote(8+"px"), md: unquote(12+"px")
 * 2. brightness and backdrop-brightness
 */
 $brightness: (0: 0, 50: 0.5, 75: 0.75, 90: 0.9, 100: 1, 105: 1.05, 110: 1.1, 125: 1.25, 150: 1.5, 200: 2);
-@for $i from 1 through length(map-keys($brightness)) {
-  $name: nth(map-keys($brightness), $i);
-  $values: nth(map-values($brightness), $i);
+@for $i from 1 through list.length(map.keys($brightness)) {
+  $name: list.nth(map.keys($brightness), $i);
+  $values: list.nth(map.values($brightness), $i);
   .brightness-#{$name}{
     filter: brightness(#{$values});
   }
@@ -49,9 +53,9 @@ $brightness: (0: 0, 50: 0.5, 75: 0.75, 90: 0.9, 100: 1, 105: 1.05, 110: 1.1, 125
 * 3. contrast and backdrop-contrast
 */
 $contrast: (0: 0, 50: 0.5, 75: 0.75, 100: 1, 125: 1.25, 150: 1.5, 200: 2);
-@for $i from 1 through length(map-keys($contrast)) {
-  $name: nth(map-keys($contrast), $i);
-  $values: nth(map-values($contrast), $i);
+@for $i from 1 through list.length(map.keys($contrast)) {
+  $name: list.nth(map.keys($contrast), $i);
+  $values: list.nth(map.values($contrast), $i);
   .contrast-#{$name}{
     filter: contrast(#{$values});
   }
@@ -137,9 +141,9 @@ $grayscale: 0, 1;
 * 6. hue rotate and backdrop-hue-rotate
 */
 $hueRotate: (0: 0deg, 15: 15deg, 30: 30deg, 60: 60deg, 90: 90deg, 180: 180deg);
-@for $i from 1 through length(map-keys($hueRotate)) {
-  $name: nth(map-keys($hueRotate), $i);
-  $values: nth(map-values($hueRotate), $i);
+@for $i from 1 through list.length(map.keys($hueRotate)) {
+  $name: list.nth(map.keys($hueRotate), $i);
+  $values: list.nth(map.values($hueRotate), $i);
   .hue-rotate-#{$name}{
     filter: hue-rotate(#{$values});
   }
@@ -155,9 +159,9 @@ $hueRotate: (0: 0deg, 15: 15deg, 30: 30deg, 60: 60deg, 90: 90deg, 180: 180deg);
 * 7. saturate and backdrop-saturate
 */
 $saturate: (0: 0, 50: 0.5, 75: 0.75, 100: 1, 125: 1.25, 150: 1.5, 200: 2);
-@for $i from 1 through length(map-keys($saturate)) {
-  $name: nth(map-keys($saturate), $i);
-  $values: nth(map-values($saturate), $i);
+@for $i from 1 through list.length(map.keys($saturate)) {
+  $name: list.nth(map.keys($saturate), $i);
+  $values: list.nth(map.values($saturate), $i);
   // .saturate-#{$name}{
   //   filter: saturate(#{$values});
   // }
@@ -182,9 +186,9 @@ $saturate: (0: 0, 50: 0.5, 75: 0.75, 100: 1, 125: 1.25, 150: 1.5, 200: 2);
 * 8. backdrop-opacity
 */
 $backdropOpacity: (0: 0, 5: 0.05, 10: 0.1, 20: 0.2, 25: 0.25, 30: 0.3, 40: 0.4, 50: 0.5, 60: 0.6, 70: 0.7, 75: 0.75, 80: 0.8, 90: 0.9, 95: 0.95, 100: 1);
-@for $i from 1 through length(map-keys($backdropOpacity)) {
-  $name: nth(map-keys($backdropOpacity), $i);
-  $values: nth(map-values($backdropOpacity), $i);
+@for $i from 1 through list.length(map.keys($backdropOpacity)) {
+  $name: list.nth(map.keys($backdropOpacity), $i);
+  $values: list.nth(map.values($backdropOpacity), $i);
   .backdrop-opacity-#{$name}{
     -webkit-backdrop-filter: opacity($values);
     backdrop-filter: opacity($values);

@@ -2,7 +2,7 @@
 /*!
   Name: custom scrollbar
   Author: william
-  Author URI: 
+  Author URI:
   Description: custom scrollbar.
   Version: 1.0.1
 	Tags: scrollbar
@@ -36,7 +36,11 @@ $gradient-end: #deccb1;
 
   &::-webkit-scrollbar {
     width: $scrollbar-width;
-    height: if($direction == 'x', 100%, $scrollbar-width); // 根据方向调整高度或宽度
+    @if ($direction == 'x') {
+      height: 100%;
+    } @else {
+      height: $scrollbar-width;
+    }
   }
 
   &::-webkit-scrollbar-track {

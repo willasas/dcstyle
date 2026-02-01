@@ -1,6 +1,22 @@
 @charset "UTF-8";
-/*! Name: components Author: william Author URI:  Description: components would contain all the styling for elements that are self-contained units, like sliders, scrollbar-gutter, widgets etc. Version: 1.0.1 Tags: utils,sliders,widgets Update: February 19th,2024 */
-/** 关闭按钮混合器 @param {Number} $width 按钮容器的宽度（按钮斜线的宽度） @param {Number} $height 按钮容器的高度 @param {Number} $top  按钮左右斜线距离按钮容器顶部的距离(为按钮容器高度的一半) @param $btn-color 按钮的颜色 */
+@use 'sass:math';
+/*!
+  Name: components
+  Author: william
+  Author URI:
+  Description: components would contain all the styling for elements that are self-contained units, like sliders, scrollbar-gutter, widgets etc.
+  Version: 1.0.1
+	Tags: utils,sliders,widgets
+  Update: February 19th,2024
+*/
+/**
+* 关闭按钮混合器
+*
+* @param {Number} $width 按钮容器的宽度（按钮斜线的宽度）
+* @param {Number} $height 按钮容器的高度
+* @param {Number} $top  按钮左右斜线距离按钮容器顶部的距离(为按钮容器高度的一半)
+* @param $btn-color 按钮的颜色
+*/
 .btn-close { position: relative; width: 28px; height: 28px; display: block; font-size: 0; }
 
 .btn-close::before, .btn-close::after { content: ''; position: absolute; top: 14px; width: 28px; height: 2px; background: #6d5dfc; }
@@ -9,7 +25,15 @@
 
 .btn-close::after { transform: rotate(-45deg); }
 
-/** checkbox勾按钮混合器 @param {Number} $c-width 按钮容器的宽度 @param {Number} $c-height 按钮容器的高度 @param {Number} $width 按钮斜线的宽度 @param {Number} $height 按钮斜线的高度 @param $btn-color 按钮的颜色 */
+/**
+* checkbox勾按钮混合器
+*
+* @param {Number} $c-width 按钮容器的宽度
+* @param {Number} $c-height 按钮容器的高度
+* @param {Number} $width 按钮斜线的宽度
+* @param {Number} $height 按钮斜线的高度
+* @param $btn-color 按钮的颜色
+*/
 .checkbox { width: 28px; display: flex; justify-content: center; }
 
 .checkbox input { display: none; }
@@ -26,7 +50,14 @@
 
 .checkbox label:hover i { color: #6d5dfc; }
 
-/** radio 单选按钮混合器 @param {Number} $width 按钮容器的宽度 @param {Number} $height 按钮容器的高度 @param {Color} $btn-color 按钮颜色 @param {Color} $bg-color 与按钮所在地方的背景色一致，防止拆穿 */
+/**
+* radio 单选按钮混合器
+*
+* @param {Number} $width 按钮容器的宽度
+* @param {Number} $height 按钮容器的高度
+* @param {Color} $btn-color 按钮颜色
+* @param {Color} $bg-color 与按钮所在地方的背景色一致，防止拆穿
+*/
 .btn-radio input { display: none; }
 
 .btn-radio input:checked ~ label { box-shadow: inset 2px 2px 5px #c8d0e7, inset -2px -2px 5px #fff; }
@@ -101,7 +132,15 @@
   100% { margin-top: -6px;
     transform: rotate(0deg); } }
 
-/** 下载按钮混合器 @param {Number} $c-width 按钮容器的宽度 @param {Number} $c-height 按钮容器的高度 @param {Number} $width 宽度(容器宽度的一半) @param {Number} $height 高度(容器高度的一半) @param {Color} $btn-color 按钮颜色 */
+/**
+* 下载按钮混合器
+*
+* @param {Number} $c-width 按钮容器的宽度
+* @param {Number} $c-height 按钮容器的高度
+* @param {Number} $width 宽度(容器宽度的一半)
+* @param {Number} $height 高度(容器高度的一半)
+* @param {Color} $btn-color 按钮颜色
+*/
 .btn-download { position: relative; width: 28px; height: 28px; }
 
 .btn-download::before { content: ''; display: block; position: absolute; left: 7px; width: 14px; height: 14px; background: #6d5dfc; }
@@ -117,10 +156,23 @@
 
 .gradient-cube::after { position: absolute; top: -2px; bottom: -2px; left: -2px; right: -2px; background: linear-gradient(#74defa, #6de7d1); content: ''; z-index: -1; border-radius: 4px; }
 
-/** 七彩渐变线混合器 @param {Number} $c-width 容器的宽度 @param {Number} $c-height 容器的高度 @param {Color} $btn-color 背景颜色 */
+/**
+* 七彩渐变线混合器
+*
+* @param {Number} $c-width 容器的宽度
+* @param {Number} $c-height 容器的高度
+* @param {Color} $btn-color 背景颜色
+*/
 .dotted-line { width: 100%; height: 10px; background: #1CD8D2; background: -o-linear-gradient(left, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%); background: -webkit-gradient(linear, left top, right top, color-stop(5%, #62efab), color-stop(15%, #f2ea7d), color-stop(25%, #f2ea7d), color-stop(35%, #ff8797), color-stop(45%, #ff8797), color-stop(55%, #e1a4f4), color-stop(65%, #e1a4f4), color-stop(75%, #82fff4), color-stop(85%, #82fff4), color-stop(95%, #62efab)); background: linear-gradient(to right, #62efab 5%, #f2ea7d 15%, #f2ea7d 25%, #ff8797 35%, #ff8797 45%, #e1a4f4 55%, #e1a4f4 65%, #82fff4 75%, #82fff4 85%, #62efab 95%); background-size: 100%; background-position: 0%; }
 
-/** 椭圆混合器 @param {Number} $width 长直径 @param {Number} $height 短直径 @param {Color} $bg-color 背景色 @param {String} $border-radius 圆角大小 */
+/**
+* 椭圆混合器
+*
+* @param {Number} $width 长直径
+* @param {Number} $height 短直径
+* @param {Color} $bg-color 背景色
+* @param {String} $border-radius 圆角大小
+*/
 .oval { width: 200px; height: 100px; background-color: #6d5dfc; border-radius: 50%; }
 
 .semicircle { width: 300px; height: 150px; background-color: #6d5dfc; border-radius: 50%/100% 100% 0 0; }
@@ -135,16 +187,46 @@
 
 .semicircle6 { width: 300px; height: 150px; background-color: #6d5dfc; border-radius: 50%/100% 0; }
 
-/** 圆形，直径为100像素 @param {String} $width 宽度 @param {String} $height 高度 @param {Colors} $bg-color 背景色 */
+/**
+* 圆形，直径为100像素
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $bg-color 背景色
+*/
 .circle { width: 100px; height: 100px; background-color: #6d5dfc; border-radius: 50%; }
 
-/** 自定义swiper pagination混合（默认状态） @param {String} $width 宽度 @param {String} $height 高度 @param {Colors} $color1 描边颜色 @param {Colors} $color2 背景颜色 @param {Number} $radius 圆角大小 */
-/** 自定义swiper pagination混合（选中状态） @param {String} $width 宽度 @param {String} $height 高度 @param {Colors} $color1 描边颜色 @param {Number} $radius 圆角大小 */
+/**
+* 自定义swiper pagination混合（默认状态）
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $color1 描边颜色
+* @param {Colors} $color2 背景颜色
+* @param {Number} $radius 圆角大小
+*/
+/**
+* 自定义swiper pagination混合（选中状态）
+*
+* @param {String} $width 宽度
+* @param {String} $height 高度
+* @param {Colors} $color1 描边颜色
+* @param {Number} $radius 圆角大小
+*/
 .annulus { display: block; width: 26px; height: 26px; border-radius: 50%; border: 1px solid #fff; background: #000; }
 
 .round { display: block; width: 26px; height: 26px; border-radius: 50%; background: #fff; border-width: thin; }
 
-/** 等腰三角形/等边直角三角形混合器 @param {Number} $width 长 @param {Number} $height 宽 @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】 */
+/**
+* 等腰三角形/等边直角三角形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】
+*/
 /* 向上的等边三角形，一般只修改大小和颜色，其他值不变 */
 .triangle-up { width: 0; height: 0; border-top: inherit; border-right: 50px solid transparent; border-bottom: 100px solid #6d5dfc; border-left: 50px solid transparent; }
 
@@ -169,7 +251,7 @@
 /* 位于右下角的等边直角三角形 */
 .triangle-bottomright { width: 0; height: 0; border-top: inherit; border-right: inherit; border-bottom: 100px solid #6d5dfc; border-left: 100px solid transparent; }
 
-/** 
+/**
 * 绘制小箭头
 * @param {Number} $width  宽
 * @param {Number} $height  高
@@ -194,7 +276,17 @@
 
 .arrow-left::after { content: ''; position: absolute; top: -28px; right: -36px; border: 28px solid; border-color: transparent #fff transparent transparent; }
 
-/** 缺角描边矩形框混合器 @param {Number} $width 长 @param {Number} $height 宽 @param {Color} $border-color 描边颜色 @param {Number} $border-tl-radius 左上圆角大小 @param {Number} $border-tr-radius 右上圆角大小 @param {Number} $border-br-radius 右下圆角大小 @param {Number} $border-bl-radius 左下圆角大小 */
+/**
+* 缺角描边矩形框混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $border-color 描边颜色
+* @param {Number} $border-tl-radius 左上圆角大小
+* @param {Number} $border-tr-radius 右上圆角大小
+* @param {Number} $border-br-radius 右下圆角大小
+* @param {Number} $border-bl-radius 左下圆角大小
+*/
 .rounded-rectangle { width: 240px; height: 40px; border: 1px solid #6d5dfc; border-radius: 20px 20px 20px 20px; }
 
 .rounded-rectangle-tl { width: 240px; height: 40px; border: 1px solid #6d5dfc; border-radius: 40px 0 0 0; }
@@ -213,7 +305,16 @@
 
 .rounded-rectangle-bl-br { width: 240px; height: 40px; border: 1px solid #6d5dfc; border-radius: 0 0 40px 40px; }
 
-/** 缺角矩形混合器 @param {Number} $width 长 @param {Number} $height 宽 @param {Color} $bg-color 背景色 @param {Number} $bg-size 背景大小（防止在某些浏览器中出现白边） @param {String} $bg-repeat 是否重复背景 @param {List} $bg 背景的其他属性 */
+/**
+* 缺角矩形混合器
+*
+* @param {Number} $width 长
+* @param {Number} $height 宽
+* @param {Color} $bg-color 背景色
+* @param {Number} $bg-size 背景大小（防止在某些浏览器中出现白边）
+* @param {String} $bg-repeat 是否重复背景
+* @param {List} $bg 背景的其他属性
+*/
 .unfilled-rectangle-straight { width: 240px; height: 180px; background-color: #6d5dfc; background: linear-gradient(45deg, transparent 12px, #6d5dfc 13px) bottom left, linear-gradient(135deg, transparent 12px, #6d5dfc 13px) top left, linear-gradient(-135deg, transparent 12px, #6d5dfc 13px) top right, linear-gradient(-45deg, transparent 12px, #6d5dfc 13px) bottom right; background-size: 51% 51%; background-repeat: no-repeat; }
 
 .unfilled-rectangle-round { width: 240px; height: 180px; background-color: #6d5dfc; background: radial-gradient(circle at bottom left, transparent 15px, #6d5dfc 16px) bottom left, radial-gradient(circle at top left, transparent 15px, #6d5dfc 16px) top left, radial-gradient(circle at top right, transparent 15px, #6d5dfc 16px) top right, radial-gradient(circle at bottom right, transparent 15px, #6d5dfc 16px) bottom right; background-size: 51% 51%; background-repeat: no-repeat; }
@@ -249,7 +350,16 @@
 
 .rhombus { width: 100px; height: 100px; background: #6d5dfc; transform: rotate(45deg); }
 
-/** 等腰梯形混合器 @param {Number} $width 高 @param {Number} $height 宽 @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】 @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】 */
+/**
+* 等腰梯形混合器
+*
+* @param {Number} $width 高
+* @param {Number} $height 宽
+* @param {List} $border-top 设置上边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-right 设置右边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-bottom 设置下边框的样式【不存在的边框使用inherit值代替】
+* @param {List} $border-left 设置左边框的样式【不存在的边框使用inherit值代替】
+*/
 /* 等腰梯形混合器调用 */
 .trapezoid { width: 100px; height: 0; border-top: inherit; border-right: 50px solid transparent; border-bottom: 100px solid #6d5dfc; border-left: 50px solid transparent; }
 
@@ -292,9 +402,23 @@
 
 .star-six:after { content: ""; position: absolute; top: .26rem; left: -.5rem; width: 0; height: 0; border: .5rem solid transparent; border-top: .8rem solid #FFBA44; }
 
-/** 爱心混合器 @param {Color} $bg-color 背景色 @param {List} $border-radius 圆角大小 @param {List} $transform-origin1 更改转换元素的位置 @param {List} $transform-origin2 更改转换元素的位置 */
+/**
+* 爱心混合器
+*
+* @param {Color} $bg-color 背景色
+* @param {List} $border-radius 圆角大小
+* @param {List} $transform-origin1 更改转换元素的位置
+* @param {List} $transform-origin2 更改转换元素的位置
+*/
 /* 爱心混合器调用 */
-/** 无穷大混合器 @param {Color} $box-sizing 定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。[默认值：content-box] @param {List} $border 设置在一个声明中所有的边框属性 @param {List} $border-radius1 为元素添加圆角边框 @param {List} $border-radius2 为元素添加圆角边框 */
+/**
+* 无穷大混合器
+*
+* @param {Color} $box-sizing 定义如何计算一个元素的总宽度和总高度，主要设置是否需要加上内边距(padding)和边框等。[默认值：content-box]
+* @param {List} $border 设置在一个声明中所有的边框属性
+* @param {List} $border-radius1 为元素添加圆角边框
+* @param {List} $border-radius2 为元素添加圆角边框
+*/
 /* 无穷大混合器调用 */
 /**
 * 钻石混合器
@@ -407,7 +531,18 @@
 /*=== 马赛克背景混合器 ===*/
 .mosaic { width: 400px; height: 400px; background-image: conic-gradient(#eee 0 25%, transparent 0 50%, #eee 0 75%, transparent 0); background-size: 16px 16px; }
 
-/** 自定义滚动条混合器  @param {Number} $width 滚动条容器宽度 @param {Number} $height 滚动条容器最大高度（内容超过此高度时显示滚动条） @param {Color} $color1 滚动条颜色（目前该属性还处于实验阶段） @param {Number} $s-width 滚动条宽度 @param {Number} $s-height 滚动条宽度 @param {Color} $color2 滚动条track的颜色 @param {Color} $color3 滚动条thumb的颜色 @param {Color} $color4 滚动条thumb的颜色 */
+/**
+* 自定义滚动条混合器
+*
+* @param {Number} $width 滚动条容器宽度
+* @param {Number} $height 滚动条容器最大高度（内容超过此高度时显示滚动条）
+* @param {Color} $color1 滚动条颜色（目前该属性还处于实验阶段）
+* @param {Number} $s-width 滚动条宽度
+* @param {Number} $s-height 滚动条宽度
+* @param {Color} $color2 滚动条track的颜色
+* @param {Color} $color3 滚动条thumb的颜色
+* @param {Color} $color4 滚动条thumb的颜色
+*/
 .custom-scroll-bar { width: 600px; max-height: 400px; overflow-x: hidden; overflow-y: auto; direction: ltr; scrollbar-color: #6d5dfc; scrollbar-width: thin; cursor: pointer; }
 
 .custom-scroll-bar::-webkit-scrollbar { width: 4px; height: 160px; }
@@ -416,31 +551,67 @@
 
 .custom-scroll-bar::-webkit-scrollbar-thumb { border-radius: 2px; background-image: -webkit-gradient(linear, left bottom, left top, from(#74defa), color-stop(99%, #6de7d1)); background-image: linear-gradient(0deg, #74defa 0%, #6de7d1 99%); -webkit-box-shadow: inset 2px 2px 5px 0 rgba(109, 231, 209, 0.5); box-shadow: inset 2px 2px 5px 0 rgba(109, 231, 209, 0.5); }
 
-/* scrollbar-gutter */
+/*
+* scrollbar-gutter
+*/
 .scrollbargutter-auto { scrollbar-gutter: auto; }
 
 .scrollbargutter-stable { scrollbar-gutter: stable; }
 
 .scrollbargutter-stable-both-edges { scrollbar-gutter: "stable both-edges"; }
 
-/** 文字高光混合器  @param {Color} $color1 文字颜色 @param {Color} $color2 阴影颜色 @param {Color} $color3 文字渐变色1 @param {Color} $color4 文字渐变色2 */
+/**
+* 文字高光混合器
+*
+* @param {Color} $color1 文字颜色
+* @param {Color} $color2 阴影颜色
+* @param {Color} $color3 文字渐变色1
+* @param {Color} $color4 文字渐变色2
+*/
 .text-highlights { position: relative; margin: 0; color: #6d5dfc; transform: scale(1); text-shadow: -1px 0 1px #160d67, 0 1px 1px #160d67, 5px 5px 10px rgba(0, 0, 0, 0.4), -5px -5px 10px rgba(0, 0, 0, 0.4); }
 
 .text-highlights::before { content: attr(data-text); position: absolute; left: 0; top: 0; z-index: 1; background: linear-gradient(to bottom, #160d67 20%, rgba(22, 13, 103, 0.4) 40%, rgba(33, 9, 249, 0.6) 60%, #2109f9 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; }
 
-/** 半透明边框混合器  @param {List} $border 边框颜色（透明度通过改变颜色的透明度实现） */
+/**
+* 半透明边框混合器
+*
+* @param {List} $border 边框颜色（透明度通过改变颜色的透明度实现）
+*/
 .translucent-border { background-clip: padding-box; border: 2px solid rgba(33, 9, 249, 0.2); }
 
-/** 多重边框混合器  @param {List} $box-shadow 阴影 */
+/**
+* 多重边框混合器
+*
+* @param {List} $box-shadow 阴影
+*/
 .multiple-border { box-shadow: 0 0 0 10px #bfbfff, 0 0 0 20px #8080ff, 0 0 0 30px #4040ff, 0 0 0 40px #0000FF, 0 0 0 50px #0000bf, 0 0 0 60px #000080, 0 0 0 70px #000040, 0 0 0 80px #000000; }
 
-/** 带虚线的边框混合器  @param {Color} $bg-color 背景色 @param {Color} $border-color 边框颜色 @param {Color} $outline-color 轮廓颜色 @param {Number} $border-width 边框大小 */
+/**
+* 带虚线的边框混合器
+*
+* @param {Color} $bg-color 背景色
+* @param {Color} $border-color 边框颜色
+* @param {Color} $outline-color 轮廓颜色
+* @param {Number} $border-width 边框大小
+*/
 .outline-border { background: #fff; border: 4px solid #6d5dfc; outline: #8080ff dashed 1px; outline-offset: -8px; }
 
-/** 边框内圆角混合器  @param {Color} $bg-color 背景色 @param {Number} $border-radius 圆角大小 @param {Color} $outline-color 轮廓颜色 */
+/**
+* 边框内圆角混合器
+*
+* @param {Color} $bg-color 背景色
+* @param {Number} $border-radius 圆角大小
+* @param {Color} $outline-color 轮廓颜色
+*/
 .border-fillet { background: #6d5dfc; border-radius: 8px; outline: 2px solid #8080ff; box-shadow: 0 0 0 4px #8080ff; }
 
-/** 不规则卡片混合器  @param {Number} $width 卡片宽度 @param {Number} $height 卡片高度 @param {List} $bg-img 卡片背景等 */
+/**
+* 不规则卡片混合器
+*
+* @param {Number} $width 卡片宽度
+* @param {Number} $height 卡片高度
+* @param {List} $bg-img 卡片背景等
+*/
 .anomaly-card { position: relative; width: 200px; height: 120px; background: radial-gradient(circle at 100px -8px, transparent 20px, #6d5dfc 20px); }
 
 .anomaly-card2 { position: relative; width: 200px; height: 120px; background: none; background-color: #6d5dfc; border-radius: 5px; filter: drop-shadow(2px 2px 2px rgba(180, 160, 120, 0.9)); }

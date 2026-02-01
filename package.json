@@ -1,27 +1,76 @@
 {
-  "name": "dark-crystal-style",
+  "name": "dcstyle",
   "version": "1.0.0",
-  "source": "src/css/dc.scss",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "description": "A comprehensive CSS framework with multiple themes and utility classes for modern web development, similar to Tailwind CSS",
+  "keywords": [
+    "css",
+    "scss",
+    "framework",
+    "theme",
+    "utility",
+    "responsive",
+    "dark-mode",
+    "tailwind-alternative"
+  ],
+  "main": "dist/dc.css",
+  "module": "dist/dc.css",
+  "style": "dist/dc.css",
+  "sass": "src/css/dc.scss",
+  "types": "src/types/index.d.ts",
+  "files": [
+    "dist",
+    "src/css",
+    "src/types",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "watch": "parcel watch src/css/dc.scss",
-    "build": "parcel build src/css/dc.scss --reporter @parcel/reporter-bundle-analyzer"
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "clean": "rimraf dist",
+    "lint": "eslint scripts/",
+    "lint:css": "echo 'Skipping CSS linting for now'",
+    "lint:fix": "eslint scripts/ --fix",
+    "check:all": "npm run lint && npm run build",
+    "format": "prettier --write src/**/*.scss",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willasas/dcstyle.git"
+  },
+  "author": "william",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willasas/dcstyle/issues"
+  },
+  "homepage": "https://github.com/willasas/dcstyle#readme",
   "devDependencies": {
-    "@parcel/reporter-bundle-analyzer": "^2.12.0",
-    "@parcel/transformer-sass": "^2.12.0",
-    "eslint": "^9.2.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "eslint-config-prettier": "^9.1.0",
-    "parcel": "^2.12.0",
-    "postcss": "^8.4.1",
-    "prettier": "^3.2.5",
-    "sass": "^1.26.8",
-    "stylelint": "^14.16.1"
+    "postcss": "^8.5.0",
+    "postcss-nested": "^6.2.0",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.24.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.80.6",
+    "stylelint": "^16.10.0",
+    "stylelint-config-sass-guidelines": "^11.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-scss": "^7.0.0"
   },
-  "compressors": {
-    "*.{html,css,js,svg,map}": [
-      "@parcel/compressor-gzip",
-      "@parcel/compressor-brotli"
-    ]
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "eslint": "^8.57.1"
   }
 }

@@ -1,0 +1,326 @@
+[
+  {
+    "name": "container",
+    "description": "响应式容器类",
+    "category": "布局",
+    "example": "<div class=\"container\">...</div>"
+  },
+  {
+    "name": "row",
+    "description": "网格行类",
+    "category": "布局",
+    "example": "<div class=\"row\">...</div>"
+  },
+  {
+    "name": "col",
+    "description": "网格列类",
+    "category": "布局",
+    "example": "<div class=\"col\">...</div>"
+  },
+  {
+    "name": "col-sm",
+    "description": "小屏幕网格列类",
+    "category": "布局",
+    "example": "<div class=\"col-sm\">...</div>"
+  },
+  {
+    "name": "col-md",
+    "description": "中等屏幕网格列类",
+    "category": "布局",
+    "example": "<div class=\"col-md\">...</div>"
+  },
+  {
+    "name": "col-lg",
+    "description": "大屏幕网格列类",
+    "category": "布局",
+    "example": "<div class=\"col-lg\">...</div>"
+  },
+  {
+    "name": "col-xl",
+    "description": "超大屏幕网格列类",
+    "category": "布局",
+    "example": "<div class=\"col-xl\">...</div>"
+  },
+  {
+    "name": "flex",
+    "description": "Flex容器类",
+    "category": "布局",
+    "example": "<div class=\"flex\">...</div>"
+  },
+  {
+    "name": "flex-col",
+    "description": "垂直Flex容器类",
+    "category": "布局",
+    "example": "<div class=\"flex flex-col\">...</div>"
+  },
+  {
+    "name": "items-center",
+    "description": "垂直居中Flex项目",
+    "category": "布局",
+    "example": "<div class=\"flex items-center\">...</div>"
+  },
+  {
+    "name": "justify-center",
+    "description": "水平居中Flex项目",
+    "category": "布局",
+    "example": "<div class=\"flex justify-center\">...</div>"
+  },
+  {
+    "name": "justify-between",
+    "description": "两端对齐Flex项目",
+    "category": "布局",
+    "example": "<div class=\"flex justify-between\">...</div>"
+  },
+  {
+    "name": "p-0",
+    "description": "无内边距",
+    "category": "间距",
+    "example": "<div class=\"p-0\">...</div>"
+  },
+  {
+    "name": "p-1",
+    "description": "小内边距",
+    "category": "间距",
+    "example": "<div class=\"p-1\">...</div>"
+  },
+  {
+    "name": "p-2",
+    "description": "中等内边距",
+    "category": "间距",
+    "example": "<div class=\"p-2\">...</div>"
+  },
+  {
+    "name": "p-4",
+    "description": "大内边距",
+    "category": "间距",
+    "example": "<div class=\"p-4\">...</div>"
+  },
+  {
+    "name": "m-0",
+    "description": "无外边距",
+    "category": "间距",
+    "example": "<div class=\"m-0\">...</div>"
+  },
+  {
+    "name": "m-1",
+    "description": "小外边距",
+    "category": "间距",
+    "example": "<div class=\"m-1\">...</div>"
+  },
+  {
+    "name": "m-2",
+    "description": "中等外边距",
+    "category": "间距",
+    "example": "<div class=\"m-2\">...</div>"
+  },
+  {
+    "name": "m-4",
+    "description": "大外边距",
+    "category": "间距",
+    "example": "<div class=\"m-4\">...</div>"
+  },
+  {
+    "name": "text-xs",
+    "description": "超小字体",
+    "category": "排版",
+    "example": "<p class=\"text-xs\">...</p>"
+  },
+  {
+    "name": "text-sm",
+    "description": "小字体",
+    "category": "排版",
+    "example": "<p class=\"text-sm\">...</p>"
+  },
+  {
+    "name": "text-base",
+    "description": "基础字体",
+    "category": "排版",
+    "example": "<p class=\"text-base\">...</p>"
+  },
+  {
+    "name": "text-lg",
+    "description": "大字体",
+    "category": "排版",
+    "example": "<p class=\"text-lg\">...</p>"
+  },
+  {
+    "name": "text-xl",
+    "description": "超大字体",
+    "category": "排版",
+    "example": "<p class=\"text-xl\">...</p>"
+  },
+  {
+    "name": "text-2xl",
+    "description": "特大字体",
+    "category": "排版",
+    "example": "<h1 class=\"text-2xl\">...</h1>"
+  },
+  {
+    "name": "font-bold",
+    "description": "粗体",
+    "category": "排版",
+    "example": "<p class=\"font-bold\">...</p>"
+  },
+  {
+    "name": "font-medium",
+    "description": "中等粗细",
+    "category": "排版",
+    "example": "<p class=\"font-medium\">...</p>"
+  },
+  {
+    "name": "font-normal",
+    "description": "正常字体",
+    "category": "排版",
+    "example": "<p class=\"font-normal\">...</p>"
+  },
+  {
+    "name": "text-center",
+    "description": "文本居中",
+    "category": "排版",
+    "example": "<p class=\"text-center\">...</p>"
+  },
+  {
+    "name": "text-left",
+    "description": "文本左对齐",
+    "category": "排版",
+    "example": "<p class=\"text-left\">...</p>"
+  },
+  {
+    "name": "text-right",
+    "description": "文本右对齐",
+    "category": "排版",
+    "example": "<p class=\"text-right\">...</p>"
+  },
+  {
+    "name": "bg-primary",
+    "description": "主背景色",
+    "category": "背景",
+    "example": "<div class=\"bg-primary\">...</div>"
+  },
+  {
+    "name": "bg-secondary",
+    "description": "次要背景色",
+    "category": "背景",
+    "example": "<div class=\"bg-secondary\">...</div>"
+  },
+  {
+    "name": "bg-success",
+    "description": "成功背景色",
+    "category": "背景",
+    "example": "<div class=\"bg-success\">...</div>"
+  },
+  {
+    "name": "bg-warning",
+    "description": "警告背景色",
+    "category": "背景",
+    "example": "<div class=\"bg-warning\">...</div>"
+  },
+  {
+    "name": "bg-error",
+    "description": "错误背景色",
+    "category": "背景",
+    "example": "<div class=\"bg-error\">...</div>"
+  },
+  {
+    "name": "text-primary",
+    "description": "主文本色",
+    "category": "文本",
+    "example": "<p class=\"text-primary\">...</p>"
+  },
+  {
+    "name": "text-secondary",
+    "description": "次要文本色",
+    "category": "文本",
+    "example": "<p class=\"text-secondary\">...</p>"
+  },
+  {
+    "name": "text-success",
+    "description": "成功文本色",
+    "category": "文本",
+    "example": "<p class=\"text-success\">...</p>"
+  },
+  {
+    "name": "text-warning",
+    "description": "警告文本色",
+    "category": "文本",
+    "example": "<p class=\"text-warning\">...</p>"
+  },
+  {
+    "name": "text-error",
+    "description": "错误文本色",
+    "category": "文本",
+    "example": "<p class=\"text-error\">...</p>"
+  },
+  {
+    "name": "border",
+    "description": "边框",
+    "category": "边框",
+    "example": "<div class=\"border\">...</div>"
+  },
+  {
+    "name": "border-primary",
+    "description": "主边框色",
+    "category": "边框",
+    "example": "<div class=\"border border-primary\">...</div>"
+  },
+  {
+    "name": "rounded",
+    "description": "圆角",
+    "category": "边框",
+    "example": "<div class=\"rounded\">...</div>"
+  },
+  {
+    "name": "rounded-lg",
+    "description": "大圆角",
+    "category": "边框",
+    "example": "<div class=\"rounded-lg\">...</div>"
+  },
+  {
+    "name": "rounded-full",
+    "description": "圆形",
+    "category": "边框",
+    "example": "<div class=\"rounded-full\">...</div>"
+  },
+  {
+    "name": "shadow",
+    "description": "阴影",
+    "category": "效果",
+    "example": "<div class=\"shadow\">...</div>"
+  },
+  {
+    "name": "shadow-lg",
+    "description": "大阴影",
+    "category": "效果",
+    "example": "<div class=\"shadow-lg\">...</div>"
+  },
+  {
+    "name": "shadow-sm",
+    "description": "小阴影",
+    "category": "效果",
+    "example": "<div class=\"shadow-sm\">...</div>"
+  },
+  {
+    "name": "hidden",
+    "description": "隐藏元素",
+    "category": "显示",
+    "example": "<div class=\"hidden\">...</div>"
+  },
+  {
+    "name": "block",
+    "description": "块级元素",
+    "category": "显示",
+    "example": "<span class=\"block\">...</span>"
+  },
+  {
+    "name": "inline",
+    "description": "内联元素",
+    "category": "显示",
+    "example": "<div class=\"inline\">...</div>"
+  },
+  {
+    "name": "inline-block",
+    "description": "内联块元素",
+    "category": "显示",
+    "example": "<div class=\"inline-block\">...</div>"
+  }
+]

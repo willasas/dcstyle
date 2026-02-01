@@ -1,4 +1,4 @@
-/*! * * * * * * * * * * * * * * * * * * * *\ 
+/*! * * * * * * * * * * * * * * * * * * * *\
   Name: tips
   Author: william
   Author URI: https://www.darkcrystal.com/
@@ -7,6 +7,8 @@
 	Tags: tips
   Update: February 18th,2022
 \* * * * * * * * * * * * * * * * * * * * */
+
+@use 'sass:math';
 
 /*
 * Tips-config variables
@@ -100,10 +102,10 @@ $tipSuccessColor: hsl(121, 32%, 40%) !default;
 	@if $o == true {
 	  -o-#{$property}: #{$value};
 	}
-  
+
 	#{$property}: #{$value};
   }
-  
+
   /// Generates border-color rules for all possible positions
   /// @param {Number}  $color                     - Max number for random to assign in y axis
   @mixin arrow-border-color($color) {
@@ -121,7 +123,7 @@ $tipSuccessColor: hsl(121, 32%, 40%) !default;
 		  }
 	  }
   }
-  
+
   /// mixin to set margin on tooltip using translate transform
   /// @param {String}  $property [ease-in-out]             - animation-timing-function; valid value
   /// @param {Number}  $transitionDirection [null]                - animation-delay; valid time value
@@ -415,10 +417,10 @@ $tipSuccessColor: hsl(121, 32%, 40%) !default;
 		margin-bottom: -1 * $tipArrowBorderWidth;
 	}
 
-	&:after {
-		// bring back to center
-		margin-bottom: -1 * floor($tipTooltipHeight / 2);
-	}
+		&::after {
+			// bring back to center
+			margin-bottom: -1 * floor(math.div($tipTooltipHeight, 2));
+		}
 
 	&:before, &:after {
 		#{$propertyX}: 100%;

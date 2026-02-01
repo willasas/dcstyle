@@ -1,4 +1,5 @@
 /* ==============VARIABLES START============== */
+@use 'sass:meta';
 /**
 * 全局变量配置及说明
 *
@@ -40,11 +41,13 @@ $left: 0;
 $width: auto !default;
 $height: auto !default;
 $basic-font-size: 100px !default;
-$singleLineHeight: 20px; 
+$singleLineHeight: 20px;
 $multiLineLineHeight: 1.2;
 $pWidth: 80%;
 $local-path: '../assets/img/';
 // $server-path: '../assets/img/';
+
+@use 'sass:math';
 
 :root {
   --current-ui-width: 750; /* 默认为手机屏幕宽度 */
@@ -69,11 +72,11 @@ $local-path: '../assets/img/';
 /* ==============FUNCTION END============== */
 @function rem($pixels) {
   $design_font_size: 100;
-  @return $pixels / $design_font_size + rem;
+  @return math.div($pixels, $design_font_size) + rem;
 }
 
 @function px2vw($pixels) {
-  @return $pixels / $ui-pc-width * 100vw;
+  @return math.div($pixels, $ui-pc-width) * 100vw;
 }
 
 @function vw($pixels) {
@@ -186,7 +189,7 @@ $local-path: '../assets/img/';
 /// @param {Number} $rows 行数，默认为null，表示不固定行数。
 /// @param {Number} $gap 网格间距，默认为10px。
 /// @param {Boolean} $auto-flow-columns 是否开启自动填充列默认为false。
-/// 
+///
 @mixin layout-grid($columns: 1, $rows: null, $gap: 10px, $auto-flow-columns: false) {
   display: grid;
   grid-gap: $gap;
@@ -194,7 +197,7 @@ $local-path: '../assets/img/';
   // 当未指定行数或者指定为单行时，只设置列数
   @if not $rows or $rows == 1 {
     grid-template-columns: repeat(#{$columns}, 1fr);
-  } 
+  }
   // 指定了多行时，设置列数和行数，并启用行密集自动布局
   @else {
     grid-template-columns: repeat(#{$columns}, 1fr);
@@ -344,7 +347,7 @@ $local-path: '../assets/img/';
 /// @param {String} $direction 渐变方向
 /// @param {Color} $start-color 渐变起始颜色
 /// @param {Color} $end-color 渐变结束颜色
-/// 
+///
 @mixin bg-gradient($width: auto, $height: 12px, $direction: 'to right', $start-color: #dfb778, $end-color: #dfb778) {
   width: $width;
   height: $height;
@@ -365,7 +368,7 @@ $local-path: '../assets/img/';
     background: linear-gradient(to top right, $start-color, $end-color);
   } @else if ($direction == 'to bottom left') {
     background: linear-gradient(to bottom left, $start-color, $end-color);
-  } @else if (type-of($direction) == number) { 
+  } @else if (meta.type-of($direction) == number) {
     // 角度渐变
     background: linear-gradient($direction, $start-color, $end-color);
   } @else {
@@ -420,17 +423,17 @@ $local-path: '../assets/img/';
   $fill-mode: none,
   $play-state: running
 ) {
-  animation: #{$name} $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+  animation: #{"" + $name} $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
 }
 
 ///
 /// 文本阴影混合函数
-/// 
+///
 /// @param {Color} $color 阴影颜色
 /// @param {Number} $x-offset 阴影在水平方向的偏移量，默认为0
 /// @param {Number} $y-offset 阴影在垂直方向的偏移量，默认为0
 /// @param {Number} $blur-radius 阴影的模糊半径，默认为6px
-/// 
+///
 /// @return 为文本应用自定义阴影样式
 ///
 @mixin text-shadow-custom($color, $x-offset: 0, $y-offset: 0, $blur-radius: 6px) {
@@ -543,7 +546,7 @@ $local-path: '../assets/img/';
 
 ///
 /// 内容/元素居中对齐
-/// 
+///
 %element-center {
   margin: 0 auto;
 }
@@ -564,14 +567,14 @@ $local-path: '../assets/img/';
 
 ///
 /// 绝对定位元素居中
-/// 
+///
 %ele-pos{
   @include layout-pos(absolute, 50%, auto, auto, 50%, translate(-50%, -50%));
 }
 
 ///
 /// 元素大小
-/// 
+///
 %ele-size{
   @include element-size(rem(368), rem(86));
 }
@@ -585,7 +588,7 @@ $local-path: '../assets/img/';
 
 ///
 /// 页面背景缩写
-/// 
+///
 %ele-bg1{
   @include element-bgImg(transparent, 'https://da.se/app/uploads/2015/09/simon-december1994.jpg', top center, 100% 100%, no-repeat, initial, initial, initial, 100%, 1080px);
 }
@@ -599,35 +602,35 @@ $local-path: '../assets/img/';
 
 ///
 /// 动画
-/// 
+///
 %ele-amimate {
   @include ele-animation('slidein', 3s, ease-in, 1s, 2, reverse, both, paused);
 }
 
 ///
 /// 元素居中flex
-/// 
+///
 %flex-center{
   @include layout-flex(flex, center, center);
 }
 
 ///
 /// 元素两端对齐且垂直居中(flex)
-/// 
+///
 %flex-between{
   @include layout-flex(flex, space-between, center);
 }
 
 ///
 /// 同一行元素左对齐且垂直居中(flex)
-/// 
+///
 %flex-first-center{
   @include layout-flex(flex, flex-start, center);
 }
 
 ///
 /// 同一行元素右对齐且垂直居中(flex)
-/// 
+///
 %flex-first-center{
   @include layout-flex(flex, flex-end, center);
 }
@@ -641,7 +644,7 @@ $local-path: '../assets/img/';
 
 ///
 /// 使用vw函数
-/// 
+///
 // moblie
 %some-element {
   font-size: vw(16);
@@ -709,7 +712,7 @@ $local-path: '../assets/img/';
 /* ==============BASE STYLE START============== */
 ///
 /// 自定义滚动条样式(横向滚动)
-/// 
+///
 .scroll-x {
   position: relative;
   overflow-x: auto;
@@ -741,12 +744,12 @@ $local-path: '../assets/img/';
 
 ///
 /// 自定义滚动条样式(纵向滚动)
-/// 
+///
 .scroll-y {
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
-  
+
   &::-webkit-scrollbar {
     width: 4px;
     border-radius: 0;
@@ -772,7 +775,7 @@ $local-path: '../assets/img/';
 
 ///
 /// video 隐藏控件
-/// 
+///
 video{
   /* 隐藏video 进度条 */
   &::-webkit-media-controls-timeline {
@@ -811,21 +814,21 @@ video{
 
 ///
 /// 垂直居中
-/// 
+///
 .margin{
   margin: 0 auto;
 }
 
 ///
 /// 显示元素
-/// 
+///
 .show {
   @include show-or-hide(true);
 }
 
 ///
 /// 隐藏元素
-/// 
+///
 .hidden {
   @include show-or-hide(false);
 }
@@ -904,11 +907,11 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
- 
+
 sub {
   bottom: -0.25em;
 }
-  
+
 sup {
   top: -0.5em;
 }
@@ -992,7 +995,7 @@ textarea {
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
-  
+
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
@@ -1031,13 +1034,13 @@ li{
   }
 }
 
-html,body { 
+html,body {
   -webkit-overflow-scrolling: touch;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
   -ms-user-select: none;
-  height: auto; 
+  height: auto;
 }
 
 input {
@@ -1072,7 +1075,7 @@ input{
   color: #ffd476;
   font-size: 14px;
   /* Key Style */
-  caret-color: #ffd476; 
+  caret-color: #ffd476;
   /* Delete the input status line */
   outline: none;
 
@@ -1086,7 +1089,7 @@ input{
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
-  }    
+  }
 }
 
 // Customize the selected text style

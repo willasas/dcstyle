@@ -1,8 +1,12 @@
 @charset "utf-8";
+
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
 /*!
   Name: transforms
   Author: william
-  Author URI: 
+  Author URI:
   Description: elements transforms.
   Version: 1.0.1
 	Tags: transforms, scale, rotate, translate, skew, transform-origin
@@ -13,19 +17,19 @@
 * 1. scale
 */
 $scale: (0: 0, 25: 0.25, 50: 0.5, 75: 0.75, 90: 0.9, 95: 0.95, 100: 1, 105: 1.05, 110: 1.1, 125: 1.25, 150: 1.5, 180: 1.8, 200: 2);
-@for $i from 1 through length(map-keys($scale)) {
-  $name: nth(map-keys($scale), $i);
-  $values: nth(map-values($scale), $i);
+@for $i from 1 through list.length(map.keys($scale)) {
+  $name: list.nth(map.keys($scale), $i);
+  $values: list.nth(map.values($scale), $i);
 
-  .scale-#{$name}{
+  .scale-#{"" + $name}{
     transform: scale(#{$values});
   }
 
-  .scale-x-#{$name}{
+  .scale-x-#{"" + $name}{
     transform: scaleX(#{$values});
   }
 
-  .scale-y-#{$name}{
+  .scale-y-#{"" + $name}{
     transform: scaleY(#{$values});
   }
 }
@@ -35,10 +39,10 @@ $scale: (0: 0, 25: 0.25, 50: 0.5, 75: 0.75, 90: 0.9, 95: 0.95, 100: 1, 105: 1.05
 * 2. rotate
 */
 $rotate: (0: 0, 1: 1deg, 2: 2deg, 3: 3deg, 4: 4deg, 5: 5deg, 6: 6deg, 12: 12deg, 30: 30deg, 45: 45deg, 60: 60deg, 90: 90deg, 120: 120deg, 150: 150deg, 180: 180deg, 240: 240deg, 260: 260deg, 300: 300deg, 360: 360deg);
-@for $i from 1 through length(map-keys($rotate)) {
-  $name: nth(map-keys($rotate), $i);
-  $values: nth(map-values($rotate), $i);
-  .rotate-#{$name}{
+@for $i from 1 through list.length(map.keys($rotate)) {
+  $name: list.nth(map.keys($rotate), $i);
+  $values: list.nth(map.values($rotate), $i);
+  .rotate-#{"" + $name}{
     transform: rotate(#{$values});
   }
 }
@@ -47,15 +51,15 @@ $rotate: (0: 0, 1: 1deg, 2: 2deg, 3: 3deg, 4: 4deg, 5: 5deg, 6: 6deg, 12: 12deg,
 /*
 * 3. translate
 */
-$translate: (full: 100%, sm: 25%, md: 50%, lg: 75%, xl: 80%, 2xl: 90%, 0: 0, 1: unquote(1+"px"), 2: unquote(2+"px"), 3: unquote(3+"px"), 4: unquote(4+"px"), 6: unquote(6+"px"), 8: unquote(8+"px"), 10: unquote(10+"px"), 12: unquote(12+"px"), 14: unquote(14+"px"), 16: unquote(16+"px"), 18: unquote(18+"px"), 20: unquote(20+"px"), 24: unquote(24+"px"), 28: unquote(28+"px"), 32: unquote(32+"px"), 36: unquote(36+"px"), 40: unquote(40+"px"), 44: unquote(44+"px"), 48: unquote(48+"px"), 60: unquote(60+"px"), 80: unquote(90+"px"), 90: unquote(90+"px"), 96: unquote(96+"px"), 100: unquote(100+"px"), 128: unquote(128+"px"), 256: unquote(256+"px"), 320: unquote(320+"px"), 480: unquote(480+"px"), 560: unquote(560+"px"), 800: unquote(800+"px"));
-@for $i from 1 through length(map-keys($translate)) {
-  $name: nth(map-keys($translate), $i);
-  $values: nth(map-values($translate), $i);
-  .translate-x-#{$name}{
+$translate: (full: 100%, sm: 25%, md: 50%, lg: 75%, xl: 80%, 2xl: 90%, 0: 0, 1: string.unquote(1+"px"), 2: string.unquote(2+"px"), 3: string.unquote(3+"px"), 4: string.unquote(4+"px"), 6: string.unquote(6+"px"), 8: string.unquote(8+"px"), 10: string.unquote(10+"px"), 12: string.unquote(12+"px"), 14: string.unquote(14+"px"), 16: string.unquote(16+"px"), 18: string.unquote(18+"px"), 20: string.unquote(20+"px"), 24: string.unquote(24+"px"), 28: string.unquote(28+"px"), 32: string.unquote(32+"px"), 36: string.unquote(36+"px"), 40: string.unquote(40+"px"), 44: string.unquote(44+"px"), 48: string.unquote(48+"px"), 60: string.unquote(60+"px"), 80: string.unquote(90+"px"), 90: string.unquote(90+"px"), 96: string.unquote(96+"px"), 100: string.unquote(100+"px"), 128: string.unquote(128+"px"), 256: string.unquote(256+"px"), 320: string.unquote(320+"px"), 480: string.unquote(480+"px"), 560: string.unquote(560+"px"), 800: string.unquote(800+"px"));
+@for $i from 1 through list.length(map.keys($translate)) {
+  $name: list.nth(map.keys($translate), $i);
+  $values: list.nth(map.values($translate), $i);
+  .translate-x-#{"" + $name}{
     transform: translateX(#{$values});
   }
 
-  .translate-y-#{$name}{
+  .translate-y-#{"" + $name}{
     transform: translateY(#{$values});
   }
 }
@@ -65,14 +69,14 @@ $translate: (full: 100%, sm: 25%, md: 50%, lg: 75%, xl: 80%, 2xl: 90%, 0: 0, 1: 
 * 4. skew
 */
 $skew: (0: 0deg, 1: 1deg, 2: 2deg, 3: 3deg, 4: 4deg, 5: 5deg, 6: 6deg, 12: 12deg);
-@for $i from 1 through length(map-keys($skew)) {
-  $name: nth(map-keys($skew), $i);
-  $values: nth(map-values($skew), $i);
-  .skew-x-#{$name}{
+@for $i from 1 through list.length(map.keys($skew)) {
+  $name: list.nth(map.keys($skew), $i);
+  $values: list.nth(map.values($skew), $i);
+  .skew-x-#{"" + $name}{
     transform: skewX(#{$values});
   }
 
-  .skew-y-#{$name}{
+  .skew-y-#{"" + $name}{
     transform: skewY(#{$values});
   }
 }
@@ -82,10 +86,10 @@ $skew: (0: 0deg, 1: 1deg, 2: 2deg, 3: 3deg, 4: 4deg, 5: 5deg, 6: 6deg, 12: 12deg
 * 5. transform-origin
 */
 $transformOrigin: (center: center, top: top, top-right: top right, right: right, bottom-right: bottom right, bottom-left: bottom left, bottom: bottom, left: left, top-left: top left);
-@for $i from 1 through length(map-keys($transformOrigin)) {
-  $name: nth(map-keys($transformOrigin), $i);
-  $values: nth(map-values($transformOrigin), $i);
-  .origin-#{$name}{
+@for $i from 1 through list.length(map.keys($transformOrigin)) {
+  $name: list.nth(map.keys($transformOrigin), $i);
+  $values: list.nth(map.values($transformOrigin), $i);
+  .origin-#{"" + $name}{
     transform-origin: $values;
   }
 }

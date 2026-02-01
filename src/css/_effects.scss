@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+@use 'sass:map';
+@use 'sass:list';
 /*!
   Name: effects
   Author: william
@@ -57,9 +60,9 @@ $shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 * 2. opacity
 */
 $opacity: (0: 0, 5: 0.05, 10: 0.1, 20: 0.2, 25: 0.25, 30: 0.3, 40: 0.4, 50: 0.5, 60: 0.6, 70: 0.7, 75: 0.75, 80: 0.8, 90: 0.9, 95: 0.95, 100: 1);
-@for $i from 1 through length(map-keys($opacity)) {
-  $name: nth(map-keys($opacity), $i);
-  $values: nth(map-values($opacity), $i);
+@for $i from 1 through list.length(map.keys($opacity)) {
+  $name: list.nth(map.keys($opacity), $i);
+  $values: list.nth(map.values($opacity), $i);
   .opacity-#{$name}{
     opacity: $values;
   }

@@ -1,8 +1,11 @@
 @charset "utf-8";
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
 /*!
   Name: spacing
   Author: william
-  Author URI: 
+  Author URI:
   Description: elements spacing.
   Version: 1.0.1
 	Tags: spacing,padding,margin,space between
@@ -12,10 +15,10 @@
 /*
 * 1. padding
 */
-$padding:( 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(144+'px'),md: unquote(160+'px'),lg: unquote(192+'px'),xl: unquote(224+'px'),2xl: unquote(288+'px'),3xl: unquote(352+'px'));
-@for $i from 1 through length(map-keys($padding)) {
-  $name: nth(map-keys($padding), $i);
-  $values: nth(map-values($padding), $i);
+$padding:( 0: 0, 1: string.unquote(1+'px'),2: string.unquote(2+'px'),3: string.unquote(3+'px'),4: string.unquote(4+'px'),5: string.unquote(5+'px'),6: string.unquote(6+'px'),7: string.unquote(7+'px'),8: string.unquote(8+'px'),9: string.unquote(9+'px'),10: string.unquote(10+'px'),11: string.unquote(11+'px'),12: string.unquote(12+'px'),14: string.unquote(14+'px'),16: string.unquote(16+'px'),20: string.unquote(20+'px'),24: string.unquote(24+'px'),28: string.unquote(28+'px'),32: string.unquote(32+'px'),36: string.unquote(36+'px'),40: string.unquote(40+'px'),44: string.unquote(44+'px'),48: string.unquote(48+'px'),52: string.unquote(52+'px'),56: string.unquote(56+'px'),60: string.unquote(60+'px'),64: string.unquote(64+'px'),80: string.unquote(80+'px'),96: string.unquote(96+'px'),112: string.unquote(112+'px'),xs: string.unquote(128+'px'),sm: string.unquote(144+'px'),md: string.unquote(160+'px'),lg: string.unquote(192+'px'),xl: string.unquote(224+'px'),2xl: string.unquote(288+'px'),3xl: string.unquote(352+'px'));
+@for $i from 1 through list.length(map.keys($padding)) {
+  $name: list.nth(map.keys($padding), $i);
+  $values: list.nth(map.values($padding), $i);
   .p-#{$name}{
     padding: $values;
   }
@@ -51,10 +54,10 @@ $padding:( 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unq
 /*
 * 2. margin
 */
-$margin:( auto: auto, 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'px'),4: unquote(4+'px'),5: unquote(5+'px'),6: unquote(6+'px'),7: unquote(7+'px'),8: unquote(8+'px'),9: unquote(9+'px'),10: unquote(10+'px'),11: unquote(11+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),20: unquote(20+'px'),24: unquote(24+'px'),28: unquote(28+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),80: unquote(80+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(144+'px'),md: unquote(160+'px'),lg: unquote(192+'px'),xl: unquote(224+'px'),2xl: unquote(288+'px'),3xl: unquote(352+'px'));
-@for $i from 1 through length(map-keys($margin)) {
-  $name: nth(map-keys($margin), $i);
-  $values: nth(map-values($margin), $i);
+$margin:( auto: auto, 0: 0, 1: string.unquote(1+'px'),2: string.unquote(2+'px'),3: string.unquote(3+'px'),4: string.unquote(4+'px'),5: string.unquote(5+'px'),6: string.unquote(6+'px'),7: string.unquote(7+'px'),8: string.unquote(8+'px'),9: string.unquote(9+'px'),10: string.unquote(10+'px'),11: string.unquote(11+'px'),12: string.unquote(12+'px'),14: string.unquote(14+'px'),16: string.unquote(16+'px'),20: string.unquote(20+'px'),24: string.unquote(24+'px'),28: string.unquote(28+'px'),32: string.unquote(32+'px'),36: string.unquote(36+'px'),40: string.unquote(40+'px'),44: string.unquote(44+'px'),48: string.unquote(48+'px'),52: string.unquote(52+'px'),56: string.unquote(56+'px'),60: string.unquote(60+'px'),64: string.unquote(64+'px'),80: string.unquote(80+'px'),96: string.unquote(96+'px'),112: string.unquote(112+'px'),xs: string.unquote(128+'px'),sm: string.unquote(144+'px'),md: string.unquote(160+'px'),lg: string.unquote(192+'px'),xl: string.unquote(224+'px'),2xl: string.unquote(288+'px'),3xl: string.unquote(352+'px'));
+@for $i from 1 through list.length(map.keys($margin)) {
+  $name: list.nth(map.keys($margin), $i);
+  $values: list.nth(map.values($margin), $i);
   .m-#{$name}{
     margin: $values;
   }
@@ -84,7 +87,7 @@ $margin:( auto: auto, 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'
   .ml-#{$name}{
     margin-left: $values;
   }
-  
+
   .m-inline{
     margin-inline: auto;
   }
@@ -94,10 +97,10 @@ $margin:( auto: auto, 0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),3: unquote(3+'
 /*
 * 3. space between
 */
-$spaceBetween: (0: 0, 1: unquote(1+'px'),2: unquote(2+'px'),4: unquote(4+'px'),6: unquote(6+'px'),8: unquote(8+'px'),10: unquote(10+'px'),12: unquote(12+'px'),14: unquote(14+'px'),16: unquote(16+'px'),18: unquote(18+'px'),20: unquote(20+'px'),22: unquote(22+'px'),24: unquote(24+'px'),26: unquote(26+'px'),28: unquote(28+'px'),30: unquote(30+'px'),32: unquote(32+'px'),36: unquote(36+'px'),40: unquote(40+'px'),44: unquote(44+'px'),48: unquote(48+'px'),52: unquote(52+'px'),56: unquote(56+'px'),60: unquote(60+'px'),64: unquote(64+'px'),68: unquote(68+'px'),80: unquote(80+'px'),84: unquote(84+'px'),90: unquote(90+'px'),96: unquote(96+'px'),112: unquote(112+'px'),xs: unquote(128+'px'),sm: unquote(256+'px'),md: unquote(384+'px'),lg: unquote(512+'px'),xl: unquote(640+'px'));
-@for $i from 1 through length(map-keys($spaceBetween)) {
-  $name: nth(map-keys($spaceBetween), $i);
-  $values: nth(map-values($spaceBetween), $i);
+$spaceBetween: (0: 0, 1: string.unquote(1+'px'),2: string.unquote(2+'px'),4: string.unquote(4+'px'),6: string.unquote(6+'px'),8: string.unquote(8+'px'),10: string.unquote(10+'px'),12: string.unquote(12+'px'),14: string.unquote(14+'px'),16: string.unquote(16+'px'),18: string.unquote(18+'px'),20: string.unquote(20+'px'),22: string.unquote(22+'px'),24: string.unquote(24+'px'),26: string.unquote(26+'px'),28: string.unquote(28+'px'),30: string.unquote(30+'px'),32: string.unquote(32+'px'),36: string.unquote(36+'px'),40: string.unquote(40+'px'),44: string.unquote(44+'px'),48: string.unquote(48+'px'),52: string.unquote(52+'px'),56: string.unquote(56+'px'),60: string.unquote(60+'px'),64: string.unquote(64+'px'),68: string.unquote(68+'px'),80: string.unquote(80+'px'),84: string.unquote(84+'px'),90: string.unquote(90+'px'),96: string.unquote(96+'px'),112: string.unquote(112+'px'),xs: string.unquote(128+'px'),sm: string.unquote(256+'px'),md: string.unquote(384+'px'),lg: string.unquote(512+'px'),xl: string.unquote(640+'px'));
+@for $i from 1 through list.length(map.keys($spaceBetween)) {
+  $name: list.nth(map.keys($spaceBetween), $i);
+  $values: list.nth(map.values($spaceBetween), $i);
   .space-x-#{$name}{
     margin-left: $values;
   }

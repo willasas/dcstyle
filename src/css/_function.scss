@@ -1,8 +1,12 @@
 @charset 'utf-8';
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:string';
 
 /**
  * 调整指定颜色的亮度，通过与白色按指定百分比混合来实现。
- * 
+ *
  * @param $color - 需要调整亮度的颜色。
  * @param $percentage - 与白色混合的百分比，数值在0%到100%之间。较高的百分比会使颜色变得更亮。
  * @return 混合后的颜色，颜色的亮度会根据指定的百分比增加。
@@ -13,7 +17,7 @@
 
 /**
  * 混合指定颜色和黑色，生成一种较原色更暗的新颜色。
- * 
+ *
  * @param $color - 原始颜色，可以是任何有效的SCSS颜色值。
  * @param $percentage - 混合比例，以百分比表示。此比例决定了黑色在混合结果中所占的比重。
  * @return 混合后的新颜色值。
@@ -49,7 +53,7 @@
   $hex-green: toHex($green);
   $hex-blue: toHex($blue);
 
-  @return unquote("#{$hex-red}{$hex-green}{$hex-blue}");
+  @return "#{$hex-red}#{$hex-green}#{$hex-blue}";
 }
 
 // 辅助函数：将0-255的数值转换为两位的十六进制字符串
@@ -68,7 +72,12 @@
     @error 'Number out of range. Must be between 0 and 255.';
   }
 
-  @return '#{if($number < 16, "0", "")}#{toUInt($number)}';
+  $prefix: '';
+  @if ($number < 16) {
+    $prefix: '0';
+  }
+
+  @return '#{$prefix}#{toUInt($number)}';
 }
 
 // 辅助函数：将数字转换为无前导零的单个十六进制字符
@@ -82,10 +91,10 @@
     @error 'Invalid input. Expected a number.';
   }
 
-  $hex: floor($number / 16);
+  $hex: floor(math.div($number, 16));
   $remainder: $number % 16;
 
-  @return str-slice("0123456789ABCDEF", $hex, $hex + 1)+str-slice("0123456789ABCDEF", $remainder, $remainder + 1);
+  @return string.slice("0123456789ABCDEF", $hex, $hex + 1)+string.slice("0123456789ABCDEF", $remainder, $remainder + 1);
 }
 
 // 使用示例
@@ -153,10 +162,10 @@
 // 定义 SCSS 提取颜色红色分量函数
 @function get-red($color) {
   // 将颜色转换为 RGB 分量
-  $rgb: red($color), green($color), blue($color);
+  $rgb: color.channel($color, "red", $space: rgb), color.channel($color, "green", $space: rgb), color.channel($color, "blue", $space: rgb);
 
   // 返回红色分量
-  @return nth($rgb, 1);
+  @return list.nth($rgb, 1);
 }
 
 // 使用示例

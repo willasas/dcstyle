@@ -1,0 +1,1549 @@
+/*!
+  Name: typography
+  Author: william
+  Author URI:
+  Description: elements typography.
+  Version: 1.0.1
+	Tags: typography,font-family,font-size,font-size,font-weight,font-variant-numeric,letter-spacing,line-height,list-style-type,list-style-position,text-align,text-color,text-decoration,text-decoration-color,text-decoration-style,text-decoration-thickness,text-underline-offset,text-transform,text-overflow,text-indent,text-wrap,vertical-align,whitespace,word-break,content
+  Update: February 19th,2024
+*/
+/*
+* 1. font-family
+*/
+.font-sans { font-family: ui-sans-serif, system-ui, Alibaba, Oswald, Ubuntu, Actor, Abel, sans-serif, "Segoe UI Emoji"; }
+
+.font-serif { font-family: ui-serif, Georgia, Cambria, Times, serif; }
+
+.font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+/*
+* 2. font-size
+*/
+.text-0 { font-size: 0; line-height: 0; }
+
+.text-xs { font-size: 12px; line-height: 12px; }
+
+.text-sm { font-size: 14px; line-height: 14px; }
+
+.text-base { font-size: 16px; line-height: 16px; }
+
+.text-lg { font-size: 18px; line-height: 18px; }
+
+.text-xl { font-size: 20px; line-height: 20px; }
+
+.text-2xl { font-size: 24px; line-height: 24px; }
+
+.text-3xl { font-size: 30px; line-height: 30px; }
+
+.text-4xl { font-size: 36px; line-height: 36px; }
+
+.text-5xl { font-size: 48px; line-height: 48px; }
+
+.text-6xl { font-size: 60px; line-height: 60px; }
+
+.text-7xl { font-size: 72px; line-height: 72px; }
+
+.text-8xl { font-size: 96px; line-height: 96px; }
+
+.text-9xl { font-size: 128px; line-height: 128px; }
+
+/*
+* 3. font-style
+*/
+.italic { font-style: italic; }
+
+.not-italic { font-style: normal; }
+
+/*
+* 4. font-weight
+*/
+.font-normal { font-weight: normal; }
+
+.font-lighter { font-weight: lighter; }
+
+.font-border { font-weight: border; }
+
+.font-thin { font-weight: 100; }
+
+.font-extra-light { font-weight: 200; }
+
+.font-light { font-weight: 300; }
+
+.font-normaler { font-weight: 400; }
+
+.font-medium { font-weight: 500; }
+
+.font-semibold { font-weight: 600; }
+
+.font-bold { font-weight: 700; }
+
+.font-extra-bold { font-weight: 800; }
+
+.font-black { font-weight: 900; }
+
+/*
+* 5. font-variant-numeric
+*/
+.font-variant-normal { font-variant-numeric: normal; }
+
+.font-variant-ordinal { font-variant-numeric: ordinal; }
+
+.font-variant-zero { font-variant-numeric: slashed-zero; }
+
+.font-variant-lining-nums { font-variant-numeric: lining-nums; }
+
+.font-variant-oldstyle-nums { font-variant-numeric: oldstyle-nums; }
+
+.font-variant-proportional-nums { font-variant-numeric: proportional-nums; }
+
+.font-variant-tabular-nums { font-variant-numeric: tabular-nums; }
+
+.font-variant-diagonal-fractions { font-variant-numeric: diagonal-fractions; }
+
+.font-variant-stacked-fractions { font-variant-numeric: stacked-fractions; }
+
+/*
+* 6. letter-spacing
+*/
+.tracking-tighter { letter-spacing: -0.05em; }
+
+.tracking-tight { letter-spacing: -0.025em; }
+
+.tracking-normal { letter-spacing: 0em; }
+
+.tracking-wide { letter-spacing: 0.025em; }
+
+.tracking-wider { letter-spacing: 0.05em; }
+
+.tracking-widest { letter-spacing: 0.1em; }
+
+/*
+* 7. line height
+*/
+.lh-none { line-height: 1; }
+
+.lh-tight { line-height: 1.25; }
+
+.lh-snug { line-height: 1.375; }
+
+.lh-normal { line-height: 1.5; }
+
+.lh-relaxed { line-height: 1.625; }
+
+.lh-loose { line-height: 2; }
+
+.lh-3 { line-height: 12px; }
+
+.lh-4 { line-height: 16px; }
+
+.lh-5 { line-height: 20px; }
+
+.lh-6 { line-height: 24px; }
+
+.lh-7 { line-height: 28px; }
+
+.lh-8 { line-height: 32px; }
+
+.lh-9 { line-height: 36px; }
+
+.lh-10 { line-height: 40px; }
+
+.lh-12 { line-height: 48px; }
+
+.lh-14 { line-height: 56px; }
+
+.lh-16 { line-height: 64px; }
+
+.lh-18 { line-height: 72px; }
+
+.lh-20 { line-height: 80px; }
+
+/*
+* 8. list style type
+*/
+.list-none { list-style-type: none; }
+
+.list-disc { list-style-type: disc; }
+
+.list-decimal { list-style-type: decimal; }
+
+/*
+* 9. list style position
+*/
+.list-inside { list-style-position: inside; }
+
+.list-outside { list-style-position: outside; }
+
+/*
+* 10. text align
+*/
+.text-left { text-align: left; }
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+.text-justify { text-align: justify; }
+
+.text-start { text-align: start; }
+
+.text-end { text-align: end; }
+
+/*
+* 11. text color and text decoration color
+*/
+.text-inherit { color: inherit; }
+
+.decoration-inherit { text-decoration-color: inherit; }
+
+.text-current { color: currentColor; }
+
+.decoration-current { text-decoration-color: currentColor; }
+
+.text-transparent { color: transparent; }
+
+.decoration-transparent { text-decoration-color: transparent; }
+
+.text-black { color: black; }
+
+.decoration-black { text-decoration-color: black; }
+
+.text-white { color: white; }
+
+.decoration-white { text-decoration-color: white; }
+
+.text-slate-50 { color: #f8fafc; }
+
+.decoration-slate-50 { text-decoration-color: #f8fafc; }
+
+.text-slate-100 { color: #f1f5f9; }
+
+.decoration-slate-100 { text-decoration-color: #f1f5f9; }
+
+.text-slate-200 { color: #e2e8f0; }
+
+.decoration-slate-200 { text-decoration-color: #e2e8f0; }
+
+.text-slate-300 { color: #cbd5e1; }
+
+.decoration-slate-300 { text-decoration-color: #cbd5e1; }
+
+.text-slate-400 { color: #94a3b8; }
+
+.decoration-slate-400 { text-decoration-color: #94a3b8; }
+
+.text-slate-500 { color: #64748b; }
+
+.decoration-slate-500 { text-decoration-color: #64748b; }
+
+.text-slate-600 { color: #475569; }
+
+.decoration-slate-600 { text-decoration-color: #475569; }
+
+.text-slate-700 { color: #334155; }
+
+.decoration-slate-700 { text-decoration-color: #334155; }
+
+.text-slate-800 { color: #1e293b; }
+
+.decoration-slate-800 { text-decoration-color: #1e293b; }
+
+.text-slate-900 { color: #0f172a; }
+
+.decoration-slate-900 { text-decoration-color: #0f172a; }
+
+.text-gray-50 { color: #f9fafb; }
+
+.decoration-gray-50 { text-decoration-color: #f9fafb; }
+
+.text-gray-100 { color: #f3f4f6; }
+
+.decoration-gray-100 { text-decoration-color: #f3f4f6; }
+
+.text-gray-200 { color: #e5e7eb; }
+
+.decoration-gray-200 { text-decoration-color: #e5e7eb; }
+
+.text-gray-300 { color: #d1d5db; }
+
+.decoration-gray-300 { text-decoration-color: #d1d5db; }
+
+.text-gray-400 { color: #9ca3af; }
+
+.decoration-gray-400 { text-decoration-color: #9ca3af; }
+
+.text-gray-500 { color: #6b7280; }
+
+.decoration-gray-500 { text-decoration-color: #6b7280; }
+
+.text-gray-600 { color: #4b5563; }
+
+.decoration-gray-600 { text-decoration-color: #4b5563; }
+
+.text-gray-700 { color: #374151; }
+
+.decoration-gray-700 { text-decoration-color: #374151; }
+
+.text-gray-800 { color: #1f2937; }
+
+.decoration-gray-800 { text-decoration-color: #1f2937; }
+
+.text-gray-900 { color: #111827; }
+
+.decoration-gray-900 { text-decoration-color: #111827; }
+
+.text-zinc-50 { color: #fafafa; }
+
+.decoration-zinc-50 { text-decoration-color: #fafafa; }
+
+.text-zinc-100 { color: #f4f4f5; }
+
+.decoration-zinc-100 { text-decoration-color: #f4f4f5; }
+
+.text-zinc-200 { color: #e4e4e7; }
+
+.decoration-zinc-200 { text-decoration-color: #e4e4e7; }
+
+.text-zinc-300 { color: #d4d4d8; }
+
+.decoration-zinc-300 { text-decoration-color: #d4d4d8; }
+
+.text-zinc-400 { color: #a1a1aa; }
+
+.decoration-zinc-400 { text-decoration-color: #a1a1aa; }
+
+.text-zinc-500 { color: #71717a; }
+
+.decoration-zinc-500 { text-decoration-color: #71717a; }
+
+.text-zinc-600 { color: #52525b; }
+
+.decoration-zinc-600 { text-decoration-color: #52525b; }
+
+.text-zinc-700 { color: #3f3f46; }
+
+.decoration-zinc-700 { text-decoration-color: #3f3f46; }
+
+.text-zinc-800 { color: #27272a; }
+
+.decoration-zinc-800 { text-decoration-color: #27272a; }
+
+.text-zinc-900 { color: #18181b; }
+
+.decoration-zinc-900 { text-decoration-color: #18181b; }
+
+.text-neutral-50 { color: #fafafa; }
+
+.decoration-neutral-50 { text-decoration-color: #fafafa; }
+
+.text-neutral-100 { color: whitesmoke; }
+
+.decoration-neutral-100 { text-decoration-color: whitesmoke; }
+
+.text-neutral-200 { color: #e5e5e5; }
+
+.decoration-neutral-200 { text-decoration-color: #e5e5e5; }
+
+.text-neutral-300 { color: #d4d4d4; }
+
+.decoration-neutral-300 { text-decoration-color: #d4d4d4; }
+
+.text-neutral-400 { color: #a3a3a3; }
+
+.decoration-neutral-400 { text-decoration-color: #a3a3a3; }
+
+.text-neutral-500 { color: #737373; }
+
+.decoration-neutral-500 { text-decoration-color: #737373; }
+
+.text-neutral-600 { color: #525252; }
+
+.decoration-neutral-600 { text-decoration-color: #525252; }
+
+.text-neutral-700 { color: #404040; }
+
+.decoration-neutral-700 { text-decoration-color: #404040; }
+
+.text-neutral-800 { color: #262626; }
+
+.decoration-neutral-800 { text-decoration-color: #262626; }
+
+.text-neutral-900 { color: #171717; }
+
+.decoration-neutral-900 { text-decoration-color: #171717; }
+
+.text-stone-50 { color: #fafaf9; }
+
+.decoration-stone-50 { text-decoration-color: #fafaf9; }
+
+.text-stone-100 { color: #f5f5f4; }
+
+.decoration-stone-100 { text-decoration-color: #f5f5f4; }
+
+.text-stone-200 { color: #e7e5e4; }
+
+.decoration-stone-200 { text-decoration-color: #e7e5e4; }
+
+.text-stone-300 { color: #d6d3d1; }
+
+.decoration-stone-300 { text-decoration-color: #d6d3d1; }
+
+.text-stone-400 { color: #a8a29e; }
+
+.decoration-stone-400 { text-decoration-color: #a8a29e; }
+
+.text-stone-500 { color: #78716c; }
+
+.decoration-stone-500 { text-decoration-color: #78716c; }
+
+.text-stone-600 { color: #57534e; }
+
+.decoration-stone-600 { text-decoration-color: #57534e; }
+
+.text-stone-700 { color: #44403c; }
+
+.decoration-stone-700 { text-decoration-color: #44403c; }
+
+.text-stone-800 { color: #292524; }
+
+.decoration-stone-800 { text-decoration-color: #292524; }
+
+.text-stone-900 { color: #1c1917; }
+
+.decoration-stone-900 { text-decoration-color: #1c1917; }
+
+.text-red-50 { color: #fef2f2; }
+
+.decoration-red-50 { text-decoration-color: #fef2f2; }
+
+.text-red-100 { color: #fee2e2; }
+
+.decoration-red-100 { text-decoration-color: #fee2e2; }
+
+.text-red-200 { color: #fecaca; }
+
+.decoration-red-200 { text-decoration-color: #fecaca; }
+
+.text-red-300 { color: #fca5a5; }
+
+.decoration-red-300 { text-decoration-color: #fca5a5; }
+
+.text-red-400 { color: #f87171; }
+
+.decoration-red-400 { text-decoration-color: #f87171; }
+
+.text-red-500 { color: #ef4444; }
+
+.decoration-red-500 { text-decoration-color: #ef4444; }
+
+.text-red-600 { color: #dc2626; }
+
+.decoration-red-600 { text-decoration-color: #dc2626; }
+
+.text-red-700 { color: #b91c1c; }
+
+.decoration-red-700 { text-decoration-color: #b91c1c; }
+
+.text-red-800 { color: #991b1b; }
+
+.decoration-red-800 { text-decoration-color: #991b1b; }
+
+.text-red-900 { color: #7f1d1d; }
+
+.decoration-red-900 { text-decoration-color: #7f1d1d; }
+
+.text-orange-50 { color: #fff7ed; }
+
+.decoration-orange-50 { text-decoration-color: #fff7ed; }
+
+.text-orange-100 { color: #ffedd5; }
+
+.decoration-orange-100 { text-decoration-color: #ffedd5; }
+
+.text-orange-200 { color: #fed7aa; }
+
+.decoration-orange-200 { text-decoration-color: #fed7aa; }
+
+.text-orange-300 { color: #fdba74; }
+
+.decoration-orange-300 { text-decoration-color: #fdba74; }
+
+.text-orange-400 { color: #fb923c; }
+
+.decoration-orange-400 { text-decoration-color: #fb923c; }
+
+.text-orange-500 { color: #f97316; }
+
+.decoration-orange-500 { text-decoration-color: #f97316; }
+
+.text-orange-600 { color: #ea580c; }
+
+.decoration-orange-600 { text-decoration-color: #ea580c; }
+
+.text-orange-700 { color: #c2410c; }
+
+.decoration-orange-700 { text-decoration-color: #c2410c; }
+
+.text-orange-800 { color: #9a3412; }
+
+.decoration-orange-800 { text-decoration-color: #9a3412; }
+
+.text-orange-900 { color: #7c2d12; }
+
+.decoration-orange-900 { text-decoration-color: #7c2d12; }
+
+.text-amber-50 { color: #fffbeb; }
+
+.decoration-amber-50 { text-decoration-color: #fffbeb; }
+
+.text-amber-100 { color: #fef3c7; }
+
+.decoration-amber-100 { text-decoration-color: #fef3c7; }
+
+.text-amber-200 { color: #fde68a; }
+
+.decoration-amber-200 { text-decoration-color: #fde68a; }
+
+.text-amber-300 { color: #fcd34d; }
+
+.decoration-amber-300 { text-decoration-color: #fcd34d; }
+
+.text-amber-400 { color: #fbbf24; }
+
+.decoration-amber-400 { text-decoration-color: #fbbf24; }
+
+.text-amber-500 { color: #f59e0b; }
+
+.decoration-amber-500 { text-decoration-color: #f59e0b; }
+
+.text-amber-600 { color: #d97706; }
+
+.decoration-amber-600 { text-decoration-color: #d97706; }
+
+.text-amber-700 { color: #b45309; }
+
+.decoration-amber-700 { text-decoration-color: #b45309; }
+
+.text-amber-800 { color: #92400e; }
+
+.decoration-amber-800 { text-decoration-color: #92400e; }
+
+.text-amber-900 { color: #78350f; }
+
+.decoration-amber-900 { text-decoration-color: #78350f; }
+
+.text-yellow-50 { color: #fefce8; }
+
+.decoration-yellow-50 { text-decoration-color: #fefce8; }
+
+.text-yellow-100 { color: #fef9c3; }
+
+.decoration-yellow-100 { text-decoration-color: #fef9c3; }
+
+.text-yellow-200 { color: #fef08a; }
+
+.decoration-yellow-200 { text-decoration-color: #fef08a; }
+
+.text-yellow-300 { color: #fde047; }
+
+.decoration-yellow-300 { text-decoration-color: #fde047; }
+
+.text-yellow-400 { color: #facc15; }
+
+.decoration-yellow-400 { text-decoration-color: #facc15; }
+
+.text-yellow-500 { color: #eab308; }
+
+.decoration-yellow-500 { text-decoration-color: #eab308; }
+
+.text-yellow-600 { color: #ca8a04; }
+
+.decoration-yellow-600 { text-decoration-color: #ca8a04; }
+
+.text-yellow-700 { color: #a16207; }
+
+.decoration-yellow-700 { text-decoration-color: #a16207; }
+
+.text-yellow-800 { color: #854d0e; }
+
+.decoration-yellow-800 { text-decoration-color: #854d0e; }
+
+.text-yellow-900 { color: #713f12; }
+
+.decoration-yellow-900 { text-decoration-color: #713f12; }
+
+.text-lime-50 { color: #f7fee7; }
+
+.decoration-lime-50 { text-decoration-color: #f7fee7; }
+
+.text-lime-100 { color: #ecfccb; }
+
+.decoration-lime-100 { text-decoration-color: #ecfccb; }
+
+.text-lime-200 { color: #d9f99d; }
+
+.decoration-lime-200 { text-decoration-color: #d9f99d; }
+
+.text-lime-300 { color: #bef264; }
+
+.decoration-lime-300 { text-decoration-color: #bef264; }
+
+.text-lime-400 { color: #a3e635; }
+
+.decoration-lime-400 { text-decoration-color: #a3e635; }
+
+.text-lime-500 { color: #84cc16; }
+
+.decoration-lime-500 { text-decoration-color: #84cc16; }
+
+.text-lime-600 { color: #65a30d; }
+
+.decoration-lime-600 { text-decoration-color: #65a30d; }
+
+.text-lime-700 { color: #4d7c0f; }
+
+.decoration-lime-700 { text-decoration-color: #4d7c0f; }
+
+.text-lime-800 { color: #3f6212; }
+
+.decoration-lime-800 { text-decoration-color: #3f6212; }
+
+.text-lime-900 { color: #365314; }
+
+.decoration-lime-900 { text-decoration-color: #365314; }
+
+.text-green-50 { color: #f0fdf4; }
+
+.decoration-green-50 { text-decoration-color: #f0fdf4; }
+
+.text-green-100 { color: #dcfce7; }
+
+.decoration-green-100 { text-decoration-color: #dcfce7; }
+
+.text-green-200 { color: #bbf7d0; }
+
+.decoration-green-200 { text-decoration-color: #bbf7d0; }
+
+.text-green-300 { color: #86efac; }
+
+.decoration-green-300 { text-decoration-color: #86efac; }
+
+.text-green-400 { color: #4ade80; }
+
+.decoration-green-400 { text-decoration-color: #4ade80; }
+
+.text-green-500 { color: #22c55e; }
+
+.decoration-green-500 { text-decoration-color: #22c55e; }
+
+.text-green-600 { color: #16a34a; }
+
+.decoration-green-600 { text-decoration-color: #16a34a; }
+
+.text-green-700 { color: #15803d; }
+
+.decoration-green-700 { text-decoration-color: #15803d; }
+
+.text-green-800 { color: #166534; }
+
+.decoration-green-800 { text-decoration-color: #166534; }
+
+.text-green-900 { color: #14532d; }
+
+.decoration-green-900 { text-decoration-color: #14532d; }
+
+.text-emerald-50 { color: #ecfdf5; }
+
+.decoration-emerald-50 { text-decoration-color: #ecfdf5; }
+
+.text-emerald-100 { color: #d1fae5; }
+
+.decoration-emerald-100 { text-decoration-color: #d1fae5; }
+
+.text-emerald-200 { color: #a7f3d0; }
+
+.decoration-emerald-200 { text-decoration-color: #a7f3d0; }
+
+.text-emerald-300 { color: #6ee7b7; }
+
+.decoration-emerald-300 { text-decoration-color: #6ee7b7; }
+
+.text-emerald-400 { color: #34d399; }
+
+.decoration-emerald-400 { text-decoration-color: #34d399; }
+
+.text-emerald-500 { color: #10b981; }
+
+.decoration-emerald-500 { text-decoration-color: #10b981; }
+
+.text-emerald-600 { color: #059669; }
+
+.decoration-emerald-600 { text-decoration-color: #059669; }
+
+.text-emerald-700 { color: #047857; }
+
+.decoration-emerald-700 { text-decoration-color: #047857; }
+
+.text-emerald-800 { color: #065f46; }
+
+.decoration-emerald-800 { text-decoration-color: #065f46; }
+
+.text-emerald-900 { color: #064e3b; }
+
+.decoration-emerald-900 { text-decoration-color: #064e3b; }
+
+.text-teal-50 { color: #f0fdfa; }
+
+.decoration-teal-50 { text-decoration-color: #f0fdfa; }
+
+.text-teal-100 { color: #ccfbf1; }
+
+.decoration-teal-100 { text-decoration-color: #ccfbf1; }
+
+.text-teal-200 { color: #99f6e4; }
+
+.decoration-teal-200 { text-decoration-color: #99f6e4; }
+
+.text-teal-300 { color: #5eead4; }
+
+.decoration-teal-300 { text-decoration-color: #5eead4; }
+
+.text-teal-400 { color: #2dd4bf; }
+
+.decoration-teal-400 { text-decoration-color: #2dd4bf; }
+
+.text-teal-500 { color: #14b8a6; }
+
+.decoration-teal-500 { text-decoration-color: #14b8a6; }
+
+.text-teal-600 { color: #0d9488; }
+
+.decoration-teal-600 { text-decoration-color: #0d9488; }
+
+.text-teal-700 { color: #0f766e; }
+
+.decoration-teal-700 { text-decoration-color: #0f766e; }
+
+.text-teal-800 { color: #115e59; }
+
+.decoration-teal-800 { text-decoration-color: #115e59; }
+
+.text-teal-900 { color: #134e4a; }
+
+.decoration-teal-900 { text-decoration-color: #134e4a; }
+
+.text-cyan-50 { color: #ecfeff; }
+
+.decoration-cyan-50 { text-decoration-color: #ecfeff; }
+
+.text-cyan-100 { color: #cffafe; }
+
+.decoration-cyan-100 { text-decoration-color: #cffafe; }
+
+.text-cyan-200 { color: #a5f3fc; }
+
+.decoration-cyan-200 { text-decoration-color: #a5f3fc; }
+
+.text-cyan-300 { color: #67e8f9; }
+
+.decoration-cyan-300 { text-decoration-color: #67e8f9; }
+
+.text-cyan-400 { color: #22d3ee; }
+
+.decoration-cyan-400 { text-decoration-color: #22d3ee; }
+
+.text-cyan-500 { color: #06b6d4; }
+
+.decoration-cyan-500 { text-decoration-color: #06b6d4; }
+
+.text-cyan-600 { color: #0891b2; }
+
+.decoration-cyan-600 { text-decoration-color: #0891b2; }
+
+.text-cyan-700 { color: #0e7490; }
+
+.decoration-cyan-700 { text-decoration-color: #0e7490; }
+
+.text-cyan-800 { color: #155e75; }
+
+.decoration-cyan-800 { text-decoration-color: #155e75; }
+
+.text-cyan-900 { color: #164e63; }
+
+.decoration-cyan-900 { text-decoration-color: #164e63; }
+
+.text-sky-50 { color: #f0f9ff; }
+
+.decoration-sky-50 { text-decoration-color: #f0f9ff; }
+
+.text-sky-100 { color: #e0f2fe; }
+
+.decoration-sky-100 { text-decoration-color: #e0f2fe; }
+
+.text-sky-200 { color: #bae6fd; }
+
+.decoration-sky-200 { text-decoration-color: #bae6fd; }
+
+.text-sky-300 { color: #7dd3fc; }
+
+.decoration-sky-300 { text-decoration-color: #7dd3fc; }
+
+.text-sky-400 { color: #38bdf8; }
+
+.decoration-sky-400 { text-decoration-color: #38bdf8; }
+
+.text-sky-500 { color: #0ea5e9; }
+
+.decoration-sky-500 { text-decoration-color: #0ea5e9; }
+
+.text-sky-600 { color: #0284c7; }
+
+.decoration-sky-600 { text-decoration-color: #0284c7; }
+
+.text-sky-700 { color: #0369a1; }
+
+.decoration-sky-700 { text-decoration-color: #0369a1; }
+
+.text-sky-800 { color: #075985; }
+
+.decoration-sky-800 { text-decoration-color: #075985; }
+
+.text-sky-900 { color: #0c4a6e; }
+
+.decoration-sky-900 { text-decoration-color: #0c4a6e; }
+
+.text-blue-50 { color: #eff6ff; }
+
+.decoration-blue-50 { text-decoration-color: #eff6ff; }
+
+.text-blue-100 { color: #dbeafe; }
+
+.decoration-blue-100 { text-decoration-color: #dbeafe; }
+
+.text-blue-200 { color: #bfdbfe; }
+
+.decoration-blue-200 { text-decoration-color: #bfdbfe; }
+
+.text-blue-300 { color: #93c5fd; }
+
+.decoration-blue-300 { text-decoration-color: #93c5fd; }
+
+.text-blue-400 { color: #60a5fa; }
+
+.decoration-blue-400 { text-decoration-color: #60a5fa; }
+
+.text-blue-500 { color: #3b82f6; }
+
+.decoration-blue-500 { text-decoration-color: #3b82f6; }
+
+.text-blue-600 { color: #2563eb; }
+
+.decoration-blue-600 { text-decoration-color: #2563eb; }
+
+.text-blue-700 { color: #1d4ed8; }
+
+.decoration-blue-700 { text-decoration-color: #1d4ed8; }
+
+.text-blue-800 { color: #1e40af; }
+
+.decoration-blue-800 { text-decoration-color: #1e40af; }
+
+.text-blue-900 { color: #1e3a8a; }
+
+.decoration-blue-900 { text-decoration-color: #1e3a8a; }
+
+.text-indigo-50 { color: #eef2ff; }
+
+.decoration-indigo-50 { text-decoration-color: #eef2ff; }
+
+.text-indigo-100 { color: #e0e7ff; }
+
+.decoration-indigo-100 { text-decoration-color: #e0e7ff; }
+
+.text-indigo-200 { color: #c7d2fe; }
+
+.decoration-indigo-200 { text-decoration-color: #c7d2fe; }
+
+.text-indigo-300 { color: #a5b4fc; }
+
+.decoration-indigo-300 { text-decoration-color: #a5b4fc; }
+
+.text-indigo-400 { color: #818cf8; }
+
+.decoration-indigo-400 { text-decoration-color: #818cf8; }
+
+.text-indigo-500 { color: #6366f1; }
+
+.decoration-indigo-500 { text-decoration-color: #6366f1; }
+
+.text-indigo-600 { color: #4f46e5; }
+
+.decoration-indigo-600 { text-decoration-color: #4f46e5; }
+
+.text-indigo-700 { color: #4338ca; }
+
+.decoration-indigo-700 { text-decoration-color: #4338ca; }
+
+.text-indigo-800 { color: #3730a3; }
+
+.decoration-indigo-800 { text-decoration-color: #3730a3; }
+
+.text-indigo-900 { color: #312e81; }
+
+.decoration-indigo-900 { text-decoration-color: #312e81; }
+
+.text-violet-50 { color: #f5f3ff; }
+
+.decoration-violet-50 { text-decoration-color: #f5f3ff; }
+
+.text-violet-100 { color: #ede9fe; }
+
+.decoration-violet-100 { text-decoration-color: #ede9fe; }
+
+.text-violet-200 { color: #ddd6fe; }
+
+.decoration-violet-200 { text-decoration-color: #ddd6fe; }
+
+.text-violet-300 { color: #c4b5fd; }
+
+.decoration-violet-300 { text-decoration-color: #c4b5fd; }
+
+.text-violet-400 { color: #a78bfa; }
+
+.decoration-violet-400 { text-decoration-color: #a78bfa; }
+
+.text-violet-500 { color: #8b5cf6; }
+
+.decoration-violet-500 { text-decoration-color: #8b5cf6; }
+
+.text-violet-600 { color: #7c3aed; }
+
+.decoration-violet-600 { text-decoration-color: #7c3aed; }
+
+.text-violet-700 { color: #6d28d9; }
+
+.decoration-violet-700 { text-decoration-color: #6d28d9; }
+
+.text-violet-800 { color: #5b21b6; }
+
+.decoration-violet-800 { text-decoration-color: #5b21b6; }
+
+.text-violet-900 { color: #4c1d95; }
+
+.decoration-violet-900 { text-decoration-color: #4c1d95; }
+
+.text-purple-50 { color: #faf5ff; }
+
+.decoration-purple-50 { text-decoration-color: #faf5ff; }
+
+.text-purple-100 { color: #f3e8ff; }
+
+.decoration-purple-100 { text-decoration-color: #f3e8ff; }
+
+.text-purple-200 { color: #e9d5ff; }
+
+.decoration-purple-200 { text-decoration-color: #e9d5ff; }
+
+.text-purple-300 { color: #d8b4fe; }
+
+.decoration-purple-300 { text-decoration-color: #d8b4fe; }
+
+.text-purple-400 { color: #c084fc; }
+
+.decoration-purple-400 { text-decoration-color: #c084fc; }
+
+.text-purple-500 { color: #a855f7; }
+
+.decoration-purple-500 { text-decoration-color: #a855f7; }
+
+.text-purple-600 { color: #9333ea; }
+
+.decoration-purple-600 { text-decoration-color: #9333ea; }
+
+.text-purple-700 { color: #7e22ce; }
+
+.decoration-purple-700 { text-decoration-color: #7e22ce; }
+
+.text-purple-800 { color: #6b21a8; }
+
+.decoration-purple-800 { text-decoration-color: #6b21a8; }
+
+.text-purple-900 { color: #581c87; }
+
+.decoration-purple-900 { text-decoration-color: #581c87; }
+
+.text-fuchsia-50 { color: #fdf4ff; }
+
+.decoration-fuchsia-50 { text-decoration-color: #fdf4ff; }
+
+.text-fuchsia-100 { color: #fae8ff; }
+
+.decoration-fuchsia-100 { text-decoration-color: #fae8ff; }
+
+.text-fuchsia-200 { color: #f5d0fe; }
+
+.decoration-fuchsia-200 { text-decoration-color: #f5d0fe; }
+
+.text-fuchsia-300 { color: #f0abfc; }
+
+.decoration-fuchsia-300 { text-decoration-color: #f0abfc; }
+
+.text-fuchsia-400 { color: #e879f9; }
+
+.decoration-fuchsia-400 { text-decoration-color: #e879f9; }
+
+.text-fuchsia-500 { color: #d946ef; }
+
+.decoration-fuchsia-500 { text-decoration-color: #d946ef; }
+
+.text-fuchsia-600 { color: #c026d3; }
+
+.decoration-fuchsia-600 { text-decoration-color: #c026d3; }
+
+.text-fuchsia-700 { color: #a21caf; }
+
+.decoration-fuchsia-700 { text-decoration-color: #a21caf; }
+
+.text-fuchsia-800 { color: #86198f; }
+
+.decoration-fuchsia-800 { text-decoration-color: #86198f; }
+
+.text-fuchsia-900 { color: #701a75; }
+
+.decoration-fuchsia-900 { text-decoration-color: #701a75; }
+
+.text-pink-50 { color: #fdf2f8; }
+
+.decoration-pink-50 { text-decoration-color: #fdf2f8; }
+
+.text-pink-100 { color: #fce7f3; }
+
+.decoration-pink-100 { text-decoration-color: #fce7f3; }
+
+.text-pink-200 { color: #fbcfe8; }
+
+.decoration-pink-200 { text-decoration-color: #fbcfe8; }
+
+.text-pink-300 { color: #f9a8d4; }
+
+.decoration-pink-300 { text-decoration-color: #f9a8d4; }
+
+.text-pink-400 { color: #f472b6; }
+
+.decoration-pink-400 { text-decoration-color: #f472b6; }
+
+.text-pink-500 { color: #ec4899; }
+
+.decoration-pink-500 { text-decoration-color: #ec4899; }
+
+.text-pink-600 { color: #db2777; }
+
+.decoration-pink-600 { text-decoration-color: #db2777; }
+
+.text-pink-700 { color: #be185d; }
+
+.decoration-pink-700 { text-decoration-color: #be185d; }
+
+.text-pink-800 { color: #9d174d; }
+
+.decoration-pink-800 { text-decoration-color: #9d174d; }
+
+.text-pink-900 { color: #831843; }
+
+.decoration-pink-900 { text-decoration-color: #831843; }
+
+.text-rose-50 { color: #fafafa; }
+
+.decoration-rose-50 { text-decoration-color: #fafafa; }
+
+.text-rose-100 { color: #f4f4f5; }
+
+.decoration-rose-100 { text-decoration-color: #f4f4f5; }
+
+.text-rose-200 { color: #fecdd3; }
+
+.decoration-rose-200 { text-decoration-color: #fecdd3; }
+
+.text-rose-300 { color: #fda4af; }
+
+.decoration-rose-300 { text-decoration-color: #fda4af; }
+
+.text-rose-400 { color: #fb7185; }
+
+.decoration-rose-400 { text-decoration-color: #fb7185; }
+
+.text-rose-500 { color: #f43f5e; }
+
+.decoration-rose-500 { text-decoration-color: #f43f5e; }
+
+.text-rose-600 { color: #e11d48; }
+
+.decoration-rose-600 { text-decoration-color: #e11d48; }
+
+.text-rose-700 { color: #be123c; }
+
+.decoration-rose-700 { text-decoration-color: #be123c; }
+
+.text-rose-800 { color: #9f1239; }
+
+.decoration-rose-800 { text-decoration-color: #9f1239; }
+
+.text-rose-900 { color: #881337; }
+
+.decoration-rose-900 { text-decoration-color: #881337; }
+
+/*
+* 12. text decoration
+*/
+.underline { text-decoration-line: underline; }
+
+.overline { text-decoration-line: overline; }
+
+.line-through { text-decoration-line: line-through; }
+
+.none { text-decoration-line: none; }
+
+/*
+* 13. text decoration style
+*/
+.decoration-solid { text-decoration-style: solid; }
+
+.decoration-double { text-decoration-style: double; }
+
+.decoration-dotted { text-decoration-style: dotted; }
+
+.decoration-dashed { text-decoration-style: dashed; }
+
+.decoration-wavy { text-decoration-style: wavy; }
+
+/*
+* 14. text decoration thickness
+*/
+.decoration-auto { text-decoration-thickness: auto; }
+
+.decoration-from-font { text-decoration-thickness: from-font; }
+
+.decoration-0 { text-decoration-thickness: 0; }
+
+.decoration-1 { text-decoration-thickness: 1px; }
+
+.decoration-2 { text-decoration-thickness: 2px; }
+
+.decoration-4 { text-decoration-thickness: 4px; }
+
+.decoration-8 { text-decoration-thickness: 8px; }
+
+/*
+* 15. text underline offset
+*/
+.underline-offset-auto { text-underline-offset: auto; }
+
+.underline-offset-0 { text-underline-offset: 0; }
+
+.underline-offset-1 { text-underline-offset: 1px; }
+
+.underline-offset-2 { text-underline-offset: 2px; }
+
+.underline-offset-4 { text-underline-offset: 4px; }
+
+.underline-offset-8 { text-underline-offset: 8px; }
+
+/*
+* 16. text-transform
+*/
+.uppercase { text-transform: uppercase; }
+
+.lowercase { text-transform: lowercase; }
+
+.capitalize { text-transform: capitalize; }
+
+.none { text-transform: none; }
+
+/*
+* 17. text-overflow
+*/
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.text-hyphens { overflow-wrap: break-word; -ms-hyphens: auto; -webkit-hyphens: auto; hyphens: auto; }
+
+.text-ellipsis { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+.text-clip { text-overflow: clip; }
+
+/*
+* 18. text-indent
+*/
+.indent-0 { text-indent: 0; }
+
+.indent-1 { text-indent: 1px; }
+
+.indent-2 { text-indent: 2px; }
+
+.indent-4 { text-indent: 4px; }
+
+.indent-6 { text-indent: 6px; }
+
+.indent-8 { text-indent: 8px; }
+
+.indent-10 { text-indent: 10px; }
+
+.indent-12 { text-indent: 12px; }
+
+.indent-14 { text-indent: 14px; }
+
+.indent-16 { text-indent: 16px; }
+
+.indent-18 { text-indent: 18px; }
+
+.indent-20 { text-indent: 20px; }
+
+.indent-22 { text-indent: 22px; }
+
+.indent-24 { text-indent: 24px; }
+
+.indent-26 { text-indent: 26px; }
+
+.indent-28 { text-indent: 28px; }
+
+.indent-30 { text-indent: 30px; }
+
+.indent-32 { text-indent: 32px; }
+
+.indent-34 { text-indent: 34px; }
+
+.indent-36 { text-indent: 36px; }
+
+.indent-38 { text-indent: 38px; }
+
+.indent-40 { text-indent: 40px; }
+
+.indent-42 { text-indent: 42px; }
+
+.indent-44 { text-indent: 44px; }
+
+.indent-46 { text-indent: 46px; }
+
+.indent-48 { text-indent: 48px; }
+
+.indent-50 { text-indent: 50px; }
+
+.indent-52 { text-indent: 52px; }
+
+.indent-54 { text-indent: 54px; }
+
+.indent-56 { text-indent: 56px; }
+
+.indent-58 { text-indent: 58px; }
+
+.indent-60 { text-indent: 60px; }
+
+.indent-62 { text-indent: 62px; }
+
+.indent-64 { text-indent: 64px; }
+
+.indent-66 { text-indent: 66px; }
+
+.indent-68 { text-indent: 68px; }
+
+.indent-70 { text-indent: 70px; }
+
+.indent-72 { text-indent: 72px; }
+
+.indent-74 { text-indent: 74px; }
+
+.indent-76 { text-indent: 76px; }
+
+.indent-78 { text-indent: 78px; }
+
+.indent-80 { text-indent: 80px; }
+
+.indent-82 { text-indent: 82px; }
+
+.indent-84 { text-indent: 84px; }
+
+.indent-86 { text-indent: 86px; }
+
+.indent-88 { text-indent: 88px; }
+
+.indent-90 { text-indent: 90px; }
+
+.indent-92 { text-indent: 92px; }
+
+.indent-94 { text-indent: 94px; }
+
+.indent-96 { text-indent: 96px; }
+
+.indent-98 { text-indent: 98px; }
+
+.indent-100 { text-indent: 100px; }
+
+.indent-102 { text-indent: 102px; }
+
+.indent-104 { text-indent: 104px; }
+
+.indent-106 { text-indent: 106px; }
+
+.indent-108 { text-indent: 108px; }
+
+.indent-110 { text-indent: 110px; }
+
+.indent-112 { text-indent: 112px; }
+
+.indent-114 { text-indent: 114px; }
+
+.indent-116 { text-indent: 116px; }
+
+.indent-118 { text-indent: 118px; }
+
+.indent-120 { text-indent: 120px; }
+
+.indent-122 { text-indent: 122px; }
+
+.indent-124 { text-indent: 124px; }
+
+.indent-126 { text-indent: 126px; }
+
+.indent-128 { text-indent: 128px; }
+
+.indent-130 { text-indent: 130px; }
+
+.indent-132 { text-indent: 132px; }
+
+.indent-134 { text-indent: 134px; }
+
+.indent-136 { text-indent: 136px; }
+
+.indent-138 { text-indent: 138px; }
+
+.indent-140 { text-indent: 140px; }
+
+.indent-142 { text-indent: 142px; }
+
+.indent-144 { text-indent: 144px; }
+
+.indent-146 { text-indent: 146px; }
+
+.indent-148 { text-indent: 148px; }
+
+.indent-150 { text-indent: 150px; }
+
+.indent-152 { text-indent: 152px; }
+
+.indent-154 { text-indent: 154px; }
+
+.indent-156 { text-indent: 156px; }
+
+.indent-158 { text-indent: 158px; }
+
+.indent-160 { text-indent: 160px; }
+
+.indent-162 { text-indent: 162px; }
+
+.indent-164 { text-indent: 164px; }
+
+.indent-166 { text-indent: 166px; }
+
+.indent-168 { text-indent: 168px; }
+
+.indent-170 { text-indent: 170px; }
+
+.indent-172 { text-indent: 172px; }
+
+.indent-174 { text-indent: 174px; }
+
+.indent-176 { text-indent: 176px; }
+
+.indent-178 { text-indent: 178px; }
+
+.indent-180 { text-indent: 180px; }
+
+.indent-182 { text-indent: 182px; }
+
+.indent-184 { text-indent: 184px; }
+
+.indent-186 { text-indent: 186px; }
+
+.indent-188 { text-indent: 188px; }
+
+.indent-190 { text-indent: 190px; }
+
+.indent-192 { text-indent: 192px; }
+
+.indent-194 { text-indent: 194px; }
+
+.indent-196 { text-indent: 196px; }
+
+.indent-198 { text-indent: 198px; }
+
+.indent-200 { text-indent: 200px; }
+
+.indent-202 { text-indent: 202px; }
+
+.indent-204 { text-indent: 204px; }
+
+.indent-206 { text-indent: 206px; }
+
+.indent-208 { text-indent: 208px; }
+
+.indent-210 { text-indent: 210px; }
+
+.indent-212 { text-indent: 212px; }
+
+.indent-214 { text-indent: 214px; }
+
+.indent-216 { text-indent: 216px; }
+
+.indent-218 { text-indent: 218px; }
+
+.indent-220 { text-indent: 220px; }
+
+.indent-222 { text-indent: 222px; }
+
+.indent-224 { text-indent: 224px; }
+
+.indent-226 { text-indent: 226px; }
+
+.indent-228 { text-indent: 228px; }
+
+.indent-230 { text-indent: 230px; }
+
+.indent-232 { text-indent: 232px; }
+
+.indent-234 { text-indent: 234px; }
+
+.indent-236 { text-indent: 236px; }
+
+.indent-238 { text-indent: 238px; }
+
+.indent-240 { text-indent: 240px; }
+
+.indent-242 { text-indent: 242px; }
+
+.indent-244 { text-indent: 244px; }
+
+.indent-246 { text-indent: 246px; }
+
+.indent-248 { text-indent: 248px; }
+
+.indent-250 { text-indent: 250px; }
+
+.indent-252 { text-indent: 252px; }
+
+.indent-254 { text-indent: 254px; }
+
+.indent-256 { text-indent: 256px; }
+
+.indent-258 { text-indent: 258px; }
+
+.indent-260 { text-indent: 260px; }
+
+.indent-262 { text-indent: 262px; }
+
+.indent-264 { text-indent: 264px; }
+
+.indent-266 { text-indent: 266px; }
+
+.indent-268 { text-indent: 268px; }
+
+.indent-270 { text-indent: 270px; }
+
+.indent-272 { text-indent: 272px; }
+
+.indent-274 { text-indent: 274px; }
+
+.indent-276 { text-indent: 276px; }
+
+.indent-278 { text-indent: 278px; }
+
+.indent-280 { text-indent: 280px; }
+
+.indent-282 { text-indent: 282px; }
+
+.indent-284 { text-indent: 284px; }
+
+.indent-286 { text-indent: 286px; }
+
+.indent-288 { text-indent: 288px; }
+
+.indent-290 { text-indent: 290px; }
+
+.indent-292 { text-indent: 292px; }
+
+.indent-294 { text-indent: 294px; }
+
+.indent-296 { text-indent: 296px; }
+
+.indent-298 { text-indent: 298px; }
+
+.indent-300 { text-indent: 300px; }
+
+.indent-302 { text-indent: 302px; }
+
+.indent-304 { text-indent: 304px; }
+
+.indent-306 { text-indent: 306px; }
+
+.indent-308 { text-indent: 308px; }
+
+/*
+* 19. vertical align
+*/
+.align-baseline { vertical-align: baseline; }
+
+.align-top { vertical-align: top; }
+
+.align-middle { vertical-align: middle; }
+
+.align-bottom { vertical-align: bottom; }
+
+.align-text-top { vertical-align: text-top; }
+
+.align-text-bottom { vertical-align: text-bottom; }
+
+.align-sub { vertical-align: sub; }
+
+.align-super { vertical-align: super; }
+
+/*
+* 20. white-space
+*/
+.whitespace-normal { white-space: normal; }
+
+.whitespace-nowrap { white-space: nowrap; }
+
+.whitespace-pre { white-space: pre; }
+
+.whitespace-pre-line { white-space: pre-line; }
+
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+/*
+* 21. text-wrap
+*/
+.textwrap-wrap { text-wrap: wrap; }
+
+.textwrap-nowrap { text-wrap: nowrap; }
+
+.textwrap-balance { text-wrap: balance; }
+
+.textwrap-pretty { text-wrap: pretty; }
+
+.textwrap-stable { text-wrap: stable; }
+
+/*
+* 22. word-break
+*/
+.break-normal { overflow-wrap: normal; word-break: normal; }
+
+.break-words { overflow-wrap: break-word; }
+
+.break-all { word-break: break-all; }
+
+.break-keep { word-break: keep-all; }
+
+/*
+* 23. content
+*/
+.content-none { content: none; }
+
+.content-normal { content: normal; }

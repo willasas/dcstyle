@@ -1,0 +1,337 @@
+/*!
+  Name: transforms
+  Author: william
+  Author URI:
+  Description: elements transforms.
+  Version: 1.0.1
+	Tags: transforms, scale, rotate, translate, skew, transform-origin
+  Update: December 26th,2022
+*/
+/*
+* 1. scale
+*/
+.scale-0 { transform: scale(0); }
+
+.scale-x-0 { transform: scaleX(0); }
+
+.scale-y-0 { transform: scaleY(0); }
+
+.scale-25 { transform: scale(0.25); }
+
+.scale-x-25 { transform: scaleX(0.25); }
+
+.scale-y-25 { transform: scaleY(0.25); }
+
+.scale-50 { transform: scale(0.5); }
+
+.scale-x-50 { transform: scaleX(0.5); }
+
+.scale-y-50 { transform: scaleY(0.5); }
+
+.scale-75 { transform: scale(0.75); }
+
+.scale-x-75 { transform: scaleX(0.75); }
+
+.scale-y-75 { transform: scaleY(0.75); }
+
+.scale-90 { transform: scale(0.9); }
+
+.scale-x-90 { transform: scaleX(0.9); }
+
+.scale-y-90 { transform: scaleY(0.9); }
+
+.scale-95 { transform: scale(0.95); }
+
+.scale-x-95 { transform: scaleX(0.95); }
+
+.scale-y-95 { transform: scaleY(0.95); }
+
+.scale-100 { transform: scale(1); }
+
+.scale-x-100 { transform: scaleX(1); }
+
+.scale-y-100 { transform: scaleY(1); }
+
+.scale-105 { transform: scale(1.05); }
+
+.scale-x-105 { transform: scaleX(1.05); }
+
+.scale-y-105 { transform: scaleY(1.05); }
+
+.scale-110 { transform: scale(1.1); }
+
+.scale-x-110 { transform: scaleX(1.1); }
+
+.scale-y-110 { transform: scaleY(1.1); }
+
+.scale-125 { transform: scale(1.25); }
+
+.scale-x-125 { transform: scaleX(1.25); }
+
+.scale-y-125 { transform: scaleY(1.25); }
+
+.scale-150 { transform: scale(1.5); }
+
+.scale-x-150 { transform: scaleX(1.5); }
+
+.scale-y-150 { transform: scaleY(1.5); }
+
+.scale-180 { transform: scale(1.8); }
+
+.scale-x-180 { transform: scaleX(1.8); }
+
+.scale-y-180 { transform: scaleY(1.8); }
+
+.scale-200 { transform: scale(2); }
+
+.scale-x-200 { transform: scaleX(2); }
+
+.scale-y-200 { transform: scaleY(2); }
+
+/*
+* 2. rotate
+*/
+.rotate-0 { transform: rotate(0); }
+
+.rotate-1 { transform: rotate(1deg); }
+
+.rotate-2 { transform: rotate(2deg); }
+
+.rotate-3 { transform: rotate(3deg); }
+
+.rotate-4 { transform: rotate(4deg); }
+
+.rotate-5 { transform: rotate(5deg); }
+
+.rotate-6 { transform: rotate(6deg); }
+
+.rotate-12 { transform: rotate(12deg); }
+
+.rotate-30 { transform: rotate(30deg); }
+
+.rotate-45 { transform: rotate(45deg); }
+
+.rotate-60 { transform: rotate(60deg); }
+
+.rotate-90 { transform: rotate(90deg); }
+
+.rotate-120 { transform: rotate(120deg); }
+
+.rotate-150 { transform: rotate(150deg); }
+
+.rotate-180 { transform: rotate(180deg); }
+
+.rotate-240 { transform: rotate(240deg); }
+
+.rotate-260 { transform: rotate(260deg); }
+
+.rotate-300 { transform: rotate(300deg); }
+
+.rotate-360 { transform: rotate(360deg); }
+
+/*
+* 3. translate
+*/
+.translate-x-full { transform: translateX(100%); }
+
+.translate-y-full { transform: translateY(100%); }
+
+.translate-x-sm { transform: translateX(25%); }
+
+.translate-y-sm { transform: translateY(25%); }
+
+.translate-x-md { transform: translateX(50%); }
+
+.translate-y-md { transform: translateY(50%); }
+
+.translate-x-lg { transform: translateX(75%); }
+
+.translate-y-lg { transform: translateY(75%); }
+
+.translate-x-xl { transform: translateX(80%); }
+
+.translate-y-xl { transform: translateY(80%); }
+
+.translate-x-2xl { transform: translateX(90%); }
+
+.translate-y-2xl { transform: translateY(90%); }
+
+.translate-x-0 { transform: translateX(0); }
+
+.translate-y-0 { transform: translateY(0); }
+
+.translate-x-1 { transform: translateX(1px); }
+
+.translate-y-1 { transform: translateY(1px); }
+
+.translate-x-2 { transform: translateX(2px); }
+
+.translate-y-2 { transform: translateY(2px); }
+
+.translate-x-3 { transform: translateX(3px); }
+
+.translate-y-3 { transform: translateY(3px); }
+
+.translate-x-4 { transform: translateX(4px); }
+
+.translate-y-4 { transform: translateY(4px); }
+
+.translate-x-6 { transform: translateX(6px); }
+
+.translate-y-6 { transform: translateY(6px); }
+
+.translate-x-8 { transform: translateX(8px); }
+
+.translate-y-8 { transform: translateY(8px); }
+
+.translate-x-10 { transform: translateX(10px); }
+
+.translate-y-10 { transform: translateY(10px); }
+
+.translate-x-12 { transform: translateX(12px); }
+
+.translate-y-12 { transform: translateY(12px); }
+
+.translate-x-14 { transform: translateX(14px); }
+
+.translate-y-14 { transform: translateY(14px); }
+
+.translate-x-16 { transform: translateX(16px); }
+
+.translate-y-16 { transform: translateY(16px); }
+
+.translate-x-18 { transform: translateX(18px); }
+
+.translate-y-18 { transform: translateY(18px); }
+
+.translate-x-20 { transform: translateX(20px); }
+
+.translate-y-20 { transform: translateY(20px); }
+
+.translate-x-24 { transform: translateX(24px); }
+
+.translate-y-24 { transform: translateY(24px); }
+
+.translate-x-28 { transform: translateX(28px); }
+
+.translate-y-28 { transform: translateY(28px); }
+
+.translate-x-32 { transform: translateX(32px); }
+
+.translate-y-32 { transform: translateY(32px); }
+
+.translate-x-36 { transform: translateX(36px); }
+
+.translate-y-36 { transform: translateY(36px); }
+
+.translate-x-40 { transform: translateX(40px); }
+
+.translate-y-40 { transform: translateY(40px); }
+
+.translate-x-44 { transform: translateX(44px); }
+
+.translate-y-44 { transform: translateY(44px); }
+
+.translate-x-48 { transform: translateX(48px); }
+
+.translate-y-48 { transform: translateY(48px); }
+
+.translate-x-60 { transform: translateX(60px); }
+
+.translate-y-60 { transform: translateY(60px); }
+
+.translate-x-80 { transform: translateX(90px); }
+
+.translate-y-80 { transform: translateY(90px); }
+
+.translate-x-90 { transform: translateX(90px); }
+
+.translate-y-90 { transform: translateY(90px); }
+
+.translate-x-96 { transform: translateX(96px); }
+
+.translate-y-96 { transform: translateY(96px); }
+
+.translate-x-100 { transform: translateX(100px); }
+
+.translate-y-100 { transform: translateY(100px); }
+
+.translate-x-128 { transform: translateX(128px); }
+
+.translate-y-128 { transform: translateY(128px); }
+
+.translate-x-256 { transform: translateX(256px); }
+
+.translate-y-256 { transform: translateY(256px); }
+
+.translate-x-320 { transform: translateX(320px); }
+
+.translate-y-320 { transform: translateY(320px); }
+
+.translate-x-480 { transform: translateX(480px); }
+
+.translate-y-480 { transform: translateY(480px); }
+
+.translate-x-560 { transform: translateX(560px); }
+
+.translate-y-560 { transform: translateY(560px); }
+
+.translate-x-800 { transform: translateX(800px); }
+
+.translate-y-800 { transform: translateY(800px); }
+
+/*
+* 4. skew
+*/
+.skew-x-0 { transform: skewX(0deg); }
+
+.skew-y-0 { transform: skewY(0deg); }
+
+.skew-x-1 { transform: skewX(1deg); }
+
+.skew-y-1 { transform: skewY(1deg); }
+
+.skew-x-2 { transform: skewX(2deg); }
+
+.skew-y-2 { transform: skewY(2deg); }
+
+.skew-x-3 { transform: skewX(3deg); }
+
+.skew-y-3 { transform: skewY(3deg); }
+
+.skew-x-4 { transform: skewX(4deg); }
+
+.skew-y-4 { transform: skewY(4deg); }
+
+.skew-x-5 { transform: skewX(5deg); }
+
+.skew-y-5 { transform: skewY(5deg); }
+
+.skew-x-6 { transform: skewX(6deg); }
+
+.skew-y-6 { transform: skewY(6deg); }
+
+.skew-x-12 { transform: skewX(12deg); }
+
+.skew-y-12 { transform: skewY(12deg); }
+
+/*
+* 5. transform-origin
+*/
+.origin-center { transform-origin: center; }
+
+.origin-top { transform-origin: top; }
+
+.origin-top-right { transform-origin: top right; }
+
+.origin-right { transform-origin: right; }
+
+.origin-bottom-right { transform-origin: bottom right; }
+
+.origin-bottom-left { transform-origin: bottom left; }
+
+.origin-bottom { transform-origin: bottom; }
+
+.origin-left { transform-origin: left; }
+
+.origin-top-left { transform-origin: top left; }
