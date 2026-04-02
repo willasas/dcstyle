@@ -1,0 +1,3093 @@
+// ==============================================
+// 14套配色方案 - 整理版
+// ==============================================
+
+// 主题名称定义
+$theme-names: (
+  'purple-elegance',    // 优雅紫韵 - 紫色系
+  'gray-minimal',       // 极简灰调 - 灰色系
+  'indigo-dream',       // 靛蓝梦境 - 靛蓝色系
+  'lavender-breeze',    // 薰衣草风 - 薰衣草色系
+  'earth-harmony',      // 大地和谐 - 大地色系
+  'vintage-rose',       // 复古玫瑰 - 复古玫瑰色系
+  'ocean-depths',       // 深海蓝调 - 深海蓝色系
+  'sunset-glow',        // 日落余晖 - 日落橙色系
+  'mint-fresh',         // 清新薄荷 - 薄荷绿色系
+  'forest-spirit',      // 森林精灵 - 森林绿色系
+  'periwinkle-sky',     // 长春花蓝 - 长春花蓝色系
+  'blush-tones',        // 腮红色调 - 腮红色系
+  'warm-spectrum',      // 暖色调谱 - 暖色调系
+  'neon-vibrance'       // 霓虹活力 - 霓虹色系
+);
+
+// 颜色变量映射（用于生成类名）
+$color-variables: (
+  'wisteria-blue',
+  'lilac-ash',
+  'dusty-taupe',
+  'olive-wood',
+  'space-indigo',
+  'graphite',
+  'white',
+  'pale-slate',
+  'silver',
+  'grey-olive',
+  'shadow-grey',
+  'electric-indigo',
+  'medium-slate-blue',
+  'lavender-mist',
+  'ash-grey',
+  'lavender-grey',
+  'lavender',
+  'ivory',
+  'lime-cream',
+  'jungle-green',
+  'bright-snow',
+  'almond-cream',
+  'terracotta-clay',
+  'dark-garnet',
+  'onyx',
+  'vintage-lavender',
+  'dusty-mauve',
+  'dusty-rose',
+  'rosy-taupe',
+  'ink-black',
+  'dark-teal',
+  'ocean-blue',
+  'sky-surge',
+  'bright-sky',
+  'dusk-blue',
+  'apricot-cream',
+  'sandy-brown',
+  'pumpkin-spice',
+  'fern',
+  'moss-green',
+  'celadon',
+  'celadon-2',
+  'frosted-mint',
+  'charcoal-brown',
+  'dark-spruce',
+  'forest-green',
+  'radioactive-grass',
+  'spring-green',
+  'mint-cream',
+  'alice-blue',
+  'periwinkle',
+  'bubblegum-pink',
+  'blush-rose',
+  'taupe',
+  'banana-cream',
+  'golden-pollen',
+  'vibrant-coral',
+  'carbon-black',
+  'canary-yellow',
+  'green-yellow',
+  'light-green',
+  'aquamarine',
+  'neon-ice'
+);
+
+// 颜色变体映射
+$color-variants: (
+  '50',
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  '950'
+);
+
+// 渐变主题映射
+$gradient-themes: (
+  'purple-elegance',
+  'gray-minimal',
+  'indigo-dream',
+  'lavender-breeze',
+  'earth-harmony',
+  'vintage-rose',
+  'ocean-depths',
+  'sunset-glow',
+  'mint-fresh',
+  'forest-spirit',
+  'periwinkle-sky',
+  'blush-tones',
+  'warm-spectrum',
+  'neon-vibrance'
+);
+
+// 渐变方向映射
+$gradient-directions: (
+  'top',
+  'right',
+  'bottom',
+  'left',
+  'top-right',
+  'bottom-right',
+  'top-left',
+  'bottom-left',
+  'radial'
+);
+
+// 主题颜色变量映射（用于生成类名）
+$theme-color-variables: (
+  'shadow-grey',
+  'electric-indigo',
+  'medium-slate-blue-style3',
+  'lavender-mist',
+  'ash-grey',
+  'lavender-grey',
+  'wisteria-blue-style4',
+  'lavender',
+  'ivory',
+  'lime-cream',
+  'jungle-green',
+  'bright-snow',
+  'almond-cream',
+  'terracotta-clay',
+  'dark-garnet',
+  'onyx',
+  'vintage-lavender',
+  'dusty-mauve',
+  'dusty-rose',
+  'rosy-taupe',
+  'ink-black',
+  'dark-teal',
+  'ocean-blue',
+  'sky-surge',
+  'bright-sky',
+  'dusk-blue',
+  'apricot-cream',
+  'sandy-brown-style8',
+  'pumpkin-spice',
+  'fern',
+  'moss-green',
+  'celadon',
+  'celadon-2',
+  'frosted-mint',
+  'charcoal-brown',
+  'dark-spruce',
+  'forest-green',
+  'radioactive-grass',
+  'spring-green',
+  'mint-cream',
+  'alice-blue',
+  'periwinkle',
+  'medium-slate-blue-style11',
+  'bubblegum-pink',
+  'blush-rose',
+  'taupe',
+  'grey-olive-style12',
+  'lilac-ash-style12',
+  'banana-cream',
+  'golden-pollen',
+  'sandy-brown-style13',
+  'vibrant-coral',
+  'carbon-black',
+  'canary-yellow',
+  'green-yellow',
+  'light-green',
+  'aquamarine',
+  'neon-ice'
+);
+
+// 生成文本颜色类的函数
+@function generate-text-color-class($color-name, $variant) {
+  @return '.text-#{$color-name}-#{$variant}';
+}
+
+// 生成背景颜色类的函数
+@function generate-bg-color-class($color-name, $variant) {
+  @return '.bg-#{$color-name}-#{$variant}';
+}
+
+// 生成渐变背景类的函数
+@function generate-gradient-bg-class($theme-name, $direction) {
+  @return '.bg-gradient-#{$theme-name}-#{$direction}';
+}
+
+// 生成主题颜色类的函数
+@function generate-theme-color-class($color-name, $variant) {
+  @return '.theme-color-#{$color-name}-#{$variant}';
+}
+
+// 生成所有文本颜色类
+@each $color-name in $color-variables {
+  @each $variant in $color-variants {
+    #{generate-text-color-class($color-name, $variant)} {
+      color: var(--color-#{$color-name}-#{$variant});
+    }
+  }
+}
+
+// 生成所有背景颜色类
+@each $color-name in $color-variables {
+  @each $variant in $color-variants {
+    #{generate-bg-color-class($color-name, $variant)} {
+      background-color: var(--color-#{$color-name}-#{$variant});
+    }
+  }
+}
+
+// 生成所有渐变背景类
+@each $theme-name in $gradient-themes {
+  @each $direction in $gradient-directions {
+    #{generate-gradient-bg-class($theme-name, $direction)} {
+      background: var(--#{$theme-name}-gradient-#{$direction});
+    }
+  }
+}
+
+// 生成所有主题颜色类
+@each $color-name in $theme-color-variables {
+  @each $variant in $color-variants {
+    #{generate-theme-color-class($color-name, $variant)} {
+      color: var(--theme-color-#{$color-name}-#{$variant});
+    }
+  }
+}
+
+:root {
+  // 手机屏幕宽度（使用二倍图750*1624）
+  --current-ui-width: 375;
+  --current-ui-height: 812;
+
+  // 平板 (768px - 1024px)
+  @media (min-width: 768px) {
+    --current-ui-width: 768; /* iPad 宽度 */
+    --current-ui-height: 1024;
+  }
+
+  // 笔记本电脑 (1025px - 1440px)
+  @media (min-width: 1025px) {
+    --current-ui-width: 1366; /* 标准笔记本宽度 */
+    --current-ui-height: 768;
+  }
+
+  // 台式机 (1441px - 1920px)
+  @media (min-width: 1441px) {
+    --current-ui-width: 1920; /* 全高清显示器 */
+    --current-ui-height: 1080;
+  }
+
+  // 大屏显示器 (> 1920px)
+  @media (min-width: 1921px) {
+    --current-ui-width: 2560; /* 2K显示器 */
+    --current-ui-height: 1440;
+  }
+
+  // 超高清显示器 (> 2560px)
+  @media (min-width: 3841px) {
+    --current-ui-width: 3840; /* 4K显示器 */
+    --current-ui-height: 2160;
+  }
+
+  // 字体族
+  --font-family: 'rx';
+  --font-family-custom: 'custom-font';
+  --font-family-icon: 'iconfont';
+  // 图标字体路径
+  --font-family-icon-path: '../fonts/iconfont.ttf';
+  // 静态资源路径
+  --static-path: '../asset/';
+
+  // （共用）
+  --color-white: hsla(0, 0%, 100%, 1);
+  --color-black: hsla(0, 0%, 0%, 1);
+  --color-transparent: transparent;
+  --color-text-primary: hsla(0, 0%, 20%, 1);
+  --color-text-secondary: hsla(0, 0%, 45%, 1);
+  --color-text-placeholder: hsla(0, 0%, 65%, 1);
+  --color-border-primary: hsla(0, 0%, 90%, 1);
+  --color-border-secondary: hsla(0, 0%, 80%, 1);
+
+  // 默认主题（优雅紫韵）
+  --theme-primary: #9ba2ff;
+  --theme-secondary: #a499be;
+  --theme-accent: #9e8576;
+  --theme-dark: #2a2e45;
+  --theme-light: #eeefff;
+  --theme-gradient: var(--purple-elegance-gradient-top);
+
+  // 紫色系
+  --color-wisteria-blue-1: hsla(236, 100%, 80%, 1);    // style 1
+  --color-wisteria-blue-2: hsla(225, 38%, 68%, 1);    // style 4
+  --color-lilac-ash-1: hsla(258, 22%, 67%, 1);        // style 1
+  --color-lilac-ash-2: hsla(3, 10%, 64%, 1);          // style 12
+  --color-medium-slate-blue-1: hsla(245, 100%, 73%, 1); // style 3
+  --color-medium-slate-blue-2: hsla(260, 100%, 65%, 1); // style 11
+
+  // 灰色系
+  --color-graphite: hsla(0, 0%, 21%, 1);
+  --color-pale-slate: hsla(217, 17%, 85%, 1);
+  --color-silver: hsla(51, 9%, 72%, 1);
+  --color-grey-olive-1: hsla(56, 6%, 51%, 1);         // style 2
+  --color-grey-olive-2: hsla(100, 3%, 56%, 1);        // style 12
+  --color-shadow-grey: hsla(334, 12%, 12%, 1);
+
+  // 绿色系
+  --color-jungle-green: hsla(163, 100%, 33%, 1);
+  --color-fern: hsla(128, 26%, 40%, 1);
+  --color-moss-green: hsla(123, 48%, 65%, 1);
+  --color-celadon: hsla(148, 64%, 75%, 1);
+  --color-celadon-2: hsla(137, 85%, 85%, 1);
+  --color-frosted-mint: hsla(148, 100%, 89%, 1);
+  --color-forest-green: hsla(138, 76%, 31%, 1);
+  --color-radioactive-grass: hsla(128, 97%, 46%, 1);
+  --color-spring-green: hsla(142, 100%, 55%, 1);
+
+  // 蓝色系
+  --color-space-indigo: hsla(231, 24%, 22%, 1);
+  --color-lavender-grey: hsla(232, 26%, 59%, 1);
+  --color-lavender: hsla(235, 46%, 90%, 1);
+  --color-electric-indigo: hsla(260, 86%, 53%, 1);
+  --color-lavender-mist: hsla(284, 58%, 96%, 1);
+  --color-ash-grey: hsla(120, 12%, 81%, 1);
+  --color-ink-black: hsla(211, 100%, 6%, 1);
+  --color-dark-teal: hsla(181, 92%, 15%, 1);
+  --color-ocean-blue: hsla(201, 81%, 40%, 1);
+  --color-sky-surge: hsla(193, 86%, 48%, 1);
+  --color-bright-sky: hsla(194, 90%, 45%, 1);
+  --color-dusk-blue: hsla(229, 28%, 43%, 1);
+  --color-alice-blue: hsla(212, 41%, 93%, 1);
+  --color-periwinkle: hsla(245, 78%, 86%, 1);
+
+  // 棕色系
+  --color-dusty-taupe: hsla(23, 17%, 54%, 1);
+  --color-olive-wood: hsla(30, 45%, 33%, 1);
+  --color-almond-cream: hsla(29, 33%, 82%, 1);
+  --color-terracotta-clay: hsla(11, 29%, 52%, 1);
+  --color-dark-garnet: hsla(14, 100%, 19%, 1);
+  --color-onyx: hsla(109, 33%, 6%, 1);
+  --color-vintage-lavender: hsla(280, 23%, 44%, 1);
+  --color-dusty-mauve: hsla(312, 15%, 52%, 1);
+  --color-dusty-rose: hsla(358, 23%, 58%, 1);
+  --color-rosy-taupe: hsla(1, 27%, 64%, 1);
+  --color-charcoal-brown: hsla(150, 10%, 23%, 1);
+  --color-dark-spruce: hsla(143, 34%, 24%, 1);
+  --color-taupe: hsla(356, 14%, 56%, 1);
+
+  // 橙色/红色系
+  --color-apricot-cream: hsla(34, 91%, 75%, 1);
+  --color-sandy-brown-1: hsla(32, 96%, 67%, 1);       // style 8
+  --color-sandy-brown-2: hsla(29, 100%, 68%, 1);      // style 13
+  --color-pumpkin-spice: hsla(23, 100%, 63%, 1);
+  --color-bubblegum-pink: hsla(350, 75%, 64%, 1);
+  --color-blush-rose: hsla(349, 45%, 60%, 1);
+  --color-vibrant-coral: hsla(11, 100%, 68%, 1);
+
+  // 黄色系
+  --color-ivory: hsla(60, 50%, 95%, 1);
+  --color-lime-cream: hsla(79, 78%, 81%, 1);
+  --color-bright-snow: hsla(180, 14%, 97%, 1);
+  --color-mint-cream: hsla(161, 100%, 97%, 1);
+  --color-banana-cream: hsla(55, 100%, 68%, 1);
+  --color-golden-pollen: hsla(44, 100%, 68%, 1);
+  --color-canary-yellow: hsla(60, 88%, 57%, 1);
+  --color-green-yellow: hsla(80, 85%, 66%, 1);
+
+  // 青色系
+  --color-light-green: hsla(120, 79%, 76%, 1);
+  --color-aquamarine: hsla(160, 85%, 66%, 1);
+  --color-neon-ice: hsla(180, 88%, 57%, 1);
+
+  // 黑色系
+  --color-carbon-black: hsla(0, 0%, 10%, 1);
+
+  // 颜色变体（从第158-220行转换）
+  // Wisteria Blue 系列
+  --color-wisteria-blue-50: #eeefff;
+  --color-wisteria-blue-100: #dddfff;
+  --color-wisteria-blue-200: #cccfff;
+  --color-wisteria-blue-300: #bbc0ff;
+  --color-wisteria-blue-400: #aab0ff;
+  --color-wisteria-blue-500: #9ba2ff;
+  --color-wisteria-blue-600: #5560ff;
+  --color-wisteria-blue-700: #1121ff;
+  --color-wisteria-blue-800: #000ecc;
+  --color-wisteria-blue-900: #000988;
+  --color-wisteria-blue-950: #000544;
+
+  // Lilac Ash 系列
+  --color-lilac-ash-50: #e9e6ef;
+  --color-lilac-ash-100: #d3cddf;
+  --color-lilac-ash-200: #bcb4cf;
+  --color-lilac-ash-300: #a69bbf;
+  --color-lilac-ash-400: #9083af;
+  --color-lilac-ash-500: #7a6aa0;
+  --color-lilac-ash-600: #655687;
+  --color-lilac-ash-700: #51456c;
+  --color-lilac-ash-800: #3c3451;
+  --color-lilac-ash-900: #282236;
+  --color-lilac-ash-950: #14111b;
+
+  // Dusty Taupe 系列
+  --color-dusty-taupe-50: #efebe8;
+  --color-dusty-taupe-100: #dfd6d1;
+  --color-dusty-taupe-200: #cec2ba;
+  --color-dusty-taupe-300: #beaea4;
+  --color-dusty-taupe-400: #ae998d;
+  --color-dusty-taupe-500: #9e8576;
+  --color-dusty-taupe-600: #866e5f;
+  --color-dusty-taupe-700: #6b584c;
+  --color-dusty-taupe-800: #514239;
+  --color-dusty-taupe-900: #362c26;
+  --color-dusty-taupe-950: #1b1613;
+
+  // Olive Wood 系列
+  --color-olive-wood-50: #efe3d6;
+  --color-olive-wood-100: #e0c6ac;
+  --color-olive-wood-200: #d0aa83;
+  --color-olive-wood-300: #c08d5a;
+  --color-olive-wood-400: #a3713e;
+  --color-olive-wood-500: #7a542e;
+  --color-olive-wood-600: #664627;
+  --color-olive-wood-700: #51381f;
+  --color-olive-wood-800: #3d2a17;
+  --color-olive-wood-900: #291c0f;
+  --color-olive-wood-950: #140e08;
+
+  // Space Indigo 系列
+  --color-space-indigo-50: #d6d8e6;
+  --color-space-indigo-100: #adb2cd;
+  --color-space-indigo-200: #848bb3;
+  --color-space-indigo-300: #5d6698;
+  --color-space-indigo-400: #444a6f;
+  --color-space-indigo-500: #2a2e45;
+  --color-space-indigo-600: #24273a;
+  --color-space-indigo-700: #1c1f2e;
+  --color-space-indigo-800: #151723;
+  --color-space-indigo-900: #0e1017;
+  --color-space-indigo-950: #07080c;
+
+  // 极简灰调颜色系列（从第318-395行转换）
+  // Graphite 系列
+  --color-graphite-50: #dddddd;
+  --color-graphite-100: #bcbcbc;
+  --color-graphite-200: #9a9a9a;
+  --color-graphite-300: #797979;
+  --color-graphite-400: #575757;
+  --color-graphite-500: #353535;
+  --color-graphite-600: #2d2d2d;
+  --color-graphite-700: #242424;
+  --color-graphite-800: #1b1b1b;
+  --color-graphite-900: #121212;
+  --color-graphite-950: #090909;
+
+  // White 系列
+  --color-white-50: #ffffff;
+  --color-white-100: #ffffff;
+  --color-white-200: #ffffff;
+  --color-white-300: #ffffff;
+  --color-white-400: #ffffff;
+  --color-white-500: #ffffff;
+  --color-white-600: #d5d5d5;
+  --color-white-700: #aaaaaa;
+  --color-white-800: #808080;
+  --color-white-900: #555555;
+  --color-white-950: #2b2b2b;
+
+  // Pale Slate 系列
+  --color-pale-slate-50: #f8f8fa;
+  --color-pale-slate-100: #f0f2f4;
+  --color-pale-slate-200: #e9ebef;
+  --color-pale-slate-300: #e1e4ea;
+  --color-pale-slate-400: #dadee5;
+  --color-pale-slate-500: #d2d7df;
+  --color-pale-slate-600: #a8b2c1;
+  --color-pale-slate-700: #7e8ca3;
+  --color-pale-slate-800: #5a687f;
+  --color-pale-slate-900: #3c4555;
+  --color-pale-slate-950: #1e232a;
+
+  // Silver 系列
+  --color-silver-50: #f4f4f2;
+  --color-silver-100: #e9e9e5;
+  --color-silver-200: #dfded8;
+  --color-silver-300: #d4d2cb;
+  --color-silver-400: #c9c7be;
+  --color-silver-500: #bdbbb0;
+  --color-silver-600: #a29f90;
+  --color-silver-700: #85826f;
+  --color-silver-800: #646254;
+  --color-silver-900: #434138;
+  --color-silver-950: #21211c;
+
+  // Grey Olive 系列
+  --color-grey-olive-50: #ebebe9;
+  --color-grey-olive-100: #d8d8d3;
+  --color-grey-olive-200: #c4c4bd;
+  --color-grey-olive-300: #b1b0a7;
+  --color-grey-olive-400: #9d9c91;
+  --color-grey-olive-500: #8a897c;
+  --color-grey-olive-600: #737266;
+  --color-grey-olive-700: #5c5b51;
+  --color-grey-olive-800: #45443d;
+  --color-grey-olive-900: #2e2e29;
+  --color-grey-olive-950: #171714;
+
+  // 靛蓝梦境颜色系列（从第403-480行转换）
+  // Shadow Grey 系列
+  --color-shadow-grey-50: #ded5d9;
+  --color-shadow-grey-100: #bdabb3;
+  --color-shadow-grey-200: #9c818d;
+  --color-shadow-grey-300: #765d68;
+  --color-shadow-grey-400: #4c3c43;
+  --color-shadow-grey-500: #211a1d;
+  --color-shadow-grey-600: #1d1619;
+  --color-shadow-grey-700: #171214;
+  --color-shadow-grey-800: #110d0f;
+  --color-shadow-grey-900: #0b090a;
+  --color-shadow-grey-950: #060405;
+
+  // Electric Indigo 系列
+  --color-electric-indigo-50: #e5dafc;
+  --color-electric-indigo-100: #ccb5f9;
+  --color-electric-indigo-200: #b290f7;
+  --color-electric-indigo-300: #986af4;
+  --color-electric-indigo-400: #7e45f1;
+  --color-electric-indigo-500: #6320ee;
+  --color-electric-indigo-600: #5010d1;
+  --color-electric-indigo-700: #400da8;
+  --color-electric-indigo-800: #30097e;
+  --color-electric-indigo-900: #200654;
+  --color-electric-indigo-950: #10032a;
+
+  // Medium Slate Blue 系列
+  --color-medium-slate-blue-50: #eae8ff;
+  --color-medium-slate-blue-100: #d5d1ff;
+  --color-medium-slate-blue-200: #c0baff;
+  --color-medium-slate-blue-300: #aba3ff;
+  --color-medium-slate-blue-400: #968cff;
+  --color-medium-slate-blue-500: #8075ff;
+  --color-medium-slate-blue-600: #4837ff;
+  --color-medium-slate-blue-700: #1500f8;
+  --color-medium-slate-blue-800: #1000ba;
+  --color-medium-slate-blue-900: #0a007c;
+  --color-medium-slate-blue-950: #05003e;
+
+  // Lavender Mist 系列
+  --color-lavender-mist-50: #fefcfe;
+  --color-lavender-mist-100: #fdfafe;
+  --color-lavender-mist-200: #fbf7fd;
+  --color-lavender-mist-300: #faf4fc;
+  --color-lavender-mist-400: #f9f2fb;
+  --color-lavender-mist-500: #f8f0fb;
+  --color-lavender-mist-600: #daaeea;
+  --color-lavender-mist-700: #bc6ed8;
+  --color-lavender-mist-800: #9c33c1;
+  --color-lavender-mist-900: #682281;
+  --color-lavender-mist-950: #341140;
+
+  // Ash Grey 系列
+  --color-ash-grey-50: #f6f8f6;
+  --color-ash-grey-100: #edf1ed;
+  --color-ash-grey-200: #e4eae4;
+  --color-ash-grey-300: #dbe3db;
+  --color-ash-grey-400: #d2dbd2;
+  --color-ash-grey-500: #cad5ca;
+  --color-ash-grey-600: #a2b6a2;
+  --color-ash-grey-700: #7c987c;
+  --color-ash-grey-800: #5b745b;
+  --color-ash-grey-900: #3d4d3d;
+  --color-ash-grey-950: #1e271e;
+
+  // 主题4：薰衣草风颜色系列
+  // Lavender Grey 系列
+  --color-lavender-grey-50: #e9eaf2;
+  --color-lavender-grey-100: #d3d6e5;
+  --color-lavender-grey-200: #bdc1d8;
+  --color-lavender-grey-300: #a7accb;
+  --color-lavender-grey-400: #9197bf;
+  --color-lavender-grey-500: #7d84b2;
+  --color-lavender-grey-600: #5d659e;
+  --color-lavender-grey-700: #4a517e;
+  --color-lavender-grey-800: #383d5f;
+  --color-lavender-grey-900: #25293f;
+  --color-lavender-grey-950: #131420;
+
+  // Lavender 系列
+  --color-lavender-50: #f9f9fd;
+  --color-lavender-100: #f3f3fa;
+  --color-lavender-200: #ecedf8;
+  --color-lavender-300: #e6e7f6;
+  --color-lavender-400: #e0e2f4;
+  --color-lavender-500: #d9dbf1;
+  --color-lavender-600: #a2a7dd;
+  --color-lavender-700: #6a72c8;
+  --color-lavender-800: #3e47a8;
+  --color-lavender-900: #292f70;
+  --color-lavender-950: #151838;
+
+  // Ivory 系列
+  --color-ivory-50: #fefefc;
+  --color-ivory-100: #fdfdf9;
+  --color-ivory-200: #fcfcf5;
+  --color-ivory-300: #fbfbf2;
+  --color-ivory-400: #fafaef;
+  --color-ivory-500: #f9f9ed;
+  --color-ivory-600: #e4e4af;
+  --color-ivory-700: #d0d073;
+  --color-ivory-800: #b6b63d;
+  --color-ivory-900: #797928;
+  --color-ivory-950: #3d3d14;
+
+  // Lime Cream 系列
+  --color-lime-cream-50: #f9fdf1;
+  --color-lime-cream-100: #f3fbe2;
+  --color-lime-cream-200: #eefad4;
+  --color-lime-cream-300: #e8f8c6;
+  --color-lime-cream-400: #e2f6b7;
+  --color-lime-cream-500: #dbf4a7;
+  --color-lime-cream-600: #c4ed6b;
+  --color-lime-cream-700: #abe52e;
+  --color-lime-cream-800: #85b817;
+  --color-lime-cream-900: #597b0f;
+  --color-lime-cream-950: #2c3d08;
+
+  // 主题5：大地和谐颜色系列
+  // Jungle Green 系列
+  --color-jungle-green-50: #c6ffef;
+  --color-jungle-green-100: #8dffdf;
+  --color-jungle-green-200: #54ffcf;
+  --color-jungle-green-300: #1bffbe;
+  --color-jungle-green-400: #00e1a1;
+  --color-jungle-green-500: #00a676;
+  --color-jungle-green-600: #008c65;
+  --color-jungle-green-700: #007050;
+  --color-jungle-green-800: #00543c;
+  --color-jungle-green-900: #003828;
+  --color-jungle-green-950: #001c14;
+
+  // Bright Snow 系列
+  --color-bright-snow-50: #fefefe;
+  --color-bright-snow-100: #fcfdfd;
+  --color-bright-snow-200: #fbfcfc;
+  --color-bright-snow-300: #f9fbfb;
+  --color-bright-snow-400: #f8fafa;
+  --color-bright-snow-500: #f7f9f9;
+  --color-bright-snow-600: #c7d5d5;
+  --color-bright-snow-700: #98b2b2;
+  --color-bright-snow-800: #6a8d8d;
+  --color-bright-snow-900: #475e5e;
+  --color-bright-snow-950: #232f2f;
+
+  // Almond Cream 系列
+  --color-almond-cream-50: #faf7f5;
+  --color-almond-cream-100: #f5f0eb;
+  --color-almond-cream-200: #f0e8e0;
+  --color-almond-cream-300: #eae0d6;
+  --color-almond-cream-400: #e5d8cc;
+  --color-almond-cream-500: #e0d0c1;
+  --color-almond-cream-600: #c9ad94;
+  --color-almond-cream-700: #b28a65;
+  --color-almond-cream-800: #8b6746;
+  --color-almond-cream-900: #5d452f;
+  --color-almond-cream-950: #2e2217;
+
+  // Terracotta Clay 系列
+  --color-terracotta-clay-50: #f9e9e5;
+  --color-terracotta-clay-100: #f3d3ca;
+  --color-terracotta-clay-200: #eeb7b0;
+  --color-terracotta-clay-300: #e89e96;
+  --color-terracotta-clay-400: #e2867b;
+  --color-terracotta-clay-500: #a76d60;
+  --color-terracotta-clay-600: #8f5a4e;
+  --color-terracotta-clay-700: #72483f;
+  --color-terracotta-clay-800: #56362f;
+  --color-terracotta-clay-900: #39241f;
+  --color-terracotta-clay-950: #1d1210;
+
+  // Dark Garnet 系列
+  --color-dark-garnet-50: #f1e7e5;
+  --color-dark-garnet-100: #e2cfca;
+  --color-dark-garnet-200: #d4b7b0;
+  --color-dark-garnet-300: #c59e96;
+  --color-dark-garnet-400: #b7867b;
+  --color-dark-garnet-500: #a76d60;
+  --color-dark-garnet-600: #8f5a4e;
+  --color-dark-garnet-700: #72483f;
+  --color-dark-garnet-800: #56362f;
+  --color-dark-garnet-900: #39241f;
+  --color-dark-garnet-950: #1d1210;
+
+  // 主题6：复古玫瑰颜色系列
+  // Onyx 系列
+  --color-onyx-50: #cfe4ca;
+  --color-onyx-100: #9ec995;
+  --color-onyx-200: #6eaf60;
+  --color-onyx-300: #4b7f40;
+  --color-onyx-400: #2c4925;
+  --color-onyx-500: #0d160b;
+  --color-onyx-600: #0a1109;
+  --color-onyx-700: #080e07;
+  --color-onyx-800: #060a05;
+  --color-onyx-900: #040703;
+  --color-onyx-950: #020302;
+
+  // Vintage Lavender 系列
+  --color-vintage-lavender-50: #e9e2ed;
+  --color-vintage-lavender-100: #d3c4da;
+  --color-vintage-lavender-200: #bda7c8;
+  --color-vintage-lavender-300: #a78ab6;
+  --color-vintage-lavender-400: #916da3;
+  --color-vintage-lavender-500: #785589;
+  --color-vintage-lavender-600: #654873;
+  --color-vintage-lavender-700: #513a5c;
+  --color-vintage-lavender-800: #3c2b45;
+  --color-vintage-lavender-900: #281d2e;
+  --color-vintage-lavender-950: #140e17;
+
+  // Dusty Mauve 系列
+  --color-dusty-mauve-50: #eee8ec;
+  --color-dusty-mauve-100: #dcd0da;
+  --color-dusty-mauve-200: #cbb9c7;
+  --color-dusty-mauve-300: #baa1b5;
+  --color-dusty-mauve-400: #a88aa2;
+  --color-dusty-mauve-500: #977390;
+  --color-dusty-mauve-600: #7f5e78;
+  --color-dusty-mauve-700: #664b60;
+  --color-dusty-mauve-800: #4c3848;
+  --color-dusty-mauve-900: #332630;
+  --color-dusty-mauve-950: #191318;
+
+  // Dusty Rose 系列
+  --color-dusty-rose-50: #f1e9e9;
+  --color-dusty-rose-100: #e4d3d4;
+  --color-dusty-rose-200: #d6bdbe;
+  --color-dusty-rose-300: #c8a7a8;
+  --color-dusty-rose-400: #ba9193;
+  --color-dusty-rose-500: #ac7b7d;
+  --color-dusty-rose-600: #985f61;
+  --color-dusty-rose-700: #794c4d;
+  --color-dusty-rose-800: #5b393a;
+  --color-dusty-rose-900: #3d2627;
+  --color-dusty-rose-950: #1e1313;
+
+  // Rosy Taupe 系列
+  --color-rosy-taupe-50: #f4ecec;
+  --color-rosy-taupe-100: #e9d8d8;
+  --color-rosy-taupe-200: #ddc5c5;
+  --color-rosy-taupe-300: #d2b2b1;
+  --color-rosy-taupe-400: #c79f9e;
+  --color-rosy-taupe-500: #bb8a89;
+  --color-rosy-taupe-600: #a86968;
+  --color-rosy-taupe-700: #8a504f;
+  --color-rosy-taupe-800: #683c3c;
+  --color-rosy-taupe-900: #452828;
+  --color-rosy-taupe-950: #231414;
+
+  --radius: 4px;
+
+  // 主题7：深海蓝调颜色系列
+  // Ink Black 系列
+  --color-ink-black-50: #afd6ff;
+  --color-ink-black-100: #5facff;
+  --color-ink-black-200: #0f83ff;
+  --color-ink-black-300: #005cbe;
+  --color-ink-black-400: #00356e;
+  --color-ink-black-500: #001021;
+  --color-ink-black-600: #000c1a;
+  --color-ink-black-700: #000a14;
+  --color-ink-black-800: #00070f;
+  --color-ink-black-900: #00050a;
+  --color-ink-black-950: #000205;
+
+  // Dark Teal 系列
+  --color-dark-teal-50: #bafbfc;
+  --color-dark-teal-100: #74f7f9;
+  --color-dark-teal-200: #2ff3f6;
+  --color-dark-teal-300: #09d1d4;
+  --color-dark-teal-400: #068d8f;
+  --color-dark-teal-500: #034748;
+  --color-dark-teal-600: #033c3d;
+  --color-dark-teal-700: #023031;
+  --color-dark-teal-800: #022425;
+  --color-dark-teal-900: #011818;
+  --color-dark-teal-950: #010c0c;
+
+  // Ocean Blue 系列
+  --color-ocean-blue-50: #d1ecfa;
+  --color-ocean-blue-100: #a3d8f5;
+  --color-ocean-blue-200: #75c5f0;
+  --color-ocean-blue-300: #46b2ec;
+  --color-ocean-blue-400: #189ee7;
+  --color-ocean-blue-500: #1481ba;
+  --color-ocean-blue-600: #106a9a;
+  --color-ocean-blue-700: #0d557b;
+  --color-ocean-blue-800: #0a3f5c;
+  --color-ocean-blue-900: #062a3e;
+  --color-ocean-blue-950: #03151f;
+
+  // Sky Surge 系列
+  --color-sky-surge-50: #d6f4fc;
+  --color-sky-surge-100: #ade8f9;
+  --color-sky-surge-200: #84ddf6;
+  --color-sky-surge-300: #5bd2f3;
+  --color-sky-surge-400: #5bd2f3;
+  --color-sky-surge-500: #11b5e4;
+  --color-sky-surge-600: #0e98be;
+  --color-sky-surge-700: #0b7998;
+  --color-sky-surge-800: #095b72;
+  --color-sky-surge-900: #063d4c;
+  --color-sky-surge-950: #031e26;
+
+  // Bright Sky 系列
+  --color-bright-sky-50: #d3f3fd;
+  --color-bright-sky-100: #a6e7fa;
+  --color-bright-sky-200: #7adbf8;
+  --color-bright-sky-300: #4dcef6;
+  --color-bright-sky-400: #21c2f3;
+  --color-bright-sky-500: #0caadc;
+  --color-bright-sky-600: #0a8eb6;
+  --color-bright-sky-700: #087191;
+  --color-bright-sky-800: #06556d;
+  --color-bright-sky-900: #043949;
+  --color-bright-sky-950: #021c24;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  // 主题8：日落余晖颜色系列
+  // Dusk Blue 系列
+  --color-dusk-blue-50: #e0e2ee;
+  --color-dusk-blue-100: #c1c6dc;
+  --color-dusk-blue-200: #a2a9cb;
+  --color-dusk-blue-300: #838db9;
+  --color-dusk-blue-400: #6470a8;
+  --color-dusk-blue-500: #4e598c;
+  --color-dusk-blue-600: #424b75;
+  --color-dusk-blue-700: #353c5e;
+  --color-dusk-blue-800: #272d46;
+  --color-dusk-blue-900: #1a1e2f;
+  --color-dusk-blue-950: #0d0f17;
+
+  // Apricot Cream 系列
+  --color-apricot-cream-50: #fef6eb;
+  --color-apricot-cream-100: #fdecd6;
+  --color-apricot-cream-200: #fce3c2;
+  --color-apricot-cream-300: #fbdaae;
+  --color-apricot-cream-400: #fad09a;
+  --color-apricot-cream-500: #f9c784;
+  --color-apricot-cream-600: #f6ab48;
+  --color-apricot-cream-700: #f48f0b;
+  --color-apricot-cream-800: #b76b09;
+  --color-apricot-cream-900: #7a4706;
+  --color-apricot-cream-950: #3d2403;
+
+  // Sandy Brown 系列
+  --color-sandy-brown-50: #fef2e4;
+  --color-sandy-brown-100: #fee5c8;
+  --color-sandy-brown-200: #fdd8ad;
+  --color-sandy-brown-300: #fdca91;
+  --color-sandy-brown-400: #fcbd76;
+  --color-sandy-brown-500: #fcaf58;
+  --color-sandy-brown-600: #fa9622;
+  --color-sandy-brown-700: #df7905;
+  --color-sandy-brown-800: #a75b03;
+  --color-sandy-brown-900: #703d02;
+  --color-sandy-brown-950: #381e01;
+
+  // Pumpkin Spice 系列
+  --color-pumpkin-spice-50: #ffece0;
+  --color-pumpkin-spice-100: #ffd8c0;
+  --color-pumpkin-spice-200: #ffc5a1;
+  --color-pumpkin-spice-300: #ffb181;
+  --color-pumpkin-spice-400: #ff9e62;
+  --color-pumpkin-spice-500: #ff8c42;
+  --color-pumpkin-spice-600: #ff6a0d;
+  --color-pumpkin-spice-700: #d65200;
+  --color-pumpkin-spice-800: #a13e00;
+  --color-pumpkin-spice-900: #6b2900;
+  --color-pumpkin-spice-950: #361500;
+
+  // 主题9：清新薄荷颜色系列
+  // Fern 系列
+  --color-fern-50: #dfece1;
+  --color-fern-100: #bfd9c2;
+  --color-fern-200: #9fc6a4;
+  --color-fern-300: #7eb486;
+  --color-fern-400: #5ea167;
+  --color-fern-500: #4b7f52;
+  --color-fern-600: #3f6b45;
+  --color-fern-700: #325637;
+  --color-fern-800: #264029;
+  --color-fern-900: #192b1c;
+  --color-fern-950: #0d150e;
+
+  // Moss Green 系列
+  --color-moss-green-50: #e9f7ea;
+  --color-moss-green-100: #d3f0d4;
+  --color-moss-green-200: #bde8bf;
+  --color-moss-green-300: #a7e0aa;
+  --color-moss-green-400: #91d894;
+  --color-moss-green-500: #7dd181;
+  --color-moss-green-600: #52c258;
+  --color-moss-green-700: #39a43f;
+  --color-moss-green-800: #2b7b2f;
+  --color-moss-green-900: #1d521f;
+  --color-moss-green-950: #0e2910;
+
+  // Celadon 系列
+  --color-celadon-50: #eefbf4;
+  --color-celadon-100: #dcf7e9;
+  --color-celadon-200: #cbf4de;
+  --color-celadon-300: #b9f0d3;
+  --color-celadon-400: #a8ecc8;
+  --color-celadon-500: #96e8bc;
+  --color-celadon-600: #62dd9b;
+  --color-celadon-700: #2ed17a;
+  --color-celadon-800: #229d5c;
+  --color-celadon-900: #17693d;
+  --color-celadon-950: #0b341f;
+
+  // Celadon 2 系列
+  --color-celadon-2-50: #f3fef6;
+  --color-celadon-2-100: #e7fdee;
+  --color-celadon-2-200: #dcfce5;
+  --color-celadon-2-300: #d0fbdc;
+  --color-celadon-2-400: #c4fad3;
+  --color-celadon-2-500: #b6f9c9;
+  --color-celadon-2-600: #75f499;
+  --color-celadon-2-700: #33ee68;
+  --color-celadon-2-800: #10c844;
+  --color-celadon-2-900: #0b862e;
+  --color-celadon-2-950: #054317;
+
+  // Frosted Mint 系列
+  --color-frosted-mint-50: #f6fffa;
+  --color-frosted-mint-100: #ecfff5;
+  --color-frosted-mint-200: #e3fff0;
+  --color-frosted-mint-300: #daffeb;
+  --color-frosted-mint-400: #d0ffe6;
+  --color-frosted-mint-500: #c9ffe2;
+  --color-frosted-mint-600: #7bffb9;
+  --color-frosted-mint-700: #30ff90;
+  --color-frosted-mint-800: #00e36a;
+  --color-frosted-mint-900: #009747;
+  --color-frosted-mint-950: #004c23;
+
+  // 主题10：森林精灵颜色系列
+  // Charcoal Brown 系列
+  --color-charcoal-brown-50: #dbe2de;
+  --color-charcoal-brown-100: #b7c4be;
+  --color-charcoal-brown-200: #93a79d;
+  --color-charcoal-brown-300: #70897c;
+  --color-charcoal-brown-400: #52655b;
+  --color-charcoal-brown-500: #34403a;
+  --color-charcoal-brown-600: #2c3631;
+  --color-charcoal-brown-700: #232b27;
+  --color-charcoal-brown-800: #1a201d;
+  --color-charcoal-brown-900: #121614;
+  --color-charcoal-brown-950: #090b0a;
+
+  // Dark Spruce 系列
+  --color-dark-spruce-50: #d4eadc;
+  --color-dark-spruce-100: #a8d4b9;
+  --color-dark-spruce-200: #7dbf96;
+  --color-dark-spruce-300: #53a974;
+  --color-dark-spruce-400: #3e7d56;
+  --color-dark-spruce-500: #285238;
+  --color-dark-spruce-600: #22442f;
+  --color-dark-spruce-700: #1b3726;
+  --color-dark-spruce-800: #14291c;
+  --color-dark-spruce-900: #0d1b13;
+  --color-dark-spruce-950: #070e09;
+
+  // Forest Green 系列
+  --color-forest-green-50: #cbf8d9;
+  --color-forest-green-100: #98f1b3;
+  --color-forest-green-200: #64ea8c;
+  --color-forest-green-300: #31e366;
+  --color-forest-green-400: #1abf4b;
+  --color-forest-green-500: #138a36;
+  --color-forest-green-600: #10742e;
+  --color-forest-green-700: #0d5d25;
+  --color-forest-green-800: #09461c;
+  --color-forest-green-900: #062e12;
+  --color-forest-green-950: #031709;
+
+  // Radioactive Grass 系列
+  --color-radioactive-grass-50: #d2fed8;
+  --color-radioactive-grass-100: #a5feb0;
+  --color-radioactive-grass-200: #77fd89;
+  --color-radioactive-grass-300: #4afc62;
+  --color-radioactive-grass-400: #1dfc3b;
+  --color-radioactive-grass-500: #04e824;
+  --color-radioactive-grass-600: #03c11c;
+  --color-radioactive-grass-700: #029a17;
+  --color-radioactive-grass-800: #027411;
+  --color-radioactive-grass-900: #014d0b;
+  --color-radioactive-grass-950: #012706;
+
+  // Spring Green 系列
+  --color-spring-green-50: #d9ffe7;
+  --color-spring-green-100: #b3ffcf;
+  --color-spring-green-200: #8cffb6;
+  --color-spring-green-300: #66ff9e;
+  --color-spring-green-400: #40ff86;
+  --color-spring-green-500: #18ff6d;
+  --color-spring-green-600: #00ea56;
+  --color-spring-green-700: #00bb45;
+  --color-spring-green-800: #008c33;
+  --color-spring-green-900: #005e22;
+  --color-spring-green-950: #002f11;
+
+  // 主题11：长春花蓝颜色系列
+  // Mint Cream 系列
+  --color-mint-cream-50: #fcfffe;
+  --color-mint-cream-100: #fafffd;
+  --color-mint-cream-200: #f7fffd;
+  --color-mint-cream-300: #f5fffc;
+  --color-mint-cream-400: #f2fffb;
+  --color-mint-cream-500: #effffa;
+  --color-mint-cream-600: #9dffe0;
+  --color-mint-cream-700: #4bffc6;
+  --color-mint-cream-800: #00f7a9;
+  --color-mint-cream-900: #00a571;
+  --color-mint-cream-950: #005238;
+
+  // Alice Blue 系列
+  --color-alice-blue-50: #fbfcfd;
+  --color-alice-blue-100: #f7f9fb;
+  --color-alice-blue-200: #f2f6fa;
+  --color-alice-blue-300: #eef3f8;
+  --color-alice-blue-400: #eaf0f6;
+  --color-alice-blue-500: #e5ecf4;
+  --color-alice-blue-600: #aec4dd;
+  --color-alice-blue-700: #769bc6;
+  --color-alice-blue-800: #4673a7;
+  --color-alice-blue-900: #2f4d6f;
+  --color-alice-blue-950: #172638;
+
+  // Periwinkle 系列
+  --color-periwinkle-50: #f5f4fe;
+  --color-periwinkle-100: #ebeafc;
+  --color-periwinkle-200: #e2dffb;
+  --color-periwinkle-300: #d8d5fa;
+  --color-periwinkle-400: #cecaf8;
+  --color-periwinkle-500: #c3bef7;
+  --color-periwinkle-600: #887eef;
+  --color-periwinkle-700: #4b3de7;
+  --color-periwinkle-800: #2618c3;
+  --color-periwinkle-900: #1a1082;
+  --color-periwinkle-950: #0d0841;
+
+  // 主题12：腮红色调颜色系列
+  // Bubblegum Pink 系列
+  --color-bubblegum-pink-50: #fbe4e8;
+  --color-bubblegum-pink-100: #f7c9d1;
+  --color-bubblegum-pink-200: #f4afba;
+  --color-bubblegum-pink-300: #f094a3;
+  --color-bubblegum-pink-400: #ec798c;
+  --color-bubblegum-pink-500: #e85d75;
+  --color-bubblegum-pink-600: #e12f4d;
+  --color-bubblegum-pink-700: #be1b36;
+  --color-bubblegum-pink-800: #8f1429;
+  --color-bubblegum-pink-900: #5f0e1b;
+  --color-bubblegum-pink-950: #30070e;
+
+  // Blush Rose 系列
+  --color-blush-rose-50: #f6e6e9;
+  --color-blush-rose-100: #ecced3;
+  --color-blush-rose-200: #e3b5bd;
+  --color-blush-rose-300: #da9ca8;
+  --color-blush-rose-400: #d08492;
+  --color-blush-rose-500: #c76d7e;
+  --color-blush-rose-600: #b9465b;
+  --color-blush-rose-700: #943849;
+  --color-blush-rose-800: #6f2a37;
+  --color-blush-rose-900: #4a1c24;
+  --color-blush-rose-950: #250e12;
+
+  // Taupe 系列
+  --color-taupe-50: #efeaea;
+  --color-taupe-100: #dfd4d5;
+  --color-taupe-200: #cfbfc0;
+  --color-taupe-300: #bfaaab;
+  --color-taupe-400: #af9496;
+  --color-taupe-500: #9f8082;
+  --color-taupe-600: #886669;
+  --color-taupe-700: #6d5254;
+  --color-taupe-800: #513d3f;
+  --color-taupe-900: #36292a;
+  --color-taupe-950: #1b1415;
+
+  // 主题13：暖色调谱颜色系列
+  // Banana Cream 系列
+  --color-banana-cream-50: #fffde4;
+  --color-banana-cream-100: #fffac9;
+  --color-banana-cream-200: #fff8ad;
+  --color-banana-cream-300: #fff692;
+  --color-banana-cream-400: #fff477;
+  --color-banana-cream-500: #fff05a;
+  --color-banana-cream-600: #ffed22;
+  --color-banana-cream-700: #e7d400;
+  --color-banana-cream-800: #ad9f00;
+  --color-banana-cream-900: #746a00;
+  --color-banana-cream-950: #3a3500;
+
+  // Golden Pollen 系列
+  --color-golden-pollen-50: #fff8e4;
+  --color-golden-pollen-100: #fff0c9;
+  --color-golden-pollen-200: #ffe9ad;
+  --color-golden-pollen-300: #ffe292;
+  --color-golden-pollen-400: #ffdb77;
+  --color-golden-pollen-500: #ffd25a;
+  --color-golden-pollen-600: #ffc422;
+  --color-golden-pollen-700: #e7aa00;
+  --color-golden-pollen-800: #ad7f00;
+  --color-golden-pollen-900: #745500;
+  --color-golden-pollen-950: #3a2a00;
+
+  // Vibrant Coral 系列
+  --color-vibrant-coral-50: #ffe9e4;
+  --color-vibrant-coral-100: #ffd3c9;
+  --color-vibrant-coral-200: #ffbcad;
+  --color-vibrant-coral-300: #ffa692;
+  --color-vibrant-coral-400: #ff9077;
+  --color-vibrant-coral-500: #ff785a;
+  --color-vibrant-coral-600: #ff4b22;
+  --color-vibrant-coral-700: #e72a00;
+  --color-vibrant-coral-800: #ad2000;
+  --color-vibrant-coral-900: #741500;
+  --color-vibrant-coral-950: #3a0b00;
+
+  // Carbon Black 系列
+  --color-carbon-black-50: #d9d9d9;
+  --color-carbon-black-100: #b3b3b3;
+  --color-carbon-black-200: #8c8c8c;
+  --color-carbon-black-300: #666666;
+  --color-carbon-black-400: #404040;
+  --color-carbon-black-500: #191919;
+  --color-carbon-black-600: #151515;
+  --color-carbon-black-700: #111111;
+  --color-carbon-black-800: #0d0d0d;
+  --color-carbon-black-900: #090909;
+  --color-carbon-black-950: #040404;
+
+  // 主题14：霓虹活力颜色系列
+  // Canary Yellow 系列
+  --color-canary-yellow-50: #fdfddd;
+  --color-canary-yellow-100: #fbfbba;
+  --color-canary-yellow-200: #f8f898;
+  --color-canary-yellow-300: #f6f676;
+  --color-canary-yellow-400: #f4f453;
+  --color-canary-yellow-500: #f2f230;
+  --color-canary-yellow-600: #e4e40f;
+  --color-canary-yellow-700: #b6b60c;
+  --color-canary-yellow-800: #898909;
+  --color-canary-yellow-900: #5b5b06;
+  --color-canary-yellow-950: #2e2e03;
+
+  // Green Yellow 系列
+  --color-green-yellow-50: #f5fde4;
+  --color-green-yellow-100: #eafbca;
+  --color-green-yellow-200: #e0f8af;
+  --color-green-yellow-300: #d6f694;
+  --color-green-yellow-400: #cbf479;
+  --color-green-yellow-500: #c2f261;
+  --color-green-yellow-600: #adee2b;
+  --color-green-yellow-700: #90d011;
+  --color-green-yellow-800: #6c9c0d;
+  --color-green-yellow-900: #486808;
+  --color-green-yellow-950: #243404;
+
+  // Light Green 系列
+  --color-light-green-50: #edfded;
+  --color-light-green-100: #dafbda;
+  --color-light-green-200: #c8f9c8;
+  --color-light-green-300: #b6f6b6;
+  --color-light-green-400: #a4f4a4;
+  --color-light-green-500: #91f291;
+  --color-light-green-600: #58eb58;
+  --color-light-green-700: #1ee51e;
+  --color-light-green-800: #14ad14;
+  --color-light-green-900: #0e740e;
+  --color-light-green-950: #073a07;
+
+  // Aquamarine 系列
+  --color-aquamarine-50: #e4fdf5;
+  --color-aquamarine-100: #cafbea;
+  --color-aquamarine-200: #aff8e0;
+  --color-aquamarine-300: #94f6d6;
+  --color-aquamarine-400: #94f6d6;
+  --color-aquamarine-500: #61f2c2;
+  --color-aquamarine-600: #2beead;
+  --color-aquamarine-700: #11d090;
+  --color-aquamarine-800: #0d9c6c;
+  --color-aquamarine-900: #086848;
+  --color-aquamarine-950: #043424;
+
+  // Neon Ice 系列
+  --color-neon-ice-50: #ddfdfd;
+  --color-neon-ice-100: #bafbfb;
+  --color-neon-ice-200: #98f8f8;
+  --color-neon-ice-300: #76f6f6;
+  --color-neon-ice-400: #53f4f4;
+  --color-neon-ice-500: #30f2f2;
+  --color-neon-ice-600: #0fe4e4;
+  --color-neon-ice-700: #0cb6b6;
+  --color-neon-ice-800: #098989;
+  --color-neon-ice-900: #065b5b;
+  --color-neon-ice-950: #032e2e;
+
+  // 主题3：靛蓝梦境颜色系列
+  // Shadow Grey 系列
+  --theme-color-shadow-grey-50: #ded5d9;
+  --theme-color-shadow-grey-100: #bdabb3;
+  --theme-color-shadow-grey-200: #9c818d;
+  --theme-color-shadow-grey-300: #765d68;
+  --theme-color-shadow-grey-400: #4c3c43;
+  --theme-color-shadow-grey-500: #211a1d;
+  --theme-color-shadow-grey-600: #1d1619;
+  --theme-color-shadow-grey-700: #171214;
+  --theme-color-shadow-grey-800: #110d0f;
+  --theme-color-shadow-grey-900: #0b090a;
+  --theme-color-shadow-grey-950: #060405;
+
+  // Electric Indigo 系列
+  --theme-color-electric-indigo-50: #e5dafc;
+  --theme-color-electric-indigo-100: #ccb5f9;
+  --theme-color-electric-indigo-200: #b290f7;
+  --theme-color-electric-indigo-300: #986af4;
+  --theme-color-electric-indigo-400: #7e45f1;
+  --theme-color-electric-indigo-500: #6320ee;
+  --theme-color-electric-indigo-600: #5010d1;
+  --theme-color-electric-indigo-700: #400da8;
+  --theme-color-electric-indigo-800: #30097e;
+  --theme-color-electric-indigo-900: #200654;
+  --theme-color-electric-indigo-950: #10032a;
+
+  // Medium Slate Blue 系列 - style3
+  --theme-color-medium-slate-blue-style3-50: #eae8ff;
+  --theme-color-medium-slate-blue-style3-100: #d5d1ff;
+  --theme-color-medium-slate-blue-style3-200: #c0baff;
+  --theme-color-medium-slate-blue-style3-300: #aba3ff;
+  --theme-color-medium-slate-blue-style3-400: #968cff;
+  --theme-color-medium-slate-blue-style3-500: #8075ff;
+  --theme-color-medium-slate-blue-style3-600: #4837ff;
+  --theme-color-medium-slate-blue-style3-700: #1500f8;
+  --theme-color-medium-slate-blue-style3-800: #1000ba;
+  --theme-color-medium-slate-blue-style3-900: #0a007c;
+  --theme-color-medium-slate-blue-style3-950: #05003e;
+
+  // Lavender Mist 系列
+  --theme-color-lavender-mist-50: #fefcfe;
+  --theme-color-lavender-mist-100: #fdfafe;
+  --theme-color-lavender-mist-200: #fbf7fd;
+  --theme-color-lavender-mist-300: #faf4fc;
+  --theme-color-lavender-mist-400: #f9f2fb;
+  --theme-color-lavender-mist-500: #f8f0fb;
+  --theme-color-lavender-mist-600: #daaeea;
+  --theme-color-lavender-mist-700: #bc6ed8;
+  --theme-color-lavender-mist-800: #9c33c1;
+  --theme-color-lavender-mist-900: #682281;
+  --theme-color-lavender-mist-950: #341140;
+
+  // Ash Grey 系列
+  --theme-color-ash-grey-50: #f6f8f6;
+  --theme-color-ash-grey-100: #edf1ed;
+  --theme-color-ash-grey-200: #e4eae4;
+  --theme-color-ash-grey-300: #dbe3db;
+  --theme-color-ash-grey-400: #d2dbd2;
+  --theme-color-ash-grey-500: #cad5ca;
+  --theme-color-ash-grey-600: #a2b6a2;
+  --theme-color-ash-grey-700: #7c987c;
+  --theme-color-ash-grey-800: #5b745b;
+  --theme-color-ash-grey-900: #3d4d3d;
+  --theme-color-ash-grey-950: #1e271e;
+
+  // 主题4：薰衣草风颜色系列
+  // Lavender Grey 系列
+  --theme-color-lavender-grey-50: #e9eaf2;
+  --theme-color-lavender-grey-100: #d3d6e5;
+  --theme-color-lavender-grey-200: #bdc1d8;
+  --theme-color-lavender-grey-300: #a7accb;
+  --theme-color-lavender-grey-400: #9197bf;
+  --theme-color-lavender-grey-500: #7d84b2;
+  --theme-color-lavender-grey-600: #5d659e;
+  --theme-color-lavender-grey-700: #4a517e;
+  --theme-color-lavender-grey-800: #383d5f;
+  --theme-color-lavender-grey-900: #25293f;
+  --theme-color-lavender-grey-950: #131420;
+
+  // Wisteria Blue 系列 - style4
+  --theme-color-wisteria-blue-style4-50: #eceff7;
+  --theme-color-wisteria-blue-style4-100: #d9dfee;
+  --theme-color-wisteria-blue-style4-200: #c7cee6;
+  --theme-color-wisteria-blue-style4-300: #b4bedd;
+  --theme-color-wisteria-blue-style4-400: #a1aed5;
+  --theme-color-wisteria-blue-style4-500: #8e9dcc;
+  --theme-color-wisteria-blue-style4-600: #677cba;
+  --theme-color-wisteria-blue-style4-700: #485ea0;
+  --theme-color-wisteria-blue-style4-800: #364678;
+  --theme-color-wisteria-blue-style4-900: #242f50;
+  --theme-color-wisteria-blue-style4-950: #121728;
+
+  // Lavender 系列
+  --theme-color-lavender-50: #f9f9fd;
+  --theme-color-lavender-100: #f3f3fa;
+  --theme-color-lavender-200: #ecedf8;
+  --theme-color-lavender-300: #e6e7f6;
+  --theme-color-lavender-400: #e0e2f4;
+  --theme-color-lavender-500: #d9dbf1;
+  --theme-color-lavender-600: #a2a7dd;
+  --theme-color-lavender-700: #6a72c8;
+  --theme-color-lavender-800: #3e47a8;
+  --theme-color-lavender-900: #292f70;
+  --theme-color-lavender-950: #151838;
+
+  // Ivory 系列
+  --theme-color-ivory-50: #fefefc;
+  --theme-color-ivory-100: #fdfdf9;
+  --theme-color-ivory-200: #fcfcf5;
+  --theme-color-ivory-300: #fbfbf2;
+  --theme-color-ivory-400: #fafaef;
+  --theme-color-ivory-500: #f9f9ed;
+  --theme-color-ivory-600: #e4e4af;
+  --theme-color-ivory-700: #d0d073;
+  --theme-color-ivory-800: #b6b63d;
+  --theme-color-ivory-900: #797928;
+  --theme-color-ivory-950: #3d3d14;
+
+  // Lime Cream 系列
+  --theme-color-lime-cream-50: #f9fdf1;
+  --theme-color-lime-cream-100: #f3fbe2;
+  --theme-color-lime-cream-200: #eefad4;
+  --theme-color-lime-cream-300: #e8f8c6;
+  --theme-color-lime-cream-400: #e2f6b7;
+  --theme-color-lime-cream-500: #dbf4a7;
+  --theme-color-lime-cream-600: #c4ed6b;
+  --theme-color-lime-cream-700: #abe52e;
+  --theme-color-lime-cream-800: #85b817;
+  --theme-color-lime-cream-900: #597b0f;
+  --theme-color-lime-cream-950: #2c3d08;
+
+  // 主题5：大地和谐颜色系列
+  // Jungle Green 系列
+  --theme-color-jungle-green-50: #c6ffef;
+  --theme-color-jungle-green-100: #8dffdf;
+  --theme-color-jungle-green-200: #54ffcf;
+  --theme-color-jungle-green-300: #1bffbe;
+  --theme-color-jungle-green-400: #00e1a1;
+  --theme-color-jungle-green-500: #00a676;
+  --theme-color-jungle-green-600: #008c65;
+  --theme-color-jungle-green-700: #007050;
+  --theme-color-jungle-green-800: #00543c;
+  --theme-color-jungle-green-900: #003828;
+  --theme-color-jungle-green-950: #001c14;
+
+  // Bright Snow 系列
+  --theme-color-bright-snow-50: #fefefe;
+  --theme-color-bright-snow-100: #fcfdfd;
+  --theme-color-bright-snow-200: #fbfcfc;
+  --theme-color-bright-snow-300: #f9fbfb;
+  --theme-color-bright-snow-400: #f8fafa;
+  --theme-color-bright-snow-500: #f7f9f9;
+  --theme-color-bright-snow-600: #c7d5d5;
+  --theme-color-bright-snow-700: #98b2b2;
+  --theme-color-bright-snow-800: #6a8d8d;
+  --theme-color-bright-snow-900: #475e5e;
+  --theme-color-bright-snow-950: #232f2f;
+
+  // Almond Cream 系列
+  --theme-color-almond-cream-50: #faf7f5;
+  --theme-color-almond-cream-100: #f5f0eb;
+  --theme-color-almond-cream-200: #f0e8e0;
+  --theme-color-almond-cream-300: #eae0d6;
+  --theme-color-almond-cream-400: #e5d8cc;
+  --theme-color-almond-cream-500: #e0d0c1;
+  --theme-color-almond-cream-600: #c9ad94;
+  --theme-color-almond-cream-700: #b28a65;
+  --theme-color-almond-cream-800: #8b6746;
+  --theme-color-almond-cream-900: #5d452f;
+  --theme-color-almond-cream-950: #2e2217;
+
+  // Terracotta Clay 系列
+  --theme-color-terracotta-clay-50: #f9e9e5;
+  --theme-color-terracotta-clay-100: #f3d3ca;
+  --theme-color-terracotta-clay-200: #eeb7b0;
+  --theme-color-terracotta-clay-300: #e89e96;
+  --theme-color-terracotta-clay-400: #e2867b;
+  --theme-color-terracotta-clay-500: #a76d60;
+  --theme-color-terracotta-clay-600: #8f5a4e;
+  --theme-color-terracotta-clay-700: #72483f;
+  --theme-color-terracotta-clay-800: #56362f;
+  --theme-color-terracotta-clay-900: #39241f;
+  --theme-color-terracotta-clay-950: #1d1210;
+
+  // Dark Garnet 系列
+  --theme-color-dark-garnet-50: #f1e7e5;
+  --theme-color-dark-garnet-100: #e2cfca;
+  --theme-color-dark-garnet-200: #d4b7b0;
+  --theme-color-dark-garnet-300: #c59e96;
+  --theme-color-dark-garnet-400: #b7867b;
+  --theme-color-dark-garnet-500: #a76d60;
+  --theme-color-dark-garnet-600: #8f5a4e;
+  --theme-color-dark-garnet-700: #72483f;
+  --theme-color-dark-garnet-800: #56362f;
+  --theme-color-dark-garnet-900: #39241f;
+  --theme-color-dark-garnet-950: #1d1210;
+
+  // 主题6：复古玫瑰颜色系列
+  // Onyx 系列
+  --theme-color-onyx-50: #cfe4ca;
+  --theme-color-onyx-100: #9ec995;
+  --theme-color-onyx-200: #6eaf60;
+  --theme-color-onyx-300: #4b7f40;
+  --theme-color-onyx-400: #2c4925;
+  --theme-color-onyx-500: #0d160b;
+  --theme-color-onyx-600: #0a1109;
+  --theme-color-onyx-700: #080e07;
+  --theme-color-onyx-800: #060a05;
+  --theme-color-onyx-900: #040703;
+  --theme-color-onyx-950: #020302;
+
+  // Vintage Lavender 系列
+  --theme-color-vintage-lavender-50: #e9e2ed;
+  --theme-color-vintage-lavender-100: #d3c4da;
+  --theme-color-vintage-lavender-200: #bda7c8;
+  --theme-color-vintage-lavender-300: #a78ab6;
+  --theme-color-vintage-lavender-400: #916da3;
+  --theme-color-vintage-lavender-500: #785589;
+  --theme-color-vintage-lavender-600: #654873;
+  --theme-color-vintage-lavender-700: #513a5c;
+  --theme-color-vintage-lavender-800: #3c2b45;
+  --theme-color-vintage-lavender-900: #281d2e;
+  --theme-color-vintage-lavender-950: #140e17;
+
+  // Dusty Mauve 系列
+  --theme-color-dusty-mauve-50: #eee8ec;
+  --theme-color-dusty-mauve-100: #dcd0da;
+  --theme-color-dusty-mauve-200: #cbb9c7;
+  --theme-color-dusty-mauve-300: #baa1b5;
+  --theme-color-dusty-mauve-400: #a88aa2;
+  --theme-color-dusty-mauve-500: #977390;
+  --theme-color-dusty-mauve-600: #7f5e78;
+  --theme-color-dusty-mauve-700: #664b60;
+  --theme-color-dusty-mauve-800: #4c3848;
+  --theme-color-dusty-mauve-900: #332630;
+  --theme-color-dusty-mauve-950: #191318;
+
+  // Dusty Rose 系列
+  --theme-color-dusty-rose-50: #f1e9e9;
+  --theme-color-dusty-rose-100: #e4d3d4;
+  --theme-color-dusty-rose-200: #d6bdbe;
+  --theme-color-dusty-rose-300: #c8a7a8;
+  --theme-color-dusty-rose-400: #ba9193;
+  --theme-color-dusty-rose-500: #ac7b7d;
+  --theme-color-dusty-rose-600: #985f61;
+  --theme-color-dusty-rose-700: #794c4d;
+  --theme-color-dusty-rose-800: #5b393a;
+  --theme-color-dusty-rose-900: #3d2627;
+  --theme-color-dusty-rose-950: #1e1313;
+
+  // Rosy Taupe 系列
+  --theme-color-rosy-taupe-50: #f4ecec;
+  --theme-color-rosy-taupe-100: #e9d8d8;
+  --theme-color-rosy-taupe-200: #ddc5c5;
+  --theme-color-rosy-taupe-300: #d2b2b1;
+  --theme-color-rosy-taupe-400: #c79f9e;
+  --theme-color-rosy-taupe-500: #bb8a89;
+  --theme-color-rosy-taupe-600: #a86968;
+  --theme-color-rosy-taupe-700: #8a504f;
+  --theme-color-rosy-taupe-800: #683c3c;
+  --theme-color-rosy-taupe-900: #452828;
+  --theme-color-rosy-taupe-950: #231414;
+
+  // 主题7：深海蓝调颜色系列
+  // Ink Black 系列
+  --theme-color-ink-black-50: #afd6ff;
+  --theme-color-ink-black-100: #5facff;
+  --theme-color-ink-black-200: #0f83ff;
+  --theme-color-ink-black-300: #005cbe;
+  --theme-color-ink-black-400: #00356e;
+  --theme-color-ink-black-500: #001021;
+  --theme-color-ink-black-600: #000c1a;
+  --theme-color-ink-black-700: #000a14;
+  --theme-color-ink-black-800: #00070f;
+  --theme-color-ink-black-900: #00050a;
+  --theme-color-ink-black-950: #000205;
+
+  // Dark Teal 系列
+  --theme-color-dark-teal-50: #bafbfc;
+  --theme-color-dark-teal-100: #74f7f9;
+  --theme-color-dark-teal-200: #2ff3f6;
+  --theme-color-dark-teal-300: #09d1d4;
+  --theme-color-dark-teal-400: #068d8f;
+  --theme-color-dark-teal-500: #034748;
+  --theme-color-dark-teal-600: #033c3d;
+  --theme-color-dark-teal-700: #023031;
+  --theme-color-dark-teal-800: #022425;
+  --theme-color-dark-teal-900: #011818;
+  --theme-color-dark-teal-950: #010c0c;
+
+  // Ocean Blue 系列
+  --theme-color-ocean-blue-50: #d1ecfa;
+  --theme-color-ocean-blue-100: #a3d8f5;
+  --theme-color-ocean-blue-200: #75c5f0;
+  --theme-color-ocean-blue-300: #46b2ec;
+  --theme-color-ocean-blue-400: #189ee7;
+  --theme-color-ocean-blue-500: #1481ba;
+  --theme-color-ocean-blue-600: #106a9a;
+  --theme-color-ocean-blue-700: #0d557b;
+  --theme-color-ocean-blue-800: #0a3f5c;
+  --theme-color-ocean-blue-900: #062a3e;
+  --theme-color-ocean-blue-950: #03151f;
+
+  // Sky Surge 系列
+  --theme-color-sky-surge-50: #d6f4fc;
+  --theme-color-sky-surge-100: #ade8f9;
+  --theme-color-sky-surge-200: #84ddf6;
+  --theme-color-sky-surge-300: #5bd2f3;
+  --theme-color-sky-surge-400: #5bd2f3;
+  --theme-color-sky-surge-500: #11b5e4;
+  --theme-color-sky-surge-600: #0e98be;
+  --theme-color-sky-surge-700: #0b7998;
+  --theme-color-sky-surge-800: #095b72;
+  --theme-color-sky-surge-900: #063d4c;
+  --theme-color-sky-surge-950: #031e26;
+
+  // Bright Sky 系列
+  --theme-color-bright-sky-50: #d3f3fd;
+  --theme-color-bright-sky-100: #a6e7fa;
+  --theme-color-bright-sky-200: #7adbf8;
+  --theme-color-bright-sky-300: #4dcef6;
+  --theme-color-bright-sky-400: #21c2f3;
+  --theme-color-bright-sky-500: #0caadc;
+  --theme-color-bright-sky-600: #0a8eb6;
+  --theme-color-bright-sky-700: #087191;
+  --theme-color-bright-sky-800: #06556d;
+  --theme-color-bright-sky-900: #043949;
+  --theme-color-bright-sky-950: #021c24;
+
+  // 主题8：日落余晖颜色系列
+  // Dusk Blue 系列
+  --theme-color-dusk-blue-50: #e0e2ee;
+  --theme-color-dusk-blue-100: #c1c6dc;
+  --theme-color-dusk-blue-200: #a2a9cb;
+  --theme-color-dusk-blue-300: #838db9;
+  --theme-color-dusk-blue-400: #6470a8;
+  --theme-color-dusk-blue-500: #4e598c;
+  --theme-color-dusk-blue-600: #424b75;
+  --theme-color-dusk-blue-700: #353c5e;
+  --theme-color-dusk-blue-800: #272d46;
+  --theme-color-dusk-blue-900: #1a1e2f;
+  --theme-color-dusk-blue-950: #0d0f17;
+
+  // Apricot Cream 系列
+  --theme-color-apricot-cream-50: #fef6eb;
+  --theme-color-apricot-cream-100: #fdecd6;
+  --theme-color-apricot-cream-200: #fce3c2;
+  --theme-color-apricot-cream-300: #fbdaae;
+  --theme-color-apricot-cream-400: #fad09a;
+  --theme-color-apricot-cream-500: #f9c784;
+  --theme-color-apricot-cream-600: #f6ab48;
+  --theme-color-apricot-cream-700: #f48f0b;
+  --theme-color-apricot-cream-800: #b76b09;
+  --theme-color-apricot-cream-900: #7a4706;
+  --theme-color-apricot-cream-950: #3d2403;
+
+  // Sandy Brown 系列 - style8
+  --theme-color-sandy-brown-style8-50: #fef2e4;
+  --theme-color-sandy-brown-style8-100: #fee5c8;
+  --theme-color-sandy-brown-style8-200: #fdd8ad;
+  --theme-color-sandy-brown-style8-300: #fdca91;
+  --theme-color-sandy-brown-style8-400: #fcbd76;
+  --theme-color-sandy-brown-style8-500: #fcaf58;
+  --theme-color-sandy-brown-style8-600: #fa9622;
+  --theme-color-sandy-brown-style8-700: #df7905;
+  --theme-color-sandy-brown-style8-800: #a75b03;
+  --theme-color-sandy-brown-style8-900: #703d02;
+  --theme-color-sandy-brown-style8-950: #381e01;
+
+  // Pumpkin Spice 系列
+  --theme-color-pumpkin-spice-50: #ffece0;
+  --theme-color-pumpkin-spice-100: #ffd8c0;
+  --theme-color-pumpkin-spice-200: #ffc5a1;
+  --theme-color-pumpkin-spice-300: #ffb181;
+  --theme-color-pumpkin-spice-400: #ff9e62;
+  --theme-color-pumpkin-spice-500: #ff8c42;
+  --theme-color-pumpkin-spice-600: #ff6a0d;
+  --theme-color-pumpkin-spice-700: #d65200;
+  --theme-color-pumpkin-spice-800: #a13e00;
+  --theme-color-pumpkin-spice-900: #6b2900;
+  --theme-color-pumpkin-spice-950: #361500;
+
+  // 主题9：清新薄荷颜色系列
+  // Fern 系列
+  --theme-color-fern-50: #dfece1;
+  --theme-color-fern-100: #bfd9c2;
+  --theme-color-fern-200: #9fc6a4;
+  --theme-color-fern-300: #7eb486;
+  --theme-color-fern-400: #5ea167;
+  --theme-color-fern-500: #4b7f52;
+  --theme-color-fern-600: #3f6b45;
+  --theme-color-fern-700: #325637;
+  --theme-color-fern-800: #264029;
+  --theme-color-fern-900: #192b1c;
+  --theme-color-fern-950: #0d150e;
+
+  // Moss Green 系列
+  --theme-color-moss-green-50: #e9f7ea;
+  --theme-color-moss-green-100: #d3f0d4;
+  --theme-color-moss-green-200: #bde8bf;
+  --theme-color-moss-green-300: #a7e0aa;
+  --theme-color-moss-green-400: #91d894;
+  --theme-color-moss-green-500: #7dd181;
+  --theme-color-moss-green-600: #52c258;
+  --theme-color-moss-green-700: #39a43f;
+  --theme-color-moss-green-800: #2b7b2f;
+  --theme-color-moss-green-900: #1d521f;
+  --theme-color-moss-green-950: #0e2910;
+
+  // Celadon 系列
+  --theme-color-celadon-50: #eefbf4;
+  --theme-color-celadon-100: #dcf7e9;
+  --theme-color-celadon-200: #cbf4de;
+  --theme-color-celadon-300: #b9f0d3;
+  --theme-color-celadon-400: #a8ecc8;
+  --theme-color-celadon-500: #96e8bc;
+  --theme-color-celadon-600: #62dd9b;
+  --theme-color-celadon-700: #2ed17a;
+  --theme-color-celadon-800: #229d5c;
+  --theme-color-celadon-900: #17693d;
+  --theme-color-celadon-950: #0b341f;
+
+  // Celadon 2 系列
+  --theme-color-celadon-2-50: #f3fef6;
+  --theme-color-celadon-2-100: #e7fdee;
+  --theme-color-celadon-2-200: #dcfce5;
+  --theme-color-celadon-2-300: #d0fbdc;
+  --theme-color-celadon-2-400: #c4fad3;
+  --theme-color-celadon-2-500: #b6f9c9;
+  --theme-color-celadon-2-600: #75f499;
+  --theme-color-celadon-2-700: #33ee68;
+  --theme-color-celadon-2-800: #10c844;
+  --theme-color-celadon-2-900: #0b862e;
+  --theme-color-celadon-2-950: #054317;
+
+  // Frosted Mint 系列
+  --theme-color-frosted-mint-50: #f6fffa;
+  --theme-color-frosted-mint-100: #ecfff5;
+  --theme-color-frosted-mint-200: #e3fff0;
+  --theme-color-frosted-mint-300: #daffeb;
+  --theme-color-frosted-mint-400: #d0ffe6;
+  --theme-color-frosted-mint-500: #c9ffe2;
+  --theme-color-frosted-mint-600: #7bffb9;
+  --theme-color-frosted-mint-700: #30ff90;
+  --theme-color-frosted-mint-800: #00e36a;
+  --theme-color-frosted-mint-900: #009747;
+  --theme-color-frosted-mint-950: #004c23;
+
+  // 主题10：森林精灵颜色系列
+  // Charcoal Brown 系列
+  --theme-color-charcoal-brown-50: #dbe2de;
+  --theme-color-charcoal-brown-100: #b7c4be;
+  --theme-color-charcoal-brown-200: #93a79d;
+  --theme-color-charcoal-brown-300: #70897c;
+  --theme-color-charcoal-brown-400: #52655b;
+  --theme-color-charcoal-brown-500: #34403a;
+  --theme-color-charcoal-brown-600: #2c3631;
+  --theme-color-charcoal-brown-700: #232b27;
+  --theme-color-charcoal-brown-800: #1a201d;
+  --theme-color-charcoal-brown-900: #121614;
+  --theme-color-charcoal-brown-950: #090b0a;
+
+  // Dark Spruce 系列
+  --theme-color-dark-spruce-50: #d4eadc;
+  --theme-color-dark-spruce-100: #a8d4b9;
+  --theme-color-dark-spruce-200: #7dbf96;
+  --theme-color-dark-spruce-300: #53a974;
+  --theme-color-dark-spruce-400: #3e7d56;
+  --theme-color-dark-spruce-500: #285238;
+  --theme-color-dark-spruce-600: #22442f;
+  --theme-color-dark-spruce-700: #1b3726;
+  --theme-color-dark-spruce-800: #14291c;
+  --theme-color-dark-spruce-900: #0d1b13;
+  --theme-color-dark-spruce-950: #070e09;
+
+  // Forest Green 系列
+  --theme-color-forest-green-50: #cbf8d9;
+  --theme-color-forest-green-100: #98f1b3;
+  --theme-color-forest-green-200: #64ea8c;
+  --theme-color-forest-green-300: #31e366;
+  --theme-color-forest-green-400: #1abf4b;
+  --theme-color-forest-green-500: #138a36;
+  --theme-color-forest-green-600: #10742e;
+  --theme-color-forest-green-700: #0d5d25;
+  --theme-color-forest-green-800: #09461c;
+  --theme-color-forest-green-900: #062e12;
+  --theme-color-forest-green-950: #031709;
+
+  // Radioactive Grass 系列
+  --theme-color-radioactive-grass-50: #d2fed8;
+  --theme-color-radioactive-grass-100: #a5feb0;
+  --theme-color-radioactive-grass-200: #77fd89;
+  --theme-color-radioactive-grass-300: #4afc62;
+  --theme-color-radioactive-grass-400: #1dfc3b;
+  --theme-color-radioactive-grass-500: #04e824;
+  --theme-color-radioactive-grass-600: #03c11c;
+  --theme-color-radioactive-grass-700: #029a17;
+  --theme-color-radioactive-grass-800: #027411;
+  --theme-color-radioactive-grass-900: #014d0b;
+  --theme-color-radioactive-grass-950: #012706;
+
+  // Spring Green 系列
+  --theme-color-spring-green-50: #d9ffe7;
+  --theme-color-spring-green-100: #b3ffcf;
+  --theme-color-spring-green-200: #8cffb6;
+  --theme-color-spring-green-300: #66ff9e;
+  --theme-color-spring-green-400: #40ff86;
+  --theme-color-spring-green-500: #18ff6d;
+  --theme-color-spring-green-600: #00ea56;
+  --theme-color-spring-green-700: #00bb45;
+  --theme-color-spring-green-800: #008c33;
+  --theme-color-spring-green-900: #005e22;
+  --theme-color-spring-green-950: #002f11;
+
+  // 主题11：长春花蓝颜色系列
+  // Mint Cream 系列
+  --theme-color-mint-cream-50: #fcfffe;
+  --theme-color-mint-cream-100: #fafffd;
+  --theme-color-mint-cream-200: #f7fffd;
+  --theme-color-mint-cream-300: #f5fffc;
+  --theme-color-mint-cream-400: #f2fffb;
+  --theme-color-mint-cream-500: #effffa;
+  --theme-color-mint-cream-600: #9dffe0;
+  --theme-color-mint-cream-700: #4bffc6;
+  --theme-color-mint-cream-800: #00f7a9;
+  --theme-color-mint-cream-900: #00a571;
+  --theme-color-mint-cream-950: #005238;
+
+  // Alice Blue 系列
+  --theme-color-alice-blue-50: #fbfcfd;
+  --theme-color-alice-blue-100: #f7f9fb;
+  --theme-color-alice-blue-200: #f2f6fa;
+  --theme-color-alice-blue-300: #eef3f8;
+  --theme-color-alice-blue-400: #eaf0f6;
+  --theme-color-alice-blue-500: #e5ecf4;
+  --theme-color-alice-blue-600: #aec4dd;
+  --theme-color-alice-blue-700: #769bc6;
+  --theme-color-alice-blue-800: #4673a7;
+  --theme-color-alice-blue-900: #2f4d6f;
+  --theme-color-alice-blue-950: #172638;
+
+  // Periwinkle 系列
+  --theme-color-periwinkle-50: #f5f4fe;
+  --theme-color-periwinkle-100: #ebeafc;
+  --theme-color-periwinkle-200: #e2dffb;
+  --theme-color-periwinkle-300: #d8d5fa;
+  --theme-color-periwinkle-400: #cecaf8;
+  --theme-color-periwinkle-500: #c3bef7;
+  --theme-color-periwinkle-600: #887eef;
+  --theme-color-periwinkle-700: #4b3de7;
+  --theme-color-periwinkle-800: #2618c3;
+  --theme-color-periwinkle-900: #1a1082;
+  --theme-color-periwinkle-950: #0d0841;
+
+  // Medium Slate Blue 系列 - style11
+  --theme-color-medium-slate-blue-style11-50: #ebe1ff;
+  --theme-color-medium-slate-blue-style11-100: #d7c3ff;
+  --theme-color-medium-slate-blue-style11-200: #c3a6ff;
+  --theme-color-medium-slate-blue-style11-300: #b088ff;
+  --theme-color-medium-slate-blue-style11-400: #9c6aff;
+  --theme-color-medium-slate-blue-style11-500: #8a4fff;
+  --theme-color-medium-slate-blue-style11-600: #6315ff;
+  --theme-color-medium-slate-blue-style11-700: #4a00dd;
+  --theme-color-medium-slate-blue-style11-800: #3700a6;
+  --theme-color-medium-slate-blue-style11-900: #25006f;
+  --theme-color-medium-slate-blue-style11-950: #120037;
+
+  // 主题12：腮红色调颜色系列
+  // Bubblegum Pink 系列
+  --theme-color-bubblegum-pink-50: #fbe4e8;
+  --theme-color-bubblegum-pink-100: #f7c9d1;
+  --theme-color-bubblegum-pink-200: #f4afba;
+  --theme-color-bubblegum-pink-300: #f094a3;
+  --theme-color-bubblegum-pink-400: #ec798c;
+  --theme-color-bubblegum-pink-500: #e85d75;
+  --theme-color-bubblegum-pink-600: #e12f4d;
+  --theme-color-bubblegum-pink-700: #be1b36;
+  --theme-color-bubblegum-pink-800: #8f1429;
+  --theme-color-bubblegum-pink-900: #5f0e1b;
+  --theme-color-bubblegum-pink-950: #30070e;
+
+  // Blush Rose 系列
+  --theme-color-blush-rose-50: #f6e6e9;
+  --theme-color-blush-rose-100: #ecced3;
+  --theme-color-blush-rose-200: #e3b5bd;
+  --theme-color-blush-rose-300: #da9ca8;
+  --theme-color-blush-rose-400: #d08492;
+  --theme-color-blush-rose-500: #c76d7e;
+  --theme-color-blush-rose-600: #b9465b;
+  --theme-color-blush-rose-700: #943849;
+  --theme-color-blush-rose-800: #6f2a37;
+  --theme-color-blush-rose-900: #4a1c24;
+  --theme-color-blush-rose-950: #250e12;
+
+  // Taupe 系列
+  --theme-color-taupe-50: #efeaea;
+  --theme-color-taupe-100: #dfd4d5;
+  --theme-color-taupe-200: #cfbfc0;
+  --theme-color-taupe-300: #bfaaab;
+  --theme-color-taupe-400: #af9496;
+  --theme-color-taupe-500: #9f8082;
+  --theme-color-taupe-600: #886669;
+  --theme-color-taupe-700: #6d5254;
+  --theme-color-taupe-800: #513d3f;
+  --theme-color-taupe-900: #36292a;
+  --theme-color-taupe-950: #1b1415;
+
+  // Grey Olive 系列 - style12
+  --theme-color-grey-olive-style12-50: #ecedec;
+  --theme-color-grey-olive-style12-100: #d9dbd8;
+  --theme-color-grey-olive-style12-200: #c6c9c5;
+  --theme-color-grey-olive-style12-300: #b3b6b2;
+  --theme-color-grey-olive-style12-400: #a1a49f;
+  --theme-color-grey-olive-style12-500: #8d918b;
+  --theme-color-grey-olive-style12-600: #767b73;
+  --theme-color-grey-olive-style12-700: #5e625c;
+  --theme-color-grey-olive-style12-800: #474a45;
+  --theme-color-grey-olive-style12-900: #2f312e;
+  --theme-color-grey-olive-style12-950: #181917;
+
+  // Lilac Ash 系列 - style12
+  --theme-color-lilac-ash-style12-50: #f1eeee;
+  --theme-color-lilac-ash-style12-100: #e3dedd;
+  --theme-color-lilac-ash-style12-200: #d6cdcd;
+  --theme-color-lilac-ash-style12-300: #c8bcbc;
+  --theme-color-lilac-ash-style12-400: #baacab;
+  --theme-color-lilac-ash-style12-500: #ad9b9a;
+  --theme-color-lilac-ash-style12-600: #947d7c;
+  --theme-color-lilac-ash-style12-700: #786362;
+  --theme-color-lilac-ash-style12-800: #5a4a49;
+  --theme-color-lilac-ash-style12-900: #3c3231;
+  --theme-color-lilac-ash-style12-950: #1e1918;
+
+  // 主题13：暖色调谱颜色系列
+  // Banana Cream 系列
+  --theme-color-banana-cream-50: #fffde4;
+  --theme-color-banana-cream-100: #fffac9;
+  --theme-color-banana-cream-200: #fff8ad;
+  --theme-color-banana-cream-300: #fff692;
+  --theme-color-banana-cream-400: #fff477;
+  --theme-color-banana-cream-500: #fff05a;
+  --theme-color-banana-cream-600: #ffed22;
+  --theme-color-banana-cream-700: #e7d400;
+  --theme-color-banana-cream-800: #ad9f00;
+  --theme-color-banana-cream-900: #746a00;
+  --theme-color-banana-cream-950: #3a3500;
+
+  // Golden Pollen 系列
+  --theme-color-golden-pollen-50: #fff8e4;
+  --theme-color-golden-pollen-100: #fff0c9;
+  --theme-color-golden-pollen-200: #ffe9ad;
+  --theme-color-golden-pollen-300: #ffe292;
+  --theme-color-golden-pollen-400: #ffdb77;
+  --theme-color-golden-pollen-500: #ffd25a;
+  --theme-color-golden-pollen-600: #ffc422;
+  --theme-color-golden-pollen-700: #e7aa00;
+  --theme-color-golden-pollen-800: #ad7f00;
+  --theme-color-golden-pollen-900: #745500;
+  --theme-color-golden-pollen-950: #3a2a00;
+
+  // Sandy Brown 系列 - style13
+  --theme-color-sandy-brown-style13-50: #fff1e4;
+  --theme-color-sandy-brown-style13-100: #ffe3c9;
+  --theme-color-sandy-brown-style13-200: #ffd5ad;
+  --theme-color-sandy-brown-style13-300: #ffc792;
+  --theme-color-sandy-brown-style13-400: #ffb977;
+  --theme-color-sandy-brown-style13-500: #ffaa5a;
+  --theme-color-sandy-brown-style13-600: #ff8d22;
+  --theme-color-sandy-brown-style13-700: #e77000;
+  --theme-color-sandy-brown-style13-800: #ad5400;
+  --theme-color-sandy-brown-style13-900: #743800;
+  --theme-color-sandy-brown-style13-950: #3a1c00;
+
+  // Vibrant Coral 系列
+  --theme-color-vibrant-coral-50: #ffe9e4;
+  --theme-color-vibrant-coral-100: #ffd3c9;
+  --theme-color-vibrant-coral-200: #ffbcad;
+  --theme-color-vibrant-coral-300: #ffa692;
+  --theme-color-vibrant-coral-400: #ff9077;
+  --theme-color-vibrant-coral-500: #ff785a;
+  --theme-color-vibrant-coral-600: #ff4b22;
+  --theme-color-vibrant-coral-700: #e72a00;
+  --theme-color-vibrant-coral-800: #ad2000;
+  --theme-color-vibrant-coral-900: #741500;
+  --theme-color-vibrant-coral-950: #3a0b00;
+
+  // Carbon Black 系列
+  --theme-color-carbon-black-50: #d9d9d9;
+  --theme-color-carbon-black-100: #b3b3b3;
+  --theme-color-carbon-black-200: #8c8c8c;
+  --theme-color-carbon-black-300: #666666;
+  --theme-color-carbon-black-400: #404040;
+  --theme-color-carbon-black-500: #191919;
+  --theme-color-carbon-black-600: #151515;
+  --theme-color-carbon-black-700: #111111;
+  --theme-color-carbon-black-800: #0d0d0d;
+  --theme-color-carbon-black-900: #090909;
+  --theme-color-carbon-black-950: #040404;
+
+  // 主题14：霓虹活力颜色系列
+  // Canary Yellow 系列
+  --theme-color-canary-yellow-50: #fdfddd;
+  --theme-color-canary-yellow-100: #fbfbba;
+  --theme-color-canary-yellow-200: #f8f898;
+  --theme-color-canary-yellow-300: #f6f676;
+  --theme-color-canary-yellow-400: #f4f453;
+  --theme-color-canary-yellow-500: #f2f230;
+  --theme-color-canary-yellow-600: #e4e40f;
+  --theme-color-canary-yellow-700: #b6b60c;
+  --theme-color-canary-yellow-800: #898909;
+  --theme-color-canary-yellow-900: #5b5b06;
+  --theme-color-canary-yellow-950: #2e2e03;
+
+  // Green Yellow 系列
+  --theme-color-green-yellow-50: #f5fde4;
+  --theme-color-green-yellow-100: #eafbca;
+  --theme-color-green-yellow-200: #e0f8af;
+  --theme-color-green-yellow-300: #d6f694;
+  --theme-color-green-yellow-400: #cbf479;
+  --theme-color-green-yellow-500: #c2f261;
+  --theme-color-green-yellow-600: #adee2b;
+  --theme-color-green-yellow-700: #90d011;
+  --theme-color-green-yellow-800: #6c9c0d;
+  --theme-color-green-yellow-900: #486808;
+  --theme-color-green-yellow-950: #243404;
+
+  // Light Green 系列
+  --theme-color-light-green-50: #edfded;
+  --theme-color-light-green-100: #dafbda;
+  --theme-color-light-green-200: #c8f9c8;
+  --theme-color-light-green-300: #b6f6b6;
+  --theme-color-light-green-400: #a4f4a4;
+  --theme-color-light-green-500: #91f291;
+  --theme-color-light-green-600: #58eb58;
+  --theme-color-light-green-700: #1ee51e;
+  --theme-color-light-green-800: #14ad14;
+  --theme-color-light-green-900: #0e740e;
+  --theme-color-light-green-950: #073a07;
+
+  // Aquamarine 系列
+  --theme-color-aquamarine-50: #e4fdf5;
+  --theme-color-aquamarine-100: #cafbea;
+  --theme-color-aquamarine-200: #aff8e0;
+  --theme-color-aquamarine-300: #94f6d6;
+  --theme-color-aquamarine-400: #94f6d6;
+  --theme-color-aquamarine-500: #61f2c2;
+  --theme-color-aquamarine-600: #2beead;
+  --theme-color-aquamarine-700: #11d090;
+  --theme-color-aquamarine-800: #0d9c6c;
+  --theme-color-aquamarine-900: #086848;
+  --theme-color-aquamarine-950: #043424;
+
+  // Neon Ice 系列
+  --theme-color-neon-ice-50: #ddfdfd;
+  --theme-color-neon-ice-100: #bafbfb;
+  --theme-color-neon-ice-200: #98f8f8;
+  --theme-color-neon-ice-300: #76f6f6;
+  --theme-color-neon-ice-400: #53f4f4;
+  --theme-color-neon-ice-500: #30f2f2;
+  --theme-color-neon-ice-600: #0fe4e4;
+  --theme-color-neon-ice-700: #0cb6b6;
+  --theme-color-neon-ice-800: #098989;
+  --theme-color-neon-ice-900: #065b5b;
+  --theme-color-neon-ice-950: #032e2e;
+
+  // 主题1：优雅紫韵渐变系列
+  --purple-elegance-gradient-top: linear-gradient(0deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-right: linear-gradient(90deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-bottom: linear-gradient(180deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-left: linear-gradient(270deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-top-right: linear-gradient(45deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-bottom-right: linear-gradient(135deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-top-left: linear-gradient(225deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-bottom-left: linear-gradient(315deg, var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+  --purple-elegance-gradient-radial: radial-gradient(var(--color-wisteria-blue-500), var(--color-lilac-ash-500), var(--color-dusty-taupe-500), var(--color-olive-wood-500), var(--color-space-indigo-500));
+
+
+  // 主题2：极简灰调渐变系列
+  --gray-minimal-gradient-top: linear-gradient(0deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-right: linear-gradient(90deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-bottom: linear-gradient(180deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-left: linear-gradient(270deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-top-right: linear-gradient(45deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-bottom-right: linear-gradient(135deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-top-left: linear-gradient(225deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-bottom-left: linear-gradient(315deg, var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+  --gray-minimal-gradient-radial: radial-gradient(var(--color-graphite-500), var(--color-white-500), var(--color-pale-slate-500), var(--color-silver-500), var(--color-grey-olive-500));
+
+  // 主题3：靛蓝梦境渐变系列
+  --indigo-dream-gradient-top: linear-gradient(0deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-right: linear-gradient(90deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-bottom: linear-gradient(180deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-left: linear-gradient(270deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-top-right: linear-gradient(45deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-bottom-right: linear-gradient(135deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-top-left: linear-gradient(225deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-bottom-left: linear-gradient(315deg, var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+  --indigo-dream-gradient-radial: radial-gradient(var(--color-shadow-grey-500), var(--color-electric-indigo-500), var(--color-medium-slate-blue-500), var(--color-lavender-mist-500), var(--color-ash-grey-500));
+
+  // 主题4：薰衣草风渐变系列
+  --lavender-breeze-gradient-top: linear-gradient(0deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-right: linear-gradient(90deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-bottom: linear-gradient(180deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-left: linear-gradient(270deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-top-right: linear-gradient(45deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-bottom-right: linear-gradient(135deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-top-left: linear-gradient(225deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-bottom-left: linear-gradient(315deg, var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+  --lavender-breeze-gradient-radial: radial-gradient(var(--color-lavender-grey-500), var(--color-lavender-500), var(--color-ivory-500), var(--color-lime-cream-500), var(--color-vintage-lavender-500));
+
+  // 主题5：大地和谐渐变系列
+  --earth-harmony-gradient-top: linear-gradient(0deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-right: linear-gradient(90deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-bottom: linear-gradient(180deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-left: linear-gradient(270deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-top-right: linear-gradient(45deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-bottom-right: linear-gradient(135deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-top-left: linear-gradient(225deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-bottom-left: linear-gradient(315deg, var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+  --earth-harmony-gradient-radial: radial-gradient(var(--color-jungle-green-500), var(--color-bright-snow-500), var(--color-almond-cream-500), var(--color-terracotta-clay-500), var(--color-dark-garnet-500));
+
+  // 主题6：复古玫瑰渐变系列
+  --vintage-rose-gradient-top: linear-gradient(0deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-right: linear-gradient(90deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-bottom: linear-gradient(180deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-left: linear-gradient(270deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-top-right: linear-gradient(45deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-bottom-right: linear-gradient(135deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-top-left: linear-gradient(225deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-bottom-left: linear-gradient(315deg, var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+  --vintage-rose-gradient-radial: radial-gradient(var(--color-onyx-500), var(--color-vintage-lavender-500), var(--color-dusty-mauve-500), var(--color-dusty-rose-500), var(--color-rosy-taupe-500));
+
+  // 主题7：深海蓝调渐变系列
+  --ocean-depths-gradient-top: linear-gradient(0deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-right: linear-gradient(90deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-bottom: linear-gradient(180deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-left: linear-gradient(270deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-top-right: linear-gradient(45deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-bottom-right: linear-gradient(135deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-top-left: linear-gradient(225deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-bottom-left: linear-gradient(315deg, var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+  --ocean-depths-gradient-radial: radial-gradient(var(--color-ink-black-500), var(--color-dark-teal-500), var(--color-ocean-blue-500), var(--color-sky-surge-500), var(--color-bright-sky-500));
+
+  // 主题8：日落余晖渐变系列
+  --sunset-glow-gradient-top: linear-gradient(0deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-right: linear-gradient(90deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-bottom: linear-gradient(180deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-left: linear-gradient(270deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-top-right: linear-gradient(45deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-bottom-right: linear-gradient(135deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-top-left: linear-gradient(225deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-bottom-left: linear-gradient(315deg, var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+  --sunset-glow-gradient-radial: radial-gradient(var(--color-dusk-blue-500), var(--color-white-500), var(--color-apricot-cream-500), var(--color-sandy-brown-500), var(--color-pumpkin-spice-500));
+
+  // 主题9：清新薄荷渐变系列
+  --mint-fresh-gradient-top: linear-gradient(0deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-right: linear-gradient(90deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-bottom: linear-gradient(180deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-left: linear-gradient(270deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-top-right: linear-gradient(45deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-bottom-right: linear-gradient(135deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-top-left: linear-gradient(225deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-bottom-left: linear-gradient(315deg, var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+  --mint-fresh-gradient-radial: radial-gradient(var(--color-fern-500), var(--color-moss-green-500), var(--color-celadon-500), var(--color-celadon-2-500), var(--color-frosted-mint-500));
+
+  // 主题10：森林精灵渐变系列
+  --forest-spirit-gradient-top: linear-gradient(0deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-right: linear-gradient(90deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-bottom: linear-gradient(180deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-left: linear-gradient(270deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-top-right: linear-gradient(45deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-bottom-right: linear-gradient(135deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-top-left: linear-gradient(225deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-bottom-left: linear-gradient(315deg, var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+  --forest-spirit-gradient-radial: radial-gradient(var(--color-charcoal-brown-500), var(--color-dark-spruce-500), var(--color-forest-green-500), var(--color-radioactive-grass-500), var(--color-spring-green-500));
+
+  // 主题11：长春花蓝渐变系列
+  --periwinkle-sky-gradient-top: linear-gradient(0deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-right: linear-gradient(90deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-bottom: linear-gradient(180deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-left: linear-gradient(270deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-top-right: linear-gradient(45deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-bottom-right: linear-gradient(135deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-top-left: linear-gradient(225deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-bottom-left: linear-gradient(315deg, var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+  --periwinkle-sky-gradient-radial: radial-gradient(var(--color-white-500), var(--color-mint-cream-500), var(--color-alice-blue-500), var(--color-periwinkle-500), var(--color-medium-slate-blue-500));
+
+  // 主题12：腮红色调渐变系列
+  --blush-tones-gradient-top: linear-gradient(0deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-right: linear-gradient(90deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-bottom: linear-gradient(180deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-left: linear-gradient(270deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-top-right: linear-gradient(45deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-bottom-right: linear-gradient(135deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-top-left: linear-gradient(225deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-bottom-left: linear-gradient(315deg, var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+  --blush-tones-gradient-radial: radial-gradient(var(--color-bubblegum-pink-500), var(--color-blush-rose-500), var(--color-taupe-500), var(--color-dusty-mauve-500), var(--color-rosy-taupe-500));
+
+  // 主题13：暖色调谱渐变系列
+  --warm-spectrum-gradient-top: linear-gradient(0deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-right: linear-gradient(90deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-bottom: linear-gradient(180deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-left: linear-gradient(270deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-top-right: linear-gradient(45deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-bottom-right: linear-gradient(135deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-top-left: linear-gradient(225deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-bottom-left: linear-gradient(315deg, var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+  --warm-spectrum-gradient-radial: radial-gradient(var(--color-banana-cream-500), var(--color-golden-pollen-500), var(--color-sandy-brown-500), var(--color-vibrant-coral-500), var(--color-carbon-black-500));
+
+  // 主题14：霓虹活力渐变系列
+  --neon-vibrance-gradient-top: linear-gradient(0deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-right: linear-gradient(90deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-bottom: linear-gradient(180deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-left: linear-gradient(270deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-top-right: linear-gradient(45deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-bottom-right: linear-gradient(135deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-top-left: linear-gradient(225deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-bottom-left: linear-gradient(315deg, var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+  --neon-vibrance-gradient-radial: radial-gradient(var(--color-canary-yellow-500), var(--color-green-yellow-500), var(--color-light-green-500), var(--color-aquamarine-500), var(--color-neon-ice-500));
+
+}
+
+
+
+
+
+
+// ==============================================
+// 主题切换功能 - CSS变量定义
+// ==============================================
+
+// 主题1：优雅紫韵
+[data-theme="purple-elegance"] {
+  --theme-primary: #9ba2ff;
+  --theme-secondary: #a499be;
+  --theme-accent: #9e8576;
+  --theme-dark: #2a2e45;
+  --theme-light: #eeefff;
+
+  --theme-gradient: var(--purple-elegance-gradient-top);
+
+  --background: var(--color-space-indigo-950);
+  --foreground: var(--color-wisteria-blue-50);
+  --card: var(--color-space-indigo-900);
+  --card-foreground: var(--color-wisteria-blue-50);
+  --popover: var(--color-space-indigo-900);
+  --popover-foreground: var(--color-wisteria-blue-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-space-indigo-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-wisteria-blue-50);
+  --muted: var(--color-lilac-ash-800);
+  --muted-foreground: var(--color-lilac-ash-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-wisteria-blue-50);
+  --destructive: var(--color-dusty-taupe-500);
+  --border: var(--color-space-indigo-800);
+  --input: var(--color-space-indigo-700);
+  --ring: var(--color-lilac-ash-500);
+  --chart-1: var(--color-wisteria-blue-500);
+  --chart-2: var(--color-lilac-ash-500);
+  --chart-3: var(--color-dusty-taupe-500);
+  --chart-4: var(--color-olive-wood-500);
+  --chart-5: var(--color-space-indigo-500);
+  --sidebar: var(--color-space-indigo-900);
+  --sidebar-foreground: var(--color-wisteria-blue-50);
+  --sidebar-primary: var(--color-wisteria-blue-500);
+  --sidebar-primary-foreground: var(--color-space-indigo-900);
+  --sidebar-accent: var(--color-lilac-ash-500);
+  --sidebar-accent-foreground: var(--color-wisteria-blue-50);
+  --sidebar-border: var(--color-space-indigo-800);
+  --sidebar-ring: var(--color-lilac-ash-500);
+}
+
+// 主题2：极简灰调
+[data-theme="gray-minimal"] {
+  --theme-primary: #353535;
+  --theme-secondary: #d2d7df;
+  --theme-accent: #bdbbb0;
+  --theme-dark: #353535;
+  --theme-light: #ffffff;
+
+  --theme-gradient: var(--gray-minimal-gradient-top);
+
+  --background: var(--color-graphite-950);
+  --foreground: var(--color-white-50);
+  --card: var(--color-graphite-900);
+  --card-foreground: var(--color-white-50);
+  --popover: var(--color-graphite-900);
+  --popover-foreground: var(--color-white-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-graphite-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-graphite-900);
+  --muted: var(--color-silver-800);
+  --muted-foreground: var(--color-silver-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-graphite-900);
+  --destructive: var(--color-graphite-500);
+  --border: var(--color-graphite-800);
+  --input: var(--color-graphite-700);
+  --ring: var(--color-grey-olive-500);
+  --chart-1: var(--color-graphite-500);
+  --chart-2: var(--color-pale-slate-500);
+  --chart-3: var(--color-silver-500);
+  --chart-4: var(--color-grey-olive-500);
+  --chart-5: var(--color-graphite-700);
+  --sidebar: var(--color-graphite-900);
+  --sidebar-foreground: var(--color-white-50);
+  --sidebar-primary: var(--color-graphite-500);
+  --sidebar-primary-foreground: var(--color-white-50);
+  --sidebar-accent: var(--color-silver-500);
+  --sidebar-accent-foreground: var(--color-white-50);
+  --sidebar-border: var(--color-graphite-800);
+  --sidebar-ring: var(--color-grey-olive-500);
+}
+
+// 主题3：靛蓝梦境
+[data-theme="indigo-dream"] {
+  --theme-primary: #6320ee;
+  --theme-secondary: #8075ff;
+  --theme-accent: #f8f0fb;
+  --theme-dark: #211a1d;
+  --theme-light: #cad5ca;
+
+  --theme-gradient: var(--indigo-dream-gradient-top);
+
+  --background: var(--color-shadow-grey-950);
+  --foreground: var(--color-lavender-mist-50);
+  --card: var(--color-shadow-grey-900);
+  --card-foreground: var(--color-lavender-mist-50);
+  --popover: var(--color-shadow-grey-900);
+  --popover-foreground: var(--color-lavender-mist-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-shadow-grey-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-lavender-mist-50);
+  --muted: var(--color-medium-slate-blue-800);
+  --muted-foreground: var(--color-medium-slate-blue-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-shadow-grey-900);
+  --destructive: var(--color-electric-indigo-500);
+  --border: var(--color-shadow-grey-800);
+  --input: var(--color-shadow-grey-700);
+  --ring: var(--color-medium-slate-blue-500);
+  --chart-1: var(--color-electric-indigo-500);
+  --chart-2: var(--color-medium-slate-blue-500);
+  --chart-3: var(--color-lavender-mist-500);
+  --chart-4: var(--color-ash-grey-500);
+  --chart-5: var(--color-shadow-grey-500);
+  --sidebar: var(--color-shadow-grey-900);
+  --sidebar-foreground: var(--color-lavender-mist-50);
+  --sidebar-primary: var(--color-electric-indigo-500);
+  --sidebar-primary-foreground: var(--color-lavender-mist-50);
+  --sidebar-accent: var(--color-medium-slate-blue-500);
+  --sidebar-accent-foreground: var(--color-lavender-mist-50);
+  --sidebar-border: var(--color-shadow-grey-800);
+  --sidebar-ring: var(--color-medium-slate-blue-500);
+}
+
+// 主题4：薰衣草风
+[data-theme="lavender-breeze"] {
+  --theme-primary: #7d84b2;
+  --theme-secondary: #8e9dcc;
+  --theme-accent: #d9dbf1;
+  --theme-dark: #7d84b2;
+  --theme-light: #dbf4a7;
+
+  --theme-gradient: var(--lavender-breeze-gradient-top);
+
+  --background: var(--color-lavender-grey-950);
+  --foreground: var(--color-lavender-50);
+  --card: var(--color-lavender-grey-900);
+  --card-foreground: var(--color-lavender-50);
+  --popover: var(--color-lavender-grey-900);
+  --popover-foreground: var(--color-lavender-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-lavender-grey-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-lavender-50);
+  --muted: var(--color-ivory-800);
+  --muted-foreground: var(--color-ivory-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-lavender-grey-900);
+  --destructive: var(--color-lavender-grey-500);
+  --border: var(--color-lavender-grey-800);
+  --input: var(--color-lavender-grey-700);
+  --ring: var(--color-lime-cream-500);
+  --chart-1: var(--color-lavender-grey-500);
+  --chart-2: var(--color-lavender-500);
+  --chart-3: var(--color-ivory-500);
+  --chart-4: var(--color-lime-cream-500);
+  --chart-5: var(--color-lavender-grey-700);
+  --sidebar: var(--color-lavender-grey-900);
+  --sidebar-foreground: var(--color-lavender-50);
+  --sidebar-primary: var(--color-lavender-grey-500);
+  --sidebar-primary-foreground: var(--color-lavender-50);
+  --sidebar-accent: var(--color-lime-cream-500);
+  --sidebar-accent-foreground: var(--color-lavender-50);
+  --sidebar-border: var(--color-lavender-grey-800);
+  --sidebar-ring: var(--color-lime-cream-500);
+}
+
+// 主题5：大地和谐
+[data-theme="earth-harmony"] {
+  --theme-primary: #00a676;
+  --theme-secondary: #e0d0c1;
+  --theme-accent: #a76d60;
+  --theme-dark: #601700;
+  --theme-light: #f7f9f9;
+
+  --theme-gradient: var(--earth-harmony-gradient-top);
+
+  --background: var(--color-jungle-green-950);
+  --foreground: var(--color-bright-snow-50);
+  --card: var(--color-jungle-green-900);
+  --card-foreground: var(--color-bright-snow-50);
+  --popover: var(--color-jungle-green-900);
+  --popover-foreground: var(--color-bright-snow-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-jungle-green-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-bright-snow-50);
+  --muted: var(--color-bright-snow-800);
+  --muted-foreground: var(--color-bright-snow-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-bright-snow-50);
+  --destructive: var(--color-terracotta-clay-500);
+  --border: var(--color-jungle-green-800);
+  --input: var(--color-jungle-green-700);
+  --ring: var(--color-almond-cream-500);
+  --chart-1: var(--color-jungle-green-500);
+  --chart-2: var(--color-almond-cream-500);
+  --chart-3: var(--color-bright-snow-500);
+  --chart-4: var(--color-terracotta-clay-500);
+  --chart-5: var(--color-jungle-green-700);
+  --sidebar: var(--color-jungle-green-900);
+  --sidebar-foreground: var(--color-bright-snow-50);
+  --sidebar-primary: var(--color-jungle-green-500);
+  --sidebar-primary-foreground: var(--color-bright-snow-50);
+  --sidebar-accent: var(--color-almond-cream-500);
+  --sidebar-accent-foreground: var(--color-bright-snow-50);
+  --sidebar-border: var(--color-jungle-green-800);
+  --sidebar-ring: var(--color-almond-cream-500);
+}
+
+// 主题6：复古玫瑰
+[data-theme="vintage-rose"] {
+  --theme-primary: #785589;
+  --theme-secondary: #977390;
+  --theme-accent: #ac7b7d;
+  --theme-dark: #0d160b;
+  --theme-light: #bb8a89;
+
+  --theme-gradient: var(--vintage-rose-gradient-top);
+
+  --background: var(--color-onyx-950);
+  --foreground: var(--color-rosy-taupe-50);
+  --card: var(--color-onyx-900);
+  --card-foreground: var(--color-rosy-taupe-50);
+  --popover: var(--color-onyx-900);
+  --popover-foreground: var(--color-rosy-taupe-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-onyx-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-rosy-taupe-50);
+  --muted: var(--color-dusty-mauve-800);
+  --muted-foreground: var(--color-dusty-mauve-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-rosy-taupe-50);
+  --destructive: var(--color-dusty-rose-500);
+  --border: var(--color-vintage-lavender-800);
+  --input: var(--color-vintage-lavender-700);
+  --ring: var(--color-dusty-mauve-500);
+  --chart-1: var(--color-vintage-lavender-500);
+  --chart-2: var(--color-dusty-mauve-500);
+  --chart-3: var(--color-rosy-taupe-500);
+  --chart-4: var(--color-dusty-rose-500);
+  --chart-5: var(--color-vintage-lavender-700);
+  --sidebar: var(--color-onyx-900);
+  --sidebar-foreground: var(--color-rosy-taupe-50);
+  --sidebar-primary: var(--color-vintage-lavender-500);
+  --sidebar-primary-foreground: var(--color-rosy-taupe-50);
+  --sidebar-accent: var(--color-dusty-mauve-500);
+  --sidebar-accent-foreground: var(--color-rosy-taupe-50);
+  --sidebar-border: var(--color-vintage-lavender-800);
+  --sidebar-ring: var(--color-dusty-mauve-500);
+}
+
+// 主题7：深海蓝调
+[data-theme="ocean-depths"] {
+  --theme-primary: #034748;
+  --theme-secondary: #1481ba;
+  --theme-accent: #11b5e4;
+  --theme-dark: #001021;
+  --theme-light: #0caadc;
+
+  --theme-gradient: var(--ocean-depths-gradient-top);
+
+  --background: var(--color-ink-black-950);
+  --foreground: var(--color-bright-sky-50);
+  --card: var(--color-ink-black-900);
+  --card-foreground: var(--color-bright-sky-50);
+  --popover: var(--color-ink-black-900);
+  --popover-foreground: var(--color-bright-sky-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-ink-black-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-bright-sky-50);
+  --muted: var(--color-ocean-blue-800);
+  --muted-foreground: var(--color-ocean-blue-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-ink-black-900);
+  --destructive: var(--color-dark-teal-500);
+  --border: var(--color-ink-black-800);
+  --input: var(--color-ink-black-700);
+  --ring: var(--color-sky-surge-500);
+  --chart-1: var(--color-dark-teal-500);
+  --chart-2: var(--color-ocean-blue-500);
+  --chart-3: var(--color-sky-surge-500);
+  --chart-4: var(--color-bright-sky-500);
+  --chart-5: var(--color-ink-black-500);
+  --sidebar: var(--color-ink-black-900);
+  --sidebar-foreground: var(--color-bright-sky-50);
+  --sidebar-primary: var(--color-dark-teal-500);
+  --sidebar-primary-foreground: var(--color-bright-sky-50);
+  --sidebar-accent: var(--color-sky-surge-500);
+  --sidebar-accent-foreground: var(--color-bright-sky-50);
+  --sidebar-border: var(--color-ink-black-800);
+  --sidebar-ring: var(--color-sky-surge-500);
+}
+
+// 主题8：日落余晖
+[data-theme="sunset-glow"] {
+  --theme-primary: #4e598c;
+  --theme-secondary: #f9c784;
+  --theme-accent: #fcaf58;
+  --theme-dark: #4e598c;
+  --theme-light: #ff8c42;
+
+  --theme-gradient: var(--sunset-glow-gradient-top);
+
+  --background: var(--color-space-indigo-950);
+  --foreground: var(--color-white-50);
+  --card: var(--color-space-indigo-900);
+  --card-foreground: var(--color-white-50);
+  --popover: var(--color-space-indigo-900);
+  --popover-foreground: var(--color-white-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-white-50);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-space-indigo-900);
+  --muted: var(--color-space-indigo-800);
+  --muted-foreground: var(--color-space-indigo-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-space-indigo-900);
+  --destructive: var(--color-terracotta-clay-500);
+  --border: var(--color-space-indigo-800);
+  --input: var(--color-space-indigo-700);
+  --ring: var(--color-dusty-taupe-500);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-space-indigo-500);
+  --sidebar: var(--color-space-indigo-900);
+  --sidebar-foreground: var(--color-white-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-white-50);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-space-indigo-900);
+  --sidebar-border: var(--color-space-indigo-800);
+  --sidebar-ring: var(--color-dusty-taupe-500);
+}
+
+// 主题9：清新薄荷
+[data-theme="mint-fresh"] {
+  --theme-primary: #4b7f52;
+  --theme-secondary: #7dd181;
+  --theme-accent: #96e8bc;
+  --theme-dark: #4b7f52;
+  --theme-light: #c9ffe2;
+
+  --theme-gradient: var(--mint-fresh-gradient-top);
+
+  --background: var(--color-jungle-green-950);
+  --foreground: var(--color-bright-snow-50);
+  --card: var(--color-jungle-green-900);
+  --card-foreground: var(--color-bright-snow-50);
+  --popover: var(--color-jungle-green-900);
+  --popover-foreground: var(--color-bright-snow-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-jungle-green-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-jungle-green-900);
+  --muted: var(--color-jungle-green-800);
+  --muted-foreground: var(--color-jungle-green-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-jungle-green-900);
+  --destructive: var(--color-terracotta-clay-500);
+  --border: var(--color-jungle-green-800);
+  --input: var(--color-jungle-green-700);
+  --ring: var(--theme-secondary);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-jungle-green-700);
+  --sidebar: var(--color-jungle-green-900);
+  --sidebar-foreground: var(--color-bright-snow-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-bright-snow-50);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-jungle-green-900);
+  --sidebar-border: var(--color-jungle-green-800);
+  --sidebar-ring: var(--theme-secondary);
+}
+
+// 主题10：森林精灵
+[data-theme="forest-spirit"] {
+  --theme-primary: #138a36;
+  --theme-secondary: #04e824;
+  --theme-accent: #18ff6d;
+  --theme-dark: #34403a;
+  --theme-light: #285238;
+
+  --theme-gradient: var(--forest-spirit-gradient-top);
+
+  --background: var(--color-jungle-green-950);
+  --foreground: var(--color-bright-snow-50);
+  --card: var(--color-jungle-green-900);
+  --card-foreground: var(--color-bright-snow-50);
+  --popover: var(--color-jungle-green-900);
+  --popover-foreground: var(--color-bright-snow-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-bright-snow-50);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-jungle-green-900);
+  --muted: var(--color-jungle-green-800);
+  --muted-foreground: var(--color-jungle-green-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-jungle-green-900);
+  --destructive: var(--color-terracotta-clay-500);
+  --border: var(--color-jungle-green-800);
+  --input: var(--color-jungle-green-700);
+  --ring: var(--theme-secondary);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-jungle-green-700);
+  --sidebar: var(--color-jungle-green-900);
+  --sidebar-foreground: var(--color-bright-snow-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-bright-snow-50);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-jungle-green-900);
+  --sidebar-border: var(--color-jungle-green-800);
+  --sidebar-ring: var(--theme-secondary);
+}
+
+// 主题11：长春花蓝
+[data-theme="periwinkle-sky"] {
+  --theme-primary: #8a4fff;
+  --theme-secondary: #c3bef7;
+  --theme-accent: #e5ecf4;
+  --theme-dark: #8a4fff;
+  --theme-light: #effffa;
+
+  --theme-gradient: var(--periwinkle-sky-gradient-top);
+
+  --background: var(--color-lavender-grey-950);
+  --foreground: var(--color-lavender-50);
+  --card: var(--color-lavender-grey-900);
+  --card-foreground: var(--color-lavender-50);
+  --popover: var(--color-lavender-grey-900);
+  --popover-foreground: var(--color-lavender-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-lavender-grey-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-lavender-grey-900);
+  --muted: var(--color-lavender-grey-800);
+  --muted-foreground: var(--color-lavender-grey-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-lavender-grey-900);
+  --destructive: var(--color-lavender-grey-500);
+  --border: var(--color-lavender-grey-800);
+  --input: var(--color-lavender-grey-700);
+  --ring: var(--theme-secondary);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-lavender-grey-500);
+  --sidebar: var(--color-lavender-grey-900);
+  --sidebar-foreground: var(--color-lavender-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-lavender-50);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-lavender-grey-900);
+  --sidebar-border: var(--color-lavender-grey-800);
+  --sidebar-ring: var(--theme-secondary);
+}
+
+// 主题12：腮红色调
+[data-theme="blush-tones"] {
+  --theme-primary: #e85d75;
+  --theme-secondary: #c76d7e;
+  --theme-accent: #9f8082;
+  --theme-dark: #e85d75;
+  --theme-light: #ad9b9a;
+
+  --theme-gradient: var(--blush-tones-gradient-top);
+
+  --background: var(--color-onyx-950);
+  --foreground: var(--color-rosy-taupe-50);
+  --card: var(--color-onyx-900);
+  --card-foreground: var(--color-rosy-taupe-50);
+  --popover: var(--color-onyx-900);
+  --popover-foreground: var(--color-rosy-taupe-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-onyx-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-rosy-taupe-50);
+  --muted: var(--color-dusty-mauve-800);
+  --muted-foreground: var(--color-dusty-mauve-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-rosy-taupe-50);
+  --destructive: var(--color-dusty-rose-500);
+  --border: var(--color-vintage-lavender-800);
+  --input: var(--color-vintage-lavender-700);
+  --ring: var(--color-dusty-mauve-500);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-vintage-lavender-500);
+  --sidebar: var(--color-onyx-900);
+  --sidebar-foreground: var(--color-rosy-taupe-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-rosy-taupe-50);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-onyx-900);
+  --sidebar-border: var(--color-vintage-lavender-800);
+  --sidebar-ring: var(--color-dusty-mauve-500);
+}
+
+// 主题13：暖色调谱
+[data-theme="warm-spectrum"] {
+  --theme-primary: #fff05a;
+  --theme-secondary: #ffd25a;
+  --theme-accent: #ffaa5a;
+  --theme-dark: #191919;
+  --theme-light: #ff785a;
+
+  --theme-gradient: var(--warm-spectrum-gradient-top);
+
+  --background: var(--color-graphite-950);
+  --foreground: var(--color-white-50);
+  --card: var(--color-graphite-900);
+  --card-foreground: var(--color-white-50);
+  --popover: var(--color-graphite-900);
+  --popover-foreground: var(--color-white-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-graphite-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-graphite-900);
+  --muted: var(--color-graphite-800);
+  --muted-foreground: var(--color-graphite-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-graphite-900);
+  --destructive: var(--theme-light);
+  --border: var(--color-graphite-800);
+  --input: var(--color-graphite-700);
+  --ring: var(--theme-secondary);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-graphite-500);
+  --sidebar: var(--color-graphite-900);
+  --sidebar-foreground: var(--color-white-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-graphite-900);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-graphite-900);
+  --sidebar-border: var(--color-graphite-800);
+  --sidebar-ring: var(--theme-secondary);
+}
+
+// 主题14：霓虹活力
+[data-theme="neon-vibrance"] {
+  --theme-primary: #f2f230;
+  --theme-secondary: #c2f261;
+  --theme-accent: #91f291;
+  --theme-dark: #f2f230;
+  --theme-light: #30f2f2;
+
+  --theme-gradient: var(--neon-vibrance-gradient-top);
+
+  --background: var(--color-graphite-950);
+  --foreground: var(--color-white-50);
+  --card: var(--color-graphite-900);
+  --card-foreground: var(--color-white-50);
+  --popover: var(--color-graphite-900);
+  --popover-foreground: var(--color-white-50);
+  --primary: var(--theme-primary);
+  --primary-foreground: var(--color-graphite-900);
+  --secondary: var(--theme-secondary);
+  --secondary-foreground: var(--color-graphite-900);
+  --muted: var(--color-graphite-800);
+  --muted-foreground: var(--color-graphite-300);
+  --accent: var(--theme-accent);
+  --accent-foreground: var(--color-graphite-900);
+  --destructive: var(--color-terracotta-clay-500);
+  --border: var(--color-graphite-800);
+  --input: var(--color-graphite-700);
+  --ring: var(--theme-secondary);
+  --chart-1: var(--theme-primary);
+  --chart-2: var(--theme-secondary);
+  --chart-3: var(--theme-accent);
+  --chart-4: var(--theme-light);
+  --chart-5: var(--color-graphite-500);
+  --sidebar: var(--color-graphite-900);
+  --sidebar-foreground: var(--color-white-50);
+  --sidebar-primary: var(--theme-primary);
+  --sidebar-primary-foreground: var(--color-graphite-900);
+  --sidebar-accent: var(--theme-accent);
+  --sidebar-accent-foreground: var(--color-graphite-900);
+  --sidebar-border: var(--color-graphite-800);
+  --sidebar-ring: var(--theme-secondary);
+}
+
+
+// pc
+@media screen and (min-width: 1025px) {
+  .theme-container{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .theme-inner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    background: rgba(229, 227, 227, .8);
+    box-shadow: rgba(0, 0, 0, .4) 0px 0px 50px 8px;
+
+    &.visible{
+      opacity: 1;
+      height: 60px;
+    }
+
+    .theme-lists{
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+
+      .theme-item{
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 0 10px;
+        aspect-ratio: 1 / 1;
+        outline-offset: 0;
+
+        &:nth-child(1){
+          background: #fff;
+        }
+
+        &:nth-child(2){
+          background: #000;
+        }
+
+        &:nth-child(3){
+          background: #565656;
+        }
+
+        &:nth-child(4){
+          background: #ff0000;
+        }
+
+        &:nth-child(5){
+          background: #ff6600;
+        }
+
+        &:nth-child(6){
+          background: #ffbb00;
+        }
+
+        &:nth-child(7){
+          background: #51ff00;
+        }
+
+        &:nth-child(8){
+          background: #00f7ff;
+        }
+
+        &:nth-child(9){
+          background: #001aff;
+        }
+
+        &:nth-child(10){
+          background: #ff00ea;
+        }
+
+        &:nth-child(11){
+          background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, rgb(0, 115, 130) 1.33turn, blue 1.66turn, purple 2turn);
+        }
+
+        &:hover,&.active{
+          cursor: pointer;
+          transition: all .5s ease;
+          outline: 1px solid rgb(6, 160, 6);
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+
+  .theme-switch{
+    width: 64px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    background: rgb(234, 233, 233);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 50px;
+      height: 100%;
+      background: rgb(234, 233, 233);
+    }
+
+    &::before {
+      right: 64px;
+      clip-path: path('M 0,0 C 25,0 25,50 50,50 L 0, 50 Z');
+      transform: rotate(180deg);
+    }
+
+    &::after {
+      left: 64px;
+      clip-path: path('M 0,50 C 25,50 25,0 50,0 L 50, 50 Z');
+      transform: rotate(180deg);
+    }
+
+    .icon{
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// mobile
+@media screen and (max-width: 1024px) {
+  .theme-container{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .theme-inner{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    background: rgba(229, 227, 227, .8);
+    box-shadow: rgba(0, 0, 0, .4) 0px 0px 50px 8px;
+
+    &.visible{
+      opacity: 1;
+      height: 60px;
+    }
+
+    .theme-lists{
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+
+      .theme-item{
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 0 6px;
+        aspect-ratio: 1 / 1;
+        outline-offset: 0;
+
+        &:nth-child(1){
+          background: #fff;
+        }
+
+        &:nth-child(2){
+          background: #000;
+        }
+
+        &:nth-child(3){
+          background: #565656;
+        }
+
+        &:nth-child(4){
+          background: #ff0000;
+        }
+
+        &:nth-child(5){
+          background: #ff6600;
+        }
+
+        &:nth-child(6){
+          background: #ffbb00;
+        }
+
+        &:nth-child(7){
+          background: #51ff00;
+        }
+
+        &:nth-child(8){
+          background: #00f7ff;
+        }
+
+        &:nth-child(9){
+          background: #001aff;
+        }
+
+        &:nth-child(10){
+          background: #ff00ea;
+        }
+
+        &:nth-child(11){
+          background-image: repeating-conic-gradient(red, orange 0.33turn, yellow 0.66turn, green 1turn, rgb(0, 115, 130) 1.33turn, blue 1.66turn, purple 2turn);
+        }
+
+        &:hover,&.active{
+          cursor: pointer;
+          transition: all .5s ease;
+          outline: 1px solid rgb(6, 160, 6);
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+
+  .theme-switch{
+    width: 34px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    background: rgb(234, 233, 233);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      width: 50px;
+      height: 100%;
+      background: rgb(234, 233, 233);
+    }
+
+    &::before {
+      right: 34px;
+      clip-path: path('M 0,0 C 25,0 25,50 50,50 L 0, 50 Z');
+      transform: rotate(180deg);
+    }
+
+    &::after {
+      left: 34px;
+      clip-path: path('M 0,50 C 25,50 25,0 50,0 L 50, 50 Z');
+      transform: rotate(180deg);
+    }
+
+    .icon{
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

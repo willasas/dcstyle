@@ -6,6 +6,45 @@ const cssnano = require('cssnano');
 const fs = require('fs');
 const path = require('path');
 
+// 版权注释
+const banner = `/*!
+ * DC Style Framework v1.0.0
+ * A comprehensive CSS framework with multiple themes and utility classes
+ * Author: william
+ * License: MIT
+ * https://github.com/willasas/dcstyle
+ */
+`;
+
+// 自定义插件：添加版权注释
+function addBanner() {
+  return {
+    name: 'add-banner',
+    writeBundle(options) {
+      // 处理单个文件输出
+      if (options.file) {
+        const outputPath = options.file;
+        if (fs.existsSync(outputPath)) {
+          const content = fs.readFileSync(outputPath, 'utf8');
+          const newContent = banner + content;
+          fs.writeFileSync(outputPath, newContent);
+        }
+      }
+      // 处理目录输出
+      else if (options.dir) {
+        fs.readdirSync(options.dir).forEach(fileName => {
+          const outputPath = path.join(options.dir, fileName);
+          if (fs.statSync(outputPath).isFile()) {
+            const content = fs.readFileSync(outputPath, 'utf8');
+            const newContent = banner + content;
+            fs.writeFileSync(outputPath, newContent);
+          }
+        });
+      }
+    }
+  };
+}
+
 // 清理dist目录
 function cleanDist() {
   const distPath = path.join(__dirname, 'dist');
@@ -38,11 +77,20 @@ module.exports = [
           }]
         ],
         plugins: [
-          autoprefixer()
+          autoprefixer(),
+          {
+            postcssPlugin: 'remove-comments',
+            Once(root) {
+              root.walkComments(comment => {
+                comment.remove();
+              });
+            }
+          }
         ],
         extract: true,
         minimize: false
-      })
+      }),
+      addBanner()
     ]
   },
   // 压缩CSS构建
@@ -65,12 +113,20 @@ module.exports = [
         plugins: [
           autoprefixer(),
           cssnano({
-            preset: 'default'
+            preset: [
+              'default',
+              {
+                discardComments: {
+                  removeAll: true
+                }
+              }
+            ]
           })
         ],
         extract: true,
         minimize: true
-      })
+      }),
+      addBanner()
     ]
   },
   // UMD格式构建（支持原生页面使用）
@@ -95,11 +151,20 @@ module.exports = [
           }]
         ],
         plugins: [
-          autoprefixer()
+          autoprefixer(),
+          {
+            postcssPlugin: 'remove-comments',
+            Once(root) {
+              root.walkComments(comment => {
+                comment.remove();
+              });
+            }
+          }
         ],
         inject: true,
         minimize: false
-      })
+      }),
+      addBanner()
     ]
   }
 ];

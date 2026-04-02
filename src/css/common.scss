@@ -49,43 +49,43 @@ $local-path: '../assets/img/';
 
 @use 'sass:math';
 
-:root {
-  --current-ui-width: 750; /* 默认为手机屏幕宽度 */
-  --current-ui-height: 1624;
-  @media (min-width: 768px) {
-    --current-ui-width: 1024; /* 平板 */
-  }
-  @media (min-width: 1025px) {
-    --current-ui-width: 1440; /* 笔记本电脑 */
-  }
-  @media (min-width: 1441px) {
-    --current-ui-width: 1920; /* PC */
-    --current-ui-height: 1080;
-  }
-  @media (min-width: 2561px) {
-    --current-ui-width: 2560; /* 大屏 */
-    --current-ui-height: 1440;
-  }
-}
+// :root {
+//   --current-ui-width: 750; /* 默认为手机屏幕宽度 */
+//   --current-ui-height: 1624;
+//   @media (min-width: 768px) {
+//     --current-ui-width: 1024; /* 平板 */
+//   }
+//   @media (min-width: 1025px) {
+//     --current-ui-width: 1440; /* 笔记本电脑 */
+//   }
+//   @media (min-width: 1441px) {
+//     --current-ui-width: 1920; /* PC */
+//     --current-ui-height: 1080;
+//   }
+//   @media (min-width: 2561px) {
+//     --current-ui-width: 2560; /* 大屏 */
+//     --current-ui-height: 1440;
+//   }
+// }
 /* ==============VARIABLES END============== */
 
 /* ==============FUNCTION END============== */
-@function rem($pixels) {
-  $design_font_size: 100;
-  @return math.div($pixels, $design_font_size) + rem;
-}
+// @function rem($pixels) {
+//   $design_font_size: 100;
+//   @return math.div($pixels, $design_font_size) + rem;
+// }
 
-@function px2vw($pixels) {
-  @return math.div($pixels, $ui-pc-width) * 100vw;
-}
+// @function px2vw($pixels) {
+//   @return math.div($pixels, $ui-pc-width) * 100vw;
+// }
 
-@function vw($pixels) {
-  @return calc(#{$pixels} / var(--current-ui-width) * 100vw);
-}
+// @function vw($pixels) {
+//   @return calc(#{$pixels} / var(--current-ui-width) * 100vw);
+// }
 
-@function vh($pixels) {
-  @return calc(#{$pixels} / var(--current-ui-height) * 100vh);
-}
+// @function vh($pixels) {
+//   @return calc(#{$pixels} / var(--current-ui-height) * 100vh);
+// }
 /* ==============FUNCTION END============== */
 
 
@@ -555,7 +555,7 @@ $local-path: '../assets/img/';
 /// 文字样式
 ///
 %ele-text{
-  @include usual-fonts("sy-bold", rem(34), bold, normal, 1.22, #000000, center, normal, none);
+	@include usual-fonts("sy-bold", 34px, bold, normal, 1.22, #000000, center, normal, none);
 }
 
 ///
@@ -576,14 +576,14 @@ $local-path: '../assets/img/';
 /// 元素大小
 ///
 %ele-size{
-  @include element-size(rem(368), rem(86));
+	@include element-size(368px, 86px);
 }
 
 ///
 /// 页面背景
 ///
 %ele-bg{
-  @include element-bg-img($local-path+'bg_01.jpg', no-repeat, cover, 100%, rem(1080), top center, initial, initial, initial, transparent);
+	@include element-bg-img($local-path+'bg_01.jpg', no-repeat, cover, 100%, 1080px, top center, initial, initial, initial, transparent);
 }
 
 ///
@@ -597,7 +597,7 @@ $local-path: '../assets/img/';
 /// 元素图片
 ///
 %ele-img{
-  @include element-img($local-path+'kv-logo.png', no-repeat, 100% 100%, rem(180), rem(74));
+	@include element-img($local-path+'kv-logo.png', no-repeat, 100% 100%, 180px, 74px);
 }
 
 ///

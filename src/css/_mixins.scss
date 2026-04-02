@@ -36,7 +36,7 @@
 }
 
 /**
-* 默认字体样式 
+* 默认字体样式
 *
 * @param {String} $font-fm 字体名称
 * @param {String} $font-size 字号
@@ -131,9 +131,40 @@
   // @include text-effect(#b4a078, #fff, 1px 1px hsl(40, 28.57% , 28.82%), 2px 2px hsl(40, 28.57% , 28.82%),3px 3px hsl(40, 28.57% , 28.82%), 4px 4px hsl(40, 28.57% , 28.82%));
 }
 
+/* 文本渐变混合宏 - 支持自定义颜色和字体
+  * $color-start - 渐变起始颜色（默认：#c9a248）
+  * $color-end - 渐变结束颜色（默认：#e0bf60）
+*/
+@mixin text-gradient($color-start: #c9a248, $color-end: #e0bf60) {
+  @supports (-webkit-background-clip: text) {
+    background-image: linear-gradient($color-start 20%, $color-end 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+// 使用示例
+.text-gradient {
+  @include text-gradient();
+}
+
+// 自定义颜色的文本渐变
+.text-gradient-gold {
+  @include text-gradient(#ffd700, #ffed4e);
+}
+
+.text-gradient-blue {
+  @include text-gradient(#4a90e2, #50e3c2);
+}
+
+.text-gradient-purple {
+  @include text-gradient(#9b59b6, #8e44ad);
+}
+
 /**
 * 显示或隐藏某个元素
-* 
+*
 * @param {Booleans} $domObject 元素变量(你可以设置它为true或false，并对其进行其他操作)
 */
 @mixin show-or-hide($dom-object: true) {
@@ -149,7 +180,7 @@
 }
 
 /**
-* 文本溢出处理 
+* 文本溢出处理
 *
 * @param {Number} $txtType 文本超出的处理方式（可选值为0：单行文本超出省略；1：超出换行,字符超出位置使用连字符；2：多行文本超出省略）
 */
@@ -267,7 +298,7 @@
 }
 
 /**
-* 透明度混合器 
+* 透明度混合器
 *
 * @param {Number} $opacity 元素透明度（可选值为0：完全透明-1：完全不透明；）
 */
@@ -330,7 +361,7 @@
 
 /**
  * 为CSS属性添加浏览器前缀。
- * 
+ *
  * @mixin prefixed
  * @param {String} $property - 需要添加前缀的CSS属性名。
  * @param {String} $value - $property属性对应的值。
@@ -378,9 +409,9 @@ $keyframeName: 'shake' !default;
 
 /**
  * 定义一个关键帧动画混合函数，用于创建跨浏览器的关键帧动画。
- * 
+ *
  * @param $keyframeName 动画帧名称，作为动画标识。
- * 
+ *
  * 使用此混合函数可以方便地创建适用于不同浏览器的关键帧动画，
  * 通过变量控制浏览器前缀的使用，以便于未来的浏览器兼容性更新。
  */
@@ -435,3 +466,92 @@ $keyframeName: 'shake' !default;
 // .some-element {
 //   animation: spin 2s linear infinite;
 // }
+
+/*
+ * CSS3 transition 混合
+ * @param $args transition 属性
+ * @return 无
+ */
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/*
+ * CSS3 border-radius 混合
+ * @param $radius 圆角半径
+ * @return 无
+ */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/**
+ * CSS3 box-shadow 混合
+ * @param $args box-shadow 属性
+ * @return 无
+ */
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  -ms-box-shadow: $args;
+  -o-box-shadow: $args;
+  box-shadow: $args;
+}
+
+/**
+ * CSS3 text-shadow 混合
+ * @param $args text-shadow 属性
+ * @return 无
+ */
+@mixin text-shadow($args...) {
+  -webkit-text-shadow: $args;
+  -moz-text-shadow: $args;
+  -ms-text-shadow: $args;
+  -o-text-shadow: $args;
+  text-shadow: $args;
+}
+
+/**
+ * CSS3 rem 混合
+ * @param $pixels 值
+ * @return rem 值
+ */
+@function rem($pixels) {
+  $design_font_size: 100;
+  @return math.div($pixels, $design_font_size) + rem;
+}
+
+/**
+ * CSS3 px2vw 混合
+ * @param $pixels 值
+ * @return vw 值
+ */
+@function px2vw($pixels) {
+  @return math.div($pixels, $ui-pc-width) * 100vw;
+}
+
+/**
+ * CSS3 vw 混合
+ * @param $pixels 值
+ * @return vw 值
+ */
+@function vw($pixels) {
+  @return calc(#{$pixels} / var(--current-ui-width) * 100vw);
+}
+
+/**
+ * CSS3 vh 混合
+ * @param $pixels 值
+ * @return vh 值
+ */
+@function vh($pixels) {
+  @return calc(#{$pixels} / var(--current-ui-height) * 100vh);
+}

@@ -970,9 +970,8 @@
     position: absolute;
     top: -.45rem;
     left: -.65rem;
-  width: $width;
-  height: calc(#{$height} / #{$top} * 1px);
     width: 0;
+    height: 0;
 
     border: {
       right: .3rem solid transparent;

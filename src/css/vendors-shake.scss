@@ -124,22 +124,19 @@ $keyframeName: 'shake' !default;
 
 @include keyframes(#{$keyframeName}) {
 	2% {
-		@include prefixed(transform, translate(2.5px, -1.5px) rotate(0.5deg));
-		// transform: translate(2.5px, -1.5px) rotate(0.5deg);
+		transform: translate(2.5px, -1.5px) rotate(0.5deg);
 	}
 
 	4% {
-		@include prefixed(transform, translate(-0.5px, 1.5px) rotate(1.5deg));
-		// transform: translate(-0.5px, 1.5px) rotate(1.5deg);
+		transform: translate(-0.5px, 1.5px) rotate(1.5deg);
 	}
 
 	6% {
-		@include prefixed(transform, translate(-0.5px, -1.5px) rotate(1.5deg));
-		// transform: translate(-0.5px, -1.5px) rotate(1.5deg);
+		transform: translate(-0.5px, -1.5px) rotate(1.5deg);
 	}
 
 	8% {
-		@include prefixed(translate(-1.5px, -0.5px) rotate(-0.5deg));
+		transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
 		// transform: translate(-1.5px, -0.5px) rotate(-0.5deg);
 	}
 

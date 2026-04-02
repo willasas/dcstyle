@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/**
+* 字体文件引入
+*/
+/* 字体文件路径变量 */
+/* 字体族映射 */
+/* 自动生成字体工具类 */
+.font-harmony { font-family: "HarmonyOS Sans", sans-serif; }
+
+.font-harmony-sc { font-family: "HarmonyOS Sans SC", sans-serif; }
+
+.font-harmony-tc { font-family: "HarmonyOS Sans TC", sans-serif; }
+
+.font-harmony-condensed { font-family: "HarmonyOS Sans Condensed", sans-serif; }
+
+.font-harmony-arabic { font-family: "HarmonyOS Sans Arabic", sans-serif; }
+
+.font-harmony-arabic-ui { font-family: "HarmonyOS Sans Arabic UI", sans-serif; }
+
+.font-ibm { font-family: "IBM Plex Sans", sans-serif; }
+
+.font-ibm-sc { font-family: "IBM Plex Sans SC", sans-serif; }
+
+.font-ibm-tc { font-family: "IBM Plex Sans TC", sans-serif; }
+
+.font-ibm-arabic { font-family: "IBM Plex Sans Arabic", sans-serif; }
+
+.font-ibm-devanagari { font-family: "IBM Plex Sans Devanagari", sans-serif; }
+
+.font-ibm-hebrew { font-family: "IBM Plex Sans Hebrew", sans-serif; }
+
+.font-ibm-jp { font-family: "IBM Plex Sans JP", sans-serif; }
+
+.font-ibm-kr { font-family: "IBM Plex Sans KR", sans-serif; }
+
+.font-ibm-thai { font-family: "IBM Plex Sans Thai", sans-serif; }
+
+.font-ibm-thai-looped { font-family: "IBM Plex Sans Thai Looped", sans-serif; }
+
+.font-ibm-condensed { font-family: "IBM Plex Sans Condensed", sans-serif; }
+
+.font-ibm-var { font-family: "IBM Plex Sans Var", sans-serif; }
+
+.font-noto { font-family: "NotoSans", sans-serif; }
+
+.font-noto-arabic { font-family: "NotoSans Arabic", sans-serif; }
+
+.font-noto-adlam { font-family: "NotoSans Adlam", sans-serif; }
+
+.font-noto-adlam-unjoined { font-family: "NotoSans Adlam Unjoined", sans-serif; }
+
+.font-noto-anatolian { font-family: "NotoSans Anatolian Hieroglyphs", sans-serif; }
+
+.font-noto-condensed { font-family: "NotoSans Condensed", sans-serif; }
+
+.font-noto-extra-condensed { font-family: "NotoSans ExtraCondensed", sans-serif; }
+
+.font-noto-semi-condensed { font-family: "NotoSans SemiCondensed", sans-serif; }
+
+.font-jetbrains { font-family: "JetBrainsMono", monospace; }
+
+.font-emoji-bw { font-family: "EmojiOneBW"; }
+
+.font-emoji-color { font-family: "EmojiOneColor"; }
+
+.font-montserrat { font-family: "Montserrat", sans-serif; }
+
+.font-montserrat-alternates { font-family: "Montserrat Alternates", sans-serif; }
+
+/* 字体定义映射 - 使用字体变量 */
+/* 自动生成@font-face定义 */
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 100; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Thin.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Thin.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Thin.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Thin.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 100; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Thin.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Thin.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Thin.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Thin.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 300; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Light.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Light.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Light.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Light.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Light.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 300; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Light.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Light.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Light.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Light.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Light.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 400; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Regular.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Regular.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Regular.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Regular.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 400; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Regular.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Regular.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Regular.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Regular.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 500; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Medium.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Medium.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Medium.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Medium.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 500; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Medium.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Medium.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Medium.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Medium.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 600; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Semibold.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Semibold.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Semibold.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Semibold.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 600; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Semibold.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Semibold.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Semibold.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Semibold.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 700; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Bold.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Bold.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Bold.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Bold.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 700; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Bold.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Bold.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Bold.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Bold.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 900; font-style: normal; src: url("../fonts/HarmonyOS_Sans_Black.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_Sans_Black.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_Sans_Black.woff") format("woff"), url("../fonts/HarmonyOS_Sans_Black.ttf") format("truetype"), url("../fonts/HarmonyOS_Sans_Black.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "HarmonyOS Sans"; font-weight: 900; font-style: italic; src: url("../fonts/HarmonyOS_SansItalic_Black.eot"); /* IE9 */ src: url("../fonts/HarmonyOS_SansItalic_Black.eot?#iefix") format("embedded-opentype"), url("../fonts/HarmonyOS_SansItalic_Black.woff") format("woff"), url("../fonts/HarmonyOS_SansItalic_Black.ttf") format("truetype"), url("../fonts/HarmonyOS_SansItalic_Black.svg#HarmonyOS Sans") format("svg"); /* iOS 4.1- */ }
+
+@font-face { font-family: "Montserrat"; font-weight: 900; font-style: italic; src: url("../fonts/MontserratAlternates-BlackItalic.eot"); /* IE9 */ src: url("../fonts/MontserratAlternates-BlackItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/MontserratAlternates-BlackItalic.woff") format("woff"), url("../fonts/MontserratAlternates-BlackItalic.ttf") format("truetype"), url("../fonts/MontserratAlternates-BlackItalic.svg#Montserrat") format("svg"); /* iOS 4.1- */ }

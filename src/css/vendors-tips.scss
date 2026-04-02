@@ -131,16 +131,16 @@ $tipSuccessColor: hsl(121, 32%, 40%) !default;
   @mixin set-margin($property, $transitionDirection, $translateX: 0) {
 	  $value: unquote("#{$property}(#{$tipTransitionDistance * $transitionDirection})");
 	  &:before {
-		  @include vendor('transform', $value);
-	  }
+		transform: $value;
+	}
 	  &:after {
 		  @if $translateX != 0 {
 			  // For vertical tooltips, we need to animate in y-direction
 			  // retaining its x-transform.
-			  @include vendor('transform', translateX($translateX) $value);
+			  transform: translateX($translateX) $value;
 		  }
 		  @else {
-			  @include vendor('transform', $value);
+			  transform: $value;
 		  }
 	  }
   }

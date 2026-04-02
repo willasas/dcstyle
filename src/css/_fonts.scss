@@ -1,0 +1,488 @@
+@charset "utf-8";
+
+/**
+* 字体文件引入
+*/
+/* 字体文件路径变量 */
+
+$HarmonyOS_SansCondensedItalic_Black: "../fonts/HarmonyOS_SansCondensedItalic_Black";
+$HarmonyOS_SansCondensedItalic_Bold: "../fonts/HarmonyOS_SansCondensedItalic_Bold";
+$HarmonyOS_SansCondensedItalic_Light: "../fonts/HarmonyOS_SansCondensedItalic_Light";
+$HarmonyOS_SansCondensedItalic_Medium: "../fonts/HarmonyOS_SansCondensedItalic_Medium";
+$HarmonyOS_SansCondensedItalic_Regular: "../fonts/HarmonyOS_SansCondensedItalic_Regular";
+$HarmonyOS_SansCondensedItalic_Semibold: "../fonts/HarmonyOS_SansCondensedItalic_Semibold";
+$HarmonyOS_SansCondensedItalic_Thin: "../fonts/HarmonyOS_SansCondensedItalic_Thin";
+$HarmonyOS_SansItalic_Black: "../fonts/HarmonyOS_SansItalic_Black";
+$HarmonyOS_SansItalic_Bold: "../fonts/HarmonyOS_SansItalic_Bold";
+$HarmonyOS_SansItalic_Light: "../fonts/HarmonyOS_SansItalic_Light";
+$HarmonyOS_SansItalic_Medium: "../fonts/HarmonyOS_SansItalic_Medium";
+$HarmonyOS_SansItalic_Regular: "../fonts/HarmonyOS_SansItalic_Regular";
+$HarmonyOS_SansItalic_Semibold: "../fonts/HarmonyOS_SansItalic_Semibold";
+$HarmonyOS_SansItalic_Thin: "../fonts/HarmonyOS_SansItalic_Thin";
+$HarmonyOS_SansSC_Black: "../fonts/HarmonyOS_SansSC_Black";
+$HarmonyOS_SansSC_Bold: "../fonts/HarmonyOS_SansSC_Bold";
+$HarmonyOS_SansSC_Light: "../fonts/HarmonyOS_SansSC_Light";
+$HarmonyOS_SansSC_Medium: "../fonts/HarmonyOS_SansSC_Medium";
+$HarmonyOS_SansSC_Regular: "../fonts/HarmonyOS_SansSC_Regular";
+$HarmonyOS_SansSC_Semibold: "../fonts/HarmonyOS_SansSC_Semibold";
+$HarmonyOS_SansSC_Thin: "../fonts/HarmonyOS_SansSC_Thin";
+$HarmonyOS_SansTC_Black: "../fonts/HarmonyOS_SansTC_Black";
+$HarmonyOS_SansTC_Bold: "../fonts/HarmonyOS_SansTC_Bold";
+$HarmonyOS_SansTC_Light: "../fonts/HarmonyOS_SansTC_Light";
+$HarmonyOS_SansTC_Medium: "../fonts/HarmonyOS_SansTC_Medium";
+$HarmonyOS_SansTC_Regular: "../fonts/HarmonyOS_SansTC_Regular";
+$HarmonyOS_SansTC_Semibold: "../fonts/HarmonyOS_SansTC_Semibold";
+$HarmonyOS_SansTC_Thin: "../fonts/HarmonyOS_SansTC_Thin";
+$HarmonyOS_Sans_Black: "../fonts/HarmonyOS_Sans_Black";
+$HarmonyOS_Sans_Bold: "../fonts/HarmonyOS_Sans_Bold";
+$HarmonyOS_Sans_Condensed_Black: "../fonts/HarmonyOS_Sans_Condensed_Black";
+$HarmonyOS_Sans_Condensed_Bold: "../fonts/HarmonyOS_Sans_Condensed_Bold";
+$HarmonyOS_Sans_Condensed_Light: "../fonts/HarmonyOS_Sans_Condensed_Light";
+$HarmonyOS_Sans_Condensed_Medium: "../fonts/HarmonyOS_Sans_Condensed_Medium";
+$HarmonyOS_Sans_Condensed_Regular: "../fonts/HarmonyOS_Sans_Condensed_Regular";
+$HarmonyOS_Sans_Condensed_SemiBold: "../fonts/HarmonyOS_Sans_Condensed_SemiBold";
+$HarmonyOS_Sans_Condensed_Thin: "../fonts/HarmonyOS_Sans_Condensed_Thin";
+$HarmonyOS_Sans_Light: "../fonts/HarmonyOS_Sans_Light";
+$HarmonyOS_Sans_Medium: "../fonts/HarmonyOS_Sans_Medium";
+$HarmonyOS_Sans_Naskh_ArabicUI_Black: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Black";
+$HarmonyOS_Sans_Naskh_ArabicUI_Bold: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Bold";
+$HarmonyOS_Sans_Naskh_ArabicUI_Heavy: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Heavy";
+$HarmonyOS_Sans_Naskh_ArabicUI_Light: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Light";
+$HarmonyOS_Sans_Naskh_ArabicUI_Medium: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Medium";
+$HarmonyOS_Sans_Naskh_ArabicUI_Regular: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Regular";
+$HarmonyOS_Sans_Naskh_ArabicUI_SemiBold: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_SemiBold";
+$HarmonyOS_Sans_Naskh_ArabicUI_Thin: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_Thin";
+$HarmonyOS_Sans_Naskh_ArabicUI_UltraLight: "../fonts/HarmonyOS_Sans_Naskh_ArabicUI_UltraLight";
+$HarmonyOS_Sans_Naskh_Arabic_Black: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Black";
+$HarmonyOS_Sans_Naskh_Arabic_Bold: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Bold";
+$HarmonyOS_Sans_Naskh_Arabic_Heavy: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Heavy";
+$HarmonyOS_Sans_Naskh_Arabic_Light: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Light";
+$HarmonyOS_Sans_Naskh_Arabic_Medium: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Medium";
+$HarmonyOS_Sans_Naskh_Arabic_Regular: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Regular";
+$HarmonyOS_Sans_Naskh_Arabic_SemiBold: "../fonts/HarmonyOS_Sans_Naskh_Arabic_SemiBold";
+$HarmonyOS_Sans_Naskh_Arabic_Thin: "../fonts/HarmonyOS_Sans_Naskh_Arabic_Thin";
+$HarmonyOS_Sans_Naskh_Arabic_UltraLight: "../fonts/HarmonyOS_Sans_Naskh_Arabic_UltraLight";
+$HarmonyOS_Sans_Regular: "../fonts/HarmonyOS_Sans_Regular";
+$HarmonyOS_Sans_Semibold: "../fonts/HarmonyOS_Sans_Semibold";
+$HarmonyOS_Sans_Thin: "../fonts/HarmonyOS_Sans_Thin";
+$IBM_Plex_Sans_Var_Italic: "../fonts/IBM Plex Sans Var-Italic";
+$IBM_Plex_Sans_Var_Roman: "../fonts/IBM Plex Sans Var-Roman";
+$IBMPlexSansArabic_Bold: "../fonts/IBMPlexSansArabic-Bold";
+$IBMPlexSansArabic_ExtraLight: "../fonts/IBMPlexSansArabic-ExtraLight";
+$IBMPlexSansArabic_Light: "../fonts/IBMPlexSansArabic-Light";
+$IBMPlexSansArabic_Medium: "../fonts/IBMPlexSansArabic-Medium";
+$IBMPlexSansArabic_Regular: "../fonts/IBMPlexSansArabic-Regular";
+$IBMPlexSansArabic_SemiBold: "../fonts/IBMPlexSansArabic-SemiBold";
+$IBMPlexSansArabic_Text: "../fonts/IBMPlexArabic-Text";
+$IBMPlexSansArabic_Thin: "../fonts/IBMPlexSansArabic-Thin";
+$IBMPlexSansCondensed_Bold: "../fonts/IBMPlexSansCondensed-Bold";
+$IBMPlexSansCondensed_BoldItalic: "../fonts/IBMPlexSansCondensed-BoldItalic";
+$IBMPlexSansCondensed_ExtraLight: "../fonts/IBMPlexSansCondensed-ExtraLight";
+$IBMPlexSansCondensed_ExtraLightItalic: "../fonts/IBMPlexSansCondensed-ExtraLightItalic";
+$IBMPlexSansCondensed_Italic: "../fonts/IBMPlexSansCondensed-Italic";
+$IBMPlexSansCondensed_Light: "../fonts/IBMPlexSansCondensed-Light";
+$IBMPlexSansCondensed_LightItalic: "../fonts/IBMPlexSansCondensed-LightItalic";
+$IBMPlexSansCondensed_Medium: "../fonts/IBMPlexSansCondensed-Medium";
+$IBMPlexSansCondensed_MediumItalic: "../fonts/IBMPlexSansCondensed-MediumItalic";
+$IBMPlexSansCondensed_Regular: "../fonts/IBMPlexSansCondensed-Regular";
+$IBMPlexSansCondensed_SemiBold: "../fonts/IBMPlexSansCondensed-SemiBold";
+$IBMPlexSansCondensed_SemiBoldItalic: "../fonts/IBMPlexSansCondensed-SemiBoldItalic";
+$IBMPlexSansCondensed_Text: "../fonts/IBMPlexSansCondensed-Text";
+$IBMPlexSansCondensed_TextItalic: "../fonts/IBMPlexSansCondensed-TextItalic";
+$IBMPlexSansCondensed_Thin: "../fonts/IBMPlexSansCondensed-Thin";
+$IBMPlexSansCondensed_ThinItalic: "../fonts/IBMPlexSansCondensed-ThinItalic";
+$IBMPlexSansDevanagari_Bold: "../fonts/IBMPlexSansDevanagari-Bold";
+$IBMPlexSansDevanagari_ExtraLight: "../fonts/IBMPlexSansDevanagari-ExtraLight";
+$IBMPlexSansDevanagari_Light: "../fonts/IBMPlexSansDevanagari-Light";
+$IBMPlexSansDevanagari_Medium: "../fonts/IBMPlexSansDevanagari-Medium";
+$IBMPlexSansDevanagari_Regular: "../fonts/IBMPlexSansDevanagari-Regular";
+$IBMPlexSansDevanagari_SemiBold: "../fonts/IBMPlexSansDevanagari-SemiBold";
+$IBMPlexSansDevanagari_Text: "../fonts/IBMPlexSansDevanagari-Text";
+$IBMPlexSansDevanagari_Thin: "../fonts/IBMPlexSansDevanagari-Thin";
+$IBMPlexSansHebrew_Bold: "../fonts/IBMPlexSansHebrew-Bold";
+$IBMPlexSansHebrew_ExtraLight: "../fonts/IBMPlexSansHebrew-ExtraLight";
+$IBMPlexSansHebrew_Light: "../fonts/IBMPlexSansHebrew-Light";
+$IBMPlexSansHebrew_Medium: "../fonts/IBMPlexSansHebrew-Medium";
+$IBMPlexSansHebrew_Regular: "../fonts/IBMPlexSansHebrew-Regular";
+$IBMPlexSansHebrew_SemiBold: "../fonts/IBMPlexSansHebrew-SemiBold";
+$IBMPlexSansHebrew_Text: "../fonts/IBMPlexSansHebrew-Text";
+$IBMPlexSansHebrew_Thin: "../fonts/IBMPlexSansHebrew-Thin";
+$IBMPlexSansJP_Bold: "../fonts/IBMPlexSansJP-Bold";
+$IBMPlexSansJP_ExtraLight: "../fonts/IBMPlexSansJP-ExtraLight";
+$IBMPlexSansJP_Light: "../fonts/IBMPlexSansJP-Light";
+$IBMPlexSansJP_Medium: "../fonts/IBMPlexSansJP-Medium";
+$IBMPlexSansJP_Regular: "../fonts/IBMPlexSansJP-Regular";
+$IBMPlexSansJP_SemiBold: "../fonts/IBMPlexSansJP-SemiBold";
+$IBMPlexSansJP_Text: "../fonts/IBMPlexSansJP-Text";
+$IBMPlexSansJP_Thin: "../fonts/IBMPlexSansJP-Thin";
+$IBMPlexSansKR_Bold: "../fonts/IBMPlexSansKR-Bold";
+$IBMPlexSansKR_ExtraLight: "../fonts/IBMPlexSansKR-ExtraLight";
+$IBMPlexSansKR_Light: "../fonts/IBMPlexSansKR-Light";
+$IBMPlexSansKR_Medium: "../fonts/IBMPlexSansKR-Medium";
+$IBMPlexSansKR_Regular: "../fonts/IBMPlexSansKR-Regular";
+$IBMPlexSansKR_SemiBold: "../fonts/IBMPlexSansKR-SemiBold";
+$IBMPlexSansKR_Text: "../fonts/IBMPlexSansKR-Text";
+$IBMPlexSansKR_Thin: "../fonts/IBMPlexSansKR-Thin";
+$IBMPlexSansSC_Bold: "../fonts/IBMPlexSansSC-Bold";
+$IBMPlexSansSC_ExtraLight: "../fonts/IBMPlexSansSC-ExtraLight";
+$IBMPlexSansSC_Light: "../fonts/IBMPlexSansSC-Light";
+$IBMPlexSansSC_Medium: "../fonts/IBMPlexSansSC-Medium";
+$IBMPlexSansSC_Regular: "../fonts/IBMPlexSansSC-Regular";
+$IBMPlexSansSC_SemiBold: "../fonts/IBMPlexSansSC-SemiBold";
+$IBMPlexSansSC_Text: "../fonts/IBMPlexSansSC-Text";
+$IBMPlexSansSC_Thin: "../fonts/IBMPlexSansSC-Thin";
+$IBMPlexSansTC_Bold: "../fonts/IBMPlexSansTC-Bold";
+$IBMPlexSansTC_ExtraLight: "../fonts/IBMPlexSansTC-ExtraLight";
+$IBMPlexSansTC_Light: "../fonts/IBMPlexSansTC-Light";
+$IBMPlexSansTC_Medium: "../fonts/IBMPlexSansTC-Medium";
+$IBMPlexSansTC_Regular: "../fonts/IBMPlexSansTC-Regular";
+$IBMPlexSansTC_SemiBold: "../fonts/IBMPlexSansTC-SemiBold";
+$IBMPlexSansTC_Text: "../fonts/IBMPlexSansTC-Text";
+$IBMPlexSansTC_Thin: "../fonts/IBMPlexSansTC-Thin";
+$IBMPlexSansThai_Bold: "../fonts/IBMPlexSansThai-Bold";
+$IBMPlexSansThai_ExtraLight: "../fonts/IBMPlexSansThai-ExtraLight";
+$IBMPlexSansThai_Light: "../fonts/IBMPlexSansThai-Light";
+$IBMPlexSansThai_Medium: "../fonts/IBMPlexSansThai-Medium";
+$IBMPlexSansThai_Regular: "../fonts/IBMPlexSansThai-Regular";
+$IBMPlexSansThai_SemiBold: "../fonts/IBMPlexSansThai-SemiBold";
+$IBMPlexSansThai_Text: "../fonts/IBMPlexSansThai-Text";
+$IBMPlexSansThai_Thin: "../fonts/IBMPlexSansThai-Thin";
+$IBMPlexSansThaiLooped_Bold: "../fonts/IBMPlexSansThaiLooped-Bold";
+$IBMPlexSansThaiLooped_ExtraLight: "../fonts/IBMPlexSansThaiLooped-ExtraLight";
+$IBMPlexSansThaiLooped_Light: "../fonts/IBMPlexSansThaiLooped-Light";
+$IBMPlexSansThaiLooped_Medium: "../fonts/IBMPlexSansThaiLooped-Medium";
+$IBMPlexSansThaiLooped_Regular: "../fonts/IBMPlexSansThaiLooped-Regular";
+$IBMPlexSansThaiLooped_SemiBold: "../fonts/IBMPlexSansThaiLooped-SemiBold";
+$IBMPlexSansThaiLooped_Text: "../fonts/IBMPlexSansThaiLooped-Text";
+$IBMPlexSansThaiLooped_Thin: "../fonts/IBMPlexSansThaiLooped-Thin";
+$JetBrainsMono_Bold: "../fonts/JetBrainsMono-Bold";
+$JetBrainsMono_BoldItalic: "../fonts/JetBrainsMono-BoldItalic";
+$JetBrainsMono_ExtraBold: "../fonts/JetBrainsMono-ExtraBold";
+$JetBrainsMono_ExtraBoldItalic: "../fonts/JetBrainsMono-ExtraBoldItalic";
+$JetBrainsMono_ExtraLight: "../fonts/JetBrainsMono-ExtraLight";
+$JetBrainsMono_ExtraLightItalic: "../fonts/JetBrainsMono-ExtraLightItalic";
+$JetBrainsMono_Italic: "../fonts/JetBrainsMono-Italic";
+$JetBrainsMono_Light: "../fonts/JetBrainsMono-Light";
+$JetBrainsMono_LightItalic: "../fonts/JetBrainsMono-LightItalic";
+$JetBrainsMono_Medium: "../fonts/JetBrainsMono-Medium";
+$JetBrainsMono_MediumItalic: "../fonts/JetBrainsMono-MediumItalic";
+$JetBrainsMono_Regular: "../fonts/JetBrainsMono-Regular";
+$JetBrainsMono_SemiBold: "../fonts/JetBrainsMono-SemiBold";
+$JetBrainsMono_SemiBoldItalic: "../fonts/JetBrainsMono-SemiBoldItalic";
+$JetBrainsMono_Thin: "../fonts/JetBrainsMono-Thin";
+$JetBrainsMono_ThinItalic: "../fonts/JetBrainsMono-ThinItalic";
+$Montserrat_Black: "../fonts/Montserrat-Black";
+$Montserrat_BlackItalic: "../fonts/Montserrat-BlackItalic";
+$Montserrat_Bold: "../fonts/Montserrat-Bold";
+$Montserrat_BoldItalic: "../fonts/Montserrat-BoldItalic";
+$Montserrat_ExtraBold: "../fonts/Montserrat-ExtraBold";
+$Montserrat_ExtraBoldItalic: "../fonts/Montserrat-ExtraBoldItalic";
+$Montserrat_ExtraLight: "../fonts/Montserrat-ExtraLight";
+$Montserrat_ExtraLightItalic: "../fonts/Montserrat-ExtraLightItalic";
+$Montserrat_Italic: "../fonts/Montserrat-Italic";
+$Montserrat_Light: "../fonts/Montserrat-Light";
+$Montserrat_LightItalic: "../fonts/Montserrat-LightItalic";
+$Montserrat_Medium: "../fonts/Montserrat-Medium";
+$Montserrat_MediumItalic: "../fonts/Montserrat-MediumItalic";
+$Montserrat_Regular: "../fonts/Montserrat-Regular";
+$Montserrat_SemiBold: "../fonts/Montserrat-SemiBold";
+$Montserrat_SemiBoldItalic: "../fonts/Montserrat-SemiBoldItalic";
+$Montserrat_Thin: "../fonts/Montserrat-Thin";
+$Montserrat_ThinItalic: "../fonts/Montserrat-ThinItalic";
+$MontserratAlternates_Black: "../fonts/MontserratAlternates-Black";
+$MontserratAlternates_BlackItalic: "../fonts/MontserratAlternates-BlackItalic";
+$MontserratAlternates_Bold: "../fonts/MontserratAlternates-Bold";
+$MontserratAlternates_BoldItalic: "../fonts/MontserratAlternates-BoldItalic";
+$MontserratAlternates_ExtraBold: "../fonts/MontserratAlternates-ExtraBold";
+$MontserratAlternates_ExtraBoldItalic: "../fonts/MontserratAlternates-ExtraBoldItalic";
+$MontserratAlternates_ExtraLight: "../fonts/MontserratAlternates-ExtraLight";
+$MontserratAlternates_ExtraLightItalic: "../fonts/MontserratAlternates-ExtraLightItalic";
+$MontserratAlternates_Italic: "../fonts/MontserratAlternates-Italic";
+$MontserratAlternates_Light: "../fonts/MontserratAlternates-Light";
+$MontserratAlternates_LightItalic: "../fonts/MontserratAlternates-LightItalic";
+$MontserratAlternates_Medium: "../fonts/MontserratAlternates-Medium";
+$MontserratAlternates_MediumItalic: "../fonts/MontserratAlternates-MediumItalic";
+$MontserratAlternates_Regular: "../fonts/MontserratAlternates-Regular";
+$MontserratAlternates_SemiBold: "../fonts/MontserratAlternates-SemiBold";
+$MontserratAlternates_SemiBoldItalic: "../fonts/MontserratAlternates-SemiBoldItalic";
+$MontserratAlternates_Thin: "../fonts/MontserratAlternates-Thin";
+$MontserratAlternates_ThinItalic: "../fonts/MontserratAlternates-ThinItalic";
+$NotoSans_Black: "../fonts/NotoSans-Black";
+$NotoSans_BlackItalic: "../fonts/NotoSans-BlackItalic";
+$NotoSans_Bold: "../fonts/NotoSans-Bold";
+$NotoSans_BoldItalic: "../fonts/NotoSans-BoldItalic";
+$NotoSans_Condensed: "../fonts/NotoSans-Condensed";
+$NotoSans_CondensedBlack: "../fonts/NotoSans-CondensedBlack";
+$NotoSans_CondensedBlackItalic: "../fonts/NotoSans-CondensedBlackItalic";
+$NotoSans_CondensedBold: "../fonts/NotoSans-CondensedBold";
+$NotoSans_CondensedBoldItalic: "../fonts/NotoSans-CondensedBoldItalic";
+$NotoSans_CondensedExtraBold: "../fonts/NotoSans-CondensedExtraBold";
+$NotoSans_CondensedExtraBoldItalic: "../fonts/NotoSans-CondensedExtraBoldItalic";
+$NotoSans_CondensedExtraLight: "../fonts/NotoSans-CondensedExtraLight";
+$NotoSans_CondensedExtraLightItalic: "../fonts/NotoSans-CondensedExtraLightItalic";
+$NotoSans_CondensedItalic: "../fonts/NotoSans-CondensedItalic";
+$NotoSans_CondensedLight: "../fonts/NotoSans-CondensedLight";
+$NotoSans_CondensedLightItalic: "../fonts/NotoSans-CondensedLightItalic";
+$NotoSans_CondensedMedium: "../fonts/NotoSans-CondensedMedium";
+$NotoSans_CondensedMediumItalic: "../fonts/NotoSans-CondensedMediumItalic";
+$NotoSans_CondensedSemiBold: "../fonts/NotoSans-CondensedSemiBold";
+$NotoSans_CondensedSemiBoldItalic: "../fonts/NotoSans-CondensedSemiBoldItalic";
+$NotoSans_CondensedThin: "../fonts/NotoSans-CondensedThin";
+$NotoSans_CondensedThinItalic: "../fonts/NotoSans-CondensedThinItalic";
+$NotoSans_ExtraBold: "../fonts/NotoSans-ExtraBold";
+$NotoSans_ExtraBoldItalic: "../fonts/NotoSans-ExtraBoldItalic";
+$NotoSans_ExtraCondensed: "../fonts/NotoSans-ExtraCondensed";
+$NotoSans_ExtraCondensedBlack: "../fonts/NotoSans-ExtraCondensedBlack";
+$NotoSans_ExtraCondensedBlackItalic: "../fonts/NotoSans-ExtraCondensedBlackItalic";
+$NotoSans_ExtraCondensedBold: "../fonts/NotoSans-ExtraCondensedBold";
+$NotoSans_ExtraCondensedBoldItalic: "../fonts/NotoSans-ExtraCondensedBoldItalic";
+$NotoSans_ExtraCondensedExtraBold: "../fonts/NotoSans-ExtraCondensedExtraBold";
+$NotoSans_ExtraCondensedExtraBoldItalic: "../fonts/NotoSans-ExtraCondensedExtraBoldItalic";
+$NotoSans_ExtraCondensedExtraLight: "../fonts/NotoSans-ExtraCondensedExtraLight";
+$NotoSans_ExtraCondensedExtraLightItalic: "../fonts/NotoSans-ExtraCondensedExtraLightItalic";
+$NotoSans_ExtraCondensedItalic: "../fonts/NotoSans-ExtraCondensedItalic";
+$NotoSans_ExtraCondensedLight: "../fonts/NotoSans-ExtraCondensedLight";
+$NotoSans_ExtraCondensedLightItalic: "../fonts/NotoSans-ExtraCondensedLightItalic";
+$NotoSans_ExtraCondensedMedium: "../fonts/NotoSans-ExtraCondensedMedium";
+$NotoSans_ExtraCondensedMediumItalic: "../fonts/NotoSans-ExtraCondensedMediumItalic";
+$NotoSans_ExtraCondensedSemiBold: "../fonts/NotoSans-ExtraCondensedSemiBold";
+$NotoSans_ExtraCondensedSemiBoldItalic: "../fonts/NotoSans-ExtraCondensedSemiBoldItalic";
+$NotoSans_ExtraCondensedThin: "../fonts/NotoSans-ExtraCondensedThin";
+$NotoSans_ExtraCondensedThinItalic: "../fonts/NotoSans-ExtraCondensedThinItalic";
+$NotoSans_ExtraLight: "../fonts/NotoSans-ExtraLight";
+$NotoSans_ExtraLightItalic: "../fonts/NotoSans-ExtraLightItalic";
+$NotoSans_Italic: "../fonts/NotoSans-Italic";
+$NotoSans_Light: "../fonts/NotoSans-Light";
+$NotoSans_LightItalic: "../fonts/NotoSans-LightItalic";
+$NotoSans_Medium: "../fonts/NotoSans-Medium";
+$NotoSans_MediumItalic: "../fonts/NotoSans-MediumItalic";
+$NotoSans_Regular: "../fonts/NotoSans-Regular";
+$NotoSans_SemiBold: "../fonts/NotoSans-SemiBold";
+$NotoSans_SemiBoldItalic: "../fonts/NotoSans-SemiBoldItalic";
+$NotoSans_SemiCondensed: "../fonts/NotoSans-SemiCondensed";
+$NotoSans_SemiCondensedBlack: "../fonts/NotoSans-SemiCondensedBlack";
+$NotoSans_SemiCondensedBlackItalic: "../fonts/NotoSans-SemiCondensedBlackItalic";
+$NotoSans_SemiCondensedBold: "../fonts/NotoSans-SemiCondensedBold";
+$NotoSans_SemiCondensedBoldItalic: "../fonts/NotoSans-SemiCondensedBoldItalic";
+$NotoSans_SemiCondensedExtraBold: "../fonts/NotoSans-SemiCondensedExtraBold";
+$NotoSans_SemiCondensedExtraBoldItalic: "../fonts/NotoSans-SemiCondensedExtraBoldItalic";
+$NotoSans_SemiCondensedExtraLight: "../fonts/NotoSans-SemiCondensedExtraLight";
+$NotoSans_SemiCondensedExtraLightItalic: "../fonts/NotoSans-SemiCondensedExtraLightItalic";
+$NotoSans_SemiCondensedItalic: "../fonts/NotoSans-SemiCondensedItalic";
+$NotoSans_SemiCondensedLight: "../fonts/NotoSans-SemiCondensedLight";
+$NotoSans_SemiCondensedLightItalic: "../fonts/NotoSans-SemiCondensedLightItalic";
+$NotoSans_SemiCondensedMedium: "../fonts/NotoSans-SemiCondensedMedium";
+$NotoSans_SemiCondensedMediumItalic: "../fonts/NotoSans-SemiCondensedMediumItalic";
+$NotoSans_SemiCondensedSemiBold: "../fonts/NotoSans-SemiCondensedSemiBold";
+$NotoSans_SemiCondensedSemiBoldItalic: "../fonts/NotoSans-SemiCondensedSemiBoldItalic";
+$NotoSans_SemiCondensedThin: "../fonts/NotoSans-SemiCondensedThin";
+$NotoSans_SemiCondensedThinItalic: "../fonts/NotoSans-SemiCondensedThinItalic";
+$NotoSans_Thin: "../fonts/NotoSans-Thin";
+$NotoSans_ThinItalic: "../fonts/NotoSans-ThinItalic";
+$NotoSansAdlam_Bold: "../fonts/NotoSansAdlam-Bold";
+$NotoSansAdlam_Regular: "../fonts/NotoSansAdlam-Regular";
+$NotoSansAdlamUnjoined_Bold: "../fonts/NotoSansAdlamUnjoined-Bold";
+$NotoSansAdlamUnjoined_Regular: "../fonts/NotoSansAdlamUnjoined-Regular";
+$NotoSansAnatolianHieroglyphs_Regular: "../fonts/NotoSansAnatolianHieroglyphs-Regular";
+$NotoSansArabic_Black: "../fonts/NotoSansArabic-Black";
+$NotoSansArabic_Bold: "../fonts/NotoSansArabic-Bold";
+$NotoSansArabic_Condensed: "../fonts/NotoSansArabic-Condensed";
+$NotoSansArabic_CondensedBlack: "../fonts/NotoSansArabic-CondensedBlack";
+$NotoSansArabic_CondensedBold: "../fonts/NotoSansArabic-CondensedBold";
+
+// @font-face {
+//   font-family: "rzdx";
+//   src: url("../fonts/rzdx.eot");
+//   /* IE9 */
+//   src: url("../fonts/rzdx.eot?#iefix") format("embedded-opentype"),
+//     /* IE6-IE8 */
+//     url("../fonts/rzdx.woff") format("woff"),
+//     /* chrome、firefox */
+//     url("../fonts/rzdx.ttf") format("truetype"),
+//     /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+//     url("../fonts/rzdx.svg#rzdx") format("svg");
+//   /* iOS 4.1- */
+//   font-style: normal;
+//   font-weight: normal;
+// }
+
+/* 字体族映射 */
+$font-families: (
+  "harmony": "HarmonyOS Sans",
+  "harmony-sc": "HarmonyOS Sans SC",
+  "harmony-tc": "HarmonyOS Sans TC",
+  "harmony-condensed": "HarmonyOS Sans Condensed",
+  "harmony-arabic": "HarmonyOS Sans Arabic",
+  "harmony-arabic-ui": "HarmonyOS Sans Arabic UI",
+  "ibm": "IBM Plex Sans",
+  "ibm-sc": "IBM Plex Sans SC",
+  "ibm-tc": "IBM Plex Sans TC",
+  "ibm-arabic": "IBM Plex Sans Arabic",
+  "ibm-devanagari": "IBM Plex Sans Devanagari",
+  "ibm-hebrew": "IBM Plex Sans Hebrew",
+  "ibm-jp": "IBM Plex Sans JP",
+  "ibm-kr": "IBM Plex Sans KR",
+  "ibm-thai": "IBM Plex Sans Thai",
+  "ibm-thai-looped": "IBM Plex Sans Thai Looped",
+  "ibm-condensed": "IBM Plex Sans Condensed",
+  "ibm-var": "IBM Plex Sans Var",
+  "noto": "NotoSans",
+  "noto-arabic": "NotoSans Arabic",
+  "noto-adlam": "NotoSans Adlam",
+  "noto-adlam-unjoined": "NotoSans Adlam Unjoined",
+  "noto-anatolian": "NotoSans Anatolian Hieroglyphs",
+  "noto-condensed": "NotoSans Condensed",
+  "noto-extra-condensed": "NotoSans ExtraCondensed",
+  "noto-semi-condensed": "NotoSans SemiCondensed",
+  "jetbrains": "JetBrainsMono",
+  "emoji-bw": "EmojiOneBW",
+  "emoji-color": "EmojiOneColor",
+  "montserrat": "Montserrat",
+  "montserrat-alternates": "Montserrat Alternates"
+);
+
+/* 自动生成字体工具类 */
+@each $key, $font-family in $font-families {
+  .font-#{$key} {
+    @if $key == "jetbrains" {
+      font-family: "#{$font-family}", monospace;
+    } @else if $key == "emoji-bw" or $key == "emoji-color" {
+      font-family: "#{$font-family}";
+    } @else {
+      font-family: "#{$font-family}", sans-serif;
+    }
+  }
+}
+
+/* 字体定义映射 - 使用字体变量 */
+$font-definitions: (
+  /* 鸿蒙字体 - Thin */
+  (
+    family: "HarmonyOS Sans",
+    weight: 100,
+    style: normal,
+    path: $HarmonyOS_Sans_Thin
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 100,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Thin
+  ),
+
+  /* 鸿蒙字体 - Light */
+  (
+    family: "HarmonyOS Sans",
+    weight: 300,
+    style: normal,
+    path: $HarmonyOS_Sans_Light
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 300,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Light
+  ),
+
+  /* 鸿蒙字体 - Regular */
+  (
+    family: "HarmonyOS Sans",
+    weight: 400,
+    style: normal,
+    path: $HarmonyOS_Sans_Regular
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 400,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Regular
+  ),
+
+  /* 鸿蒙字体 - Medium */
+  (
+    family: "HarmonyOS Sans",
+    weight: 500,
+    style: normal,
+    path: $HarmonyOS_Sans_Medium
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 500,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Medium
+  ),
+
+  /* 鸿蒙字体 - Semibold */
+  (
+    family: "HarmonyOS Sans",
+    weight: 600,
+    style: normal,
+    path: $HarmonyOS_Sans_Semibold
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 600,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Semibold
+  ),
+
+  /* 鸿蒙字体 - Bold */
+  (
+    family: "HarmonyOS Sans",
+    weight: 700,
+    style: normal,
+    path: $HarmonyOS_Sans_Bold
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 700,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Bold
+  ),
+
+  /* 鸿蒙字体 - Black */
+  (
+    family: "HarmonyOS Sans",
+    weight: 900,
+    style: normal,
+    path: $HarmonyOS_Sans_Black
+  ),
+  (
+    family: "HarmonyOS Sans",
+    weight: 900,
+    style: italic,
+    path: $HarmonyOS_SansItalic_Black
+  ),
+
+  /* Montserrat字体示例 */
+  (
+    family: "Montserrat",
+    weight: 900,
+    style: italic,
+    path: $MontserratAlternates_BlackItalic
+  )
+);
+
+/* 自动生成@font-face定义 */
+@each $font-info in $font-definitions {
+  $font-family: map-get($font-info, family);
+  $font-weight: map-get($font-info, weight);
+  $font-style: map-get($font-info, style);
+  $font-path: map-get($font-info, path);
+
+  @font-face {
+    font-family: "#{$font-family}";
+    font-weight: $font-weight;
+    font-style: $font-style;
+    src: url("#{$font-path}.eot");
+    /* IE9 */
+    src: url("#{$font-path}.eot?#iefix") format("embedded-opentype"),
+         /* IE6-IE8 */
+         url("#{$font-path}.woff") format("woff"),
+         /* chrome、firefox */
+         url("#{$font-path}.ttf") format("truetype"),
+         /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+         url("#{$font-path}.svg##{$font-family}") format("svg");
+    /* iOS 4.1- */
+  }
+}
