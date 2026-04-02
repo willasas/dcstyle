@@ -16,6 +16,11 @@ const banner = `/*!
  */
 `;
 
+// 加载配置
+const configLoader = require('./src/config/loader.js');
+const config = configLoader.load();
+const cssVariables = configLoader.generateCSSVariables();
+
 // 自定义插件：添加版权注释
 function addBanner() {
   return {
@@ -77,6 +82,14 @@ module.exports = [
           }]
         ],
         plugins: [
+          // 添加CSS变量
+          {
+            postcssPlugin: 'dc-style-variables',
+            Once(root) {
+              // 总是添加CSS变量，不管是否已存在:root
+              root.prepend(cssVariables);
+            }
+          },
           autoprefixer(),
           {
             postcssPlugin: 'remove-comments',
@@ -111,6 +124,14 @@ module.exports = [
           }]
         ],
         plugins: [
+          // 添加CSS变量
+          {
+            postcssPlugin: 'dc-style-variables',
+            Once(root) {
+              // 总是添加CSS变量，不管是否已存在:root
+              root.prepend(cssVariables);
+            }
+          },
           autoprefixer(),
           cssnano({
             preset: [
@@ -151,6 +172,14 @@ module.exports = [
           }]
         ],
         plugins: [
+          // 添加CSS变量
+          {
+            postcssPlugin: 'dc-style-variables',
+            Once(root) {
+              // 总是添加CSS变量，不管是否已存在:root
+              root.prepend(cssVariables);
+            }
+          },
           autoprefixer(),
           {
             postcssPlugin: 'remove-comments',
