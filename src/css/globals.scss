@@ -287,11 +287,12 @@ $theme-color-variables: (
   }
 
   // 字体族
-  --font-family: 'rx';
-  --font-family-custom: 'custom-font';
-  --font-family-icon: 'iconfont';
+  --font-family: 'HarmonyOS Sans';
+  --font-family-custom: 'JetBrainsMono';
+  --font-family-icon: 'EmojiOneBW';
   // 图标字体路径
-  --font-family-icon-path: '../fonts/iconfont.ttf';
+  --font-family-icon-path: '../fonts/EmojiOneBW.otf';
+  --font-family-icon-path-color: '../fonts/EmojiOneColor.otf';
   // 静态资源路径
   --static-path: '../asset/';
 
